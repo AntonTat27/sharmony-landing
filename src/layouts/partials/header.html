@@ -1,0 +1,42 @@
+<header class="main-header">
+  <div class="header-banner">
+    <div class="banner-center-text">
+      <span>{{ .Site.Home.Params.banner_text }}</span>
+      <a href="#">{{ .Site.Home.Params.banner_cta }}</a>
+    </div>
+
+    <div class="banner-socials">
+        <a href="#"><i class="bi bi-facebook"></i></a>
+        <a href="#"><i class="bi bi-twitter-x"></i></a>
+        <a href="#"><i class="bi bi-instagram"></i></a>
+        <a href="#"><i class="bi bi-linkedin"></i></a>
+        <a href="#"><i class="bi bi-youtube"></i></a>
+    </div>
+  </div>
+  <nav class="navigation-bar">
+    <div class="nav-inner">
+        <a href="{{ .Site.Home.Permalink }}" class="nav-logo">
+            <img src="/images/logo.svg" alt="SHARMONY">
+        </a>
+
+         <ul class="nav-menu-pill">
+            {{ range .Site.Menus.main }}
+            <li>
+                <a href="{{ .URL | relLangURL }}" class="{{ if $.IsMenuCurrent "main" . }}active{{ end }}">
+                    {{ .Name }}
+                </a>
+            </li>
+            {{ end }}
+        </ul>
+        <div class="nav-actions">
+            <div class="search-bar">
+                <input type="text" placeholder="Search">
+                <i class="bi bi-search"></i>
+            </div>
+            <a href="/login" class="btn-login">
+                Log-in <i class="bi bi-person-circle"></i>
+            </a>
+        </div>
+    </div>
+  </nav>
+</header>

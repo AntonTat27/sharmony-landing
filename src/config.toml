@@ -1,0 +1,54 @@
+baseURL = 'https://sharmony.io/'
+languageCode = 'en-us'
+title = 'Sharmony'
+#theme = 'sharmony-theme'
+
+# 1. LOCALIZATION SETUP
+# This allows localization team to manage different languages
+defaultContentLanguage = 'en'
+[languages]
+  [languages.en]
+    languageName = 'English'
+    contentDir = 'content/en'
+    weight = 1
+  [languages.ru]
+    languageName = 'Русский'
+    contentDir = 'content/ru'
+    weight = 2
+
+# 2. MENU STRUCTURE 
+# This defines the navigation for all pages
+[[menu.main]]
+    name = 'About'
+    url = '/'
+    weight = 10
+[[menu.main]]
+    name = 'Investors'
+    url = '/investors'
+    weight = 20
+[[menu.main]]
+    name = 'Partners'
+    url = '/partners'
+    weight = 30
+[[menu.main]]
+    name = 'Marketplace'
+    url = '/marketplace'
+    weight = 40
+[[menu.main]]
+    name = 'Buy Token / Wallet'
+    url = '/wallet'
+    weight = 50
+
+# 3. GLOBAL FOOTER DATA
+# Marketing can update these values in one place
+[params.footer]
+    faq_enabled = true
+    roadmap_url = '/downloads/roadmap.pdf'
+    presentation_url = '/downloads/presentation.pdf'
+    contact_email = 'hello@project.com'
+
+# 4. IMAGE PROCESSING (For the Designer)
+# Hugo automatically handles "Adaptive View" by resizing images
+[imaging]
+    resampleFilter = 'lanczos'
+    quality = 85

@@ -1,0 +1,5 @@
+{
+    "title": "{{ .Title }}",
+    "description": "{{ .Params.description }}",
+    "content": "{{ .Content | plainify }}"
+}

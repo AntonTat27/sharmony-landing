@@ -1,0 +1,167 @@
+/* Banner */
+.header-banner {
+
+    /* Auto layout from Figma */
+    display: flex;
+    flex-direction: row;
+    justify-content: center; /* Changed to center to align the text */
+    align-items: center;
+    padding: 18px 160px;
+    gap: 10px;
+    isolation: isolate;
+
+    /* Responsive width logic */
+    width: 100%;
+    max-width: 1920px;
+    margin: 0 auto;
+    height: 66px;
+    box-sizing: border-box;
+
+    background: #03292B; /* Figma Color */
+    border-bottom: 1px solid #053B3D;
+
+    /* Positioning for the absolute social icons */
+    position: relative; 
+}
+
+.banner-center-text {
+    font-family: 'Inter', sans-serif; /* brand font */
+    color: #FFFFFF;
+    font-size: 14px;
+}
+
+.banner-center-text a {
+    color: #FFFFFF;
+    text-decoration: underline;
+    margin-left: 5px;
+}
+
+.banner-socials {
+    /* Anchors icons to the right while keeping text centered */
+    position: absolute;
+    right: 160px; 
+    display: flex;
+    gap: 12px;
+}
+
+.banner-socials i {
+    color: #70E2D0; /* Light teal color from your Estatein image */
+    font-size: 16px;
+    padding: 8px;
+    background: rgba(255, 255, 255, 0.05);
+    border-radius: 8px;
+    transition: 0.3s;
+}
+
+.banner-socials i:hover {
+    background: rgba(112, 226, 208, 0.2);
+}
+
+/* Adaptive View */
+@media (max-width: 1200px) {
+    .header-banner {
+        padding: 18px 40px;
+    }
+    .banner-socials {
+        right: 40px;
+    }
+}
+
+@media (max-width: 850px) {
+    .banner-socials {
+        display: none; /* Hide icons on mobile to keep text readable */
+    }
+}
+
+/* Navigation Bar Base */
+.navigation-bar {
+    height: 108px;
+    background: #021B1C;
+    display: flex;
+    justify-content: center;
+    border-bottom: 1px solid #053B3D;
+}
+
+.nav-inner {
+    width: 100%;
+    max-width: 1920px;
+    padding: 0 160px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+/* The "Pill" container from your design */
+.nav-menu-pill {
+    display: flex;
+    list-style: none;
+    gap: 32px;
+    margin: 0;
+    padding: 14px 28px;
+    background: rgba(112, 226, 208, 0.05); /* Subtle teal background */
+    border: 1px solid rgba(112, 226, 208, 0.15); /* Border from image_1d144a */
+    border-radius: 12px;
+}
+
+.nav-menu-pill a {
+    color: #FFFFFF;
+    text-decoration: none;
+    font-size: 14px;
+    white-space: nowrap; /* Prevents the stacking seen in image_1caf89 */
+    opacity: 0.7;
+    transition: 0.3s;
+}
+
+.nav-menu-pill a.active, 
+.nav-menu-pill a:hover {
+    opacity: 1;
+    color: #70E2D0;
+}
+
+/* Button & Search Styling */
+.nav-actions {
+    display: flex;
+    gap: 16px;
+    align-items: center;
+}
+.search-bar {
+  display: flex;
+  align-items: center;
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid #053B3D;
+  border-radius: 8px;
+  padding: 5px 15px;
+}
+
+.search-bar input {
+  background: transparent;
+  border: none;
+  color: white;
+  width: 100px; /* Small default width that can expand */
+  transition: width 0.3s;
+}
+
+.search-bar input:focus {
+  width: 180px;
+}
+
+.btn-login {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    padding: 10px 18px;
+    border: 1px solid rgba(112, 226, 208, 0.3);
+    border-radius: 10px;
+    color: #FFFFFF;
+    text-decoration: none;
+}
+
+/* Responsive Tablet/Mobile */
+@media (max-width: 1200px) {
+  .nav-container {
+    padding: 0 20px;
+  }
+  .nav-menu {
+    gap: 15px;
+  }
+}

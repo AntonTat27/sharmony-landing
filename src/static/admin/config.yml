@@ -1,0 +1,28 @@
+local_backend: true
+
+backend:
+  name: git-gateway # Keep this for when you eventually deploy
+  branch: main
+
+media_folder: "static/uploads"
+public_folder: "/uploads"
+
+i18n:
+  structure: multiple_folders
+  locales: [en, ru] # Your 11 languages
+  default_locale: en
+
+collections:
+  - name: "Sharmony"
+    label: "Landing Page"
+    folder: "content"      # The root folder
+    i18n: true             # Enable the i18n switcher
+    create: false # Important: Stops users from making random files
+    extension: "md"
+    format: "frontmatter"
+    
+    path: "{{locale}}/_index"    
+    fields:
+      - { label: "Title", name: "title", widget: "string", i18n: true }
+      - { label: "Banner Text", name: "banner_text", widget: "string", i18n: true }
+      - { label: "Banner CTA", name: "banner_cta", widget: "string", i18n: true }

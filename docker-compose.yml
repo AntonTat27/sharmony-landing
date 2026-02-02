@@ -1,0 +1,34 @@
+services:
+  hugo:
+    image: klakegg/hugo:ext-alpine
+    container_name: hugo
+    ports:
+      - "1313:1313"
+    volumes:
+      - ./src:/src
+    working_dir: /src
+    command: server --bind 0.0.0.0 --port 1313 --buildDrafts --watch
+  cms-proxy:
+    image: node:18-slim
+    container_name: decap-proxy
+    working_dir: /src
+    command: >
+      sh -c "npx -y decap-server"
+    ports:
+      - "8081:8081"
+    volumes:
+      - ./src:/src
+      - node_cache:/root/.npm
+    environment:
+      - NODE_ENV=development
+volumes:
+  node_cache:
+
+#  admin:
+#    image: nginx:alpine
+#    container_name: hugo-admin
+#    ports:
+#      - "8080:80"
+#    volumes:
+#      - ./src/public:/usr/share/nginx/html:ro
+#      - ./nginx/nginx.conf:/etc/nginx/nginx.conf:ro

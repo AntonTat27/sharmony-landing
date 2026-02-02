@@ -1,0 +1,105 @@
+local_backend: true
+
+backend:
+  name: git-gateway # Keep this for when you eventually deploy
+  branch: main
+
+media_folder: "static/uploads"
+public_folder: "/uploads"
+
+collections:
+  - name: "Sharmony"
+    label: "Landing (English)"
+    folder: "content/en"
+    create: false
+    slug: "landing"
+    fields:
+      - { label: "Page Title", name: "title", widget: "string" }
+
+      - label: "Hero"
+        name: "hero"
+        widget: "object"
+        fields:
+          - { label: "Title", name: "title", widget: "string" }
+          - { label: "Description", name: "description", widget: "text" }
+          - { label: "CTA Text", name: "cta_text", widget: "string" }
+          - { label: "CTA URL", name: "cta_url", widget: "string" }
+
+      - label: "About"
+        name: "about"
+        widget: "object"
+        fields:
+          - { label: "Short Description", name: "short", widget: "text" }
+          - { label: "Long Description", name: "long", widget: "markdown" }
+
+      - label: "Numbers"
+        name: "numbers"
+        widget: "list"
+        fields:
+          - { label: "Label", name: "label", widget: "string" }
+          - { label: "Value", name: "value", widget: "string" }
+
+      - label: "Slogan"
+        name: "slogan"
+        widget: "object"
+        fields:
+          - { label: "Main Slogan", name: "main", widget: "string" }
+          - { label: "Sub Slogan", name: "sub", widget: "string" }
+
+      - label: "Audience"
+        name: "audience"
+        widget: "object"
+        fields:
+          - { label: "Sellers", name: "sellers", widget: "text" }
+          - { label: "Investors", name: "investors", widget: "text" }
+          - { label: "Buyers", name: "buyers", widget: "text" }
+          - { label: "Travelers", name: "travelers", widget: "text" }
+          - { label: "Partners", name: "partners", widget: "text" }
+
+      - label: "Locations"
+        name: "locations"
+        widget: "list"
+        field: { label: "Location", name: "location", widget: "string" }
+
+      - label: "Advantages"
+        name: "advantages"
+        widget: "list"
+        fields:
+          - { label: "Title", name: "title", widget: "string" }
+          - { label: "Text", name: "text", widget: "text" }
+
+      - label: "How It Works"
+        name: "how_it_works"
+        widget: "list"
+        field: { label: "Step", name: "step", widget: "string" }
+
+      - label: "Recommendations"
+        name: "recommendations"
+        widget: "list"
+        fields:
+          - { label: "Name", name: "name", widget: "string" }
+          - { label: "Text", name: "text", widget: "text" }
+
+      - label: "FAQ"
+        name: "faq"
+        widget: "list"
+        fields:
+          - { label: "Question", name: "q", widget: "string" }
+          - { label: "Answer", name: "a", widget: "text" }
+
+      - label: "Downloads"
+        name: "downloads"
+        widget: "object"
+        fields:
+          - { label: "Roadmap", name: "roadmap", widget: "string" }
+          - { label: "Investor Presentation", name: "investor_presentation", widget: "string" }
+          - { label: "Partner Presentation", name: "partner_presentation", widget: "string" }
+          - { label: "Referral Program", name: "referral_program", widget: "string" }
+
+      - label: "Footer"
+        name: "footer"
+        widget: "object"
+        fields:
+          - { label: "Email", name: "email", widget: "string" }
+          - { label: "Phone", name: "phone", widget: "string" }
+          - { label: "Address", name: "address", widget: "string" }
