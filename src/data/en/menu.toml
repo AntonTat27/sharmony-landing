@@ -1,0 +1,20 @@
+title = "Menu localization"
+[[items]]
+id = "about"
+text = "About"
+
+[[items]]
+id = "investors"
+text = "Investors"
+
+[[items]]
+id = "partners"
+text = "Partners"
+
+[[items]]
+id = "marketplace"
+text = "Marketplace"
+
+[[items]]
+id = "wallet"
+text = "Buy Token"

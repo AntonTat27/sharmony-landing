@@ -7,48 +7,62 @@ title = 'Sharmony'
 # This allows localization team to manage different languages
 defaultContentLanguage = 'en'
 [languages]
-  [languages.en]
-    languageName = 'English'
-    contentDir = 'content/en'
-    weight = 1
-  [languages.ru]
-    languageName = 'Русский'
-    contentDir = 'content/ru'
-    weight = 2
+[languages.en]
+languageName = 'English'
+contentDir = 'content/en'
+weight = 1
+[languages.ru]
+languageName = 'Русский'
+contentDir = 'content/ru'
+weight = 2
+[languages.de]
+languageName = 'Deutsch'
+contentDir = 'content/de'
+weight = 3
+[languages.fr]
+languageName = 'Français'
+contentDir = 'content/fr'
+weight = 4
 
-# 2. MENU STRUCTURE 
+# 2. MENU STRUCTURE
 # This defines the navigation for all pages
-[[menu.main]]
-    name = 'About'
-    url = '/'
-    weight = 10
-[[menu.main]]
-    name = 'Investors'
-    url = '/investors'
-    weight = 20
-[[menu.main]]
-    name = 'Partners'
-    url = '/partners'
-    weight = 30
-[[menu.main]]
-    name = 'Marketplace'
-    url = '/marketplace'
-    weight = 40
-[[menu.main]]
-    name = 'Buy Token / Wallet'
-    url = '/wallet'
-    weight = 50
+[menus]
+[[menus.main]]
+identifier = 'about'
+name = 'About'
+url = '/'
+weight = 10
+[[menus.main]]
+identifier = 'investors'
+name = 'Investors'
+url = '/investors'
+weight = 20
+[[menus.main]]
+identifier = 'partners'
+name = 'Partners'
+url = '/partners'
+weight = 30
+[[menus.main]]
+identifier = 'marketplace'
+name = 'Marketplace'
+url = '/marketplace'
+weight = 40
+[[menus.main]]
+identifier = 'wallet'
+name = 'Wallet'
+url = '/wallet'
+weight = 50
 
 # 3. GLOBAL FOOTER DATA
 # Marketing can update these values in one place
 [params.footer]
-    faq_enabled = true
-    roadmap_url = '/downloads/roadmap.pdf'
-    presentation_url = '/downloads/presentation.pdf'
-    contact_email = 'hello@project.com'
+faq_enabled = true
+roadmap_url = '/downloads/roadmap.pdf'
+presentation_url = '/downloads/presentation.pdf'
+contact_email = 'hello@project.com'
 
 # 4. IMAGE PROCESSING (For the Designer)
 # Hugo automatically handles "Adaptive View" by resizing images
 [imaging]
-    resampleFilter = 'lanczos'
-    quality = 85
+resampleFilter = 'lanczos'
+quality = 85

@@ -1,7 +1,7 @@
 local_backend: true
 
 backend:
-  name: git-gateway 
+  name: git-gateway
   branch: main
 
 media_folder: "static/uploads"
@@ -9,10 +9,28 @@ public_folder: "/uploads"
 
 i18n:
   structure: multiple_folders
-  locales: [en, ru, de, fr] # all languages
+  locales: [ en, ru, de, fr ] # all languages
   default_locale: en
 
 collections:
+  - name: "menu_translations"
+    label: "Menu Translations"
+    folder: "data" # Root folder
+    i18n: true     # Enable the language switcher
+    extension: "toml"
+    format: "toml"
+    identifier_field: "id"
+    # This matches your working content structure: data/en/menu.toml
+    path: "{{locale}}/menu"
+    fields:
+      - label: "Items"
+        name: "items"
+        widget: "list"
+        i18n: true
+        fields:
+          - { label: "ID", name: "id", widget: "string" }
+          - { label: "Text", name: "text", widget: "string", i18n: true }
+
   - name: "Sharmony Main Page"
     label: "Main Page"
     folder: "content"      # The root folder
@@ -20,8 +38,8 @@ collections:
     create: false # Important: Stops users from making random files
     extension: "md"
     format: "frontmatter"
-    filter: {field: "type", value: "mainpage"}
-    path: "{{locale}}"    
+    filter: { field: "type", value: "mainpage" }
+    path: "{{locale}}"
     fields:
       - { label: "Title", name: "title", widget: "string", i18n: true }
       - { label: "Banner Text", name: "banner_text", widget: "string", i18n: true }
@@ -34,8 +52,8 @@ collections:
     create: false # Important: Stops users from making random files
     extension: "md"
     format: "frontmatter"
-    filter: {field: "type", value: "investor"}
-    path: "{{locale}}"    
+    filter: { field: "type", value: "investor" }
+    path: "{{locale}}"
     fields:
       - { label: "Title", name: "title", widget: "string", i18n: true }
 
@@ -46,8 +64,8 @@ collections:
     create: false # Important: Stops users from making random files
     extension: "md"
     format: "frontmatter"
-    filter: {field: "type", value: "partners"}
-    path: "{{locale}}"    
+    filter: { field: "type", value: "partners" }
+    path: "{{locale}}"
     fields:
       - { label: "Title", name: "title", widget: "string", i18n: true }
 
@@ -58,8 +76,8 @@ collections:
     create: false # Important: Stops users from making random files
     extension: "md"
     format: "frontmatter"
-    filter: {field: "type", value: "marketplace"}
-    path: "{{locale}}"    
+    filter: { field: "type", value: "marketplace" }
+    path: "{{locale}}"
     fields:
       - { label: "Title", name: "title", widget: "string", i18n: true }
 
@@ -70,7 +88,7 @@ collections:
     create: false # Important: Stops users from making random files
     extension: "md"
     format: "frontmatter"
-    filter: {field: "type", value: "wallet"}
-    path: "{{locale}}"    
+    filter: { field: "type", value: "wallet" }
+    path: "{{locale}}"
     fields:
       - { label: "Title", name: "title", widget: "string", i18n: true }

@@ -1,0 +1,19 @@
+[[items]]
+id = "about"
+text = "Домой"
+
+[[items]]
+id = "investors"
+text = "Инвесторы"
+
+[[items]]
+id = "partners"
+text = "Партнеры"
+
+[[items]]
+id = "marketplace"
+text = "Торговая площадка"
+
+[[items]]
+id = "wallet"
+text = "Купить токены"
