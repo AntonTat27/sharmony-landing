@@ -4,8 +4,9 @@ backend:
   name: github
   repo: AntonTat27/sharmony-landing
   branch: dev # or main — whichever you want Decap to commit to
-  auth_endpoint: https://decap-oauth.netlify.app/auth
-  #app_id: Ov23lij5CmVSkQgQbaLV
+  auth_type: implicit
+  base_url: https://api.github.com
+  app_id: Ov23lij5CmVSkQgQbaLV
 
 media_folder: "static/uploads"
 public_folder: "/uploads"
