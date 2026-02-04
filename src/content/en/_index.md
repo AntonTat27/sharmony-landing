@@ -1,6 +1,10 @@
 ---
 type: mainpage
 title: SHARMONY
+
+banner_text: Special offer for our English community!
+banner_cta: Learn More
+
 main_intro_h1: Innovative marketplace for
 main_intro_h2: fractional real estate
 main_intro_text: SHARMONY redefines traditional approaches to real estate ownership by
