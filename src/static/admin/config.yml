@@ -1,12 +1,12 @@
-local_backend: true
+local_backend: false
 
 backend:
   name: github
   repo: AntonTat27/sharmony-landing
   branch: dev # or main — whichever you want Decap to commit to
-  auth_type: implicit
-  base_url: https://antontat27.github.io/sharmony-landing/
-  app_id: Ov23lij5CmVSkQgQbaLV
+  client_id: Ov23lij5CmVSkQgQbaLV
+
+site_url: https://antontat27.github.io/sharmony-landing/
 
 media_folder: "static/uploads"
 public_folder: "/uploads"
