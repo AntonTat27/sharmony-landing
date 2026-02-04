@@ -3,24 +3,24 @@ local_backend: true
 backend:
   name: github
   repo: AntonTat27/sharmony-landing
-  branch: dev        # or main — whichever you want Decap to commit to
+  branch: dev # or main — whichever you want Decap to commit to
   auth_type: implicit
   base_url: https://api.github.com
-  app_id: xxx
+  app_id: Ov23lij5CmVSkQgQbaLV
 
 media_folder: "static/uploads"
 public_folder: "/uploads"
 
 i18n:
   structure: multiple_folders
-  locales: [ en, ru, de, fr ] # all languages
+  locales: [en, ru, de, fr] # all languages
   default_locale: en
 
 collections:
   - name: "menu_translations"
     label: "Menu Translations"
     folder: "data" # Root folder
-    i18n: true     # Enable the language switcher
+    i18n: true # Enable the language switcher
     extension: "toml"
     format: "toml"
     identifier_field: "id"
@@ -37,8 +37,8 @@ collections:
 
   - name: "Sharmony Main Page"
     label: "Main Page"
-    folder: "content"      # The root folder
-    i18n: true             # Enable the i18n switcher
+    folder: "content" # The root folder
+    i18n: true # Enable the i18n switcher
     create: false # Important: Stops users from making random files
     extension: "md"
     format: "frontmatter"
@@ -46,13 +46,23 @@ collections:
     path: "{{locale}}"
     fields:
       - { label: "Title", name: "title", widget: "string", i18n: true }
-      - { label: "Banner Text", name: "banner_text", widget: "string", i18n: true }
-      - { label: "Banner CTA", name: "banner_cta", widget: "string", i18n: true }
+      - {
+          label: "Banner Text",
+          name: "banner_text",
+          widget: "string",
+          i18n: true,
+        }
+      - {
+          label: "Banner CTA",
+          name: "banner_cta",
+          widget: "string",
+          i18n: true,
+        }
 
   - name: "Sharmony Investor"
     label: "Investor Page"
-    folder: "content"      # The root folder
-    i18n: true             # Enable the i18n switcher
+    folder: "content" # The root folder
+    i18n: true # Enable the i18n switcher
     create: false # Important: Stops users from making random files
     extension: "md"
     format: "frontmatter"
@@ -63,8 +73,8 @@ collections:
 
   - name: "Sharmony Partners"
     label: "Partners Page"
-    folder: "content"      # The root folder
-    i18n: true             # Enable the i18n switcher
+    folder: "content" # The root folder
+    i18n: true # Enable the i18n switcher
     create: false # Important: Stops users from making random files
     extension: "md"
     format: "frontmatter"
@@ -75,8 +85,8 @@ collections:
 
   - name: "Sharmony Marketplace"
     label: "Marketplace Page"
-    folder: "content"      # The root folder
-    i18n: true             # Enable the i18n switcher
+    folder: "content" # The root folder
+    i18n: true # Enable the i18n switcher
     create: false # Important: Stops users from making random files
     extension: "md"
     format: "frontmatter"
@@ -87,8 +97,8 @@ collections:
 
   - name: "Sharmony Wallet"
     label: "Wallet Page"
-    folder: "content"      # The root folder
-    i18n: true             # Enable the i18n switcher
+    folder: "content" # The root folder
+    i18n: true # Enable the i18n switcher
     create: false # Important: Stops users from making random files
     extension: "md"
     format: "frontmatter"
