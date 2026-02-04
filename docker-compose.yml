@@ -23,7 +23,6 @@ services:
       - NODE_ENV=development
 volumes:
   node_cache:
-
 #  admin:
 #    image: nginx:alpine
 #    container_name: hugo-admin
