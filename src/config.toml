@@ -1,6 +1,8 @@
 baseURL = "https://AntonTat27.github.io/sharmony-landing/"
 languageCode = 'en-us'
 title = 'Sharmony'
+canonifyURLs = true
+relativeURLs = true
 #theme = 'sharmony-theme'
 
 # 1. LOCALIZATION SETUP
