@@ -1,4 +1,4 @@
-baseURL = "https://AntonTat27.github.io/sharmony-landing/"
+baseURL = "http://localhost:1313/"
 languageCode = 'en-us'
 title = 'Sharmony'
 canonifyURLs = true
