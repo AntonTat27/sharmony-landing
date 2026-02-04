@@ -1,8 +1,13 @@
 <header class="main-header">
     <div class="header-banner">
-        <div class="banner-center-text">
-            <span>{{ .Site.Home.Params.banner_text }}</span>
-            <a href="#">{{ .Site.Home.Params.banner_cta }}</a>
+        <div class="banner-content">
+            <span class="banner-text">{{ .Site.Home.Params.banner_text }}</span>
+            <a href="#" class="banner-cta">
+                {{ .Site.Home.Params.banner_cta }}
+                {{ if .Site.Home.Params.banner_text }}
+                <i class="bi bi-arrow-right-short"></i>
+                {{ end }}
+            </a>
         </div>
 
         <div class="banner-socials">
@@ -23,45 +28,87 @@
                 <i class="bi bi-list"></i>
             </button>
 
+            <div class="nav-menu-wrapper">
+                <ul class="nav-menu-pill">
+                    {{ $currentLang := .Site.Language.Lang }}
+                    {{ $menuData := index .Site.Data $currentLang "menu" }}
 
-            <ul class="nav-menu-pill">
-                {{ $currentLang := .Site.Language.Lang }}
-                {{ $menuData := index .Site.Data $currentLang "menu" }}
-
-                {{ range .Site.Menus.main }}
+                    {{ range .Site.Menus.main }}
                     {{ $label := .Name }} {{/* Fallback to the name in config.toml */}}
                     {{ $identifier := .Identifier }} {{/* Fallback to the name in config.toml */}}
 
                     {{/* Look for a match in our Decap-generated data file */}}
                     {{ if $menuData }}
-                        {{ range $menuData.items }}
-                            {{ if eq .id $identifier }}
-                                {{ $label = .text }}
-                            {{ end }}
-                        {{ end }}
+                    {{ range $menuData.items }}
+                    {{ if eq .id $identifier }}
+                    {{ $label = .text }}
+                    {{ end }}
+                    {{ end }}
                     {{ end }}
                     <li>
                         <a href='{{ .URL | relLangURL }}' class='{{ if $.IsMenuCurrent "main" . }}active{{ end }}'>
-                        {{ $label | safeHTML }}
+                            {{ $label | safeHTML }}
                         </a>
                     </li>
-                {{ end }}
-            </ul>
+                    {{ end }}
+                </ul>
+            </div>
             <div class="nav-actions">
                 <div class="search-bar">
                     <input type="text" placeholder="Search">
                     <i class="bi bi-search"></i>
                 </div>
+
                 <a href="/login" class="btn-login">
-                    Log-in <i class="bi bi-person-circle"></i>
+                    <span>Log-in</span>
+                    <i class="bi bi-person-circle"></i>
                 </a>
+                <div class="lang-switcher">
+                    <div class="lang-trigger">
+                        <img src='https://flagcdn.com/w40/{{ if eq .Lang "en" }}us{{ else }}{{ .Lang }}{{ end }}.png'
+                             class="flag-circle">
+                        <i class="bi bi-chevron-down"></i>
+                    </div>
+
+                    <ul class="lang-options">
+                        {{ range $.AllTranslations }}
+                        <li>
+                            <a href="{{ .Permalink }}" class="{{ if eq .Lang $.Lang }}active{{ end }}">
+                                <img src='https://flagcdn.com/w40/{{ if eq .Lang "en" }}us{{ else }}{{ .Lang }}{{ end }}.png'
+                                     class="flag-small" alt="">
+                                {{ .Language.LanguageName }}
+                            </a>
+                        </li>
+                        {{ end }}
+                    </ul>
+                </div>
             </div>
         </div>
     </nav>
 
     <script>
-        document.querySelector(".nav-toggle").addEventListener("click", () => {
+        document.querySelector(".nav-toggle").addEventListener("click", function () {
             document.querySelector(".nav-menu-pill").classList.toggle("show");
+            // Optional: Change icon from list to 'X' when open
+            const icon = this.querySelector("i");
+            icon.classList.toggle("bi-list");
+            icon.classList.toggle("bi-x");
+        });
+        // Toggle language menu on mobile click
+        document.addEventListener('click', function (e) {
+            const trigger = document.querySelector('.lang-trigger');
+            const menu = document.querySelector('.lang-options');
+
+            if (!trigger || !menu) return;
+
+            if (trigger.contains(e.target)) {
+                // Toggle menu when clicking the flag/arrow
+                const isCurrentlyOpen = menu.style.display === 'block';
+                menu.style.display = isCurrentlyOpen ? 'none' : 'block'
+            } else {
+                // Close menu if clicking anywhere else on the page
+                menu.style.display = 'none';
+            }
         });
     </script>
 
