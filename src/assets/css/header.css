@@ -1,82 +1,52 @@
-/* Banner */
-.header-banner {
-
-    /* Auto layout from Figma */
-    display: flex;
-    flex-direction: row;
-    justify-content: center; /* Changed to center to align the text */
-    align-items: center;
-    padding: 18px 160px;
-    gap: 10px;
-    isolation: isolate;
-
-    /* Responsive width logic */
+/* --- Global Header Containers --- */
+.main-header {
     width: 100%;
-    max-width: 1920px;
-    margin: 0 auto;
-    height: 66px;
-    box-sizing: border-box;
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+}
 
-    background: #03292B; /* Figma Color */
+/* --- Banner: Adaptive Layout --- */
+.header-banner {
+    display: flex;
+    justify-content: space-between; /* Changed from center to accommodate socials better */
+    align-items: center;
+    padding: 0 clamp(20px, 5vw, 160px);
+    width: 100%;
+    min-height: 40px; /* Let height be fluid */
+    background: #03292B;
     border-bottom: 1px solid #053B3D;
-
-    /* Positioning for the absolute social icons */
-    position: relative; 
+    gap: 20px;
 }
 
 .banner-center-text {
-    font-family: 'Inter', sans-serif; /* brand font */
+    font-family: 'Inter', sans-serif;
     color: #FFFFFF;
-    font-size: 14px;
-}
-
-.banner-center-text a {
-    color: #FFFFFF;
-    text-decoration: underline;
-    margin-left: 5px;
+    font-size: 13px;
+    flex-grow: 1;
+    text-align: center;
+    padding: 10px 0;
 }
 
 .banner-socials {
-    /* Anchors icons to the right while keeping text centered */
-    position: absolute;
-    right: 160px; 
     display: flex;
-    gap: 12px;
+    gap: 8px;
 }
 
 .banner-socials i {
-    color: #70E2D0; /* Light teal color from your Estatein image */
-    font-size: 16px;
-    padding: 8px;
+    color: #70E2D0;
+    font-size: 14px;
+    padding: 6px;
     background: rgba(255, 255, 255, 0.05);
-    border-radius: 8px;
-    transition: 0.3s;
+    border-radius: 6px;
+    transition: 0.3s ease;
 }
 
-.banner-socials i:hover {
-    background: rgba(112, 226, 208, 0.2);
-}
-
-/* Adaptive View */
-@media (max-width: 1200px) {
-    .header-banner {
-        padding: 18px 40px;
-    }
-    .banner-socials {
-        right: 40px;
-    }
-}
-
-@media (max-width: 850px) {
-    .banner-socials {
-        display: none; /* Hide icons on mobile to keep text readable */
-    }
-}
-
-/* Navigation Bar Base */
+/* --- Navigation Bar --- */
 .navigation-bar {
-    height: 108px;
-    background: #021B1C;
+    height: 80px; /* Reduced height for better screen real-estate */
+    background: rgba(2, 27, 28, 0.95);
+    backdrop-filter: blur(10px); /* Modern feel */
     display: flex;
     justify-content: center;
     border-bottom: 1px solid #053B3D;
@@ -85,83 +55,113 @@
 .nav-inner {
     width: 100%;
     max-width: 1920px;
-    padding: 0 160px;
+    padding: 0 clamp(20px, 5vw, 160px);
     display: flex;
     justify-content: space-between;
     align-items: center;
+    position: relative;
 }
 
-/* The "Pill" container from your design */
+.nav-logo img {
+    height: 32px; /* Ensure logo doesn't blow up */
+    width: auto;
+}
+
+/* --- Pill Menu (Desktop) --- */
 .nav-menu-pill {
     display: flex;
     list-style: none;
-    gap: 32px;
+    gap: 24px;
     margin: 0;
-    padding: 14px 28px;
-    background: rgba(112, 226, 208, 0.05); /* Subtle teal background */
-    border: 1px solid rgba(112, 226, 208, 0.15); /* Border from image_1d144a */
-    border-radius: 12px;
+    padding: 10px 24px;
+    background: rgba(112, 226, 208, 0.05);
+    border: 1px solid rgba(112, 226, 208, 0.15);
+    border-radius: 100px; /* True pill shape */
 }
 
 .nav-menu-pill a {
     color: #FFFFFF;
     text-decoration: none;
     font-size: 14px;
-    white-space: nowrap; /* Prevents the stacking seen in image_1caf89 */
+    font-weight: 500;
     opacity: 0.7;
     transition: 0.3s;
 }
 
-.nav-menu-pill a.active, 
-.nav-menu-pill a:hover {
+.nav-menu-pill a:hover, .nav-menu-pill a.active {
     opacity: 1;
     color: #70E2D0;
 }
 
-/* Button & Search Styling */
+/* --- Actions --- */
 .nav-actions {
     display: flex;
-    gap: 16px;
+    gap: 12px;
     align-items: center;
 }
+
 .search-bar {
-  display: flex;
-  align-items: center;
-  background: rgba(255, 255, 255, 0.05);
-  border: 1px solid #053B3D;
-  border-radius: 8px;
-  padding: 5px 15px;
+    display: flex;
+    align-items: center;
+    background: rgba(255, 255, 255, 0.05);
+    border: 1px solid #053B3D;
+    border-radius: 8px;
+    padding: 5px 12px;
 }
 
 .search-bar input {
-  background: transparent;
-  border: none;
-  color: white;
-  width: 100px; /* Small default width that can expand */
-  transition: width 0.3s;
+    background: transparent;
+    border: none;
+    color: white;
+    width: 80px;
+    outline: none;
+    transition: width 0.3s;
 }
 
-.search-bar input:focus {
-  width: 180px;
+.search-bar input:focus { width: 140px; }
+
+/* --- Mobile Breakpoints --- */
+
+/* 1. Tablet & Large Mobile (Under 1024px) */
+@media (max-width: 1024px) {
+    .nav-menu-pill { gap: 15px; padding: 10px 15px; }
+    .search-bar input { display: none; } /* Hide text input, keep icon only */
 }
 
-.btn-login {
-    display: flex;
-    align-items: center;
-    gap: 8px;
-    padding: 10px 18px;
-    border: 1px solid rgba(112, 226, 208, 0.3);
-    border-radius: 10px;
-    color: #FFFFFF;
-    text-decoration: none;
+/* 2. Mobile (Under 850px) */
+@media (max-width: 850px) {
+    .banner-socials { display: none; } /* Clean up the top bar */
+
+    .nav-toggle {
+        display: block;
+        background: none;
+        border: none;
+        color: #70E2D0;
+        font-size: 28px;
+        order: 3; /* Move to the right */
+    }
+
+    .nav-menu-pill {
+        display: none;
+        position: absolute;
+        top: 80px; /* Height of nav */
+        left: 0;
+        width: 100%;
+        flex-direction: column;
+        background: #021B1C;
+        border-radius: 0;
+        border-top: 1px solid #053B3D;
+        padding: 30px;
+        z-index: 100;
+        text-align: center;
+    }
+
+    .nav-menu-pill.show { display: flex; animation: slideDown 0.3s ease-out; }
+
+    .nav-actions { display: none; } /* Hide search/login on mobile nav (or move inside menu) */
 }
 
-/* Responsive Tablet/Mobile */
-@media (max-width: 1200px) {
-  .nav-container {
-    padding: 0 20px;
-  }
-  .nav-menu {
-    gap: 15px;
-  }
+@keyframes slideDown {
+    from { opacity: 0; transform: translateY(-10px); }
+    to { opacity: 1; transform: translateY(0); }
 }
