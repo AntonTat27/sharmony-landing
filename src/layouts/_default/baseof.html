@@ -20,7 +20,7 @@
 </head>
 
 <body>
-    {{ partial "header.html" . }}
+    {{ partial "header.html" (site.GetPage "header") }}
 
     <main>
         {{ block "main" . }}{{ end }}
