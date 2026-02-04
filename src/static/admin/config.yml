@@ -35,6 +35,29 @@ collections:
           - { label: "ID", name: "id", widget: "string" }
           - { label: "Text", name: "text", widget: "string", i18n: true }
 
+  - name: "Sharmony Header Page"
+    label: "Header Page"
+    folder: "content" # The root folder
+    i18n: true # Enable the i18n switcher
+    create: false # Important: Stops users from making random files
+    extension: "md"
+    format: "frontmatter"
+    filter: { field: "type", value: "header" }
+    path: "{{locale}}"
+    fields:
+      - {
+          label: "Banner Text",
+          name: "banner_text",
+          widget: "string",
+          i18n: true,
+        }
+      - {
+          label: "Banner CTA",
+          name: "banner_cta",
+          widget: "string",
+          i18n: true,
+        }
+
   - name: "Sharmony Main Page"
     label: "Main Page"
     folder: "content" # The root folder
@@ -47,14 +70,14 @@ collections:
     fields:
       - { label: "Title", name: "title", widget: "string", i18n: true }
       - {
-          label: "Banner Text",
-          name: "banner_text",
+          label: "Main Intro H1",
+          name: "main_intro_h1",
           widget: "string",
           i18n: true,
         }
       - {
-          label: "Banner CTA",
-          name: "banner_cta",
+          label: "Main Intro H2",
+          name: "main_intro_h2",
           widget: "string",
           i18n: true,
         }

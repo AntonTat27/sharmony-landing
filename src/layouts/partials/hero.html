@@ -1,30 +1,25 @@
 <section class="relative overflow-hidden bg-neutral-950 text-white">
     <div class="max-w-7xl mx-auto px-6 py-24">
         <div class="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
-
             <!-- LEFT CONTENT -->
             <div class="space-y-6">
                 <h1 class="text-4xl sm:text-5xl xl:text-6xl font-semibold leading-tight">
-                    Innovative marketplace for <br />
-                    <span class="text-neutral-400">fractional real estate</span>
+                    {{ .Params.main_intro_h1 }}<br />
+                    <span class="text-neutral-400">{{ .Params.main_intro_h2 }}</span>
                 </h1>
 
                 <p class="text-neutral-400 text-lg max-w-xl leading-relaxed">
-                    SHARMONY redefines traditional approaches to real estate ownership by
-                    offering a unique model of operation worldwide — from Asia to the US.
-                    The project combines innovative blockchain technology, artificial
-                    intelligence, and real assets to create an ecosystem for investment,
-                    recreation, and property management.
+                    {{ .Params.main_intro_text}}
                 </p>
 
                 <div class="flex gap-4 pt-4">
                     <a href="#"
                         class="inline-flex items-center justify-center px-6 py-3 rounded-full bg-white text-neutral-900 font-medium hover:bg-neutral-200 transition">
-                        Explore platform
+                        {{ .Params.btn_explore }}
                     </a>
                     <a href="#"
                         class="inline-flex items-center justify-center px-6 py-3 rounded-full border border-neutral-700 text-white hover:border-neutral-500 transition">
-                        Learn more
+                        {{ .Params.btn_learn }}
                     </a>
                 </div>
             </div>

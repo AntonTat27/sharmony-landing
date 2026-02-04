@@ -1,10 +1,10 @@
 <header class="main-header">
     <div class="header-banner">
         <div class="banner-content">
-            <span class="banner-text">{{ .Site.Home.Params.banner_text }}</span>
+            <span class="banner-text">{{ .Params.banner_text }}</span>
             <a href="#" class="banner-cta">
-                {{ .Site.Home.Params.banner_cta }}
-                {{ if .Site.Home.Params.banner_text }}
+                {{ .Params.banner_cta }}
+                {{ if .Params.banner_text }}
                 <i class="bi bi-arrow-right-short"></i>
                 {{ end }}
             </a>

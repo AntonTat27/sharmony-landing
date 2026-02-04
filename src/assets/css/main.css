@@ -195,7 +195,7 @@ footer {
     background-color: var(--color-primary);
     color: var(--color-secondary);
     padding: 60px 0;
-    margin-top: 100px;
+    margin-top: 3px;
 }
 
 .footer-grid {
