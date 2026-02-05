@@ -35,14 +35,14 @@ collections:
           - { label: "ID", name: "id", widget: "string" }
           - { label: "Text", name: "text", widget: "string", i18n: true }
 
-  - name: "Sharmony Header Page"
-    label: "Header Page"
+  - name: "Sharmony Header/Footer Page"
+    label: "Header/Footer"
     folder: "content" # The root folder
     i18n: true # Enable the i18n switcher
     create: false # Important: Stops users from making random files
     extension: "md"
     format: "frontmatter"
-    filter: { field: "type", value: "header" }
+    filter: { field: "type", value: "common" }
     path: "{{locale}}"
     fields:
       - {

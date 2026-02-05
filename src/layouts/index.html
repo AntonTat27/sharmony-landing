@@ -1,7 +1,7 @@
 {{ define "main" }}
-{{ partial "hero.html" .  }}
-{{ partial "slogan.html" . }}
-{{ partial "numbers.html" . }}
+{{ partial "hero.html" (site.GetPage "main_hero") }}
+{{ partial "slogan.html" (site.GetPage "main_slogan") }}
+{{ partial "numbers.html" (site.GetPage "main_numbers") }}
 {{ partial "audience.html" . }}
 {{ partial "locations.html" . }}
 {{ partial "advantages.html" . }}

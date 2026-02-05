@@ -3,7 +3,7 @@
         <!-- TITLE ABOVE NUMBERS -->
         <div>
             <h2 class="text-xl sm:text-2xl font-medium text-neutral-300">
-                One window into the world of real estate and investment
+                {{ .Params.numbers_h1 }}
             </h2>
         </div>
 
@@ -13,44 +13,44 @@
 
                 <!-- ITEM -->
                 <div class="flex items-center gap-3">
-                    <span class="text-4xl font-semibold">5+</span>
-                    <span class="text-neutral-400">Countries</span>
+                    <span class="text-4xl font-semibold">{{ .Params.numbers_item_1_1 }}</span>
+                    <span class="text-neutral-400">{{ .Params.numbers_item_1_2 }}</span>
                 </div>
 
                 <div class="flex items-center gap-3">
-                    <span class="text-4xl font-semibold">1,000+</span>
-                    <span class="text-neutral-400">Real estate properties</span>
+                    <span class="text-4xl font-semibold">{{ .Params.numbers_item_2_1 }}</span>
+                    <span class="text-neutral-400">{{ .Params.numbers_item_2_2 }}</span>
                 </div>
 
                 <div class="flex items-center gap-3">
-                    <span class="text-4xl font-semibold">$1,000</span>
-                    <span class="text-neutral-400">Entry threshold</span>
+                    <span class="text-4xl font-semibold">{{ .Params.numbers_item_3_1 }}</span>
+                    <span class="text-neutral-400">{{ .Params.numbers_item_3_2 }}</span>
                 </div>
 
                 <div class="flex items-center gap-3">
-                    <span class="text-4xl font-semibold">Up to 12%</span>
-                    <span class="text-neutral-400">Asset value growth p.a.</span>
+                    <span class="text-4xl font-semibold">{{ .Params.numbers_item_4_1 }}</span>
+                    <span class="text-neutral-400">{{ .Params.numbers_item_4_2 }}</span>
                 </div>
 
                 <div class="flex items-center gap-3">
-                    <span class="text-4xl font-semibold">Up to 15%</span>
-                    <span class="text-neutral-400">Rental income p.a.</span>
+                    <span class="text-4xl font-semibold">{{ .Params.numbers_item_5_1 }}</span>
+                    <span class="text-neutral-400">{{ .Params.numbers_item_5_2 }}</span>
                 </div>
 
                 <div class="flex items-center gap-3">
-                    <span class="text-4xl font-semibold">No limits</span>
-                    <span class="text-neutral-400">Objects worldwide</span>
+                    <span class="text-4xl font-semibold">{{ .Params.numbers_item_6_1 }}</span>
+                    <span class="text-neutral-400">{{ .Params.numbers_item_6_2 }}</span>
                 </div>
 
                 <!-- DUPLICATE SET FOR SMOOTH LOOP -->
                 <div class="flex items-center gap-3">
-                    <span class="text-4xl font-semibold">5+</span>
-                    <span class="text-neutral-400">Countries</span>
+                    <span class="text-4xl font-semibold">{{ .Params.numbers_item_7_1 }}</span>
+                    <span class="text-neutral-400">{{ .Params.numbers_item_7_2 }}</span>
                 </div>
 
                 <div class="flex items-center gap-3">
-                    <span class="text-4xl font-semibold">1,000+</span>
-                    <span class="text-neutral-400">Real estate properties</span>
+                    <span class="text-4xl font-semibold">{{ .Params.numbers_item_8_1 }}</span>
+                    <span class="text-neutral-400">{{ .Params.numbers_item_8_2 }}</span>
                 </div>
 
             </div>

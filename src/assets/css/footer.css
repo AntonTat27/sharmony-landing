@@ -4,6 +4,7 @@
   color: #FFFFFF;
   padding: 60px 0 0 0; /* Removed bottom padding because legal bar handles it */
   border-top: 1px solid #053B3D;
+  margin: 0 auto;
   overflow-x: hidden; /* Prevents bleed issues */
 }
 
