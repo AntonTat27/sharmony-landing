@@ -4,19 +4,18 @@
         <!-- HEADINGS -->
         <div class="max-w-3xl mx-auto text-center space-y-6">
             <h2 class="text-4xl sm:text-5xl font-semibold leading-tight">
-                The SHARMONY Revolution —
+                {{ .Params.audience_h1 }}
                 <span class="text-neutral-400">
-                    When Real Estate Meets Blockchain
+                    {{ .Params.audience_h2 }}
                 </span>
             </h2>
 
             <p class="text-lg text-neutral-400">
-                Sharmony connects the real world to the virtual world through
-                tokenization of real estate rights.
+                {{ .Params.audience_h3 }}
             </p>
 
             <div class="pt-4 text-xl font-medium tracking-wide text-cyan-400">
-                Buy! Invest! Vacation! Earn!
+                {{ .Params.audience_h4 }}
             </div>
         </div>
 
@@ -31,134 +30,114 @@
                    group-hover:border-cyan-400/50 transition">
                         <!-- icon -->
                         <svg class="w-5 h-5 text-cyan-400" fill="none" stroke="currentColor" stroke-width="1.5"
-                            viewBox="0 0 24 24">
-                            <path d="M12 3v18M3 12h18" />
+                             viewBox="0 0 24 24">
+                            <path d="M12 3v18M3 12h18"/>
                         </svg>
                     </div>
                     <h3 class="text-xl font-medium group-hover:text-cyan-400 transition">
-                        Audience
+                        {{ .Params.audience_item_1_1 }}
                     </h3>
                 </div>
 
                 <p class="mt-5 text-sm text-neutral-400 opacity-0 translate-y-2
                  group-hover:opacity-100 group-hover:translate-y-0
                  transition duration-300">
-                    SHARMONY is a Real World Assets (RWA) project, attractive to digital
-                    asset holders and investors.
+                    {{ .Params.audience_item_1_2 }}
                 </p>
             </div>
 
             <!-- Real Estate Sellers -->
-            <div
-                class="group p-8 rounded-2xl border border-neutral-800 bg-neutral-900/40 hover:border-cyan-400/50 transition">
+            <div class="group p-8 rounded-2xl border border-neutral-800 bg-neutral-900/40 hover:border-cyan-400/50 transition">
                 <div class="flex items-center gap-4">
-                    <div
-                        class="w-10 h-10 rounded-xl border border-neutral-700 flex items-center justify-center group-hover:border-cyan-400/50 transition">
+                    <div class="w-10 h-10 rounded-xl border border-neutral-700 flex items-center justify-center group-hover:border-cyan-400/50 transition">
                         <svg class="w-5 h-5 text-cyan-400" fill="none" stroke="currentColor" stroke-width="1.5"
-                            viewBox="0 0 24 24">
-                            <path d="M3 10l9-7 9 7v10a2 2 0 0 1-2 2h-4" />
+                             viewBox="0 0 24 24">
+                            <path d="M3 10l9-7 9 7v10a2 2 0 0 1-2 2h-4"/>
                         </svg>
                     </div>
                     <h3 class="text-xl font-medium group-hover:text-cyan-400 transition">
-                        Real Estate Sellers
+                        {{ .Params.audience_item_2_1 }}
                     </h3>
                 </div>
 
-                <p
-                    class="mt-5 text-sm text-neutral-400 opacity-0 translate-y-2 group-hover:opacity-100 group-hover:translate-y-0 transition duration-300">
-                    Developers, trustees, funds, primary and secondary market owners,
-                    hoteliers.
+                <p class="mt-5 text-sm text-neutral-400 opacity-0 translate-y-2 group-hover:opacity-100 group-hover:translate-y-0 transition duration-300">
+                    {{ .Params.audience_item_2_2 }}
                 </p>
             </div>
 
             <!-- Buyers -->
-            <div
-                class="group p-8 rounded-2xl border border-neutral-800 bg-neutral-900/40 hover:border-cyan-400/50 transition">
+            <div class="group p-8 rounded-2xl border border-neutral-800 bg-neutral-900/40 hover:border-cyan-400/50 transition">
                 <div class="flex items-center gap-4">
-                    <div
-                        class="w-10 h-10 rounded-xl border border-neutral-700 flex items-center justify-center group-hover:border-cyan-400/50 transition">
+                    <div class="w-10 h-10 rounded-xl border border-neutral-700 flex items-center justify-center group-hover:border-cyan-400/50 transition">
                         <svg class="w-5 h-5 text-cyan-400" fill="none" stroke="currentColor" stroke-width="1.5"
-                            viewBox="0 0 24 24">
-                            <path d="M16 12a4 4 0 1 1-8 0 4 4 0 0 1 8 0z" />
+                             viewBox="0 0 24 24">
+                            <path d="M16 12a4 4 0 1 1-8 0 4 4 0 0 1 8 0z"/>
                         </svg>
                     </div>
                     <h3 class="text-xl font-medium group-hover:text-cyan-400 transition">
-                        Buyers
+                        {{ .Params.audience_item_3_1 }}
                     </h3>
                 </div>
 
-                <p
-                    class="mt-5 text-sm text-neutral-400 opacity-0 translate-y-2 group-hover:opacity-100 group-hover:translate-y-0 transition duration-300">
-                    Individuals and companies investing or buying for personal use,
-                    including digital nomads.
+                <p class="mt-5 text-sm text-neutral-400 opacity-0 translate-y-2 group-hover:opacity-100 group-hover:translate-y-0 transition duration-300">
+                    {{ .Params.audience_item_3_2 }}
                 </p>
             </div>
 
             <!-- Investors -->
-            <div
-                class="group p-8 rounded-2xl border border-neutral-800 bg-neutral-900/40 hover:border-cyan-400/50 transition">
+            <div class="group p-8 rounded-2xl border border-neutral-800 bg-neutral-900/40 hover:border-cyan-400/50 transition">
                 <div class="flex items-center gap-4">
-                    <div
-                        class="w-10 h-10 rounded-xl border border-neutral-700 flex items-center justify-center group-hover:border-cyan-400/50 transition">
+                    <div class="w-10 h-10 rounded-xl border border-neutral-700 flex items-center justify-center group-hover:border-cyan-400/50 transition">
                         <svg class="w-5 h-5 text-cyan-400" fill="none" stroke="currentColor" stroke-width="1.5"
-                            viewBox="0 0 24 24">
-                            <path d="M4 19V5m6 14V9m6 10V3" />
+                             viewBox="0 0 24 24">
+                            <path d="M4 19V5m6 14V9m6 10V3"/>
                         </svg>
                     </div>
                     <h3 class="text-xl font-medium group-hover:text-cyan-400 transition">
-                        Investors
+                        {{ .Params.audience_item_4_1 }}
                     </h3>
                 </div>
 
-                <p
-                    class="mt-5 text-sm text-neutral-400 opacity-0 translate-y-2 group-hover:opacity-100 group-hover:translate-y-0 transition duration-300">
-                    Institutional investors, RWA-focused funds, real estate and digital
-                    asset investors.
+                <p class="mt-5 text-sm text-neutral-400 opacity-0 translate-y-2 group-hover:opacity-100 group-hover:translate-y-0 transition duration-300">
+                    {{ .Params.audience_item_4_2 }}
                 </p>
             </div>
 
             <!-- Partners -->
-            <div
-                class="group p-8 rounded-2xl border border-neutral-800 bg-neutral-900/40 hover:border-cyan-400/50 transition">
+            <div class="group p-8 rounded-2xl border border-neutral-800 bg-neutral-900/40 hover:border-cyan-400/50 transition">
                 <div class="flex items-center gap-4">
-                    <div
-                        class="w-10 h-10 rounded-xl border border-neutral-700 flex items-center justify-center group-hover:border-cyan-400/50 transition">
+                    <div class="w-10 h-10 rounded-xl border border-neutral-700 flex items-center justify-center group-hover:border-cyan-400/50 transition">
                         <svg class="w-5 h-5 text-cyan-400" fill="none" stroke="currentColor" stroke-width="1.5"
-                            viewBox="0 0 24 24">
-                            <path d="M12 6v6l4 2" />
+                             viewBox="0 0 24 24">
+                            <path d="M12 6v6l4 2"/>
                         </svg>
                     </div>
                     <h3 class="text-xl font-medium group-hover:text-cyan-400 transition">
-                        Partners
+                        {{ .Params.audience_item_5_1 }}
                     </h3>
                 </div>
 
-                <p
-                    class="mt-5 text-sm text-neutral-400 opacity-0 translate-y-2 group-hover:opacity-100 group-hover:translate-y-0 transition duration-300">
-                    Agencies, banks, insurers, brokers, travel, DeFi, Web3 and DAO
-                    communities.
+                <p class="mt-5 text-sm text-neutral-400 opacity-0 translate-y-2 group-hover:opacity-100 group-hover:translate-y-0 transition duration-300">
+                    {{ .Params.audience_item_5_2 }}
                 </p>
             </div>
 
             <!-- Travellers -->
-            <div
-                class="group p-8 rounded-2xl border border-neutral-800 bg-neutral-900/40 hover:border-cyan-400/50 transition">
+            <div class="group p-8 rounded-2xl border border-neutral-800 bg-neutral-900/40 hover:border-cyan-400/50 transition">
                 <div class="flex items-center gap-4">
-                    <div
-                        class="w-10 h-10 rounded-xl border border-neutral-700 flex items-center justify-center group-hover:border-cyan-400/50 transition">
+                    <div class="w-10 h-10 rounded-xl border border-neutral-700 flex items-center justify-center group-hover:border-cyan-400/50 transition">
                         <svg class="w-5 h-5 text-cyan-400" fill="none" stroke="currentColor" stroke-width="1.5"
-                            viewBox="0 0 24 24">
-                            <path d="M2 12h20M12 2v20" />
+                             viewBox="0 0 24 24">
+                            <path d="M2 12h20M12 2v20"/>
                         </svg>
                     </div>
                     <h3 class="text-xl font-medium group-hover:text-cyan-400 transition">
-                        Travellers
+                        {{ .Params.audience_item_6_1 }}
                     </h3>
                 </div>
 
-                <p
-                    class="mt-5 text-sm text-neutral-400 opacity-0 translate-y-2 group-hover:opacity-100 group-hover:translate-y-0 transition duration-300">
-                    Vacationers, renters, and business travelers worldwide.
+                <p class="mt-5 text-sm text-neutral-400 opacity-0 translate-y-2 group-hover:opacity-100 group-hover:translate-y-0 transition duration-300">
+                    {{ .Params.audience_item_6_2 }}
                 </p>
             </div>
 

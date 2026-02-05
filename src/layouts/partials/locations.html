@@ -4,14 +4,13 @@
         <!-- SECTION HEADING -->
         <div class="max-w-3xl">
             <h2 class="text-4xl font-semibold leading-tight">
-                Global Locations
+                {{ .Params.locations_h1 }}
                 <span class="text-neutral-400">
-                    — Invest in high-demand real estate markets
+                    {{ .Params.locations_h2 }}
                 </span>
             </h2>
             <p class="mt-4 text-lg text-neutral-400">
-                Carefully selected countries with strong rental demand,
-                stable economies, and transparent investment conditions.
+                {{ .Params.locations_h3 }}
             </p>
         </div>
 
@@ -22,38 +21,38 @@
                 <!-- UAE -->
                 <div
                     class="snap-start min-w-[85%] sm:min-w-[70%] lg:min-w-[55%] relative rounded-3xl overflow-hidden border border-neutral-800">
-                    <img src="/images/uae.jpg" alt="UAE real estate"
+                    <img src="/images/uae.jpg" alt='{{ printf "%s real estate" .Params.locations_item_1_1 }}'
                         class="absolute inset-0 w-full h-full object-cover" />
                     <div class="absolute inset-0 bg-gradient-to-t from-neutral-950 via-neutral-950/70 to-transparent">
                     </div>
 
                     <div class="relative p-8 lg:p-10 space-y-6">
-                        <h3 class="text-3xl font-semibold">UAE</h3>
+                        <h3 class="text-3xl font-semibold">{{ .Params.locations_item_1_1 }}</h3>
 
                         <div class="grid grid-cols-2 gap-x-6 gap-y-4 text-sm">
                             <div>
-                                <div class="text-neutral-400">Low Entry</div>
-                                <div>From $12,500</div>
+                                <div class="text-neutral-400">{{ .Params.locations_item_1_2 }}</div>
+                                <div>{{ .Params.locations_item_1_3 }}</div>
                             </div>
                             <div>
-                                <div class="text-neutral-400">Long-Term Demand</div>
-                                <div>High (30–50% rentals 6+ months)</div>
+                                <div class="text-neutral-400">{{ .Params.locations_item_1_4 }}</div>
+                                <div>{{ .Params.locations_item_1_5 }}</div>
                             </div>
                             <div>
-                                <div class="text-neutral-400">Tax Conditions</div>
-                                <div>0% property & rental tax</div>
+                                <div class="text-neutral-400">{{ .Params.locations_item_1_6 }}</div>
+                                <div>{{ .Params.locations_item_1_7 }}</div>
                             </div>
                             <div>
-                                <div class="text-neutral-400">Price Growth</div>
-                                <div>4–6% p.a. (Dubai premium)</div>
+                                <div class="text-neutral-400">{{ .Params.locations_item_1_8 }}</div>
+                                <div>{{ .Params.locations_item_1_9 }}</div>
                             </div>
                             <div>
-                                <div class="text-neutral-400">Economy</div>
-                                <div>Stable (GDP +5.3%)</div>
+                                <div class="text-neutral-400">{{ .Params.locations_item_1_10 }}</div>
+                                <div>{{ .Params.locations_item_1_11 }}</div>
                             </div>
                             <div>
-                                <div class="text-neutral-400">Top Areas</div>
-                                <div>Palm Jumeirah, Downtown, Marina</div>
+                                <div class="text-neutral-400">{{ .Params.locations_item_1_12 }}</div>
+                                <div>{{ .Params.locations_item_1_13 }}</div>
                             </div>
                         </div>
                     </div>
@@ -61,39 +60,39 @@
 
                 <!-- THAILAND -->
                 <div
-                    class="snap-start min-w-[85%] sm:min-w-[70%] lg:min-w-[55%] relative rounded-3xl overflow-hidden border border-neutral-800">
-                    <img src="/images/thailand.jpg" alt="Thailand real estate"
-                        class="absolute inset-0 w-full h-full object-cover" />
+                        class="snap-start min-w-[85%] sm:min-w-[70%] lg:min-w-[55%] relative rounded-3xl overflow-hidden border border-neutral-800">
+                    <img src="/images/thailand.jpg" alt='{{ printf "%s real estate" .Params.locations_item_2_1 }}'
+                         class="absolute inset-0 w-full h-full object-cover" />
                     <div class="absolute inset-0 bg-gradient-to-t from-neutral-950 via-neutral-950/70 to-transparent">
                     </div>
 
                     <div class="relative p-8 lg:p-10 space-y-6">
-                        <h3 class="text-3xl font-semibold">Thailand</h3>
+                        <h3 class="text-3xl font-semibold">{{ .Params.locations_item_2_1 }}</h3>
 
                         <div class="grid grid-cols-2 gap-x-6 gap-y-4 text-sm">
                             <div>
-                                <div class="text-neutral-400">Low Entry</div>
-                                <div>From $1,700</div>
+                                <div class="text-neutral-400">{{ .Params.locations_item_2_2 }}</div>
+                                <div>{{ .Params.locations_item_2_3 }}</div>
                             </div>
                             <div>
-                                <div class="text-neutral-400">Long-Term Demand</div>
-                                <div>~40% nomads rent 3+ months</div>
+                                <div class="text-neutral-400">{{ .Params.locations_item_2_4 }}</div>
+                                <div>{{ .Params.locations_item_2_5 }}</div>
                             </div>
                             <div>
-                                <div class="text-neutral-400">Tax Conditions</div>
-                                <div>No 0% rental tax; PIT 15–35%</div>
+                                <div class="text-neutral-400">{{ .Params.locations_item_2_6 }}</div>
+                                <div>{{ .Params.locations_item_2_7 }}</div>
                             </div>
                             <div>
-                                <div class="text-neutral-400">Price Growth</div>
-                                <div>3–7% (Phuket, Pattaya)</div>
+                                <div class="text-neutral-400">{{ .Params.locations_item_2_8 }}</div>
+                                <div>{{ .Params.locations_item_2_9 }}</div>
                             </div>
                             <div>
-                                <div class="text-neutral-400">Economy</div>
-                                <div>Stable (tourism, GDP +4–5%)</div>
+                                <div class="text-neutral-400">{{ .Params.locations_item_2_10 }}</div>
+                                <div>{{ .Params.locations_item_2_11 }}</div>
                             </div>
                             <div>
-                                <div class="text-neutral-400">Top Areas</div>
-                                <div>Phuket, Pattaya, Hua Hin</div>
+                                <div class="text-neutral-400">{{ .Params.locations_item_2_12 }}</div>
+                                <div>{{ .Params.locations_item_2_13 }}</div>
                             </div>
                         </div>
                     </div>
@@ -101,39 +100,39 @@
 
                 <!-- TURKEY -->
                 <div
-                    class="snap-start min-w-[85%] sm:min-w-[70%] lg:min-w-[55%] relative rounded-3xl overflow-hidden border border-neutral-800">
-                    <img src="/images/turkey.jpg" alt="Turkey real estate"
-                        class="absolute inset-0 w-full h-full object-cover" />
+                        class="snap-start min-w-[85%] sm:min-w-[70%] lg:min-w-[55%] relative rounded-3xl overflow-hidden border border-neutral-800">
+                    <img src="/images/turkey.jpg" alt='{{ printf "%s real estate" .Params.locations_item_3_1 }}'
+                         class="absolute inset-0 w-full h-full object-cover" />
                     <div class="absolute inset-0 bg-gradient-to-t from-neutral-950 via-neutral-950/70 to-transparent">
                     </div>
 
                     <div class="relative p-8 lg:p-10 space-y-6">
-                        <h3 class="text-3xl font-semibold">Turkey</h3>
+                        <h3 class="text-3xl font-semibold">{{ .Params.locations_item_3_1 }}</h3>
 
                         <div class="grid grid-cols-2 gap-x-6 gap-y-4 text-sm">
                             <div>
-                                <div class="text-neutral-400">Low Entry</div>
-                                <div>From $2,500</div>
+                                <div class="text-neutral-400">{{ .Params.locations_item_3_2 }}</div>
+                                <div>{{ .Params.locations_item_3_3 }}</div>
                             </div>
                             <div>
-                                <div class="text-neutral-400">Long-Term Demand</div>
-                                <div>High (40% rentals 3+ months)</div>
+                                <div class="text-neutral-400">{{ .Params.locations_item_3_4 }}</div>
+                                <div>{{ .Params.locations_item_3_5 }}</div>
                             </div>
                             <div>
-                                <div class="text-neutral-400">Tax Conditions</div>
-                                <div>Property 0.1–0.6%, citizenship perks</div>
+                                <div class="text-neutral-400">{{ .Params.locations_item_3_6 }}</div>
+                                <div>{{ .Params.locations_item_3_7 }}</div>
                             </div>
                             <div>
-                                <div class="text-neutral-400">Price Growth</div>
-                                <div>8–12% (Istanbul, Antalya)</div>
+                                <div class="text-neutral-400">{{ .Params.locations_item_3_8 }}</div>
+                                <div>{{ .Params.locations_item_3_9 }}</div>
                             </div>
                             <div>
-                                <div class="text-neutral-400">Economy</div>
-                                <div>Growing (GDP +4%)</div>
+                                <div class="text-neutral-400">{{ .Params.locations_item_3_10 }}</div>
+                                <div>{{ .Params.locations_item_3_11 }}</div>
                             </div>
                             <div>
-                                <div class="text-neutral-400">Top Areas</div>
-                                <div>Istanbul, Antalya, Bodrum</div>
+                                <div class="text-neutral-400">{{ .Params.locations_item_3_12 }}</div>
+                                <div>{{ .Params.locations_item_3_13 }}</div>
                             </div>
                         </div>
                     </div>
@@ -141,39 +140,39 @@
 
                 <!-- INDONESIA -->
                 <div
-                    class="snap-start min-w-[85%] sm:min-w-[70%] lg:min-w-[55%] relative rounded-3xl overflow-hidden border border-neutral-800">
-                    <img src="/images/indonesia.jpg" alt="Indonesia real estate"
-                        class="absolute inset-0 w-full h-full object-cover" />
+                        class="snap-start min-w-[85%] sm:min-w-[70%] lg:min-w-[55%] relative rounded-3xl overflow-hidden border border-neutral-800">
+                    <img src="/images/indonesia.jpg" alt='{{ printf "%s real estate" .Params.locations_item_4_1 }}'
+                         class="absolute inset-0 w-full h-full object-cover" />
                     <div class="absolute inset-0 bg-gradient-to-t from-neutral-950 via-neutral-950/70 to-transparent">
                     </div>
 
                     <div class="relative p-8 lg:p-10 space-y-6">
-                        <h3 class="text-3xl font-semibold">Indonesia</h3>
+                        <h3 class="text-3xl font-semibold">{{ .Params.locations_item_4_1 }}</h3>
 
                         <div class="grid grid-cols-2 gap-x-6 gap-y-4 text-sm">
                             <div>
-                                <div class="text-neutral-400">Low Entry</div>
-                                <div>From $3,300</div>
+                                <div class="text-neutral-400">{{ .Params.locations_item_4_2 }}</div>
+                                <div>{{ .Params.locations_item_4_3 }}</div>
                             </div>
                             <div>
-                                <div class="text-neutral-400">Long-Term Demand</div>
-                                <div>~45% nomads rent 3+ months</div>
+                                <div class="text-neutral-400">{{ .Params.locations_item_4_4 }}</div>
+                                <div>{{ .Params.locations_item_4_5 }}</div>
                             </div>
                             <div>
-                                <div class="text-neutral-400">Tax Conditions</div>
-                                <div>Property 0.5%, income 5–35%</div>
+                                <div class="text-neutral-400">{{ .Params.locations_item_4_6 }}</div>
+                                <div>{{ .Params.locations_item_4_7 }}</div>
                             </div>
                             <div>
-                                <div class="text-neutral-400">Price Growth</div>
-                                <div>1–5% (Bali focus)</div>
+                                <div class="text-neutral-400">{{ .Params.locations_item_4_8 }}</div>
+                                <div>{{ .Params.locations_item_4_9 }}</div>
                             </div>
                             <div>
-                                <div class="text-neutral-400">Economy</div>
-                                <div>Stable (GDP +5%)</div>
+                                <div class="text-neutral-400">{{ .Params.locations_item_4_10 }}</div>
+                                <div>{{ .Params.locations_item_4_11 }}</div>
                             </div>
                             <div>
-                                <div class="text-neutral-400">Top Areas</div>
-                                <div>Bali, Jakarta</div>
+                                <div class="text-neutral-400">{{ .Params.locations_item_4_12 }}</div>
+                                <div>{{ .Params.locations_item_4_13 }}</div>
                             </div>
                         </div>
                     </div>
@@ -181,39 +180,39 @@
 
                 <!-- GEORGIA -->
                 <div
-                    class="snap-start min-w-[85%] sm:min-w-[70%] lg:min-w-[55%] relative rounded-3xl overflow-hidden border border-neutral-800">
-                    <img src="/images/georgia.jpg" alt="Georgia real estate"
-                        class="absolute inset-0 w-full h-full object-cover" />
+                        class="snap-start min-w-[85%] sm:min-w-[70%] lg:min-w-[55%] relative rounded-3xl overflow-hidden border border-neutral-800">
+                    <img src="/images/georgia.jpg" alt='{{ printf "%s real estate" .Params.locations_item_5_1 }}'
+                         class="absolute inset-0 w-full h-full object-cover" />
                     <div class="absolute inset-0 bg-gradient-to-t from-neutral-950 via-neutral-950/70 to-transparent">
                     </div>
 
                     <div class="relative p-8 lg:p-10 space-y-6">
-                        <h3 class="text-3xl font-semibold">Georgia</h3>
+                        <h3 class="text-3xl font-semibold">{{ .Params.locations_item_5_1 }}</h3>
 
                         <div class="grid grid-cols-2 gap-x-6 gap-y-4 text-sm">
                             <div>
-                                <div class="text-neutral-400">Low Entry</div>
-                                <div>From $2,000</div>
+                                <div class="text-neutral-400">{{ .Params.locations_item_5_2 }}</div>
+                                <div>{{ .Params.locations_item_5_3 }}</div>
                             </div>
                             <div>
-                                <div class="text-neutral-400">Long-Term Demand</div>
-                                <div>~50% nomads rent 6+ months</div>
+                                <div class="text-neutral-400">{{ .Params.locations_item_5_4 }}</div>
+                                <div>{{ .Params.locations_item_5_5 }}</div>
                             </div>
                             <div>
-                                <div class="text-neutral-400">Tax Conditions</div>
-                                <div>1% property tax; rental 20%</div>
+                                <div class="text-neutral-400">{{ .Params.locations_item_5_6 }}</div>
+                                <div>{{ .Params.locations_item_5_7 }}</div>
                             </div>
                             <div>
-                                <div class="text-neutral-400">Price Growth</div>
-                                <div>6–10% (Tbilisi, Batumi)</div>
+                                <div class="text-neutral-400">{{ .Params.locations_item_5_8 }}</div>
+                                <div>{{ .Params.locations_item_5_9 }}</div>
                             </div>
                             <div>
-                                <div class="text-neutral-400">Economy</div>
-                                <div>Stable (GDP +5–6%)</div>
+                                <div class="text-neutral-400">{{ .Params.locations_item_5_10 }}</div>
+                                <div>{{ .Params.locations_item_5_11 }}</div>
                             </div>
                             <div>
-                                <div class="text-neutral-400">Top Areas</div>
-                                <div>Tbilisi, Batumi</div>
+                                <div class="text-neutral-400">{{ .Params.locations_item_5_12 }}</div>
+                                <div>{{ .Params.locations_item_5_13 }}</div>
                             </div>
                         </div>
                     </div>

@@ -2,8 +2,8 @@
 {{ partial "hero.html" (site.GetPage "main_hero") }}
 {{ partial "slogan.html" (site.GetPage "main_slogan") }}
 {{ partial "numbers.html" (site.GetPage "main_numbers") }}
-{{ partial "audience.html" . }}
-{{ partial "locations.html" . }}
+{{ partial "audience.html" (site.GetPage "main_audience") }}
+{{ partial "locations.html" (site.GetPage "main_locations") }}
 {{ partial "advantages.html" . }}
 {{ partial "how-it-works.html" . }}
 {{ partial "recommendations.html" . }}

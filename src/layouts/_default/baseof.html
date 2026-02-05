@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>{{ .Title }} | {{ .Site.Title }}</title>
+    <title>{{ .Params.Title }} | {{ .Site.Title }}</title>
     <script src="https://cdn.tailwindcss.com"></script>
 
     {{ $header := resources.Get "css/header.css" | minify | fingerprint }}
