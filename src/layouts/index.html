@@ -4,9 +4,9 @@
 {{ partial "numbers.html" (site.GetPage "main_numbers") }}
 {{ partial "audience.html" (site.GetPage "main_audience") }}
 {{ partial "locations.html" (site.GetPage "main_locations") }}
-{{ partial "advantages.html" . }}
-{{ partial "how-it-works.html" . }}
-{{ partial "recommendations.html" . }}
-{{ partial "faq.html" . }}
+{{ partial "advantages.html" (site.GetPage "main_advantages") }}
+{{ partial "how-it-works.html" (site.GetPage "main_how-it-works") }}
+{{ partial "recommendations.html" (site.GetPage "main_recommendations") }}
+{{ partial "faq.html" (site.GetPage "main_faq") }}
 {{ partial "contact-us.html" . }}
 {{ end }}

@@ -4,9 +4,9 @@
 
         <!-- HEADING -->
         <div class="mb-20 max-w-3xl">
-            <h2 class="text-4xl font-semibold">How Sharmony’s P2P platform works</h2>
+            <h2 class="text-4xl font-semibold">{{ .Params.how_it_works_h1}}</h2>
             <p class="mt-4 text-lg text-neutral-400">
-                Step-by-step transaction flow with legal protection, smart contracts, and blockchain transparency.
+                {{ .Params.how_it_works_h2}}
             </p>
         </div>
 
@@ -16,54 +16,46 @@
 
             <!-- STEP 1 -->
             <div class="relative mb-20 pl-16">
-                <div
-                    class="absolute left-0 top-0 flex items-center justify-center w-14 h-14 rounded-full bg-cyan-400 text-black font-semibold text-lg">
-                    1</div>
-                <h3 class="text-2xl font-medium mb-6">Preparing for the transaction</h3>
+                <div class="absolute left-0 top-0 flex items-center justify-center w-14 h-14 rounded-full bg-cyan-400 text-black font-semibold text-lg">
+                    {{ .Params.how_it_works_item_1_1 }}
+                </div>
+                <h3 class="text-2xl font-medium mb-6">{{ .Params.how_it_works_item_1_2}}</h3>
                 <div class="space-y-4">
 
-                    <div
-                        class="group border border-neutral-800 rounded-xl p-4 bg-neutral-900/50 hover:border-cyan-400 transition">
-                        <div class="font-medium">A. Verification of transaction parties (KYC/AML)</div>
+                    <div class="group border border-neutral-800 rounded-xl p-4 bg-neutral-900/50 hover:border-cyan-400 transition">
+                        <div class="font-medium">{{ .Params.how_it_works_item_1_1_1 }}</div>
                         <div class="text-sm text-neutral-400 mt-2 opacity-0 group-hover:opacity-100 transition">
-                            Posting of data and documents on the parties (seller, buyer, beneficiary, guarantor,
-                            pledgee). Identification of a person's identity and status. Access key generation.
+                            {{ .Params.how_it_works_item_1_1_2 }}
                         </div>
                     </div>
 
-                    <div
-                        class="group border border-neutral-800 rounded-xl p-4 bg-neutral-900/50 hover:border-cyan-400 transition">
-                        <div class="font-medium">B. Entering into smart contracts with the platform</div>
+                    <div class="group border border-neutral-800 rounded-xl p-4 bg-neutral-900/50 hover:border-cyan-400 transition">
+                        <div class="font-medium">{{ .Params.how_it_works_item_1_2_1 }}</div>
                         <div class="text-sm text-neutral-400 mt-2 opacity-0 group-hover:opacity-100 transition">
-                            Transaction Terms and Conditions, Platform Commissions, Settlement and Transfer Mechanisms,
-                            Security for Performance of Obligations.
+                            {{ .Params.how_it_works_item_1_2_2 }}
                         </div>
                     </div>
 
-                    <div
-                        class="group border border-neutral-800 rounded-xl p-4 bg-neutral-900/50 hover:border-cyan-400 transition">
-                        <div class="font-medium">C. Selecting a transaction target</div>
+                    <div class="group border border-neutral-800 rounded-xl p-4 bg-neutral-900/50 hover:border-cyan-400 transition">
+                        <div class="font-medium">{{ .Params.how_it_works_item_1_3_1 }}</div>
                         <div class="text-sm text-neutral-400 mt-2 opacity-0 group-hover:opacity-100 transition">
-                            Two formats are available: Acquiring a property for personal use or Investing in real estate
-                            for rent and capitalizing the value of the property.
+                            {{ .Params.how_it_works_item_1_3_2 }}
                         </div>
                     </div>
 
-                    <div
-                        class="group border border-neutral-800 rounded-xl p-4 bg-neutral-900/50 hover:border-cyan-400 transition">
-                        <div class="font-medium">D. Selecting the type of rights</div>
+
+                    <div class="group border border-neutral-800 rounded-xl p-4 bg-neutral-900/50 hover:border-cyan-400 transition">
+                        <div class="font-medium">{{ .Params.how_it_works_item_1_4_1 }}</div>
                         <div class="text-sm text-neutral-400 mt-2 opacity-0 group-hover:opacity-100 transition">
-                            Three formats are available: Ownership of the object (holdsharing), Share in common
-                            ownership (rightsharing), Right to use for a fixed period of time (timesharing).
+                            {{ .Params.how_it_works_item_1_4_2 }}
                         </div>
                     </div>
 
-                    <div
-                        class="group border border-neutral-800 rounded-xl p-4 bg-neutral-900/50 hover:border-cyan-400 transition">
-                        <div class="font-medium">E. Placing a seller's or buyer's offer</div>
+
+                    <div class="group border border-neutral-800 rounded-xl p-4 bg-neutral-900/50 hover:border-cyan-400 transition">
+                        <div class="font-medium">{{ .Params.how_it_works_item_1_5_1 }}</div>
                         <div class="text-sm text-neutral-400 mt-2 opacity-0 group-hover:opacity-100 transition">
-                            Placement of data and documents on the object, terms of the transaction, and necessary legal
-                            procedures.
+                            {{ .Params.how_it_works_item_1_5_2 }}
                         </div>
                     </div>
 
@@ -72,100 +64,96 @@
 
             <!-- STEP 2 -->
             <div class="relative mb-20 pl-16">
-                <div
-                    class="absolute left-0 top-0 flex items-center justify-center w-14 h-14 rounded-full bg-cyan-400 text-black font-semibold text-lg">
-                    2</div>
-                <h3 class="text-2xl font-medium mb-6">P2P transaction stage</h3>
+                <div class="absolute left-0 top-0 flex items-center justify-center w-14 h-14 rounded-full bg-cyan-400 text-black font-semibold text-lg">
+                    {{ .Params.how_it_works_item_2_1 }}
+                </div>
+                <h3 class="text-2xl font-medium mb-6">{{ .Params.how_it_works_item_2_2}}</h3>
                 <div class="space-y-4">
-                    <div
-                        class="group border border-neutral-800 rounded-xl p-4 bg-neutral-900/50 hover:border-cyan-400 transition">
-                        <div class="font-medium">A. Agreeing transaction terms</div>
+
+                    <div class="group border border-neutral-800 rounded-xl p-4 bg-neutral-900/50 hover:border-cyan-400 transition">
+                        <div class="font-medium">{{ .Params.how_it_works_item_2_1_1 }}</div>
                         <div class="text-sm text-neutral-400 mt-2 opacity-0 group-hover:opacity-100 transition">
-                            Characteristics of the object: Price, term, settlement procedure, property transfer,
-                            registration obligations, and security of fulfillment.
+                            {{ .Params.how_it_works_item_2_1_2 }}
                         </div>
                     </div>
-                    <div
-                        class="group border border-neutral-800 rounded-xl p-4 bg-neutral-900/50 hover:border-cyan-400 transition">
-                        <div class="font-medium">B. Entering into P2P contract</div>
+
+                    <div class="group border border-neutral-800 rounded-xl p-4 bg-neutral-900/50 hover:border-cyan-400 transition">
+                        <div class="font-medium">{{ .Params.how_it_works_item_2_2_1 }}</div>
                         <div class="text-sm text-neutral-400 mt-2 opacity-0 group-hover:opacity-100 transition">
-                            Confirmation of agreement, Tokenization of obligations (NFT debt receipts), Signing of the
-                            P2P Contract.
+                            {{ .Params.how_it_works_item_2_2_2 }}
                         </div>
                     </div>
-                    <div
-                        class="group border border-neutral-800 rounded-xl p-4 bg-neutral-900/50 hover:border-cyan-400 transition">
-                        <div class="font-medium">C. Performance Bond</div>
+
+                    <div class="group border border-neutral-800 rounded-xl p-4 bg-neutral-900/50 hover:border-cyan-400 transition">
+                        <div class="font-medium">{{ .Params.how_it_works_item_2_3_1 }}</div>
                         <div class="text-sm text-neutral-400 mt-2 opacity-0 group-hover:opacity-100 transition">
-                            To ensure fulfillment of obligations, the buyer’s and seller’s funds are blocked on accounts
-                            until obligations are met.
+                            {{ .Params.how_it_works_item_2_3_2 }}
                         </div>
                     </div>
-                    <div class="border border-neutral-800 rounded-xl p-4 bg-neutral-900/50">
-                        <div class="font-medium">D. Fixing the transaction in blockchain</div>
-                        <div class="text-sm text-neutral-500 mt-2">All transaction data and statuses are fixed in
-                            Ethereum / Polygon.</div>
-                    </div>
-                    <div
-                        class="group border border-neutral-800 rounded-xl p-4 bg-neutral-900/50 hover:border-cyan-400 transition">
-                        <div class="font-medium">E. Opening of escrow accounts</div>
+
+
+                    <div class="group border border-neutral-800 rounded-xl p-4 bg-neutral-900/50 hover:border-cyan-400 transition">
+                        <div class="font-medium">{{ .Params.how_it_works_item_2_4_1 }}</div>
                         <div class="text-sm text-neutral-400 mt-2 opacity-0 group-hover:opacity-100 transition">
-                            Parties open special accounts in a partner bank through the Platform. Escrow agent appointed
-                            to control fulfillment. Contracts with bank concluded.
+                            {{ .Params.how_it_works_item_2_4_2 }}
                         </div>
                     </div>
+
+
+                    <div class="group border border-neutral-800 rounded-xl p-4 bg-neutral-900/50 hover:border-cyan-400 transition">
+                        <div class="font-medium">{{ .Params.how_it_works_item_2_5_1 }}</div>
+                        <div class="text-sm text-neutral-400 mt-2 opacity-0 group-hover:opacity-100 transition">
+                            {{ .Params.how_it_works_item_2_5_2 }}
+                        </div>
+                    </div>
+
                 </div>
             </div>
+
             <!-- STEP 3 -->
             <div class="relative mb-20 pl-16">
-                <div
-                    class="absolute left-0 flex items-center justify-center w-14 h-14 rounded-full bg-cyan-400 text-black font-semibold text-lg">
-                    3</div>
-                <h3 class="text-2xl font-medium mb-6">Execution of transaction</h3>
+                <div class="absolute left-0 top-0 flex items-center justify-center w-14 h-14 rounded-full bg-cyan-400 text-black font-semibold text-lg">
+                    {{ .Params.how_it_works_item_3_1 }}
+                </div>
+                <h3 class="text-2xl font-medium mb-6">{{ .Params.how_it_works_item_3_2}}</h3>
                 <div class="space-y-4">
 
-                    <div
-                        class="group border border-neutral-800 rounded-xl p-4 bg-neutral-900/50 hover:border-cyan-400 transition">
-                        <div class="font-medium">A. Execution of transaction terms and conditions</div>
+                    <div class="group border border-neutral-800 rounded-xl p-4 bg-neutral-900/50 hover:border-cyan-400 transition">
+                        <div class="font-medium">{{ .Params.how_it_works_item_3_1_1 }}</div>
                         <div class="text-sm text-neutral-400 mt-2 opacity-0 group-hover:opacity-100 transition">
-                            Buyer makes payment and seller transfers object or rights. Acceptance certificate signed.
+                            {{ .Params.how_it_works_item_3_1_2 }}
                         </div>
                     </div>
 
-                    <div
-                        class="group border border-neutral-800 rounded-xl p-4 bg-neutral-900/50 hover:border-cyan-400 transition">
-                        <div class="font-medium">B. Settlement via fiat and digital assets</div>
+                    <div class="group border border-neutral-800 rounded-xl p-4 bg-neutral-900/50 hover:border-cyan-400 transition">
+                        <div class="font-medium">{{ .Params.how_it_works_item_3_2_1 }}</div>
                         <div class="text-sm text-neutral-400 mt-2 opacity-0 group-hover:opacity-100 transition">
-                            Platform integrated with payment gateways. Escrow funds released and conversions/commissions
-                            handled.
+                            {{ .Params.how_it_works_item_3_2_2 }}
                         </div>
-                    </div>
 
+                    </div>
                 </div>
             </div>
 
             <!-- STEP 4 -->
             <div class="relative mb-20 pl-16">
-                <div
-                    class="absolute left-0 top-0 flex items-center justify-center w-14 h-14 rounded-full bg-cyan-400 text-black font-semibold text-lg">
-                    4</div>
-                <h3 class="text-2xl font-medium mb-6">State registration</h3>
+                <div class="absolute left-0 top-0 flex items-center justify-center w-14 h-14 rounded-full bg-cyan-400 text-black font-semibold text-lg">
+                    {{ .Params.how_it_works_item_4_1 }}
+                </div>
+                <h3 class="text-2xl font-medium mb-6">{{ .Params.how_it_works_item_4_2}}</h3>
                 <div class="space-y-4">
 
-                    <div
-                        class="group border border-neutral-800 rounded-xl p-4 bg-neutral-900/50 hover:border-cyan-400 transition">
-                        <div class="font-medium">A. Registration of ownership</div>
+                    <div class="group border border-neutral-800 rounded-xl p-4 bg-neutral-900/50 hover:border-cyan-400 transition">
+                        <div class="font-medium">{{ .Params.how_it_works_item_4_1_1 }}</div>
                         <div class="text-sm text-neutral-400 mt-2 opacity-0 group-hover:opacity-100 transition">
-                            Ownership/share (holdsharing/rightsharing) via local registry, notary, agent, or law firm.
-                            Timesharing requires state registration.
+                            {{ .Params.how_it_works_item_4_1_2 }}
                         </div>
                     </div>
 
-                    <div
-                        class="group border border-neutral-800 rounded-xl p-4 bg-neutral-900/50 hover:border-cyan-400 transition">
-                        <div class="font-medium">B. External experts involved in registration</div>
+                    <div class="group border border-neutral-800 rounded-xl p-4 bg-neutral-900/50 hover:border-cyan-400 transition">
+                        <div class="font-medium">{{ .Params.how_it_works_item_4_2_1 }}</div>
                         <div class="text-sm text-neutral-400 mt-2 opacity-0 group-hover:opacity-100 transition">
-                            SHARMONY can engage realtors, lawyers, and notaries from the appropriate country.
+                            {{ .Params.how_it_works_item_4_2_2 }}
                         </div>
                     </div>
 
@@ -174,33 +162,30 @@
 
             <!-- STEP 5 -->
             <div class="relative mb-20 pl-16">
-                <div
-                    class="absolute left-0 top-0 flex items-center justify-center w-14 h-14 rounded-full bg-cyan-400 text-black font-semibold text-lg">
-                    5</div>
-                <h3 class="text-2xl font-medium mb-6">End of deal</h3>
+                <div class="absolute left-0 top-0 flex items-center justify-center w-14 h-14 rounded-full bg-cyan-400 text-black font-semibold text-lg">
+                    {{ .Params.how_it_works_item_5_1 }}
+                </div>
+                <h3 class="text-2xl font-medium mb-6">{{ .Params.how_it_works_item_5_2}}</h3>
                 <div class="space-y-4">
 
-                    <div
-                        class="group border border-neutral-800 rounded-xl p-4 bg-neutral-900/50 hover:border-cyan-400 transition">
-                        <div class="font-medium">A. Repayment of liabilities</div>
+                    <div class="group border border-neutral-800 rounded-xl p-4 bg-neutral-900/50 hover:border-cyan-400 transition">
+                        <div class="font-medium">{{ .Params.how_it_works_item_5_1_1 }}</div>
                         <div class="text-sm text-neutral-400 mt-2 opacity-0 group-hover:opacity-100 transition">
-                            NFT token debt receipts are terminated except for outstanding obligations.
+                            {{ .Params.how_it_works_item_5_1_2 }}
                         </div>
                     </div>
 
-                    <div
-                        class="group border border-neutral-800 rounded-xl p-4 bg-neutral-900/50 hover:border-cyan-400 transition">
-                        <div class="font-medium">B. Updating registers</div>
+                    <div class="group border border-neutral-800 rounded-xl p-4 bg-neutral-900/50 hover:border-cyan-400 transition">
+                        <div class="font-medium">{{ .Params.how_it_works_item_5_2_1 }}</div>
                         <div class="text-sm text-neutral-400 mt-2 opacity-0 group-hover:opacity-100 transition">
-                            Updating data in the blockchain and state registry (if necessary).
+                            {{ .Params.how_it_works_item_5_2_2 }}
                         </div>
                     </div>
 
-                    <div
-                        class="group border border-neutral-800 rounded-xl p-4 bg-neutral-900/50 hover:border-cyan-400 transition">
-                        <div class="font-medium">C. Finalizing analytics</div>
+                    <div class="group border border-neutral-800 rounded-xl p-4 bg-neutral-900/50 hover:border-cyan-400 transition">
+                        <div class="font-medium">{{ .Params.how_it_works_item_5_3_1 }}</div>
                         <div class="text-sm text-neutral-400 mt-2 opacity-0 group-hover:opacity-100 transition">
-                            Transaction data automatically analyzed, object assigned new status, information displayed.
+                            {{ .Params.how_it_works_item_5_3_2 }}
                         </div>
                     </div>
 

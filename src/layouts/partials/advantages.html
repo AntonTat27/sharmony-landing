@@ -4,11 +4,10 @@
         <!-- MINI HEADING -->
         <div class="max-w-3xl">
             <h2 class="text-4xl font-semibold leading-tight">
-                Together more affordable
+                {{ .Params.advantages_h1 }}
             </h2>
             <p class="mt-4 text-lg text-neutral-400">
-                A new standard of real estate ownership combining transparency,
-                security, liquidity, and global access.
+                {{ .Params.advantages_h2 }}
             </p>
         </div>
 
@@ -20,111 +19,111 @@
                 class="group rounded-2xl border border-neutral-800 bg-neutral-900/50 p-6 transition hover:border-cyan-400">
                 <summary class="cursor-pointer list-none flex items-center justify-between">
                     <span class="text-2xl font-medium group-open:text-cyan-400 transition">
-                        Affordable investments
+                        {{ .Params.advantages_item_1_1 }}
                     </span>
                     <span class="text-cyan-400 transition group-open:rotate-45">+</span>
                 </summary>
 
                 <div class="mt-4 text-sm text-neutral-400 space-y-2">
-                    <p>• Fractional real estate from $1,000</p>
-                    <p>• Own property with minimal capital</p>
-                    <p>• High liquidity through NFTs and tokenized shares</p>
+                    <p>{{ .Params.advantages_item_1_2 }}</p>
+                    <p>{{ .Params.advantages_item_1_3 }}</p>
+                    <p>{{ .Params.advantages_item_1_4 }}</p>
                 </div>
             </details>
 
             <details
-                class="group rounded-2xl border border-neutral-800 bg-neutral-900/50 p-6 hover:border-cyan-400 transition">
+                    class="group rounded-2xl border border-neutral-800 bg-neutral-900/50 p-6 transition hover:border-cyan-400">
                 <summary class="cursor-pointer list-none flex items-center justify-between">
-                    <span class="text-2xl font-medium group-open:text-cyan-400">
-                        Passive income & capital growth
+                    <span class="text-2xl font-medium group-open:text-cyan-400 transition">
+                        {{ .Params.advantages_item_2_1 }}
                     </span>
-                    <span class="text-cyan-400 group-open:rotate-45 transition">+</span>
+                    <span class="text-cyan-400 transition group-open:rotate-45">+</span>
                 </summary>
 
                 <div class="mt-4 text-sm text-neutral-400 space-y-2">
-                    <p>• Rental income up to 15% p.a.</p>
-                    <p>• Asset value growth up to 12% p.a.</p>
-                    <p>• Capitalization of share value up to 10% p.a.</p>
+                    <p>{{ .Params.advantages_item_2_2 }}</p>
+                    <p>{{ .Params.advantages_item_2_3 }}</p>
+                    <p>{{ .Params.advantages_item_2_4 }}</p>
                 </div>
             </details>
 
             <details
-                class="group rounded-2xl border border-neutral-800 bg-neutral-900/50 p-6 hover:border-cyan-400 transition">
+                    class="group rounded-2xl border border-neutral-800 bg-neutral-900/50 p-6 transition hover:border-cyan-400">
                 <summary class="cursor-pointer list-none flex items-center justify-between">
-                    <span class="text-2xl font-medium group-open:text-cyan-400">
-                        Ownership flexibility
+                    <span class="text-2xl font-medium group-open:text-cyan-400 transition">
+                        {{ .Params.advantages_item_3_1 }}
                     </span>
-                    <span class="text-cyan-400 group-open:rotate-45 transition">+</span>
+                    <span class="text-cyan-400 transition group-open:rotate-45">+</span>
                 </summary>
 
                 <div class="mt-4 text-sm text-neutral-400 space-y-2">
-                    <p>• From 1 to 24 shares per property</p>
-                    <p>• Personal use, leasing, sale, and management</p>
-                    <p>• Transferability to other investors</p>
+                    <p>{{ .Params.advantages_item_3_2 }}</p>
+                    <p>{{ .Params.advantages_item_3_3 }}</p>
+                    <p>{{ .Params.advantages_item_3_4 }}</p>
                 </div>
             </details>
 
             <details
-                class="group rounded-2xl border border-neutral-800 bg-neutral-900/50 p-6 hover:border-cyan-400 transition">
+                    class="group rounded-2xl border border-neutral-800 bg-neutral-900/50 p-6 transition hover:border-cyan-400">
                 <summary class="cursor-pointer list-none flex items-center justify-between">
-                    <span class="text-2xl font-medium group-open:text-cyan-400">
-                        Global & fast
+                    <span class="text-2xl font-medium group-open:text-cyan-400 transition">
+                        {{ .Params.advantages_item_4_1 }}
                     </span>
-                    <span class="text-cyan-400 group-open:rotate-45 transition">+</span>
+                    <span class="text-cyan-400 transition group-open:rotate-45">+</span>
                 </summary>
 
                 <div class="mt-4 text-sm text-neutral-400 space-y-2">
-                    <p>• Worldwide access</p>
-                    <p>• Fast cross-border transactions</p>
-                    <p>• Jurisdiction and ownership guidance</p>
+                    <p>{{ .Params.advantages_item_4_2 }}</p>
+                    <p>{{ .Params.advantages_item_4_3 }}</p>
+                    <p>{{ .Params.advantages_item_4_4 }}</p>
                 </div>
             </details>
 
             <details
-                class="group rounded-2xl border border-neutral-800 bg-neutral-900/50 p-6 hover:border-cyan-400 transition">
+                    class="group rounded-2xl border border-neutral-800 bg-neutral-900/50 p-6 transition hover:border-cyan-400">
                 <summary class="cursor-pointer list-none flex items-center justify-between">
-                    <span class="text-2xl font-medium group-open:text-cyan-400">
-                        Legal & financial protection
+                    <span class="text-2xl font-medium group-open:text-cyan-400 transition">
+                        {{ .Params.advantages_item_5_1 }}
                     </span>
-                    <span class="text-cyan-400 group-open:rotate-45 transition">+</span>
+                    <span class="text-cyan-400 transition group-open:rotate-45">+</span>
                 </summary>
 
                 <div class="mt-4 text-sm text-neutral-400 space-y-2">
-                    <p>• Tokenized shares with legal protection</p>
-                    <p>• Secure settlements via partner banks</p>
-                    <p>• Multi-level encryption & execution guarantees</p>
+                    <p>{{ .Params.advantages_item_5_2 }}</p>
+                    <p>{{ .Params.advantages_item_5_3 }}</p>
+                    <p>{{ .Params.advantages_item_5_4 }}</p>
                 </div>
             </details>
 
             <details
-                class="group rounded-2xl border border-neutral-800 bg-neutral-900/50 p-6 hover:border-cyan-400 transition">
+                    class="group rounded-2xl border border-neutral-800 bg-neutral-900/50 p-6 transition hover:border-cyan-400">
                 <summary class="cursor-pointer list-none flex items-center justify-between">
-                    <span class="text-2xl font-medium group-open:text-cyan-400">
-                        Transparency & technology
+                    <span class="text-2xl font-medium group-open:text-cyan-400 transition">
+                        {{ .Params.advantages_item_6_1 }}
                     </span>
-                    <span class="text-cyan-400 group-open:rotate-45 transition">+</span>
+                    <span class="text-cyan-400 transition group-open:rotate-45">+</span>
                 </summary>
 
                 <div class="mt-4 text-sm text-neutral-400 space-y-2">
-                    <p>• Blockchain-recorded transactions</p>
-                    <p>• Smart contracts & obligation tokenization</p>
-                    <p>• AI-powered analytics & digital asset storage</p>
+                    <p>{{ .Params.advantages_item_6_2 }}</p>
+                    <p>{{ .Params.advantages_item_6_3 }}</p>
+                    <p>{{ .Params.advantages_item_6_4 }}</p>
                 </div>
             </details>
 
             <details
-                class="group md:col-span-2 rounded-2xl border border-neutral-800 bg-neutral-900/50 p-6 hover:border-cyan-400 transition">
+                    class="group rounded-2xl border border-neutral-800 bg-neutral-900/50 p-6 transition hover:border-cyan-400">
                 <summary class="cursor-pointer list-none flex items-center justify-between">
-                    <span class="text-2xl font-medium group-open:text-cyan-400">
-                        Ideal for international tourism
+                    <span class="text-2xl font-medium group-open:text-cyan-400 transition">
+                        {{ .Params.advantages_item_7_1 }}
                     </span>
-                    <span class="text-cyan-400 group-open:rotate-45 transition">+</span>
+                    <span class="text-cyan-400 transition group-open:rotate-45">+</span>
                 </summary>
 
                 <div class="mt-4 text-sm text-neutral-400 space-y-2">
-                    <p>• Your own property instead of hotels</p>
-                    <p>• Usage proportional to ownership share</p>
-                    <p>• Exchange and resale between co-owners</p>
+                    <p>{{ .Params.advantages_item_7_2 }}</p>
+                    <p>{{ .Params.advantages_item_7_3 }}</p>
+                    <p>{{ .Params.advantages_item_7_4 }}</p>
                 </div>
             </details>
 
