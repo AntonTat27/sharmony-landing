@@ -4,4 +4,5 @@ title: SHARMONY
 
 banner_text: Sonderangebot für unsere englischsprachige Community!
 banner_cta: Mehr erfahren
+btn_login: Login
 ---

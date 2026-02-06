@@ -60,13 +60,19 @@
                 </div>
 
                 <a href="/login" class="btn-login">
-                    <span>Log-in</span>
+                    <span>{{ .Params.btn_login }}</span>
                     <i class="bi bi-person-circle"></i>
                 </a>
                 <div class="lang-switcher">
                     <div class="lang-trigger">
-                        <img src='https://flagcdn.com/w40/{{ if eq .Lang "en" }}us{{ else }}{{ .Lang }}{{ end }}.png'
-                             class="flag-circle">
+                        {{/* Define current language flag logic */}}
+                        {{ $currentFlag := .Lang }}
+                        {{ if eq .Lang "en" }}{{ $currentFlag = "us" }}
+                        {{ else if eq .Lang "ar" }}{{ $currentFlag = "sa" }}
+                        {{ else if eq .Lang "zh" }}{{ $currentFlag = "cn" }}
+                        {{ end }}
+
+                        <img src="https://flagcdn.com/w40/{{ $currentFlag }}.png" class="flag-circle" alt="">
                         <i class="bi bi-chevron-down"></i>
                     </div>
 
@@ -74,8 +80,14 @@
                         {{ range $.AllTranslations }}
                         <li>
                             <a href="{{ .Permalink }}" class="{{ if eq .Lang $.Lang }}active{{ end }}">
-                                <img src='https://flagcdn.com/w40/{{ if eq .Lang "en" }}us{{ else }}{{ .Lang }}{{ end }}.png'
-                                     class="flag-small" alt="">
+                                {{/* Define list items flag logic */}}
+                                {{ $itemFlag := .Lang }}
+                                {{ if eq .Lang "en" }}{{ $itemFlag = "us" }}
+                                {{ else if eq .Lang "ar" }}{{ $itemFlag = "sa" }}
+                                {{ else if eq .Lang "zh" }}{{ $itemFlag = "cn" }}
+                                {{ end }}
+
+                                <img src="https://flagcdn.com/w40/{{ $itemFlag }}.png" class="flag-small" alt="">
                                 {{ .Language.LanguageName }}
                             </a>
                         </li>

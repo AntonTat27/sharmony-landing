@@ -1,20 +1,20 @@
 title = "Menu localization"
 [[items]]
 id = "about"
-text = "Accueil"
+text = "首页"
 
 [[items]]
 id = "investors"
-text = "Investisseurs"
+text = "投资者"
 
 [[items]]
 id = "partners"
-text = "Partenaires"
+text = "合作伙伴"
 
 [[items]]
 id = "marketplace"
-text = "Marché"
+text = "交易市场"
 
 [[items]]
 id = "wallet"
-text = "Acheter Token"
+text = "购买代币"

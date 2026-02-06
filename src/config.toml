@@ -25,6 +25,18 @@ weight = 3
 languageName = 'Français'
 contentDir = 'content/fr'
 weight = 4
+[languages.es]
+languageName = 'Español'
+contentDir = 'content/es'
+weight = 5
+[languages.ar]
+languageName = 'العربية'
+contentDir = 'content/ar'
+weight = 6
+[languages.zh]
+languageName = '中文'
+contentDir = 'content/zh'
+weight = 7
 
 # 2. MENU STRUCTURE
 # This defines the navigation for all pages

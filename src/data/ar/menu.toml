@@ -1,20 +1,20 @@
 title = "Menu localization"
 [[items]]
 id = "about"
-text = "Accueil"
+text = "الرئيسية"
 
 [[items]]
 id = "investors"
-text = "Investisseurs"
+text = "المستثمرون"
 
 [[items]]
 id = "partners"
-text = "Partenaires"
+text = "الشركاء"
 
 [[items]]
 id = "marketplace"
-text = "Marché"
+text = "السوق"
 
 [[items]]
 id = "wallet"
-text = "Acheter Token"
+text = "شراء الرمز"
