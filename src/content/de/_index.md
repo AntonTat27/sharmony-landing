@@ -2,7 +2,6 @@
 type: common
 title: SHARMONY
 
-banner_text: Special offer for our English community!
-banner_cta: Learn More
+banner_text: Sonderangebot für unsere englischsprachige Community!
+banner_cta: Mehr erfahren
 ---
-

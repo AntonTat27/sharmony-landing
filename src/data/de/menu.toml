@@ -1,1 +1,20 @@
+title = "Menü-Lokalisierung"
+[[items]]
+id = "about"
+text = "Startseite"
 
+[[items]]
+id = "investors"
+text = "Investoren"
+
+[[items]]
+id = "partners"
+text = "Partner"
+
+[[items]]
+id = "marketplace"
+text = "Marktplatz"
+
+[[items]]
+id = "wallet"
+text = "Token kaufen"

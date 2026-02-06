@@ -1,6 +1,5 @@
 ---
 type: common
-banner_text: Special offer for our English community!
-banner_cta: Learn More
+banner_text: Offre spéciale pour notre communauté anglophone !
+banner_cta: En savoir plus
 ---
-
