@@ -13,17 +13,17 @@ defaultContentLanguage = 'en'
 languageName = 'English'
 contentDir = 'content/en'
 weight = 1
-[languages.ru]
-languageName = 'Русский'
-contentDir = 'content/ru'
-weight = 2
 [languages.zh]
 languageName = '中文'
 contentDir = 'content/zh'
-weight = 3
+weight = 2
 [languages.ar]
 languageName = 'العربية'
 contentDir = 'content/ar'
+weight = 3
+[languages.ru]
+languageName = 'Русский'
+contentDir = 'content/ru'
 weight = 4
 [languages.de]
 languageName = 'Deutsch'

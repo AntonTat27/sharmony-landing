@@ -1,75 +1,87 @@
-<!-- CONTACT US -->
-<section class="bg-neutral-950 text-white border-t border-neutral-900">
-    <div class="max-w-6xl mx-auto px-6 py-28">
-        <h2 class="text-4xl font-semibold mb-12">Contact Us</h2>
+<section id="contact" class="contact-section">
+    <div class="container">
+        <div class="contact-grid">
+            <div class="contact-card">
+                <h2 class="contact-title">Contact Us</h2>
+                <p class="contact-subtitle">Let's build something harmonious together.</p>
 
-
-        <div class="grid md:grid-cols-2 gap-12">
-
-
-            <!-- FORM -->
-            <form class="space-y-5">
-                <select class="w-full bg-neutral-900 border border-neutral-800 rounded-xl p-4" required>
-                    <option value="">User type</option>
-                    <option>Investor</option>
-                    <option>Partner</option>
-                </select>
-
-
-                <input type="text" placeholder="Name / Nickname" required
-                    class="w-full bg-neutral-900 border border-neutral-800 rounded-xl p-4" />
-                <input type="email" placeholder="Email" required
-                    class="w-full bg-neutral-900 border border-neutral-800 rounded-xl p-4" />
-                <input type="tel" placeholder="Phone (with country code)"
-                    class="w-full bg-neutral-900 border border-neutral-800 rounded-xl p-4" />
-                <input type="text" placeholder="Telegram nickname"
-                    class="w-full bg-neutral-900 border border-neutral-800 rounded-xl p-4" />
-                <input type="text" placeholder="Discord nickname"
-                    class="w-full bg-neutral-900 border border-neutral-800 rounded-xl p-4" />
-                <input type="text" placeholder="Company name (optional)"
-                    class="w-full bg-neutral-900 border border-neutral-800 rounded-xl p-4" />
-
-
-                <textarea placeholder="Your question" rows="4"
-                    class="w-full bg-neutral-900 border border-neutral-800 rounded-xl p-4"></textarea>
-
-
-                <button class="bg-cyan-400 text-black font-medium px-8 py-4 rounded-xl hover:bg-cyan-300 transition">
-                    Send message
-                </button>
-            </form>
-
-
-            <!-- CONTACT INFO -->
-            <div class="space-y-6 text-neutral-400">
-                <div>
-                    <div class="font-medium text-white">Email</div>
-                    info@sharmony.io<br />partners@sharmony.io
-                </div>
-
-
-                <div>
-                    <div class="font-medium text-white">Offices</div>
-                    Dubai · Singapore · Europe
-                </div>
-
-
-                <div>
-                    <div class="font-medium text-white">Social</div>
-                    <div class="flex gap-4 mt-2">
-                        <a href="#" class="hover:text-cyan-400">Twitter</a>
-                        <a href="#" class="hover:text-cyan-400">Telegram</a>
-                        <a href="#" class="hover:text-cyan-400">LinkedIn</a>
-                        <a href="#" class="hover:text-cyan-400">Discord</a>
+                <form action="#" method="POST" class="contact-form">
+                    <div class="profile-switcher-container">
+                        <span class="switcher-label">I AM AN...</span>
+                        <div class="profile-switcher">
+                            <input type="radio" id="investor" name="client_type" value="investor" checked>
+                            <label for="investor" class="switch-option">Investor</label>
+                            <input type="radio" id="partner" name="client_type" value="partner">
+                            <label for="partner" class="switch-option">Partner</label>
+                            <div class="profile-slider"></div>
+                        </div>
                     </div>
-                </div>
 
+                    <div class="form-grid">
+                        <div class="form-group">
+                            <label for="name">Name</label>
+                            <input type="text" id="name" name="name" placeholder="Your Name" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="email">Email</label>
+                            <input type="email" id="email" name="email" placeholder="Your Email" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="phone">Phone <span class="optional">(Optional)</span></label>
+                            <input type="tel" id="phone" name="phone" placeholder="+1 234 ...">
+                        </div>
+                        <div class="form-group">
+                            <label for="company">Company <span class="optional">(Optional)</span></label>
+                            <input type="text" id="company" name="company" placeholder="Company Name">
+                        </div>
+                    </div>
 
-                <div class="mt-8 text-sm">
-                    Connecting investors, partners and properties worldwide.
-                </div>
+                    <div class="form-group full-width">
+                        <label for="message">Message</label>
+                        <textarea id="message" name="message" rows="4" placeholder="How can we help?" required></textarea>
+                    </div>
+
+                    <button type="submit" class="contact-btn">SEND MESSAGE</button>
+                </form>
             </div>
 
+            <div class="contact-info-stack">
+                <div class="brand-card">
+                    <div class="brand-main-content">
+                        <div class="brand-footer">SHARMONY</div>
+
+                        <div class="info-card">
+                            <span class="card-tag">Socials</span>
+                            <h3>STAY CONNECTED</h3>
+                            <div class="card-links">
+                                <a href="#">LinkedIn</a>
+                                <a href="#">Twitter/X</a>
+                            </div>
+                        </div>
+
+                        <div class="info-card">
+                            <span class="card-tag">Direct</span>
+                            <h3>CHATS & SUPPORT</h3>
+                            <div class="card-links">
+                                <a href="#">Telegram</a>
+                                <a href="#">Discord</a>
+                            </div>
+                        </div>
+
+                        <div class="info-card">
+                            <span class="card-tag">Insights</span>
+                            <h3>READ OUR MEDIUM</h3>
+                            <p>Deep dives into digital harmony.</p>
+                            <a href="#" class="card-link-arrow">Read Blog →</a>
+                        </div>
+                    </div>
+
+                    <div class="footer-wrapper">
+                        <p class="footer-tagline">Digital Harmony for Creators</p>
+                        <div class="footer-dot"></div>
+                    </div>
+                </div>
+            </div>
         </div>
     </div>
 </section>

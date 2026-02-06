@@ -13,6 +13,9 @@
     {{ $main := resources.Get "css/main.css" | minify | fingerprint }}
     <link rel="stylesheet" href="{{ $main.Permalink }}">
 
+    {{ $main := resources.Get "css/contact_us.css" | minify | fingerprint }}
+    <link rel="stylesheet" href="{{ $main.Permalink }}">
+
     {{ $footer := resources.Get "css/footer.css" | minify | fingerprint }}
     <link rel="stylesheet" href="{{ $footer.Permalink }}">
 
