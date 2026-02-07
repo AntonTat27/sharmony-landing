@@ -8,5 +8,5 @@
 {{ partial "how-it-works.html" (site.GetPage "main_how-it-works") }}
 {{ partial "recommendations.html" (site.GetPage "main_recommendations") }}
 {{ partial "faq.html" (site.GetPage "main_faq") }}
-{{ partial "contact-us.html" . }}
+{{ partial "contact-us.html" (site.GetPage "main_contact_us") }}
 {{ end }}
