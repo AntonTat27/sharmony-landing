@@ -1,57 +1,57 @@
 <!-- FAQ -->
-<section class="bg-neutral-950 text-white border-t border-neutral-900">
-    <div class="max-w-5xl mx-auto px-6 py-28">
-        <h2 class="text-4xl font-semibold mb-12">{{ .Params.faq_h1}}</h2>
+<section class="faq-section">
+    <div class="faq-container">
+        <h2 class="faq-title">{{ .Params.faq_h1}}</h2>
 
 
-        <div class="space-y-4">
+        <div class="faq-list">
             <!-- FAQ item -->
-            <details class="group border border-neutral-800 rounded-xl p-5 bg-neutral-900/50">
-                <summary class="cursor-pointer font-medium list-none flex justify-between items-center">
+            <details class="faq-item">
+                <summary class="faq-question">
                     {{ .Params.faq_item_1_1 }}
-                    <span class="text-cyan-400 group-open:rotate-45 transition">+</span>
+                    <span class="faq-icon">+</span>
                 </summary>
-                <p class="text-neutral-400 mt-4">{{ .Params.faq_item_1_2 }}</p>
+                <p class="faq-answer">{{ .Params.faq_item_1_2 }}</p>
             </details>
 
-            <details class="group border border-neutral-800 rounded-xl p-5 bg-neutral-900/50">
-                <summary class="cursor-pointer font-medium list-none flex justify-between items-center">
+            <details class="faq-item">
+                <summary class="faq-question">
                     {{ .Params.faq_item_2_1 }}
-                    <span class="text-cyan-400 group-open:rotate-45 transition">+</span>
+                    <span class="faq-icon">+</span>
                 </summary>
-                <p class="text-neutral-400 mt-4">{{ .Params.faq_item_2_2 }}</p>
+                <p class="faq-answer">{{ .Params.faq_item_2_2 }}</p>
             </details>
 
-            <details class="group border border-neutral-800 rounded-xl p-5 bg-neutral-900/50">
-                <summary class="cursor-pointer font-medium list-none flex justify-between items-center">
+            <details class="faq-item">
+                <summary class="faq-question">
                     {{ .Params.faq_item_3_1 }}
-                    <span class="text-cyan-400 group-open:rotate-45 transition">+</span>
+                    <span class="faq-icon">+</span>
                 </summary>
-                <p class="text-neutral-400 mt-4">{{ .Params.faq_item_3_2 }}</p>
+                <p class="faq-answer">{{ .Params.faq_item_3_2 }}</p>
             </details>
 
-            <details class="group border border-neutral-800 rounded-xl p-5 bg-neutral-900/50">
-                <summary class="cursor-pointer font-medium list-none flex justify-between items-center">
+            <details class="faq-item">
+                <summary class="faq-question">
                     {{ .Params.faq_item_4_1 }}
-                    <span class="text-cyan-400 group-open:rotate-45 transition">+</span>
+                    <span class="faq-icon">+</span>
                 </summary>
-                <p class="text-neutral-400 mt-4">{{ .Params.faq_item_4_2 }}</p>
+                <p class="faq-answer">{{ .Params.faq_item_4_2 }}</p>
             </details>
 
-            <details class="group border border-neutral-800 rounded-xl p-5 bg-neutral-900/50">
-                <summary class="cursor-pointer font-medium list-none flex justify-between items-center">
+            <details class="faq-item">
+                <summary class="faq-question">
                     {{ .Params.faq_item_5_1 }}
-                    <span class="text-cyan-400 group-open:rotate-45 transition">+</span>
+                    <span class="faq-icon">+</span>
                 </summary>
-                <p class="text-neutral-400 mt-4">{{ .Params.faq_item_5_2 }}</p>
+                <p class="faq-answer">{{ .Params.faq_item_5_2 }}</p>
             </details>
 
-            <details class="group border border-neutral-800 rounded-xl p-5 bg-neutral-900/50">
-                <summary class="cursor-pointer font-medium list-none flex justify-between items-center">
+            <details class="faq-item">
+                <summary class="faq-question">
                     {{ .Params.faq_item_6_1 }}
-                    <span class="text-cyan-400 group-open:rotate-45 transition">+</span>
+                    <span class="faq-icon">+</span>
                 </summary>
-                <p class="text-neutral-400 mt-4">{{ .Params.faq_item_6_2 }}</p>
+                <p class="faq-answer">{{ .Params.faq_item_6_2 }}</p>
             </details>
         </div>
     </div>

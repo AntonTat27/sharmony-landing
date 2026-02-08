@@ -1,56 +1,56 @@
-<section class="bg-neutral-950 text-white border-t border-neutral-900">
-    <div class="max-w-7xl mx-auto px-6 py-20 space-y-16">
+<section class="numbers-section">
+    <div class="numbers-container">
         <!-- TITLE ABOVE NUMBERS -->
         <div>
-            <h2 class="text-xl sm:text-2xl font-medium text-neutral-300">
+            <h2 class="numbers-title">
                 {{ .Params.numbers_h1 }}
             </h2>
         </div>
 
         <!-- MARQUEE NUMBERS -->
-        <div class="relative overflow-hidden border-y border-neutral-900 py-10">
-            <div class="flex gap-12 animate-marquee whitespace-nowrap">
+        <div class="numbers-marquee-wrapper">
+            <div class="numbers-marquee">
 
                 <!-- ITEM -->
-                <div class="flex items-center gap-3">
-                    <span class="text-4xl font-semibold">{{ .Params.numbers_item_1_1 }}</span>
-                    <span class="text-neutral-400">{{ .Params.numbers_item_1_2 }}</span>
+                <div class="numbers-item">
+                    <span class="numbers-value">{{ .Params.numbers_item_1_1 }}</span>
+                    <span class="numbers-label">{{ .Params.numbers_item_1_2 }}</span>
                 </div>
 
-                <div class="flex items-center gap-3">
-                    <span class="text-4xl font-semibold">{{ .Params.numbers_item_2_1 }}</span>
-                    <span class="text-neutral-400">{{ .Params.numbers_item_2_2 }}</span>
+                <div class="numbers-item">
+                    <span class="numbers-value">{{ .Params.numbers_item_2_1 }}</span>
+                    <span class="numbers-label">{{ .Params.numbers_item_2_2 }}</span>
                 </div>
 
-                <div class="flex items-center gap-3">
-                    <span class="text-4xl font-semibold">{{ .Params.numbers_item_3_1 }}</span>
-                    <span class="text-neutral-400">{{ .Params.numbers_item_3_2 }}</span>
+                <div class="numbers-item">
+                    <span class="numbers-value">{{ .Params.numbers_item_3_1 }}</span>
+                    <span class="numbers-label">{{ .Params.numbers_item_3_2 }}</span>
                 </div>
 
-                <div class="flex items-center gap-3">
-                    <span class="text-4xl font-semibold">{{ .Params.numbers_item_4_1 }}</span>
-                    <span class="text-neutral-400">{{ .Params.numbers_item_4_2 }}</span>
+                <div class="numbers-item">
+                    <span class="numbers-value">{{ .Params.numbers_item_4_1 }}</span>
+                    <span class="numbers-label">{{ .Params.numbers_item_4_2 }}</span>
                 </div>
 
-                <div class="flex items-center gap-3">
-                    <span class="text-4xl font-semibold">{{ .Params.numbers_item_5_1 }}</span>
-                    <span class="text-neutral-400">{{ .Params.numbers_item_5_2 }}</span>
+                <div class="numbers-item">
+                    <span class="numbers-value">{{ .Params.numbers_item_5_1 }}</span>
+                    <span class="numbers-label">{{ .Params.numbers_item_5_2 }}</span>
                 </div>
 
-                <div class="flex items-center gap-3">
-                    <span class="text-4xl font-semibold">{{ .Params.numbers_item_6_1 }}</span>
-                    <span class="text-neutral-400">{{ .Params.numbers_item_6_2 }}</span>
+                <div class="numbers-item">
+                    <span class="numbers-value">{{ .Params.numbers_item_6_1 }}</span>
+                    <span class="numbers-label">{{ .Params.numbers_item_6_2 }}</span>
                 </div>
 
                 <!-- DUPLICATE SET FOR SMOOTH LOOP -->
-                <div class="flex items-center gap-3">
-                    <span class="text-4xl font-semibold">{{ .Params.numbers_item_7_1 }}</span>
-                    <span class="text-neutral-400">{{ .Params.numbers_item_7_2 }}</span>
+                <div class="numbers-item">
+                    <span class="numbers-value">{{ .Params.numbers_item_7_1 }}</span>
+                    <span class="numbers-label">{{ .Params.numbers_item_7_2 }}</span>
                 </div>
 
-                <div class="flex items-center gap-3">
-                    <span class="text-4xl font-semibold">{{ .Params.numbers_item_8_1 }}</span>
-                    <span class="text-neutral-400">{{ .Params.numbers_item_8_2 }}</span>
+                <div class="numbers-item">
+                    <span class="numbers-value">{{ .Params.numbers_item_8_1 }}</span>
+                    <span class="numbers-label">{{ .Params.numbers_item_8_2 }}</span>
                 </div>
 
             </div>
@@ -58,19 +58,3 @@
 
     </div>
 </section>
-
-<style>
-    @keyframes marquee {
-        0% {
-            transform: translateX(0);
-        }
-
-        100% {
-            transform: translateX(-50%);
-        }
-    }
-
-    .animate-marquee {
-        animation: marquee 30s linear infinite;
-    }
-</style>

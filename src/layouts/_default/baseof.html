@@ -7,14 +7,41 @@
     <title>{{ .Params.Title }} | {{ .Site.Title }}</title>
     <script src="https://cdn.tailwindcss.com"></script>
 
-    {{ $header := resources.Get "css/header.css" | minify | fingerprint }}
-    <link rel="stylesheet" href="{{ $header.Permalink }}">
-
     {{ $main := resources.Get "css/main.css" | minify | fingerprint }}
     <link rel="stylesheet" href="{{ $main.Permalink }}">
 
-    {{ $main := resources.Get "css/contact_us.css" | minify | fingerprint }}
-    <link rel="stylesheet" href="{{ $main.Permalink }}">
+    {{ $header := resources.Get "css/header.css" | minify | fingerprint }}
+    <link rel="stylesheet" href="{{ $header.Permalink }}">
+
+    {{ $hero := resources.Get "css/hero.css" | minify | fingerprint }}
+    <link rel="stylesheet" href="{{ $hero.Permalink }}">
+
+    {{ $slogan := resources.Get "css/slogan.css" | minify | fingerprint }}
+    <link rel="stylesheet" href="{{ $slogan.Permalink }}">
+
+    {{ $numbers := resources.Get "css/numbers.css" | minify | fingerprint }}
+    <link rel="stylesheet" href="{{ $numbers.Permalink }}">
+
+    {{ $audience := resources.Get "css/audience.css" | minify | fingerprint }}
+    <link rel="stylesheet" href="{{ $audience.Permalink }}">
+
+    {{ $locations := resources.Get "css/locations.css" | minify | fingerprint }}
+    <link rel="stylesheet" href="{{ $locations.Permalink }}">
+
+    {{ $advantages := resources.Get "css/advantages.css" | minify | fingerprint }}
+    <link rel="stylesheet" href="{{ $advantages.Permalink }}">
+
+    {{ $howItWorks := resources.Get "css/how-it-works.css" | minify | fingerprint }}
+    <link rel="stylesheet" href="{{ $howItWorks.Permalink }}">
+
+    {{ $recommendations := resources.Get "css/recommendations.css" | minify | fingerprint }}
+    <link rel="stylesheet" href="{{ $recommendations.Permalink }}">
+
+    {{ $faq := resources.Get "css/faq.css" | minify | fingerprint }}
+    <link rel="stylesheet" href="{{ $faq.Permalink }}">
+
+    {{ $contact := resources.Get "css/contact_us.css" | minify | fingerprint }}
+    <link rel="stylesheet" href="{{ $contact.Permalink }}">
 
     {{ $footer := resources.Get "css/footer.css" | minify | fingerprint }}
     <link rel="stylesheet" href="{{ $footer.Permalink }}">

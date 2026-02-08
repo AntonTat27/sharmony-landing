@@ -1,142 +1,132 @@
-<section class="bg-neutral-950 text-white border-t border-neutral-900">
-    <div class="max-w-7xl mx-auto px-6 py-24 space-y-20">
+<section class="audience-section">
+    <div class="audience-container">
 
         <!-- HEADINGS -->
-        <div class="max-w-3xl mx-auto text-center space-y-6">
-            <h2 class="text-4xl sm:text-5xl font-semibold leading-tight">
+        <div class="audience-header">
+            <h2 class="audience-title">
                 {{ .Params.audience_h1 }}
-                <span class="text-neutral-400">
+                <span class="audience-title-secondary">
                     {{ .Params.audience_h2 }}
                 </span>
             </h2>
 
-            <p class="text-lg text-neutral-400">
+            <p class="audience-description">
                 {{ .Params.audience_h3 }}
             </p>
 
-            <div class="pt-4 text-xl font-medium tracking-wide text-cyan-400">
+            <div class="audience-highlight">
                 {{ .Params.audience_h4 }}
             </div>
         </div>
 
         <!-- AUDIENCE BLOCKS -->
-        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+        <div class="audience-grid">
 
             <!-- BLOCK -->
-            <div class="group p-8 rounded-2xl border border-neutral-800 bg-neutral-900/40
-               hover:border-cyan-400/50 transition relative overflow-hidden">
-                <div class="flex items-center gap-4">
-                    <div class="w-10 h-10 rounded-xl border border-neutral-700 flex items-center justify-center
-                   group-hover:border-cyan-400/50 transition">
+            <div class="audience-card">
+                <div class="audience-card-header">
+                    <div class="audience-card-icon">
                         <!-- icon -->
-                        <svg class="w-5 h-5 text-cyan-400" fill="none" stroke="currentColor" stroke-width="1.5"
-                             viewBox="0 0 24 24">
+                        <svg fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24">
                             <path d="M12 3v18M3 12h18"/>
                         </svg>
                     </div>
-                    <h3 class="text-xl font-medium group-hover:text-cyan-400 transition">
+                    <h3 class="audience-card-title">
                         {{ .Params.audience_item_1_1 }}
                     </h3>
                 </div>
 
-                <p class="mt-5 text-sm text-neutral-400 opacity-0 translate-y-2
-                 group-hover:opacity-100 group-hover:translate-y-0
-                 transition duration-300">
+                <p class="audience-card-description">
                     {{ .Params.audience_item_1_2 }}
                 </p>
             </div>
 
             <!-- Real Estate Sellers -->
-            <div class="group p-8 rounded-2xl border border-neutral-800 bg-neutral-900/40 hover:border-cyan-400/50 transition">
-                <div class="flex items-center gap-4">
-                    <div class="w-10 h-10 rounded-xl border border-neutral-700 flex items-center justify-center group-hover:border-cyan-400/50 transition">
-                        <svg class="w-5 h-5 text-cyan-400" fill="none" stroke="currentColor" stroke-width="1.5"
-                             viewBox="0 0 24 24">
+            <div class="audience-card">
+                <div class="audience-card-header">
+                    <div class="audience-card-icon">
+                        <svg fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24">
                             <path d="M3 10l9-7 9 7v10a2 2 0 0 1-2 2h-4"/>
                         </svg>
                     </div>
-                    <h3 class="text-xl font-medium group-hover:text-cyan-400 transition">
+                    <h3 class="audience-card-title">
                         {{ .Params.audience_item_2_1 }}
                     </h3>
                 </div>
 
-                <p class="mt-5 text-sm text-neutral-400 opacity-0 translate-y-2 group-hover:opacity-100 group-hover:translate-y-0 transition duration-300">
+                <p class="audience-card-description">
                     {{ .Params.audience_item_2_2 }}
                 </p>
             </div>
 
             <!-- Buyers -->
-            <div class="group p-8 rounded-2xl border border-neutral-800 bg-neutral-900/40 hover:border-cyan-400/50 transition">
-                <div class="flex items-center gap-4">
-                    <div class="w-10 h-10 rounded-xl border border-neutral-700 flex items-center justify-center group-hover:border-cyan-400/50 transition">
-                        <svg class="w-5 h-5 text-cyan-400" fill="none" stroke="currentColor" stroke-width="1.5"
-                             viewBox="0 0 24 24">
+            <div class="audience-card">
+                <div class="audience-card-header">
+                    <div class="audience-card-icon">
+                        <svg fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24">
                             <path d="M16 12a4 4 0 1 1-8 0 4 4 0 0 1 8 0z"/>
                         </svg>
                     </div>
-                    <h3 class="text-xl font-medium group-hover:text-cyan-400 transition">
+                    <h3 class="audience-card-title">
                         {{ .Params.audience_item_3_1 }}
                     </h3>
                 </div>
 
-                <p class="mt-5 text-sm text-neutral-400 opacity-0 translate-y-2 group-hover:opacity-100 group-hover:translate-y-0 transition duration-300">
+                <p class="audience-card-description">
                     {{ .Params.audience_item_3_2 }}
                 </p>
             </div>
 
             <!-- Investors -->
-            <div class="group p-8 rounded-2xl border border-neutral-800 bg-neutral-900/40 hover:border-cyan-400/50 transition">
-                <div class="flex items-center gap-4">
-                    <div class="w-10 h-10 rounded-xl border border-neutral-700 flex items-center justify-center group-hover:border-cyan-400/50 transition">
-                        <svg class="w-5 h-5 text-cyan-400" fill="none" stroke="currentColor" stroke-width="1.5"
-                             viewBox="0 0 24 24">
+            <div class="audience-card">
+                <div class="audience-card-header">
+                    <div class="audience-card-icon">
+                        <svg fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24">
                             <path d="M4 19V5m6 14V9m6 10V3"/>
                         </svg>
                     </div>
-                    <h3 class="text-xl font-medium group-hover:text-cyan-400 transition">
+                    <h3 class="audience-card-title">
                         {{ .Params.audience_item_4_1 }}
                     </h3>
                 </div>
 
-                <p class="mt-5 text-sm text-neutral-400 opacity-0 translate-y-2 group-hover:opacity-100 group-hover:translate-y-0 transition duration-300">
+                <p class="audience-card-description">
                     {{ .Params.audience_item_4_2 }}
                 </p>
             </div>
 
             <!-- Partners -->
-            <div class="group p-8 rounded-2xl border border-neutral-800 bg-neutral-900/40 hover:border-cyan-400/50 transition">
-                <div class="flex items-center gap-4">
-                    <div class="w-10 h-10 rounded-xl border border-neutral-700 flex items-center justify-center group-hover:border-cyan-400/50 transition">
-                        <svg class="w-5 h-5 text-cyan-400" fill="none" stroke="currentColor" stroke-width="1.5"
-                             viewBox="0 0 24 24">
+            <div class="audience-card">
+                <div class="audience-card-header">
+                    <div class="audience-card-icon">
+                        <svg fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24">
                             <path d="M12 6v6l4 2"/>
                         </svg>
                     </div>
-                    <h3 class="text-xl font-medium group-hover:text-cyan-400 transition">
+                    <h3 class="audience-card-title">
                         {{ .Params.audience_item_5_1 }}
                     </h3>
                 </div>
 
-                <p class="mt-5 text-sm text-neutral-400 opacity-0 translate-y-2 group-hover:opacity-100 group-hover:translate-y-0 transition duration-300">
+                <p class="audience-card-description">
                     {{ .Params.audience_item_5_2 }}
                 </p>
             </div>
 
             <!-- Travellers -->
-            <div class="group p-8 rounded-2xl border border-neutral-800 bg-neutral-900/40 hover:border-cyan-400/50 transition">
-                <div class="flex items-center gap-4">
-                    <div class="w-10 h-10 rounded-xl border border-neutral-700 flex items-center justify-center group-hover:border-cyan-400/50 transition">
-                        <svg class="w-5 h-5 text-cyan-400" fill="none" stroke="currentColor" stroke-width="1.5"
-                             viewBox="0 0 24 24">
+            <div class="audience-card">
+                <div class="audience-card-header">
+                    <div class="audience-card-icon">
+                        <svg fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24">
                             <path d="M2 12h20M12 2v20"/>
                         </svg>
                     </div>
-                    <h3 class="text-xl font-medium group-hover:text-cyan-400 transition">
+                    <h3 class="audience-card-title">
                         {{ .Params.audience_item_6_1 }}
                     </h3>
                 </div>
 
-                <p class="mt-5 text-sm text-neutral-400 opacity-0 translate-y-2 group-hover:opacity-100 group-hover:translate-y-0 transition duration-300">
+                <p class="audience-card-description">
                     {{ .Params.audience_item_6_2 }}
                 </p>
             </div>

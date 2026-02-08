@@ -1,218 +1,208 @@
-<section class="bg-neutral-950 text-white border-t border-neutral-900">
-    <div class="max-w-7xl mx-auto px-6 py-28 space-y-12">
+<section class="locations-section">
+    <div class="locations-container">
 
         <!-- SECTION HEADING -->
-        <div class="max-w-3xl">
-            <h2 class="text-4xl font-semibold leading-tight">
+        <div class="locations-header">
+            <h2 class="locations-title">
                 {{ .Params.locations_h1 }}
-                <span class="text-neutral-400">
+                <span class="locations-title-secondary">
                     {{ .Params.locations_h2 }}
                 </span>
             </h2>
-            <p class="mt-4 text-lg text-neutral-400">
+            <p class="locations-description">
                 {{ .Params.locations_h3 }}
             </p>
         </div>
 
         <!-- SLIDER -->
-        <div class="relative">
-            <div class="flex gap-6 overflow-x-auto pb-6 snap-x snap-mandatory scrollbar-hide">
+        <div class="locations-slider">
+            <div class="locations-slider-wrapper">
 
                 <!-- UAE -->
-                <div
-                    class="snap-start min-w-[85%] sm:min-w-[70%] lg:min-w-[55%] relative rounded-3xl overflow-hidden border border-neutral-800">
+                <div class="locations-card">
                     <img src="/images/uae.jpg" alt='{{ printf "%s real estate" .Params.locations_item_1_1 }}'
-                        class="absolute inset-0 w-full h-full object-cover" />
-                    <div class="absolute inset-0 bg-gradient-to-t from-neutral-950 via-neutral-950/70 to-transparent">
-                    </div>
+                        class="locations-card-img" />
+                    <div class="locations-card-gradient"></div>
 
-                    <div class="relative p-8 lg:p-10 space-y-6">
-                        <h3 class="text-3xl font-semibold">{{ .Params.locations_item_1_1 }}</h3>
+                    <div class="locations-card-content">
+                        <h3 class="locations-card-title">{{ .Params.locations_item_1_1 }}</h3>
 
-                        <div class="grid grid-cols-2 gap-x-6 gap-y-4 text-sm">
+                        <div class="locations-card-grid">
                             <div>
-                                <div class="text-neutral-400">{{ .Params.locations_item_1_2 }}</div>
-                                <div>{{ .Params.locations_item_1_3 }}</div>
+                                <div class="locations-card-label">{{ .Params.locations_item_1_2 }}</div>
+                                <div class="locations-card-value">{{ .Params.locations_item_1_3 }}</div>
                             </div>
                             <div>
-                                <div class="text-neutral-400">{{ .Params.locations_item_1_4 }}</div>
-                                <div>{{ .Params.locations_item_1_5 }}</div>
+                                <div class="locations-card-label">{{ .Params.locations_item_1_4 }}</div>
+                                <div class="locations-card-value">{{ .Params.locations_item_1_5 }}</div>
                             </div>
                             <div>
-                                <div class="text-neutral-400">{{ .Params.locations_item_1_6 }}</div>
-                                <div>{{ .Params.locations_item_1_7 }}</div>
+                                <div class="locations-card-label">{{ .Params.locations_item_1_6 }}</div>
+                                <div class="locations-card-value">{{ .Params.locations_item_1_7 }}</div>
                             </div>
                             <div>
-                                <div class="text-neutral-400">{{ .Params.locations_item_1_8 }}</div>
-                                <div>{{ .Params.locations_item_1_9 }}</div>
+                                <div class="locations-card-label">{{ .Params.locations_item_1_8 }}</div>
+                                <div class="locations-card-value">{{ .Params.locations_item_1_9 }}</div>
                             </div>
                             <div>
-                                <div class="text-neutral-400">{{ .Params.locations_item_1_10 }}</div>
-                                <div>{{ .Params.locations_item_1_11 }}</div>
+                                <div class="locations-card-label">{{ .Params.locations_item_1_10 }}</div>
+                                <div class="locations-card-value">{{ .Params.locations_item_1_11 }}</div>
                             </div>
                             <div>
-                                <div class="text-neutral-400">{{ .Params.locations_item_1_12 }}</div>
-                                <div>{{ .Params.locations_item_1_13 }}</div>
+                                <div class="locations-card-label">{{ .Params.locations_item_1_12 }}</div>
+                                <div class="locations-card-value">{{ .Params.locations_item_1_13 }}</div>
                             </div>
                         </div>
                     </div>
                 </div>
 
                 <!-- THAILAND -->
-                <div
-                        class="snap-start min-w-[85%] sm:min-w-[70%] lg:min-w-[55%] relative rounded-3xl overflow-hidden border border-neutral-800">
+                <div class="locations-card">
                     <img src="/images/thailand.jpg" alt='{{ printf "%s real estate" .Params.locations_item_2_1 }}'
-                         class="absolute inset-0 w-full h-full object-cover" />
-                    <div class="absolute inset-0 bg-gradient-to-t from-neutral-950 via-neutral-950/70 to-transparent">
-                    </div>
+                         class="locations-card-img" />
+                    <div class="locations-card-gradient"></div>
 
-                    <div class="relative p-8 lg:p-10 space-y-6">
-                        <h3 class="text-3xl font-semibold">{{ .Params.locations_item_2_1 }}</h3>
+                    <div class="locations-card-content">
+                        <h3 class="locations-card-title">{{ .Params.locations_item_2_1 }}</h3>
 
-                        <div class="grid grid-cols-2 gap-x-6 gap-y-4 text-sm">
+                        <div class="locations-card-grid">
                             <div>
-                                <div class="text-neutral-400">{{ .Params.locations_item_2_2 }}</div>
-                                <div>{{ .Params.locations_item_2_3 }}</div>
+                                <div class="locations-card-label">{{ .Params.locations_item_2_2 }}</div>
+                                <div class="locations-card-value">{{ .Params.locations_item_2_3 }}</div>
                             </div>
                             <div>
-                                <div class="text-neutral-400">{{ .Params.locations_item_2_4 }}</div>
-                                <div>{{ .Params.locations_item_2_5 }}</div>
+                                <div class="locations-card-label">{{ .Params.locations_item_2_4 }}</div>
+                                <div class="locations-card-value">{{ .Params.locations_item_2_5 }}</div>
                             </div>
                             <div>
-                                <div class="text-neutral-400">{{ .Params.locations_item_2_6 }}</div>
-                                <div>{{ .Params.locations_item_2_7 }}</div>
+                                <div class="locations-card-label">{{ .Params.locations_item_2_6 }}</div>
+                                <div class="locations-card-value">{{ .Params.locations_item_2_7 }}</div>
                             </div>
                             <div>
-                                <div class="text-neutral-400">{{ .Params.locations_item_2_8 }}</div>
-                                <div>{{ .Params.locations_item_2_9 }}</div>
+                                <div class="locations-card-label">{{ .Params.locations_item_2_8 }}</div>
+                                <div class="locations-card-value">{{ .Params.locations_item_2_9 }}</div>
                             </div>
                             <div>
-                                <div class="text-neutral-400">{{ .Params.locations_item_2_10 }}</div>
-                                <div>{{ .Params.locations_item_2_11 }}</div>
+                                <div class="locations-card-label">{{ .Params.locations_item_2_10 }}</div>
+                                <div class="locations-card-value">{{ .Params.locations_item_2_11 }}</div>
                             </div>
                             <div>
-                                <div class="text-neutral-400">{{ .Params.locations_item_2_12 }}</div>
-                                <div>{{ .Params.locations_item_2_13 }}</div>
+                                <div class="locations-card-label">{{ .Params.locations_item_2_12 }}</div>
+                                <div class="locations-card-value">{{ .Params.locations_item_2_13 }}</div>
                             </div>
                         </div>
                     </div>
                 </div>
 
                 <!-- TURKEY -->
-                <div
-                        class="snap-start min-w-[85%] sm:min-w-[70%] lg:min-w-[55%] relative rounded-3xl overflow-hidden border border-neutral-800">
+                <div class="locations-card">
                     <img src="/images/turkey.jpg" alt='{{ printf "%s real estate" .Params.locations_item_3_1 }}'
-                         class="absolute inset-0 w-full h-full object-cover" />
-                    <div class="absolute inset-0 bg-gradient-to-t from-neutral-950 via-neutral-950/70 to-transparent">
-                    </div>
+                         class="locations-card-img" />
+                    <div class="locations-card-gradient"></div>
 
-                    <div class="relative p-8 lg:p-10 space-y-6">
-                        <h3 class="text-3xl font-semibold">{{ .Params.locations_item_3_1 }}</h3>
+                    <div class="locations-card-content">
+                        <h3 class="locations-card-title">{{ .Params.locations_item_3_1 }}</h3>
 
-                        <div class="grid grid-cols-2 gap-x-6 gap-y-4 text-sm">
+                        <div class="locations-card-grid">
                             <div>
-                                <div class="text-neutral-400">{{ .Params.locations_item_3_2 }}</div>
-                                <div>{{ .Params.locations_item_3_3 }}</div>
+                                <div class="locations-card-label">{{ .Params.locations_item_3_2 }}</div>
+                                <div class="locations-card-value">{{ .Params.locations_item_3_3 }}</div>
                             </div>
                             <div>
-                                <div class="text-neutral-400">{{ .Params.locations_item_3_4 }}</div>
-                                <div>{{ .Params.locations_item_3_5 }}</div>
+                                <div class="locations-card-label">{{ .Params.locations_item_3_4 }}</div>
+                                <div class="locations-card-value">{{ .Params.locations_item_3_5 }}</div>
                             </div>
                             <div>
-                                <div class="text-neutral-400">{{ .Params.locations_item_3_6 }}</div>
-                                <div>{{ .Params.locations_item_3_7 }}</div>
+                                <div class="locations-card-label">{{ .Params.locations_item_3_6 }}</div>
+                                <div class="locations-card-value">{{ .Params.locations_item_3_7 }}</div>
                             </div>
                             <div>
-                                <div class="text-neutral-400">{{ .Params.locations_item_3_8 }}</div>
-                                <div>{{ .Params.locations_item_3_9 }}</div>
+                                <div class="locations-card-label">{{ .Params.locations_item_3_8 }}</div>
+                                <div class="locations-card-value">{{ .Params.locations_item_3_9 }}</div>
                             </div>
                             <div>
-                                <div class="text-neutral-400">{{ .Params.locations_item_3_10 }}</div>
-                                <div>{{ .Params.locations_item_3_11 }}</div>
+                                <div class="locations-card-label">{{ .Params.locations_item_3_10 }}</div>
+                                <div class="locations-card-value">{{ .Params.locations_item_3_11 }}</div>
                             </div>
                             <div>
-                                <div class="text-neutral-400">{{ .Params.locations_item_3_12 }}</div>
-                                <div>{{ .Params.locations_item_3_13 }}</div>
+                                <div class="locations-card-label">{{ .Params.locations_item_3_12 }}</div>
+                                <div class="locations-card-value">{{ .Params.locations_item_3_13 }}</div>
                             </div>
                         </div>
                     </div>
                 </div>
 
                 <!-- INDONESIA -->
-                <div
-                        class="snap-start min-w-[85%] sm:min-w-[70%] lg:min-w-[55%] relative rounded-3xl overflow-hidden border border-neutral-800">
+                <div class="locations-card">
                     <img src="/images/indonesia.jpg" alt='{{ printf "%s real estate" .Params.locations_item_4_1 }}'
-                         class="absolute inset-0 w-full h-full object-cover" />
-                    <div class="absolute inset-0 bg-gradient-to-t from-neutral-950 via-neutral-950/70 to-transparent">
-                    </div>
+                         class="locations-card-img" />
+                    <div class="locations-card-gradient"></div>
 
-                    <div class="relative p-8 lg:p-10 space-y-6">
-                        <h3 class="text-3xl font-semibold">{{ .Params.locations_item_4_1 }}</h3>
+                    <div class="locations-card-content">
+                        <h3 class="locations-card-title">{{ .Params.locations_item_4_1 }}</h3>
 
-                        <div class="grid grid-cols-2 gap-x-6 gap-y-4 text-sm">
+                        <div class="locations-card-grid">
                             <div>
-                                <div class="text-neutral-400">{{ .Params.locations_item_4_2 }}</div>
-                                <div>{{ .Params.locations_item_4_3 }}</div>
+                                <div class="locations-card-label">{{ .Params.locations_item_4_2 }}</div>
+                                <div class="locations-card-value">{{ .Params.locations_item_4_3 }}</div>
                             </div>
                             <div>
-                                <div class="text-neutral-400">{{ .Params.locations_item_4_4 }}</div>
-                                <div>{{ .Params.locations_item_4_5 }}</div>
+                                <div class="locations-card-label">{{ .Params.locations_item_4_4 }}</div>
+                                <div class="locations-card-value">{{ .Params.locations_item_4_5 }}</div>
                             </div>
                             <div>
-                                <div class="text-neutral-400">{{ .Params.locations_item_4_6 }}</div>
-                                <div>{{ .Params.locations_item_4_7 }}</div>
+                                <div class="locations-card-label">{{ .Params.locations_item_4_6 }}</div>
+                                <div class="locations-card-value">{{ .Params.locations_item_4_7 }}</div>
                             </div>
                             <div>
-                                <div class="text-neutral-400">{{ .Params.locations_item_4_8 }}</div>
-                                <div>{{ .Params.locations_item_4_9 }}</div>
+                                <div class="locations-card-label">{{ .Params.locations_item_4_8 }}</div>
+                                <div class="locations-card-value">{{ .Params.locations_item_4_9 }}</div>
                             </div>
                             <div>
-                                <div class="text-neutral-400">{{ .Params.locations_item_4_10 }}</div>
-                                <div>{{ .Params.locations_item_4_11 }}</div>
+                                <div class="locations-card-label">{{ .Params.locations_item_4_10 }}</div>
+                                <div class="locations-card-value">{{ .Params.locations_item_4_11 }}</div>
                             </div>
                             <div>
-                                <div class="text-neutral-400">{{ .Params.locations_item_4_12 }}</div>
-                                <div>{{ .Params.locations_item_4_13 }}</div>
+                                <div class="locations-card-label">{{ .Params.locations_item_4_12 }}</div>
+                                <div class="locations-card-value">{{ .Params.locations_item_4_13 }}</div>
                             </div>
                         </div>
                     </div>
                 </div>
 
                 <!-- GEORGIA -->
-                <div
-                        class="snap-start min-w-[85%] sm:min-w-[70%] lg:min-w-[55%] relative rounded-3xl overflow-hidden border border-neutral-800">
+                <div class="locations-card">
                     <img src="/images/georgia.jpg" alt='{{ printf "%s real estate" .Params.locations_item_5_1 }}'
-                         class="absolute inset-0 w-full h-full object-cover" />
-                    <div class="absolute inset-0 bg-gradient-to-t from-neutral-950 via-neutral-950/70 to-transparent">
-                    </div>
+                         class="locations-card-img" />
+                    <div class="locations-card-gradient"></div>
 
-                    <div class="relative p-8 lg:p-10 space-y-6">
-                        <h3 class="text-3xl font-semibold">{{ .Params.locations_item_5_1 }}</h3>
+                    <div class="locations-card-content">
+                        <h3 class="locations-card-title">{{ .Params.locations_item_5_1 }}</h3>
 
-                        <div class="grid grid-cols-2 gap-x-6 gap-y-4 text-sm">
+                        <div class="locations-card-grid">
                             <div>
-                                <div class="text-neutral-400">{{ .Params.locations_item_5_2 }}</div>
-                                <div>{{ .Params.locations_item_5_3 }}</div>
+                                <div class="locations-card-label">{{ .Params.locations_item_5_2 }}</div>
+                                <div class="locations-card-value">{{ .Params.locations_item_5_3 }}</div>
                             </div>
                             <div>
-                                <div class="text-neutral-400">{{ .Params.locations_item_5_4 }}</div>
-                                <div>{{ .Params.locations_item_5_5 }}</div>
+                                <div class="locations-card-label">{{ .Params.locations_item_5_4 }}</div>
+                                <div class="locations-card-value">{{ .Params.locations_item_5_5 }}</div>
                             </div>
                             <div>
-                                <div class="text-neutral-400">{{ .Params.locations_item_5_6 }}</div>
-                                <div>{{ .Params.locations_item_5_7 }}</div>
+                                <div class="locations-card-label">{{ .Params.locations_item_5_6 }}</div>
+                                <div class="locations-card-value">{{ .Params.locations_item_5_7 }}</div>
                             </div>
                             <div>
-                                <div class="text-neutral-400">{{ .Params.locations_item_5_8 }}</div>
-                                <div>{{ .Params.locations_item_5_9 }}</div>
+                                <div class="locations-card-label">{{ .Params.locations_item_5_8 }}</div>
+                                <div class="locations-card-value">{{ .Params.locations_item_5_9 }}</div>
                             </div>
                             <div>
-                                <div class="text-neutral-400">{{ .Params.locations_item_5_10 }}</div>
-                                <div>{{ .Params.locations_item_5_11 }}</div>
+                                <div class="locations-card-label">{{ .Params.locations_item_5_10 }}</div>
+                                <div class="locations-card-value">{{ .Params.locations_item_5_11 }}</div>
                             </div>
                             <div>
-                                <div class="text-neutral-400">{{ .Params.locations_item_5_12 }}</div>
-                                <div>{{ .Params.locations_item_5_13 }}</div>
+                                <div class="locations-card-label">{{ .Params.locations_item_5_12 }}</div>
+                                <div class="locations-card-value">{{ .Params.locations_item_5_13 }}</div>
                             </div>
                         </div>
                     </div>

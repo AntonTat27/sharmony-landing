@@ -1,0 +1,131 @@
+/* Audience Section - Dark Theme (Section 4 - Even) */
+.audience-section {
+    background-color: #011a1b;
+    color: #FFFFFF;
+    border-top: 1px solid #053B3D;
+}
+
+.audience-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 6rem 1.5rem;
+}
+
+.audience-header {
+    max-width: 48rem;
+    margin: 0 auto;
+    text-align: center;
+    margin-bottom: 5rem;
+}
+
+.audience-title {
+    font-size: clamp(2.5rem, 4vw, 3rem);
+    font-weight: 700;
+    line-height: 1.2;
+    margin-bottom: 1.5rem;
+    color: #FFFFFF;
+}
+
+.audience-title-secondary {
+    color: rgba(255, 255, 255, 0.5);
+}
+
+.audience-description {
+    font-size: 1.125rem;
+    color: rgba(255, 255, 255, 0.7);
+    margin-bottom: 1rem;
+}
+
+.audience-highlight {
+    font-size: 1.25rem;
+    font-weight: 600;
+    letter-spacing: 0.02em;
+    color: #70E2D0;
+    padding-top: 1rem;
+}
+
+.audience-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
+}
+
+@media (min-width: 640px) {
+    .audience-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media (min-width: 1024px) {
+    .audience-grid {
+        grid-template-columns: repeat(3, 1fr);
+    }
+}
+
+.audience-card {
+    padding: 2rem;
+    border-radius: 20px;
+    border: 1px solid #053B3D;
+    background-color: rgba(3, 41, 43, 0.5);
+    transition: all 0.3s ease;
+    position: relative;
+    overflow: hidden;
+}
+
+.audience-card:hover {
+    border-color: rgba(112, 226, 208, 0.5);
+    background-color: rgba(3, 41, 43, 0.7);
+}
+
+.audience-card-header {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    margin-bottom: 1.25rem;
+}
+
+.audience-card-icon {
+    width: 2.5rem;
+    height: 2.5rem;
+    border-radius: 12px;
+    border: 1px solid #053B3D;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: border-color 0.3s ease;
+    background: rgba(112, 226, 208, 0.05);
+}
+
+.audience-card:hover .audience-card-icon {
+    border-color: rgba(112, 226, 208, 0.5);
+}
+
+.audience-card-icon svg {
+    width: 1.25rem;
+    height: 1.25rem;
+    color: #70E2D0;
+}
+
+.audience-card-title {
+    font-size: 1.25rem;
+    font-weight: 600;
+    transition: color 0.3s ease;
+    color: #FFFFFF;
+}
+
+.audience-card:hover .audience-card-title {
+    color: #70E2D0;
+}
+
+.audience-card-description {
+    font-size: 0.875rem;
+    color: rgba(255, 255, 255, 0.7);
+    opacity: 0;
+    transform: translateY(0.5rem);
+    transition: all 0.3s ease;
+}
+
+.audience-card:hover .audience-card-description {
+    opacity: 1;
+    transform: translateY(0);
+}

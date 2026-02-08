@@ -1,129 +1,122 @@
-<section class="bg-neutral-950 text-white border-t border-neutral-900">
-    <div class="max-w-7xl mx-auto px-6 py-28 space-y-16">
+<section class="advantages-section">
+    <div class="advantages-container">
 
         <!-- MINI HEADING -->
-        <div class="max-w-3xl">
-            <h2 class="text-4xl font-semibold leading-tight">
+        <div class="advantages-header">
+            <h2 class="advantages-title">
                 {{ .Params.advantages_h1 }}
             </h2>
-            <p class="mt-4 text-lg text-neutral-400">
+            <p class="advantages-subtitle">
                 {{ .Params.advantages_h2 }}
             </p>
         </div>
 
         <!-- ADVANTAGES GRID -->
-        <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+        <div class="advantages-grid">
 
             <!-- Advantage -->
-            <details
-                class="group rounded-2xl border border-neutral-800 bg-neutral-900/50 p-6 transition hover:border-cyan-400">
-                <summary class="cursor-pointer list-none flex items-center justify-between">
-                    <span class="text-2xl font-medium group-open:text-cyan-400 transition">
+            <details class="advantages-item">
+                <summary>
+                    <span class="advantages-item-title">
                         {{ .Params.advantages_item_1_1 }}
                     </span>
-                    <span class="text-cyan-400 transition group-open:rotate-45">+</span>
+                    <span class="advantages-item-icon">+</span>
                 </summary>
 
-                <div class="mt-4 text-sm text-neutral-400 space-y-2">
-                    <p>{{ .Params.advantages_item_1_2 }}</p>
-                    <p>{{ .Params.advantages_item_1_3 }}</p>
-                    <p>{{ .Params.advantages_item_1_4 }}</p>
+                <div class="advantages-item-content">
+                    <p class="advantages-item-text">{{ .Params.advantages_item_1_2 }}</p>
+                    <p class="advantages-item-text">{{ .Params.advantages_item_1_3 }}</p>
+                    <p class="advantages-item-text">{{ .Params.advantages_item_1_4 }}</p>
                 </div>
             </details>
 
-            <details
-                    class="group rounded-2xl border border-neutral-800 bg-neutral-900/50 p-6 transition hover:border-cyan-400">
-                <summary class="cursor-pointer list-none flex items-center justify-between">
-                    <span class="text-2xl font-medium group-open:text-cyan-400 transition">
+            <details class="advantages-item">
+                <summary>
+                    <span class="advantages-item-title">
                         {{ .Params.advantages_item_2_1 }}
                     </span>
-                    <span class="text-cyan-400 transition group-open:rotate-45">+</span>
+                    <span class="advantages-item-icon">+</span>
                 </summary>
 
-                <div class="mt-4 text-sm text-neutral-400 space-y-2">
-                    <p>{{ .Params.advantages_item_2_2 }}</p>
-                    <p>{{ .Params.advantages_item_2_3 }}</p>
-                    <p>{{ .Params.advantages_item_2_4 }}</p>
+                <div class="advantages-item-content">
+                    <p class="advantages-item-text">{{ .Params.advantages_item_2_2 }}</p>
+                    <p class="advantages-item-text">{{ .Params.advantages_item_2_3 }}</p>
+                    <p class="advantages-item-text">{{ .Params.advantages_item_2_4 }}</p>
                 </div>
             </details>
 
-            <details
-                    class="group rounded-2xl border border-neutral-800 bg-neutral-900/50 p-6 transition hover:border-cyan-400">
-                <summary class="cursor-pointer list-none flex items-center justify-between">
-                    <span class="text-2xl font-medium group-open:text-cyan-400 transition">
+            <details class="advantages-item">
+                <summary>
+                    <span class="advantages-item-title">
                         {{ .Params.advantages_item_3_1 }}
                     </span>
-                    <span class="text-cyan-400 transition group-open:rotate-45">+</span>
+                    <span class="advantages-item-icon">+</span>
                 </summary>
 
-                <div class="mt-4 text-sm text-neutral-400 space-y-2">
-                    <p>{{ .Params.advantages_item_3_2 }}</p>
-                    <p>{{ .Params.advantages_item_3_3 }}</p>
-                    <p>{{ .Params.advantages_item_3_4 }}</p>
+                <div class="advantages-item-content">
+                    <p class="advantages-item-text">{{ .Params.advantages_item_3_2 }}</p>
+                    <p class="advantages-item-text">{{ .Params.advantages_item_3_3 }}</p>
+                    <p class="advantages-item-text">{{ .Params.advantages_item_3_4 }}</p>
                 </div>
             </details>
 
-            <details
-                    class="group rounded-2xl border border-neutral-800 bg-neutral-900/50 p-6 transition hover:border-cyan-400">
-                <summary class="cursor-pointer list-none flex items-center justify-between">
-                    <span class="text-2xl font-medium group-open:text-cyan-400 transition">
+            <details class="advantages-item">
+                <summary>
+                    <span class="advantages-item-title">
                         {{ .Params.advantages_item_4_1 }}
                     </span>
-                    <span class="text-cyan-400 transition group-open:rotate-45">+</span>
+                    <span class="advantages-item-icon">+</span>
                 </summary>
 
-                <div class="mt-4 text-sm text-neutral-400 space-y-2">
-                    <p>{{ .Params.advantages_item_4_2 }}</p>
-                    <p>{{ .Params.advantages_item_4_3 }}</p>
-                    <p>{{ .Params.advantages_item_4_4 }}</p>
+                <div class="advantages-item-content">
+                    <p class="advantages-item-text">{{ .Params.advantages_item_4_2 }}</p>
+                    <p class="advantages-item-text">{{ .Params.advantages_item_4_3 }}</p>
+                    <p class="advantages-item-text">{{ .Params.advantages_item_4_4 }}</p>
                 </div>
             </details>
 
-            <details
-                    class="group rounded-2xl border border-neutral-800 bg-neutral-900/50 p-6 transition hover:border-cyan-400">
-                <summary class="cursor-pointer list-none flex items-center justify-between">
-                    <span class="text-2xl font-medium group-open:text-cyan-400 transition">
+            <details class="advantages-item">
+                <summary>
+                    <span class="advantages-item-title">
                         {{ .Params.advantages_item_5_1 }}
                     </span>
-                    <span class="text-cyan-400 transition group-open:rotate-45">+</span>
+                    <span class="advantages-item-icon">+</span>
                 </summary>
 
-                <div class="mt-4 text-sm text-neutral-400 space-y-2">
-                    <p>{{ .Params.advantages_item_5_2 }}</p>
-                    <p>{{ .Params.advantages_item_5_3 }}</p>
-                    <p>{{ .Params.advantages_item_5_4 }}</p>
+                <div class="advantages-item-content">
+                    <p class="advantages-item-text">{{ .Params.advantages_item_5_2 }}</p>
+                    <p class="advantages-item-text">{{ .Params.advantages_item_5_3 }}</p>
+                    <p class="advantages-item-text">{{ .Params.advantages_item_5_4 }}</p>
                 </div>
             </details>
 
-            <details
-                    class="group rounded-2xl border border-neutral-800 bg-neutral-900/50 p-6 transition hover:border-cyan-400">
-                <summary class="cursor-pointer list-none flex items-center justify-between">
-                    <span class="text-2xl font-medium group-open:text-cyan-400 transition">
+            <details class="advantages-item">
+                <summary>
+                    <span class="advantages-item-title">
                         {{ .Params.advantages_item_6_1 }}
                     </span>
-                    <span class="text-cyan-400 transition group-open:rotate-45">+</span>
+                    <span class="advantages-item-icon">+</span>
                 </summary>
 
-                <div class="mt-4 text-sm text-neutral-400 space-y-2">
-                    <p>{{ .Params.advantages_item_6_2 }}</p>
-                    <p>{{ .Params.advantages_item_6_3 }}</p>
-                    <p>{{ .Params.advantages_item_6_4 }}</p>
+                <div class="advantages-item-content">
+                    <p class="advantages-item-text">{{ .Params.advantages_item_6_2 }}</p>
+                    <p class="advantages-item-text">{{ .Params.advantages_item_6_3 }}</p>
+                    <p class="advantages-item-text">{{ .Params.advantages_item_6_4 }}</p>
                 </div>
             </details>
 
-            <details
-                    class="group rounded-2xl border border-neutral-800 bg-neutral-900/50 p-6 transition hover:border-cyan-400">
-                <summary class="cursor-pointer list-none flex items-center justify-between">
-                    <span class="text-2xl font-medium group-open:text-cyan-400 transition">
+            <details class="advantages-item">
+                <summary>
+                    <span class="advantages-item-title">
                         {{ .Params.advantages_item_7_1 }}
                     </span>
-                    <span class="text-cyan-400 transition group-open:rotate-45">+</span>
+                    <span class="advantages-item-icon">+</span>
                 </summary>
 
-                <div class="mt-4 text-sm text-neutral-400 space-y-2">
-                    <p>{{ .Params.advantages_item_7_2 }}</p>
-                    <p>{{ .Params.advantages_item_7_3 }}</p>
-                    <p>{{ .Params.advantages_item_7_4 }}</p>
+                <div class="advantages-item-content">
+                    <p class="advantages-item-text">{{ .Params.advantages_item_7_2 }}</p>
+                    <p class="advantages-item-text">{{ .Params.advantages_item_7_3 }}</p>
+                    <p class="advantages-item-text">{{ .Params.advantages_item_7_4 }}</p>
                 </div>
             </details>
 

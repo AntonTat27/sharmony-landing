@@ -1,0 +1,60 @@
+/* Numbers Section - Light Theme (Section 3 - Odd) */
+.numbers-section {
+    background-color: #F2E8D5;
+    color: #03292B;
+    border-top: 1px solid rgba(3, 41, 43, 0.1);
+}
+
+.numbers-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 5rem 1.5rem;
+}
+
+.numbers-title {
+    font-size: clamp(1.25rem, 2vw, 1.5rem);
+    font-weight: 600;
+    color: #03292B;
+    margin-bottom: 4rem;
+}
+
+.numbers-marquee-wrapper {
+    position: relative;
+    overflow: hidden;
+    border-top: 1px solid rgba(3, 41, 43, 0.1);
+    border-bottom: 1px solid rgba(3, 41, 43, 0.1);
+    padding: 2.5rem 0;
+}
+
+.numbers-marquee {
+    display: flex;
+    gap: 3rem;
+    white-space: nowrap;
+    animation: marquee 30s linear infinite;
+}
+
+.numbers-item {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+}
+
+.numbers-value {
+    font-size: 2.25rem;
+    font-weight: 700;
+    color: #03292B;
+}
+
+.numbers-label {
+    color: rgba(3, 41, 43, 0.7);
+    font-size: 1rem;
+}
+
+@keyframes marquee {
+    0% {
+        transform: translateX(0);
+    }
+    100% {
+        transform: translateX(-50%);
+    }
+}

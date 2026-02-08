@@ -1,57 +1,54 @@
-<section class="relative overflow-hidden bg-neutral-950 text-white">
-    <div class="max-w-7xl mx-auto px-6 py-24">
-        <div class="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
+<section class="hero-section">
+    <div class="hero-container">
+        <div class="hero-grid">
             <!-- LEFT CONTENT -->
-            <div class="space-y-6">
-                <h1 class="text-4xl sm:text-5xl xl:text-6xl font-semibold leading-tight">
+            <div class="hero-content">
+                <h1 class="hero-title">
                     {{ .Params.main_intro_h1 }}<br />
-                    <span class="text-neutral-400">{{ .Params.main_intro_h2 }}</span>
+                    <span class="hero-title-secondary">{{ .Params.main_intro_h2 }}</span>
                 </h1>
 
-                <p class="text-neutral-400 text-lg max-w-xl leading-relaxed">
+                <p class="hero-text">
                     {{ .Params.main_intro_text}}
                 </p>
 
-                <div class="flex gap-4 pt-4">
-                    <a href="#"
-                        class="inline-flex items-center justify-center px-6 py-3 rounded-full bg-white text-neutral-900 font-medium hover:bg-neutral-200 transition">
+                <div class="hero-buttons">
+                    <a href="#" class="hero-btn-primary">
                         {{ .Params.btn_explore }}
                     </a>
-                    <a href="#"
-                        class="inline-flex items-center justify-center px-6 py-3 rounded-full border border-neutral-700 text-white hover:border-neutral-500 transition">
+                    <a href="#" class="hero-btn-secondary">
                         {{ .Params.btn_learn }}
                     </a>
                 </div>
             </div>
 
             <!-- RIGHT VISUAL -->
-            <div class="relative">
-                <div class="relative rounded-2xl overflow-hidden border border-neutral-800 bg-neutral-900">
-
+            <div class="hero-visual">
+                <div class="hero-visual-box">
                     <!-- Slider / Visual Placeholder -->
-                    <div class="aspect-[4/3] flex items-center justify-center">
-                        <div class="absolute inset-0 bg-gradient-to-br from-neutral-800/40 to-neutral-950"></div>
+                    <div class="hero-visual-content">
+                        <div class="hero-visual-gradient"></div>
 
-                        <div class="relative z-10 text-center space-y-2">
-                            <div class="text-sm uppercase tracking-widest text-neutral-400">
+                        <div class="hero-visual-text">
+                            <div class="hero-visual-label">
                                 {{ .Params.main_intro_slider1 }}
                             </div>
-                            <div class="text-2xl font-medium">
+                            <div class="hero-visual-title">
                                 {{ .Params.main_intro_slider2 }}
                             </div>
                         </div>
                     </div>
 
-                    <!-- Fake slider controls (visual only) -->
-                    <div class="absolute bottom-4 left-1/2 -translate-x-1/2 flex gap-2">
-                        <span class="w-2 h-2 rounded-full bg-white"></span>
-                        <span class="w-2 h-2 rounded-full bg-neutral-600"></span>
-                        <span class="w-2 h-2 rounded-full bg-neutral-600"></span>
+                    <!-- Slider controls -->
+                    <div class="hero-slider-dots">
+                        <span class="hero-slider-dot"></span>
+                        <span class="hero-slider-dot inactive"></span>
+                        <span class="hero-slider-dot inactive"></span>
                     </div>
                 </div>
 
                 <!-- Subtle glow -->
-                <div class="absolute -inset-6 bg-white/5 blur-3xl rounded-full"></div>
+                <div class="hero-glow"></div>
             </div>
 
         </div>

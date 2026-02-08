@@ -1,50 +1,33 @@
 <!-- RECOMMENDATIONS / ADVISORS -->
-<section class="bg-neutral-950 text-white border-t border-neutral-900 flex items-center justify-center">
-    <div class="max-w-7xl mx-auto px-6 py-28 w-full">
-        <h2 class="text-4xl font-semibold mb-12 text-center">{{ .Params.recommendations_h1 }}</h2>
+<section class="recommendations-section">
+    <div class="recommendations-container">
+        <h2 class="recommendations-title">{{ .Params.recommendations_h1 }}</h2>
 
         <!-- Slider (CSS-only marquee style) -->
-        <div class="relative overflow-hidden">
-            <div class="flex gap-6 animate-marquee whitespace-nowrap">
+        <div class="recommendations-slider">
+            <div class="recommendations-marquee">
                 <!-- Card -->
-                <div class="min-w-[320px] border border-neutral-800 rounded-2xl p-6 bg-neutral-900/60">
-                    <div class="text-cyan-400 font-medium">{{ .Params.recommendations_item_1_1 }}</div>
-                    <p class="text-sm text-neutral-400 mt-2">{{ .Params.recommendations_item_1_2 }}</p>
-                    <a href="#" class="text-sm text-cyan-400 mt-4 inline-block">{{ .Params.recommendations_item_1_3 }}</a>
+                <div class="recommendations-card">
+                    <div class="recommendations-card-name">{{ .Params.recommendations_item_1_1 }}</div>
+                    <p class="recommendations-card-text">{{ .Params.recommendations_item_1_2 }}</p>
+                    <a href="#" class="recommendations-card-link">{{ .Params.recommendations_item_1_3 }}</a>
                 </div>
-                <div class="min-w-[320px] border border-neutral-800 rounded-2xl p-6 bg-neutral-900/60">
-                    <div class="text-cyan-400 font-medium">{{ .Params.recommendations_item_2_1 }}</div>
-                    <p class="text-sm text-neutral-400 mt-2">{{ .Params.recommendations_item_2_2 }}</p>
-                    <a href="#" class="text-sm text-cyan-400 mt-4 inline-block">{{ .Params.recommendations_item_2_3 }}</a>
+                <div class="recommendations-card">
+                    <div class="recommendations-card-name">{{ .Params.recommendations_item_2_1 }}</div>
+                    <p class="recommendations-card-text">{{ .Params.recommendations_item_2_2 }}</p>
+                    <a href="#" class="recommendations-card-link">{{ .Params.recommendations_item_2_3 }}</a>
                 </div>
-                <div class="min-w-[320px] border border-neutral-800 rounded-2xl p-6 bg-neutral-900/60">
-                    <div class="text-cyan-400 font-medium">{{ .Params.recommendations_item_3_1 }}</div>
-                    <p class="text-sm text-neutral-400 mt-2">{{ .Params.recommendations_item_3_2 }}</p>
-                    <a href="#" class="text-sm text-cyan-400 mt-4 inline-block">{{ .Params.recommendations_item_3_3 }}</a>
+                <div class="recommendations-card">
+                    <div class="recommendations-card-name">{{ .Params.recommendations_item_3_1 }}</div>
+                    <p class="recommendations-card-text">{{ .Params.recommendations_item_3_2 }}</p>
+                    <a href="#" class="recommendations-card-link">{{ .Params.recommendations_item_3_3 }}</a>
                 </div>
-                <div class="min-w-[320px] border border-neutral-800 rounded-2xl p-6 bg-neutral-900/60">
-                    <div class="text-cyan-400 font-medium">{{ .Params.recommendations_item_4_1 }}</div>
-                    <p class="text-sm text-neutral-400 mt-2">{{ .Params.recommendations_item_4_2 }}</p>
-                    <a href="#" class="text-sm text-cyan-400 mt-4 inline-block">{{ .Params.recommendations_item_4_3 }}</a>
+                <div class="recommendations-card">
+                    <div class="recommendations-card-name">{{ .Params.recommendations_item_4_1 }}</div>
+                    <p class="recommendations-card-text">{{ .Params.recommendations_item_4_2 }}</p>
+                    <a href="#" class="recommendations-card-link">{{ .Params.recommendations_item_4_3 }}</a>
                 </div>
             </div>
         </div>
     </div>
 </section>
-
-<!-- MARQUEE ANIMATION -->
-<style>
-    @keyframes marquee {
-        0% {
-            transform: translateX(0);
-        }
-
-        100% {
-            transform: translateX(-50%);
-        }
-    }
-
-    .animate-marquee {
-        animation: marquee 25s linear infinite;
-    }
-</style>
