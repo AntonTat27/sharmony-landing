@@ -1,4 +1,4 @@
 ---
-type: investor
+type: for_investors
 title: Для инвесторов
 ---

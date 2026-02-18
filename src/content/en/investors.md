@@ -1,4 +1,4 @@
 ---
-type: investor
-title: For Investor
+type: for_investors
+title: For Investors
 ---

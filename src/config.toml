@@ -43,9 +43,15 @@ weight = 7
 [menus]
 [[menus.main]]
 identifier = 'about'
-name = 'About'
+name = 'Home'
 url = '/'
 weight = 10
+
+[[menus.main]]
+identifier = 'about_us'
+name = 'About Us'
+url = '/about_us'
+weight = 15
 [[menus.main]]
 identifier = 'investors'
 name = 'Investors'

@@ -5,6 +5,31 @@
 /* ==============================
    CSS Variables & Design Tokens - Figma Design System
    ============================== */
+
+@font-face {
+    font-family: 'Gilroy';
+    src: url('/fonts/Gilroy-Regular.otf') format('opentype');
+    font-weight: 400;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Gilroy';
+    src: url('/fonts/Gilroy-SemiBold.otf') format('opentype');
+    font-weight: 600;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'TT Livret';
+    src: url('/fonts/TT_Livret_Display_Medium.woff2') format('woff2');
+    font-weight: 500;
+    font-style: normal;
+    font-display: swap;
+}
+
 :root {
     /* Primary Branding */
     --color-brand-deep: #011a1b;      /* Background matching the main dark sections */
@@ -26,8 +51,8 @@
     --color-text-dark: #03292B;       /* Text on light backgrounds */
 
     /* Typography */
-    --font-main: 'Inter', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
-    --font-display: 'Inter', sans-serif;
+    --font-main: 'Gilroy', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+    --font-display: 'TT Livret', sans-serif;
 
     /* Spacing Scale */
     --space-xs: 0.5rem;

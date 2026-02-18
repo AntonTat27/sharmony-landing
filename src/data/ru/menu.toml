@@ -3,6 +3,10 @@ id = "about"
 text = "Домой"
 
 [[items]]
+id = "about_us"
+text = "О нас"
+
+[[items]]
 id = "investors"
 text = "Инвесторы"
 

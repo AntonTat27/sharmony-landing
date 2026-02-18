@@ -4,6 +4,10 @@ id = "about"
 text = "首页"
 
 [[items]]
+id = "about_us"
+text = "关于我们"
+
+[[items]]
 id = "investors"
 text = "投资者"
 

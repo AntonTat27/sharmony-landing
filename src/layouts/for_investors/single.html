@@ -1,0 +1,406 @@
+{{ define "main" }}
+
+<!-- HERO SECTION -->
+<section id="hero" class="relative h-screen overflow-hidden">
+    <!-- Background Image -->
+    <img src='/images/investors_hero_resort.jpg' alt="Invest in Sharmony Resort"
+        loading="lazy" decoding="async"
+        class="absolute inset-0 w-full h-full object-cover object-center z-0">
+
+    <!-- Overlay -->
+    <!-- Uniform black tint over the whole image -->
+    <div class="absolute inset-0 bg-black/70 z-10 pointer-events-none" aria-hidden="true"></div>
+
+    <!-- Content -->
+    <div class="relative max-w-7xl mx-auto px-6 flex flex-col justify-center h-full z-30">
+        <h1 class="text-white text-5xl md:text-7xl font-['TT_Livret_Display_Trl'] leading-tight">Digital key to
+            real-world investments: <span
+                class="bg-clip-text text-transparent bg-gradient-to-r from-[#FFDDA8] to-[#DBA757]">SHARMONY
+                project</span></h1>
+        <div class="mt-10 flex space-x-4">
+            <button onclick="document.getElementById('sharm-option').scrollIntoView({ behavior: 'smooth' })"
+                class="px-6 py-3 bg-gradient-to-r from-[#FFDDA8] to-[#DBA757] text-[#03292B] font-semibold rounded-lg hover:brightness-110 transition">Request
+                Allocation</button>
+            <button onclick="document.getElementById('legal').scrollIntoView({ behavior: 'smooth' })"
+                class="px-6 py-3 border border-[#31D0B2] text-[#31D0B2] font-semibold rounded-lg hover:bg-[#31D0B2]/10 transition">View
+                Legal Framework</button>
+        </div>
+    </div>
+    <!-- Bottom blend: top (transparent) -> bottom (next section color) so the image fades into the next section -->
+    <div class="absolute bottom-0 w-full h-36 md:h-60 bg-gradient-to-b from-transparent to-[#03292B] z-20 pointer-events-none" aria-hidden="true"></div>
+</section>
+
+<!-- ========================= -->
+<!-- SECTION 2 – THE SHARM OPTION -->
+<!-- ========================= -->
+<section class="relative overflow-hidden text-white bg-[#03292B]" id="sharm-option">
+
+    <div class="relative max-w-7xl mx-auto px-6 py-32">
+
+        <!-- Centered Header -->
+        <div class="text-center max-w-3xl mx-auto mb-20">
+            <p class="uppercase tracking-widest text-[#31D0B2] text-sm mb-4">
+                Financial Instrument
+            </p>
+            <h2 class="text-4xl md:text-5xl font-light mb-6">
+                The SHARM Option
+            </h2>
+            <p class="text-lg text-neutral-300">
+                A structured digital framework enabling scalable, tokenized real estate participation.
+            </p>
+        </div>
+
+        <!-- Content Grid -->
+        <div class="grid md:grid-cols-2 gap-20 items-center">
+
+            <!-- Value Blocks -->
+            <div class="space-y-16">
+
+                <!-- Item 1 -->
+                <div class="relative">
+                    <span class="absolute -top-10 left-0 text-8xl font-light text-[#C6A052] opacity-10">
+                        01
+                    </span>
+                    <h3 class="text-2xl font-light mb-4">
+                        Tokenized Asset Infrastructure
+                    </h3>
+                    <p class="text-neutral-300 max-w-md">
+                        Structured digital representation of real estate equity,
+                        designed for transparent participation and compliant ownership distribution.
+                    </p>
+                </div>
+
+                <!-- Item 2 -->
+                <div class="relative">
+                    <span class="absolute -top-10 left-0 text-8xl font-light text-[#C6A052] opacity-10">
+                        02
+                    </span>
+                    <h3 class="text-2xl font-light mb-4">
+                        Fractional Equity Architecture
+                    </h3>
+                    <p class="text-neutral-300 max-w-md">
+                        Enables scalable access to institutional-grade property
+                        while maintaining structural integrity and legal clarity.
+                    </p>
+                </div>
+
+                <!-- Item 3 -->
+                <div class="relative">
+                    <span class="absolute -top-10 left-0 text-8xl font-light text-[#C6A052] opacity-10">
+                        03
+                    </span>
+                    <h3 class="text-2xl font-light mb-4">
+                        Blockchain Settlement Layer
+                    </h3>
+                    <p class="text-neutral-300 max-w-md">
+                        Smart contract execution and transparent transaction
+                        recording powered by distributed ledger infrastructure.
+                    </p>
+                </div>
+
+            </div>
+
+            <!-- Coin Visual: fixed-size container so glow, ring, and coin share exact center -->
+            <div class="relative flex justify-center">
+                <div class="relative w-80 h-80 md:w-96 md:h-96 flex items-center justify-center">
+
+                    <!-- Glow (behind coin) - stronger: larger blurred halo + brighter core + subtle ring -->
+                    <div class="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 z-10 pointer-events-none" aria-hidden="true">
+                        <!-- Large blurred halo (bigger + stronger) -->
+                        <div class="w-96 h-96 md:w-[28rem] md:h-[28rem] rounded-full" style="background: radial-gradient(circle, rgba(49,208,178,0.45) 0%, rgba(49,208,178,0.22) 30%, rgba(3,41,43,0) 65%); filter: blur(48px); mix-blend-mode:screen;"></div>
+                        <!-- Concentrated core to boost visibility -->
+                        <div class="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 w-44 h-44 md:w-48 md:h-48 rounded-full" style="background: radial-gradient(circle, rgba(49,208,178,0.9) 0%, rgba(49,208,178,0.45) 55%, rgba(3,41,43,0) 100%); mix-blend-mode:screen;"></div>
+                    </div>
+
+                    <!-- Rotating Ring (centered) - same centering math -->
+                    <div class="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 z-20 pointer-events-none">
+                        <div class="w-80 h-80 rounded-full border border-dashed border-[#31D0B2]/30 animate-spin-slow"></div>
+                    </div>
+
+                    <!-- Coin (on top) - same centering math -->
+                    <div class="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 z-30 w-64 h-64 rounded-full bg-gradient-to-br from-[#C6A052] to-[#9E7C35] flex items-center justify-center shadow-2xl">
+                        <span class="text-3xl font-light text-[#03292B] tracking-widest">SHARM</span>
+                    </div>
+
+                </div>
+
+            </div>
+
+        </div>
+    </div>
+
+    <!-- Thin gold divider -->
+    <div class="w-full h-px bg-[#C6A052]/40"></div>
+
+</section>
+
+<!-- ========================= -->
+<!-- SECTION 3 – FRACTIONAL MODEL -->
+<!-- ========================= -->
+<section class="bg-[#F8EDDD] text-[#03292B]">
+    <div class="max-w-7xl mx-auto px-6 py-32">
+
+        <div class="grid md:grid-cols-2 gap-20 items-center">
+
+            <!-- Image Side -->
+            <div class="relative group">
+
+                <!-- Base Image (keeps rounded corners + clipping) -->
+                <div class="rounded-2xl overflow-hidden shadow-2xl">
+                    <div class="absolute inset-0 bg-black/50 backdrop-blur-[2px]"></div>
+                    <img
+                        src="https://images.unsplash.com/photo-1600585154340-be6161a56a0c?q=80&w=2070&auto=format&fit=crop"
+                        class="w-full h-[500px] object-cover"
+                        alt="Luxury villa"
+                    />
+                </div>
+
+                <!-- TRIANGLE MAGNIFIED AREA -->
+                <div class="absolute inset-0 pointer-events-none">
+
+                    <div class="triangle-cutout-bg" aria-hidden="true"></div>
+                    <div class="triangle-outline" aria-hidden="true"></div>
+
+                    <div class="triangle-magnifier group-hover:scale-[1.02] transition duration-700">
+
+                        <!-- Magnified image layer -->
+                        <div class="triangle-bg"></div>
+
+                        <!-- Dark tint -->
+<!--                        <div class="absolute inset-0 bg-black/50 backdrop-blur-[2px]"></div>-->
+
+                        <!-- Text -->
+                        <div class="absolute inset-0 flex items-center justify-center px-8 text-center">
+                            <p class="text-white text-lg md:text-xl font-medium leading-relaxed max-w-md">
+                                Own a fraction of this villa.<br/>
+                                1/24 share = 2 weeks per year.
+                            </p>
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+            <!-- Text Side -->
+            <div class="space-y-12">
+
+                <div>
+                    <h2 class="text-4xl md:text-5xl font-light mb-6">
+                        Real Estate Becomes Liquid.
+                    </h2>
+                    <p class="text-lg text-neutral-600">
+                        Blockchain transforms traditionally illiquid property assets
+                        into structured digital units with defined transferability.
+                    </p>
+                </div>
+
+                <div>
+                    <h3 class="text-2xl font-light mb-4">
+                        Institutional Integrity
+                    </h3>
+                    <p class="text-neutral-600">
+                        The model preserves legal robustness and compliance standards
+                        while introducing modern capital accessibility.
+                    </p>
+                </div>
+
+                <div>
+                    <h3 class="text-2xl font-light mb-4">
+                        Scalable Participation
+                    </h3>
+                    <p class="text-neutral-600">
+                        Investors engage at fractional levels without sacrificing
+                        asset quality or structural transparency.
+                    </p>
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+</section>
+
+<!-- ROADMAP SECTION -->
+<section id="roadmap" class="bg-[#03292B] py-32">
+    <div class="max-w-7xl mx-auto px-6">
+        <h2 class="text-4xl font-['TT_Livret_Display_Trl'] text-white mb-12">SHARMONY Ecosystem Development</h2>
+        <div class="flex flex-col md:flex-row md:space-x-12">
+            <div class="w-1 bg-[#31D0B2] md:h-full"></div>
+            <div class="flex-1 space-y-8 mt-8 md:mt-0">
+                <!-- Roadmap items -->
+                <div class="cursor-pointer group">
+                    <h3
+                        class="text-[#FFFFFF] font-['TT_Livret_Display_Trl'] text-2xl group-hover:text-[#31D0B2] transition">
+                        Phase 1: Foundation</h3>
+                    <p
+                        class="text-[#94A3B8] mt-2 max-h-0 overflow-hidden group-hover:max-h-96 transition-all duration-500">
+                        Platform setup, initial token structure, and pilot property acquisitions.</p>
+                </div>
+                <div class="cursor-pointer group">
+                    <h3
+                        class="text-[#FFFFFF] font-['TT_Livret_Display_Trl'] text-2xl group-hover:text-[#31D0B2] transition">
+                        Phase 2: First Properties</h3>
+                    <p
+                        class="text-[#94A3B8] mt-2 max-h-0 overflow-hidden group-hover:max-h-96 transition-all duration-500">
+                        Acquisition of first global tourist properties and fractionalization.</p>
+                </div>
+                <div class="cursor-pointer group">
+                    <h3
+                        class="text-[#FFFFFF] font-['TT_Livret_Display_Trl'] text-2xl group-hover:text-[#31D0B2] transition">
+                        Phase 3: Governance Rollout</h3>
+                    <p
+                        class="text-[#94A3B8] mt-2 max-h-0 overflow-hidden group-hover:max-h-96 transition-all duration-500">
+                        Implementation of token-holder governance and revenue distribution mechanisms.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- PRIVILEGES SECTION -->
+<section id="privileges" class="bg-[#03292B] py-32">
+    <div class="max-w-7xl mx-auto px-6 grid md:grid-cols-2 gap-12 items-center">
+        <div class="flex flex-col space-y-4">
+            <!-- Vertical selector -->
+            <div id="privilege-tabs" class="flex flex-col space-y-3">
+                <button class="text-[#94A3B8] hover:text-[#31D0B2] transition" data-tab="0">Governance
+                    Participation</button>
+                <button class="text-[#94A3B8] hover:text-[#31D0B2] transition" data-tab="1">Revenue Allocation</button>
+                <button class="text-[#94A3B8] hover:text-[#31D0B2] transition" data-tab="2">Strategic Allocation
+                    Priority</button>
+                <button class="text-[#FFFFFF] font-semibold" data-tab="3">Ecosystem Expansion Benefits</button>
+            </div>
+        </div>
+        <div>
+            <div id="privilege-content" class="text-[#FFFFFF] font-['Gilroy'] text-lg transition-opacity duration-500">
+                SHARM holders participate in ecosystem expansion initiatives, gaining early insights and strategic
+                influence.
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- ALLOCATION SECTION -->
+<section id="allocation" class="bg-[#03292B] py-32">
+    <div class="max-w-7xl mx-auto px-6 grid md:grid-cols-2 gap-12 items-center">
+        <div class="space-y-6">
+            <h2 class="text-4xl font-['TT_Livret_Display_Trl'] text-white">Seed Allocation & Token Distribution</h2>
+            <ul class="space-y-2 text-[#FFFFFF] font-['Gilroy']">
+                <li><span class="font-bold text-[#DBA757]">Total options/tokens:</span> 5,000,000 SHARM</li>
+                <li><span class="font-bold text-[#DBA757]">For investments:</span> 1,500,000 SHARM (30%)</li>
+                <li><span class="font-bold text-[#DBA757]">For private presale:</span> 500,000 SHARM (10%)</li>
+                <li><span class="font-bold text-[#DBA757]">Format:</span> Private presale</li>
+                <li><span class="font-bold text-[#DBA757]">Price:</span> 1 SHARM = 10 USDT</li>
+            </ul>
+            <p class="text-[#94A3B8] mt-4">Private presale closes May 15, 2026.</p>
+        </div>
+        <div class="flex justify-center">
+            <div class="w-64 h-64 bg-[#121821] flex items-center justify-center text-[#94A3B8] font-semibold">Pie Chart
+                Placeholder</div>
+        </div>
+    </div>
+</section>
+
+<!-- FINAL CTA SECTION -->
+<section id="final-cta" class="bg-[#03292B] py-32 text-center">
+    <h2 class="text-5xl font-['TT_Livret_Display_Trl'] text-white mb-6">Secure Your Position in the SHARMONY Ecosystem
+    </h2>
+    <p class="text-[#94A3B8] mb-12 max-w-3xl mx-auto">Join the seed phase of a tokenized real estate infrastructure
+        designed for global scale.</p>
+    <div class="flex justify-center space-x-4">
+        <button
+            class="px-8 py-4 bg-gradient-to-r from-[#FFDDA8] to-[#DBA757] text-[#03292B] font-semibold rounded-lg hover:brightness-110 transition">Request
+            Allocation</button>
+        <button
+            class="px-8 py-4 border border-[#31D0B2] text-[#31D0B2] font-semibold rounded-lg hover:bg-[#31D0B2]/10 transition">Contact
+            Investment Team</button>
+    </div>
+</section>
+
+<!-- Placeholder for Legal Documents Section -->
+<section id="legal" class="bg-[#03292B] py-32 text-center text-[#FFFFFF] font-['Gilroy']">
+    <h3 class="text-3xl font-['TT_Livret_Display_Trl'] mb-6">Legal & Structural Documents</h3>
+    <p>Placeholder for SPV structure, offering memorandum, and other legal files.</p>
+</section>
+
+<!-- Slow spin utility -->
+<style>
+    @keyframes spin-slow {
+        from { transform: rotate(0deg); }
+        to { transform: rotate(360deg); }
+    }
+    .animate-spin-slow {
+        animation: spin-slow 30s linear infinite;
+    }
+</style>
+
+<!-- JS for Privileges Fade -->
+<script>
+    const tabs = document.querySelectorAll('#privilege-tabs button');
+    const content = document.getElementById('privilege-content');
+    tabs.forEach(tab => {
+        tab.addEventListener('click', () => {
+            tabs.forEach(t => t.classList.remove('text-white', 'font-semibold'));
+            tabs.forEach(t => t.classList.add('text-[#94A3B8]'));
+            tab.classList.add('text-white', 'font-semibold');
+            tab.classList.remove('text-[#94A3B8]');
+            const texts = [
+                'SHARM holders participate in governance and strategic decisions.',
+                'SHARM holders receive revenue allocations from properties.',
+                'Early allocation priority for strategic token holders.',
+                'SHARM holders influence ecosystem expansion initiatives.'
+            ];
+            content.style.opacity = 0;
+            setTimeout(() => {
+                content.textContent = texts[tab.dataset.tab];
+                content.style.opacity = 1;
+            }, 300);
+        });
+    });
+</script>
+
+<style>
+    .triangle-magnifier,
+    .triangle-outline,
+    .triangle-cutout-bg {
+        position: absolute;
+        top: 0;
+        bottom: 0;
+        right: -5%;
+        left: auto;
+        width: 62%;
+        clip-path: polygon(100% 0, 0 50%, 100% 100%);
+    }
+
+    .triangle-magnifier {
+        overflow: hidden;
+        filter: none;
+        z-index: 3;
+    }
+
+    .triangle-cutout-bg {
+        background: #F8EDDD;
+        z-index: 2;
+    }
+
+    .triangle-outline {
+        border: 1px solid rgba(3, 41, 43, 0.45);
+        background: transparent;
+        z-index: 4;
+    }
+
+    .triangle-bg {
+        position: absolute;
+        inset: 0;
+        background-image: url('https://images.unsplash.com/photo-1600585154340-be6161a56a0c?q=80&w=2070&auto=format&fit=crop');
+        background-size: cover;
+        background-position: center;
+        transform: scale(1.08);
+        transform-origin: 35% 50%;
+    }
+</style>
+
+{{ end }}
