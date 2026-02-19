@@ -135,23 +135,89 @@
 </section>
 
 <!-- ========================= -->
-<!-- SECTION 3 – FRACTIONAL MODEL -->
+<!-- SECTION 3 – REFINED LUXURY TECH -->
 <!-- ========================= -->
-<section class="bg-[#F8EDDD] text-[#03292B]">
-    <div class="max-w-7xl mx-auto px-6 py-32">
+<section class="relative" style="background-color:#F8EDDD;">
 
-        <div class="grid md:grid-cols-2 gap-20 items-center">
+    <div class="max-w-7xl mx-auto px-6 py-40">
+
+        <div class="grid md:grid-cols-2 gap-28 items-center">
+            <!-- TEXT SIDE -->
+            <div class="space-y-20">
+
+                <div>
+                    <p class="uppercase tracking-[0.3em] text-[#C6A052] text-sm mb-8">
+                        Fractional Model
+                    </p>
+
+                    <h2 class="text-6xl font-light leading-[1.05] mb-10 text-[#03292B]">
+                        Real Estate <br> Re-Engineered.
+                    </h2>
+
+                    <p class="text-lg text-[#03292B]/70 max-w-lg leading-relaxed">
+                        Institutional-grade real estate transformed into structured digital units —
+                        preserving legal integrity while unlocking scalable liquidity.
+                    </p>
+                </div>
+
+                <!-- Structured Blocks -->
+                <div class="space-y-14">
+
+                    <div class="flex items-start gap-8">
+                        <div class="w-14 h-14 flex items-center justify-center border border-[#C6A052] text-[#C6A052] text-sm">
+                            01
+                        </div>
+                        <div>
+                            <h3 class="text-xl font-light mb-3 text-[#03292B]">
+                                Blockchain Settlement
+                            </h3>
+                            <p class="text-[#03292B]/70 leading-relaxed">
+                                Smart contract execution ensures transparent transaction flow.
+                            </p>
+                        </div>
+                    </div>
+
+                    <div class="flex items-start gap-8">
+                        <div class="w-14 h-14 flex items-center justify-center border border-[#C6A052] text-[#C6A052] text-sm">
+                            02
+                        </div>
+                        <div>
+                            <h3 class="text-xl font-light mb-3 text-[#03292B]">
+                                Fractional Participation
+                            </h3>
+                            <p class="text-[#03292B]/70 leading-relaxed">
+                                Investors access premium assets at scalable ownership levels.
+                            </p>
+                        </div>
+                    </div>
+
+                    <div class="flex items-start gap-8">
+                        <div class="w-14 h-14 flex items-center justify-center border border-[#C6A052] text-[#C6A052] text-sm">
+                            03
+                        </div>
+                        <div>
+                            <h3 class="text-xl font-light mb-3 text-[#03292B]">
+                                Regulatory Structure
+                            </h3>
+                            <p class="text-[#03292B]/70 leading-relaxed">
+                                Designed within compliant financial frameworks.
+                            </p>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
 
             <!-- Image Side -->
             <div class="relative group">
 
                 <!-- Base Image (keeps rounded corners + clipping) -->
-                <div class="rounded-2xl overflow-hidden shadow-2xl">
-                    <div class="absolute inset-0 bg-black/50 backdrop-blur-[2px]"></div>
+                <div class="overflow-hidden">
+                    <!-- removed global tint/blur: the base image is now sharp again -->
                     <img
-                        src="https://images.unsplash.com/photo-1600585154340-be6161a56a0c?q=80&w=2070&auto=format&fit=crop"
-                        class="w-full h-[500px] object-cover"
-                        alt="Luxury villa"
+                            src="https://images.unsplash.com/photo-1600585154340-be6161a56a0c?q=80&w=2070&auto=format&fit=crop"
+                            class="w-full h-[500px] object-cover"
+                            alt="Luxury villa"
                     />
                 </div>
 
@@ -163,16 +229,15 @@
 
                     <div class="triangle-magnifier group-hover:scale-[1.02] transition duration-700">
 
-                        <!-- Magnified image layer -->
+                        <!-- Magnified (blurred) image layer -->
                         <div class="triangle-bg"></div>
 
-                        <!-- Dark tint -->
-<!--                        <div class="absolute inset-0 bg-black/50 backdrop-blur-[2px]"></div>-->
+                        <!-- Dark tint specifically for the triangle (covers only the triangle and darkens it) -->
+                        <div class="triangle-tint" aria-hidden="true"></div>
 
-                        <!-- Text -->
-                        <div class="absolute inset-0 flex items-center justify-center px-8 text-center">
+                        <!-- Text (on top of tinted + blurred triangle) -->
+                        <div class="absolute inset-0 flex items-center justify-center px-8 text-center z-30">
                             <p class="text-white text-lg md:text-xl font-medium leading-relaxed max-w-md">
-                                Own a fraction of this villa.<br/>
                                 1/24 share = 2 weeks per year.
                             </p>
                         </div>
@@ -182,38 +247,380 @@
                 </div>
 
             </div>
+        </div>
+    </div>
+</section>
 
-            <!-- Text Side -->
-            <div class="space-y-12">
+<!-- ========================= -->
+<!-- SECTION – SHARMONY ROADMAP -->
+<!-- ========================= -->
+<section class="relative text-white overflow-hidden" style="background: linear-gradient(to bottom, #071E1F, #0A2A2B);" id="roadmap">
 
-                <div>
-                    <h2 class="text-4xl md:text-5xl font-light mb-6">
-                        Real Estate Becomes Liquid.
-                    </h2>
-                    <p class="text-lg text-neutral-600">
-                        Blockchain transforms traditionally illiquid property assets
-                        into structured digital units with defined transferability.
-                    </p>
+    <div class="absolute top-0 left-0 right-0 h-px bg-[#C6A052]/20" aria-hidden="true"></div>
+
+    <div class="relative max-w-6xl mx-auto px-6 py-24 md:py-32">
+
+        <!-- Header -->
+        <div class="flex flex-col md:flex-row md:items-end md:justify-between gap-6 mb-20">
+            <div>
+                <p class="uppercase tracking-[0.35em] text-[#C6A052] text-xs mb-4">Development Timeline</p>
+                <h2 class="font-['TT_Livret_Display_Trl'] text-4xl md:text-5xl font-light leading-tight">
+                    From First Stone<br>to Global Portfolio
+                </h2>
+            </div>
+            <p class="text-white/40 text-sm max-w-xs leading-relaxed md:text-right">
+                Select a phase to explore<br>what it means for investors.
+            </p>
+        </div>
+
+        <!-- ── Step track ── -->
+        <div class="relative mb-10">
+            <!-- Line -->
+            <div class="absolute top-5 left-0 right-0 h-px bg-white/10" aria-hidden="true"></div>
+            <!-- Filled progress to current phase -->
+            <div class="absolute top-5 left-0 h-px bg-[#C6A052]" style="width: calc(100% / 5 * 0.5)" id="rm3-progress" aria-hidden="true"></div>
+
+            <!-- Steps -->
+            <div class="relative grid grid-cols-5 text-center">
+
+                <!-- Step 1 — active by default -->
+                <button class="rm3-step rm3-step-active" data-step="1" aria-pressed="true">
+                    <span class="rm3-node rm3-node-active"></span>
+                    <span class="rm3-step-label mt-3 block text-[#C6A052]">I</span>
+                    <span class="rm3-step-date block">Q2–Q3 2026</span>
+                </button>
+
+                <button class="rm3-step" data-step="2" aria-pressed="false">
+                    <span class="rm3-node rm3-node-future"></span>
+                    <span class="rm3-step-label mt-3 block">II</span>
+                    <span class="rm3-step-date block">Q4 2026</span>
+                </button>
+
+                <button class="rm3-step" data-step="3" aria-pressed="false">
+                    <span class="rm3-node rm3-node-future"></span>
+                    <span class="rm3-step-label mt-3 block">III</span>
+                    <span class="rm3-step-date block">Q2 2027</span>
+                </button>
+
+                <button class="rm3-step" data-step="4" aria-pressed="false">
+                    <span class="rm3-node rm3-node-future"></span>
+                    <span class="rm3-step-label mt-3 block">IV</span>
+                    <span class="rm3-step-date block">2028</span>
+                </button>
+
+                <button class="rm3-step" data-step="5" aria-pressed="false">
+                    <span class="rm3-node rm3-node-horizon"></span>
+                    <span class="rm3-step-label mt-3 block" style="opacity:.4">V</span>
+                    <span class="rm3-step-date block" style="opacity:.35">2029+</span>
+                </button>
+
+            </div>
+        </div>
+
+        <!-- ── Detail panel ── -->
+        <div id="rm3-panel" class="rm3-panel">
+
+            <!-- All 5 panels, only active one visible -->
+            <div class="rm3-content" id="rm3-c1">
+                <div class="rm3-eyebrow rm3-eyebrow-active">Phase I — In Progress</div>
+                <h3 class="rm3-title">Foundation &amp; Capital Raise</h3>
+                <p class="rm3-body">Legal entity formation and the SHARM private presale — raising the seed capital to secure our first resort site in Sharm el-Sheikh.</p>
+                <ul class="rm3-list">
+                    <li>UAE-registered SPV &amp; holding structure</li>
+                    <li>SHARM private presale at $10 per token</li>
+                    <li>Smart contract audit &amp; deployment</li>
+                    <li>Site selection and due diligence finalised</li>
+                </ul>
+            </div>
+
+            <div class="rm3-content rm3-hidden" id="rm3-c2">
+                <div class="rm3-eyebrow">Phase II</div>
+                <h3 class="rm3-title">First Resort — Acquisition &amp; Build</h3>
+                <p class="rm3-body">Land acquisition and construction commencement at the flagship Sharm el-Sheikh property — the real-world asset underpinning SHARM token value.</p>
+                <ul class="rm3-list">
+                    <li>Flagship resort site secured</li>
+                    <li>Architecture, permits &amp; construction partner in place</li>
+                    <li>First investor dividends from pre-letting revenue</li>
+                    <li>SHARMONY marketplace beta launch</li>
+                </ul>
+            </div>
+
+            <div class="rm3-content rm3-hidden" id="rm3-c3">
+                <div class="rm3-eyebrow">Phase III</div>
+                <h3 class="rm3-title">Platform &amp; Property Activation</h3>
+                <p class="rm3-body">The first resort opens and the platform goes public — investors begin receiving regular income distributions.</p>
+                <ul class="rm3-list">
+                    <li>Flagship resort open for guests</li>
+                    <li>Fractional ownership fully tokenised on-chain</li>
+                    <li>Revenue-sharing distributions commence</li>
+                    <li>Marketplace public launch with secondary trading</li>
+                </ul>
+            </div>
+
+            <div class="rm3-content rm3-hidden" id="rm3-c4">
+                <div class="rm3-eyebrow">Phase IV</div>
+                <h3 class="rm3-title">Portfolio Expansion</h3>
+                <p class="rm3-body">A second premium property is acquired and the model scales — broader compliance, institutional access, and SHARM listed on major exchanges.</p>
+                <ul class="rm3-list">
+                    <li>Second resort acquired &amp; tokenised</li>
+                    <li>Multi-jurisdiction regulatory framework</li>
+                    <li>Institutional investor programme</li>
+                    <li>SHARM listed on major exchanges</li>
+                </ul>
+            </div>
+
+            <div class="rm3-content rm3-hidden" id="rm3-c5">
+                <div class="rm3-eyebrow" style="opacity:.5">Horizon</div>
+                <h3 class="rm3-title" style="opacity:.6">Global Real Estate Ecosystem</h3>
+                <p class="rm3-body" style="opacity:.45">SHARMONY becomes a multi-property, multi-country platform — offering institutional-grade real estate returns to investors worldwide through a single transparent digital instrument.</p>
+                <ul class="rm3-list" style="opacity:.4">
+                    <li>Properties across multiple jurisdictions</li>
+                    <li>Full DAO governance active</li>
+                    <li>Global investor base, deep liquidity</li>
+                </ul>
+            </div>
+
+        </div>
+
+    </div>
+
+    <div class="absolute bottom-0 left-0 right-0 h-px bg-[#C6A052]/15" aria-hidden="true"></div>
+</section>
+
+<style>
+/* ── Roadmap v3 — Interactive Stepper ── */
+.rm3-step {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: 0;
+    color: rgba(255,255,255,0.3);
+    transition: color .2s;
+}
+.rm3-step:hover { color: rgba(255,255,255,0.7); }
+.rm3-step-active { color: #C6A052 !important; }
+.rm3-step:focus-visible { outline: none; }
+
+.rm3-node {
+    display: block;
+    width: 10px;
+    height: 10px;
+    border-radius: 9999px;
+    position: relative;
+    z-index: 2;
+    transition: box-shadow .25s, background .25s;
+}
+.rm3-node-active {
+    background: #C6A052;
+    box-shadow: 0 0 0 5px rgba(198,160,82,0.18), 0 0 14px 3px rgba(198,160,82,0.25);
+    width: 12px;
+    height: 12px;
+}
+.rm3-node-future {
+    background: rgba(255,255,255,0.15);
+    border: 1px solid rgba(255,255,255,0.2);
+}
+.rm3-step:hover .rm3-node-future {
+    background: rgba(255,255,255,0.3);
+}
+.rm3-node-horizon {
+    background: transparent;
+    border: 1px dashed rgba(198,160,82,0.3);
+}
+
+.rm3-step-label {
+    font-size: 0.7rem;
+    letter-spacing: 0.15em;
+    font-weight: 300;
+    transition: color .2s;
+}
+.rm3-step-active .rm3-step-label { color: #C6A052; }
+
+.rm3-step-date {
+    font-size: 0.62rem;
+    letter-spacing: 0.08em;
+    margin-top: 3px;
+    opacity: 0.5;
+    white-space: nowrap;
+}
+.rm3-step-active .rm3-step-date { opacity: 0.85; }
+
+/* Panel */
+.rm3-panel {
+    border-top: 1px solid rgba(198,160,82,0.2);
+    padding-top: 2.5rem;
+    min-height: 220px;
+}
+.rm3-content {
+    transition: opacity .35s ease;
+}
+.rm3-hidden {
+    display: none;
+}
+
+.rm3-eyebrow {
+    font-size: 0.62rem;
+    letter-spacing: 0.3em;
+    text-transform: uppercase;
+    color: rgba(255,255,255,0.3);
+    margin-bottom: 0.75rem;
+}
+.rm3-eyebrow-active { color: #C6A052; }
+
+.rm3-title {
+    font-size: clamp(1.4rem, 2.5vw, 2rem);
+    font-weight: 300;
+    color: #fff;
+    margin-bottom: 0.75rem;
+    line-height: 1.2;
+}
+
+.rm3-body {
+    font-size: 0.85rem;
+    line-height: 1.8;
+    color: rgba(255,255,255,0.45);
+    max-width: 56ch;
+    margin-bottom: 1.4rem;
+}
+
+.rm3-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem 2rem;
+}
+.rm3-list li {
+    font-size: 0.78rem;
+    color: rgba(255,255,255,0.5);
+    padding-left: 1rem;
+    position: relative;
+    line-height: 1.6;
+}
+.rm3-list li::before {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 0.52em;
+    width: 3px;
+    height: 3px;
+    border-radius: 9999px;
+    background: #C6A052;
+    opacity: 0.6;
+}
+</style>
+
+<script>
+(function () {
+    const steps = document.querySelectorAll('.rm3-step');
+    const contents = document.querySelectorAll('.rm3-content');
+    const progress = document.getElementById('rm3-progress');
+    const total = steps.length;
+
+    function activate(n) {
+        steps.forEach((s, i) => {
+            const isActive = i + 1 === n;
+            s.classList.toggle('rm3-step-active', isActive);
+            s.setAttribute('aria-pressed', isActive ? 'true' : 'false');
+            // swap node style
+            const node = s.querySelector('.rm3-node');
+            if (i + 1 === total) {
+                // horizon — keep dashed style
+            } else if (isActive) {
+                node.className = 'rm3-node rm3-node-active';
+            } else {
+                node.className = 'rm3-node rm3-node-future';
+            }
+        });
+        contents.forEach((c, i) => {
+            c.classList.toggle('rm3-hidden', i + 1 !== n);
+        });
+        // progress line spans from left edge to centre of chosen step
+        if (progress) {
+            const pct = ((n - 1) / (total - 1)) * 100;
+            progress.style.width = 'calc(' + pct + '% * (1 - 1/' + total + ') + (100% / ' + total + ' * 0.5))';
+        }
+    }
+
+    steps.forEach((btn, i) => {
+        btn.addEventListener('click', () => activate(i + 1));
+    });
+}());
+</script>
+
+<!-- ========================= -->
+<!-- SECTION 5 – PLATFORM PRIVILEGES -->
+<!-- ========================= -->
+<section class="relative text-white" style="background: linear-gradient(to bottom, #03292B, #0F1E1F);">
+
+    <div class="max-w-7xl mx-auto px-6 py-40">
+
+        <!-- Section Heading -->
+        <div class="text-center max-w-3xl mx-auto mb-24">
+            <p class="uppercase tracking-[0.3em] text-[#C6A052] text-sm mb-6">
+                Ecosystem Benefits
+            </p>
+            <h2 class="text-5xl font-light mb-8">
+                SHARM Platform Privileges
+            </h2>
+            <p class="text-white/60 leading-relaxed">
+                The SHARM option gives investors access to the rights and returns of the SHARMONY ecosystem
+            </p>
+        </div>
+
+        <!-- Content Layout -->
+        <!-- changed to items-stretch so the left stripe column matches the content box height -->
+        <div class="flex items-stretch gap-6">
+
+            <!-- Stripe Navigation (now stretches to the height of the content box) -->
+            <!-- Make nav focusable and keyboard-accessible -->
+            <div id="priv-nav" class="relative flex flex-col items-center justify-between w-14" role="navigation" aria-label="Platform privileges navigation" tabindex="0">
+
+                <!-- Top arrow (aligned with top edge of the content box) -->
+                <button id="priv-arrow-up" class="priv-arrow" aria-label="Previous privilege">
+                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M6 15L12 9L18 15" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                </button>
+
+                <!-- Stripes (centered, fill the middle area) -->
+                <div id="stripes" class="stripes flex flex-col items-center justify-center flex-1 gap-3" role="list" aria-label="Privileges list">
+                    <button onclick="showPrivilege(1)" class="stripe-btn" data-id="1" aria-controls="privilegeContent" role="listitem" aria-label="Privilege 1"><span id="stripe1" class="stripe-visual active"></span></button>
+                    <button onclick="showPrivilege(2)" class="stripe-btn" data-id="2" aria-controls="privilegeContent" role="listitem" aria-label="Privilege 2"><span id="stripe2" class="stripe-visual"></span></button>
+                    <button onclick="showPrivilege(3)" class="stripe-btn" data-id="3" aria-controls="privilegeContent" role="listitem" aria-label="Privilege 3"><span id="stripe3" class="stripe-visual"></span></button>
+                    <button onclick="showPrivilege(4)" class="stripe-btn" data-id="4" aria-controls="privilegeContent" role="listitem" aria-label="Privilege 4"><span id="stripe4" class="stripe-visual"></span></button>
                 </div>
 
-                <div>
-                    <h3 class="text-2xl font-light mb-4">
-                        Institutional Integrity
+                <!-- Bottom arrow (aligned with bottom edge of the content box) -->
+                <button id="priv-arrow-down" class="priv-arrow" aria-label="Next privilege">
+                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M6 9L12 15L18 9" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                </button>
+
+            </div>
+
+            <!-- Content Box -->
+            <div class="flex-1 border border-white/10 bg-white/5 backdrop-blur-sm p-16 min-h-[260px]">
+
+                <div id="privilegeContent" class="transition-all duration-500">
+
+                    <p id="privilegeLabel"
+                       class="uppercase tracking-[0.3em] text-[#C6A052] text-sm mb-6">
+                        Platform Privileges
+                    </p>
+
+                    <h3 id="privilegeTitle"
+                        class="text-3xl font-light mb-8">
+                        Payment Utility
                     </h3>
-                    <p class="text-neutral-600">
-                        The model preserves legal robustness and compliance standards
-                        while introducing modern capital accessibility.
+
+                    <p id="privilegeText"
+                       class="text-white/70 leading-relaxed max-w-2xl">
+                        Use the SHARM NFT token as a payment tool for platform services
+                        with discounted access to premium features and ecosystem utilities.
                     </p>
-                </div>
 
-                <div>
-                    <h3 class="text-2xl font-light mb-4">
-                        Scalable Participation
-                    </h3>
-                    <p class="text-neutral-600">
-                        Investors engage at fractional levels without sacrificing
-                        asset quality or structural transparency.
-                    </p>
                 </div>
 
             </div>
@@ -223,86 +630,127 @@
     </div>
 </section>
 
-<!-- ROADMAP SECTION -->
-<section id="roadmap" class="bg-[#03292B] py-32">
-    <div class="max-w-7xl mx-auto px-6">
-        <h2 class="text-4xl font-['TT_Livret_Display_Trl'] text-white mb-12">SHARMONY Ecosystem Development</h2>
-        <div class="flex flex-col md:flex-row md:space-x-12">
-            <div class="w-1 bg-[#31D0B2] md:h-full"></div>
-            <div class="flex-1 space-y-8 mt-8 md:mt-0">
-                <!-- Roadmap items -->
-                <div class="cursor-pointer group">
-                    <h3
-                        class="text-[#FFFFFF] font-['TT_Livret_Display_Trl'] text-2xl group-hover:text-[#31D0B2] transition">
-                        Phase 1: Foundation</h3>
-                    <p
-                        class="text-[#94A3B8] mt-2 max-h-0 overflow-hidden group-hover:max-h-96 transition-all duration-500">
-                        Platform setup, initial token structure, and pilot property acquisitions.</p>
-                </div>
-                <div class="cursor-pointer group">
-                    <h3
-                        class="text-[#FFFFFF] font-['TT_Livret_Display_Trl'] text-2xl group-hover:text-[#31D0B2] transition">
-                        Phase 2: First Properties</h3>
-                    <p
-                        class="text-[#94A3B8] mt-2 max-h-0 overflow-hidden group-hover:max-h-96 transition-all duration-500">
-                        Acquisition of first global tourist properties and fractionalization.</p>
-                </div>
-                <div class="cursor-pointer group">
-                    <h3
-                        class="text-[#FFFFFF] font-['TT_Livret_Display_Trl'] text-2xl group-hover:text-[#31D0B2] transition">
-                        Phase 3: Governance Rollout</h3>
-                    <p
-                        class="text-[#94A3B8] mt-2 max-h-0 overflow-hidden group-hover:max-h-96 transition-all duration-500">
-                        Implementation of token-holder governance and revenue distribution mechanisms.</p>
-                </div>
-            </div>
+
+
+<!-- ========================= -->
+<!-- SECTION 6 – TOKEN DISTRIBUTION (ELEVATED) -->
+<!-- ========================= -->
+<section class="bg-[#071A1B] text-white">
+
+    <div class="max-w-7xl mx-auto px-6 py-44">
+
+        <!-- Header -->
+        <div class="text-center max-w-3xl mx-auto mb-10">
+            <p class="uppercase tracking-[0.3em] text-[#C6A052] text-sm mb-6">
+                Token Sale
+            </p>
+            <h2 class="text-5xl font-light mb-8">
+                Why SHARM Options Are Limited
+            </h2>
+            <div class="w-24 h-px bg-[#C6A052] mx-auto"></div>
         </div>
+
+        <!-- Framed Panel -->
+        <div class="border border-white/10 bg-[#0D2324] drop-shadow-2xl px-20 py-10">
+
+            <div class="grid md:grid-cols-2 gap-24 items-center">
+
+                <!-- LEFT SIDE – DATA -->
+                <div class="space-y-6">
+
+                    <div class="flex justify-between border-b border-white/10 pb-4">
+                        <span class="text-white/60">Total Supply</span>
+                        <span class="font-light">5,000,000 SHARM</span>
+                    </div>
+
+                    <div class="flex justify-between border-b border-white/10 pb-4">
+                        <span class="text-white/60">Investment Allocation</span>
+                        <span class="font-light">1,500,000 SHARM (30%)</span>
+                    </div>
+
+                    <div class="flex justify-between border-b border-white/10 pb-4">
+                        <span class="text-white/60">Private Presale</span>
+                        <span class="font-light">500,000 SHARM (10%)</span>
+                    </div>
+
+                    <div class="flex justify-between border-b border-white/10 pb-4">
+                        <span class="text-white/60">Format</span>
+                        <span class="font-light">Private Presale</span>
+                    </div>
+
+                    <div class="flex justify-between pb-4">
+                        <span class="text-white/60">Price</span>
+                        <span class="font-light text-[#C6A052]">
+                            1 SHARM = 10 USDT
+                        </span>
+                    </div>
+
+                    <div class="pt-6 text-white/50 text-sm">
+                        Private presale closes May 15, 2026.
+                    </div>
+
+                </div>
+
+                <!-- RIGHT SIDE – CHART + CTA -->
+                <div class="flex flex-col items-center space-y-9">
+
+                    <!-- Pie title -->
+                    <div class="text-center">
+                        <p class="uppercase tracking-[0.25em] text-sm text-[#C6A052] mb-2">Token Distribution</p>
+                    </div>
+
+                     <!-- Refined Pie Chart -->
+                    <div class="relative w-72 h-72 rounded-full"
+                         role="img" aria-label="Token distribution — 60 percent liquidity, team and marketing; 30 percent investments; 10 percent closed presale"
+                         style="background:
+                         conic-gradient(
+                         rgba(255,255,255,0.1) 0% 10%,
+                         #31D0B2 10% 40%,
+                         #C6A052 40% 100%
+                         );">
+
+                        <div class="absolute inset-10 bg-[#071A1B] rounded-full flex items-center justify-center text-sm text-white/60">
+                            SHARM
+                        </div>
+
+                    </div>
+
+                    <!-- Legend -->
+                    <div class="flex flex-col items-start space-y-3">
+                        <div class="flex items-center gap-3">
+                            <span class="w-4 h-4 rounded-full" style="background:#C6A052"></span>
+                            <span class="text-white/80">60% — Liquidity, Team & Marketing</span>
+                        </div>
+                        <div class="flex items-center gap-3">
+                            <span class="w-4 h-4 rounded-full" style="background:#31D0B2"></span>
+                            <span class="text-white/80">30% — Investments</span>
+                        </div>
+                        <div class="flex items-center gap-3">
+                            <span class="w-4 h-4 rounded-full" style="background:rgba(255,255,255,0.1)"></span>
+                            <span class="text-white/80">10% — Closed Presale</span>
+                        </div>
+                    </div>
+
+                     <!-- CTA -->
+                     <a href="/register"
+                        class="px-12 py-5 border border-[#C6A052] text-[#C6A052]
+                        uppercase tracking-[0.25em] text-sm
+                        hover:bg-[#C6A052] hover:text-[#071A1B]
+                        transition-all duration-500">
+
+                         Register for Closed Presale
+
+                     </a>
+
+                 </div>
+
+            </div>
+
+        </div>
+
     </div>
 </section>
 
-<!-- PRIVILEGES SECTION -->
-<section id="privileges" class="bg-[#03292B] py-32">
-    <div class="max-w-7xl mx-auto px-6 grid md:grid-cols-2 gap-12 items-center">
-        <div class="flex flex-col space-y-4">
-            <!-- Vertical selector -->
-            <div id="privilege-tabs" class="flex flex-col space-y-3">
-                <button class="text-[#94A3B8] hover:text-[#31D0B2] transition" data-tab="0">Governance
-                    Participation</button>
-                <button class="text-[#94A3B8] hover:text-[#31D0B2] transition" data-tab="1">Revenue Allocation</button>
-                <button class="text-[#94A3B8] hover:text-[#31D0B2] transition" data-tab="2">Strategic Allocation
-                    Priority</button>
-                <button class="text-[#FFFFFF] font-semibold" data-tab="3">Ecosystem Expansion Benefits</button>
-            </div>
-        </div>
-        <div>
-            <div id="privilege-content" class="text-[#FFFFFF] font-['Gilroy'] text-lg transition-opacity duration-500">
-                SHARM holders participate in ecosystem expansion initiatives, gaining early insights and strategic
-                influence.
-            </div>
-        </div>
-    </div>
-</section>
-
-<!-- ALLOCATION SECTION -->
-<section id="allocation" class="bg-[#03292B] py-32">
-    <div class="max-w-7xl mx-auto px-6 grid md:grid-cols-2 gap-12 items-center">
-        <div class="space-y-6">
-            <h2 class="text-4xl font-['TT_Livret_Display_Trl'] text-white">Seed Allocation & Token Distribution</h2>
-            <ul class="space-y-2 text-[#FFFFFF] font-['Gilroy']">
-                <li><span class="font-bold text-[#DBA757]">Total options/tokens:</span> 5,000,000 SHARM</li>
-                <li><span class="font-bold text-[#DBA757]">For investments:</span> 1,500,000 SHARM (30%)</li>
-                <li><span class="font-bold text-[#DBA757]">For private presale:</span> 500,000 SHARM (10%)</li>
-                <li><span class="font-bold text-[#DBA757]">Format:</span> Private presale</li>
-                <li><span class="font-bold text-[#DBA757]">Price:</span> 1 SHARM = 10 USDT</li>
-            </ul>
-            <p class="text-[#94A3B8] mt-4">Private presale closes May 15, 2026.</p>
-        </div>
-        <div class="flex justify-center">
-            <div class="w-64 h-64 bg-[#121821] flex items-center justify-center text-[#94A3B8] font-semibold">Pie Chart
-                Placeholder</div>
-        </div>
-    </div>
-</section>
 
 <!-- FINAL CTA SECTION -->
 <section id="final-cta" class="bg-[#03292B] py-32 text-center">
@@ -312,18 +760,14 @@
         designed for global scale.</p>
     <div class="flex justify-center space-x-4">
         <button
-            class="px-8 py-4 bg-gradient-to-r from-[#FFDDA8] to-[#DBA757] text-[#03292B] font-semibold rounded-lg hover:brightness-110 transition">Request
-            Allocation</button>
+            class="px-8 py-4 bg-gradient-to-r from-[#FFDDA8] to-[#DBA757] text-[#03292B] font-semibold rounded-lg hover:brightness-110 transition">
+            White paper
+        </button>
         <button
-            class="px-8 py-4 border border-[#31D0B2] text-[#31D0B2] font-semibold rounded-lg hover:bg-[#31D0B2]/10 transition">Contact
-            Investment Team</button>
+            class="px-8 py-4 border border-[#31D0B2] text-[#31D0B2] font-semibold rounded-lg hover:bg-[#31D0B2]/10 transition">
+            Project presentation
+        </button>
     </div>
-</section>
-
-<!-- Placeholder for Legal Documents Section -->
-<section id="legal" class="bg-[#03292B] py-32 text-center text-[#FFFFFF] font-['Gilroy']">
-    <h3 class="text-3xl font-['TT_Livret_Display_Trl'] mb-6">Legal & Structural Documents</h3>
-    <p>Placeholder for SPV structure, offering memorandum, and other legal files.</p>
 </section>
 
 <!-- Slow spin utility -->
@@ -360,19 +804,101 @@
             }, 300);
         });
     });
+
+
+    function showPrivilege(step) {
+
+        const titles = {
+            1: "Payment Utility",
+            2: "Exclusive Access",
+            3: "Demand & Returns",
+            4: "Regulatory Protection"
+        };
+
+        const texts = {
+            1: "Use the SHARM NFT token as a payment tool for platform services with discounted premium features.",
+            2: "Participate in private sales, vote on new properties, and gain early access to investment opportunities.",
+            3: "Constant demand from ecosystem growth combined with regular dividends from platform profits.",
+            4: "Full regulatory compliance — structured as a reliable and transparent digital asset."
+        };
+
+        // Reset stripes (visual elements) and aria state
+        document.querySelectorAll('.stripe-visual').forEach(el => { el.classList.remove('active'); el.removeAttribute('aria-current'); });
+        const el = document.getElementById('stripe' + step);
+        if (el) { el.classList.add('active'); el.setAttribute('aria-current','true'); }
+
+        const content = document.getElementById('privilegeContent');
+        content.style.opacity = 0;
+        content.style.transform = "translateY(10px)";
+
+        setTimeout(() => {
+            document.getElementById('privilegeTitle').innerText = titles[step];
+            document.getElementById('privilegeText').innerText = texts[step];
+            content.style.opacity = 1;
+            content.style.transform = "translateY(0)";
+        }, 250);
+    }
 </script>
 
 <style>
+    /* Stripe navigation */
+    .priv-arrow {
+        background: transparent;
+        border: none;
+        color: rgba(255,255,255,0.8);
+        width: 36px;
+        height: 36px;
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        cursor: pointer;
+        transition: color .15s, transform .15s;
+    }
+    .priv-arrow:hover { color: #C6A052; transform: translateY(-2px); }
+
+    /* Remove focus rectangle for arrow buttons */
+    .priv-arrow:focus, .priv-arrow:focus-visible { outline: none !important; box-shadow: none !important; }
+
+    .stripe-btn {
+        /* enlarge clickable area without changing visual stripe width */
+        padding: 8px 12px;
+        background: transparent;
+        border: none;
+        cursor: pointer;
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+    }
+    /* Remove visible focus indicators for the stripe nav and stripe buttons (user requested) */
+    #priv-nav:focus, #priv-nav:focus-visible { outline: none !important; box-shadow: none !important; }
+    .stripe-btn:focus, .stripe-btn:focus-visible { outline: none !important; box-shadow: none !important; }
+    /* Firefox inner focus removal */
+    .stripe-btn::-moz-focus-inner { border: 0; }
+    /* Prevent mobile tap highlight */
+    .stripe-btn { -webkit-tap-highlight-color: transparent; }
+
+    .stripe-visual {
+        display: block;
+        width: 3px; /* visual width */
+        height: 3.5rem; /* reduced visual height so nav fits with a shorter content box */
+        border-radius: 999px;
+        background: rgba(255,255,255,0.2);
+        transition: background .18s, transform .18s;
+    }
+
+    .stripe-visual.active { background: #C6A052; transform: scaleY(1.02); }
+
     .triangle-magnifier,
     .triangle-outline,
     .triangle-cutout-bg {
         position: absolute;
         top: 0;
         bottom: 0;
-        right: -5%;
-        left: auto;
-        width: 62%;
-        clip-path: polygon(100% 0, 0 50%, 100% 100%);
+        right: auto;
+        margin: auto;
+        width: 55%;
+        height: 110%;
+        clip-path: polygon(0 0, 91% 50%, 0 100%);
     }
 
     .triangle-magnifier {
@@ -382,6 +908,8 @@
     }
 
     .triangle-cutout-bg {
+        width: 52%;
+        clip-path: polygon(0 0, 3% 0, 100% 50%, 3% 100%, 0 100%);
         background: #F8EDDD;
         z-index: 2;
     }
@@ -398,9 +926,96 @@
         background-image: url('https://images.unsplash.com/photo-1600585154340-be6161a56a0c?q=80&w=2070&auto=format&fit=crop');
         background-size: cover;
         background-position: center;
-        transform: scale(1.08);
+        /* blurred and slightly scaled so the triangle looks magnified and softened */
+        transform: scale(1.20);
         transform-origin: 35% 50%;
+        /*filter: blur(6px);*/
+        will-change: transform, filter;
+        z-index: 0;
+    }
+
+    /* dark tint that applies only inside the triangle */
+    .triangle-tint {
+        position: absolute;
+        inset: 0;
+        background: rgba(0,0,0,0.55);
+        z-index: 5;
+        mix-blend-mode: normal;
+        pointer-events: none;
+    }
+
+    /* Make sure the left stripe column stays visually close to the content box */
+    @media (min-width: 768px) {
+        .flex.items-stretch.gap-6, .flex.items-stretch.gap-3 { gap: 0.75rem; }
     }
 </style>
+
+<script>
+    // Wire up arrow navigation + keyboard accessibility for privileges
+    (function(){
+        const up = document.getElementById('priv-arrow-up');
+        const down = document.getElementById('priv-arrow-down');
+        const nav = document.getElementById('priv-nav');
+        const stripeButtons = Array.from(document.querySelectorAll('#stripes .stripe-btn'));
+        const total = stripeButtons.length || 4;
+
+        function currentIndex(){
+            const visuals = Array.from(document.querySelectorAll('.stripe-visual'));
+            const idx = visuals.findIndex(v => v.classList.contains('active'));
+            return idx >= 0 ? idx + 1 : 1;
+        }
+
+        function activate(step){
+            // update visuals and call content updater
+            document.querySelectorAll('.stripe-visual').forEach(v => v.classList.remove('active'));
+            const el = document.getElementById('stripe' + step);
+            if (el) el.classList.add('active');
+            if (typeof showPrivilege === 'function') showPrivilege(step);
+        }
+
+        // Arrow click handlers (wrap)
+        if (up) up.addEventListener('click', ()=>{
+            let idx = currentIndex(); idx = idx <= 1 ? total : idx - 1; activate(idx);
+        });
+        if (down) down.addEventListener('click', ()=>{
+            let idx = currentIndex(); idx = idx >= total ? 1 : idx + 1; activate(idx);
+        });
+
+        // Keyboard navigation when nav has focus
+        if (nav) nav.addEventListener('keydown', (e)=>{
+            if (!['ArrowUp','ArrowDown','Home','End','Enter',' '].includes(e.key)) return;
+            // If Enter/Space pressed: activate focused stripe button if one is focused,
+            // otherwise if nav itself is focused activate the current index (no focus move)
+            if (e.key === 'Enter' || e.key === ' ') {
+                const activeEl = document.activeElement;
+                if (activeEl && activeEl.classList.contains('stripe-btn')) {
+                    activeEl.click();
+                    e.preventDefault();
+                    return;
+                }
+                if (document.activeElement === nav) {
+                    // activate currently selected stripe without moving focus
+                    activate(currentIndex());
+                    e.preventDefault();
+                    return;
+                }
+            }
+
+            e.preventDefault();
+            let idx = currentIndex();
+            if (e.key === 'ArrowUp') idx = idx <= 1 ? total : idx - 1;
+            else if (e.key === 'ArrowDown') idx = idx >= total ? 1 : idx + 1;
+            else if (e.key === 'Home') idx = 1;
+            else if (e.key === 'End') idx = total;
+            activate(idx);
+            // Do NOT move focus to stripe buttons — keep focus on nav to avoid visible focus rectangle
+        });
+
+        // Ensure stripe buttons activate via click and are focusable (they are native buttons)
+        stripeButtons.forEach((btn, i) => {
+            btn.addEventListener('click', ()=> activate(i+1));
+        });
+    })();
+</script>
 
 {{ end }}
