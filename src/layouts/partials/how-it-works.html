@@ -1,196 +1,189 @@
-<!-- FULL HOW IT WORKS SECTION FIXED TIMELINE -->
-<section class="how-it-works-section">
-    <div class="how-it-works-container">
+<!-- HOW IT WORKS — interactive stepper matching investors roadmap style -->
+<section class="relative text-white overflow-hidden py-20 sm:py-28" id="how-it-works"
+    style="background: linear-gradient(to bottom, #071E1F, #0A2A2B);">
 
-        <!-- HEADING -->
-        <div class="how-it-works-header">
-            <h2 class="how-it-works-title">{{ .Params.how_it_works_h1}}</h2>
-            <p class="how-it-works-description">
-                {{ .Params.how_it_works_h2}}
+    <div class="absolute top-0 left-0 right-0 h-px bg-[#C6A052]/20" aria-hidden="true"></div>
+
+    <div class="relative max-w-7xl mx-auto px-4 sm:px-6">
+
+        <!-- Header -->
+        <div class="flex flex-col md:flex-row md:items-end md:justify-between gap-4 sm:gap-6 mb-12 sm:mb-20">
+            <div>
+                <h2 class="font-['TT_Livret_Display_Trl'] text-3xl sm:text-4xl md:text-5xl font-light leading-tight">
+                    {{ .Params.how_it_works_h1 }}
+                </h2>
+                <div class="w-12 h-px bg-[#C6A052] mt-4"></div>
+            </div>
+            <p class="text-white/40 text-sm max-w-xs leading-relaxed md:text-right hidden sm:block">
+                {{ .Params.how_it_works_h2 }}
             </p>
         </div>
 
-        <!-- TIMELINE -->
-        <div class="how-it-works-timeline">
-            <div class="how-it-works-timeline-line"></div>
+        <!-- Step track -->
+        <div class="relative mb-10">
+            <div class="absolute top-5 left-0 right-0 h-px bg-white/10" aria-hidden="true"></div>
+            <div class="absolute top-5 left-0 h-px bg-[#C6A052]" style="width:10%" id="hiw-progress" aria-hidden="true"></div>
 
-            <!-- STEP 1 -->
-            <div class="how-it-works-step">
-                <div class="how-it-works-step-number">
-                    {{ .Params.how_it_works_item_1_1 }}
-                </div>
-                <h3 class="how-it-works-step-title">{{ .Params.how_it_works_item_1_2}}</h3>
-                <div class="how-it-works-step-content">
-
-                    <div class="how-it-works-step-item">
-                        <div class="how-it-works-step-item-title">{{ .Params.how_it_works_item_1_1_1 }}</div>
-                        <div class="how-it-works-step-item-description">
-                            {{ .Params.how_it_works_item_1_1_2 }}
-                        </div>
-                    </div>
-
-                    <div class="how-it-works-step-item">
-                        <div class="how-it-works-step-item-title">{{ .Params.how_it_works_item_1_2_1 }}</div>
-                        <div class="how-it-works-step-item-description">
-                            {{ .Params.how_it_works_item_1_2_2 }}
-                        </div>
-                    </div>
-
-                    <div class="how-it-works-step-item">
-                        <div class="how-it-works-step-item-title">{{ .Params.how_it_works_item_1_3_1 }}</div>
-                        <div class="how-it-works-step-item-description">
-                            {{ .Params.how_it_works_item_1_3_2 }}
-                        </div>
-                    </div>
-
-
-                    <div class="how-it-works-step-item">
-                        <div class="how-it-works-step-item-title">{{ .Params.how_it_works_item_1_4_1 }}</div>
-                        <div class="how-it-works-step-item-description">
-                            {{ .Params.how_it_works_item_1_4_2 }}
-                        </div>
-                    </div>
-
-
-                    <div class="how-it-works-step-item">
-                        <div class="how-it-works-step-item-title">{{ .Params.how_it_works_item_1_5_1 }}</div>
-                        <div class="how-it-works-step-item-description">
-                            {{ .Params.how_it_works_item_1_5_2 }}
-                        </div>
-                    </div>
-
-                </div>
-            </div>
-
-            <!-- STEP 2 -->
-            <div class="how-it-works-step">
-                <div class="how-it-works-step-number">
-                    {{ .Params.how_it_works_item_2_1 }}
-                </div>
-                <h3 class="how-it-works-step-title">{{ .Params.how_it_works_item_2_2}}</h3>
-                <div class="how-it-works-step-content">
-
-                    <div class="how-it-works-step-item">
-                        <div class="how-it-works-step-item-title">{{ .Params.how_it_works_item_2_1_1 }}</div>
-                        <div class="how-it-works-step-item-description">
-                            {{ .Params.how_it_works_item_2_1_2 }}
-                        </div>
-                    </div>
-
-                    <div class="how-it-works-step-item">
-                        <div class="how-it-works-step-item-title">{{ .Params.how_it_works_item_2_2_1 }}</div>
-                        <div class="how-it-works-step-item-description">
-                            {{ .Params.how_it_works_item_2_2_2 }}
-                        </div>
-                    </div>
-
-                    <div class="how-it-works-step-item">
-                        <div class="how-it-works-step-item-title">{{ .Params.how_it_works_item_2_3_1 }}</div>
-                        <div class="how-it-works-step-item-description">
-                            {{ .Params.how_it_works_item_2_3_2 }}
-                        </div>
-                    </div>
-
-
-                    <div class="how-it-works-step-item">
-                        <div class="how-it-works-step-item-title">{{ .Params.how_it_works_item_2_4_1 }}</div>
-                        <div class="how-it-works-step-item-description">
-                            {{ .Params.how_it_works_item_2_4_2 }}
-                        </div>
-                    </div>
-
-
-                    <div class="how-it-works-step-item">
-                        <div class="how-it-works-step-item-title">{{ .Params.how_it_works_item_2_5_1 }}</div>
-                        <div class="how-it-works-step-item-description">
-                            {{ .Params.how_it_works_item_2_5_2 }}
-                        </div>
-                    </div>
-
-                </div>
-            </div>
-
-            <!-- STEP 3 -->
-            <div class="how-it-works-step">
-                <div class="how-it-works-step-number">
-                    {{ .Params.how_it_works_item_3_1 }}
-                </div>
-                <h3 class="how-it-works-step-title">{{ .Params.how_it_works_item_3_2}}</h3>
-                <div class="how-it-works-step-content">
-
-                    <div class="how-it-works-step-item">
-                        <div class="how-it-works-step-item-title">{{ .Params.how_it_works_item_3_1_1 }}</div>
-                        <div class="how-it-works-step-item-description">
-                            {{ .Params.how_it_works_item_3_1_2 }}
-                        </div>
-                    </div>
-
-                    <div class="how-it-works-step-item">
-                        <div class="how-it-works-step-item-title">{{ .Params.how_it_works_item_3_2_1 }}</div>
-                        <div class="how-it-works-step-item-description">
-                            {{ .Params.how_it_works_item_3_2_2 }}
-                        </div>
-
-                    </div>
-                </div>
-            </div>
-
-            <!-- STEP 4 -->
-            <div class="how-it-works-step">
-                <div class="how-it-works-step-number">
-                    {{ .Params.how_it_works_item_4_1 }}
-                </div>
-                <h3 class="how-it-works-step-title">{{ .Params.how_it_works_item_4_2}}</h3>
-                <div class="how-it-works-step-content">
-
-                    <div class="how-it-works-step-item">
-                        <div class="how-it-works-step-item-title">{{ .Params.how_it_works_item_4_1_1 }}</div>
-                        <div class="how-it-works-step-item-description">
-                            {{ .Params.how_it_works_item_4_1_2 }}
-                        </div>
-                    </div>
-
-                    <div class="how-it-works-step-item">
-                        <div class="how-it-works-step-item-title">{{ .Params.how_it_works_item_4_2_1 }}</div>
-                        <div class="how-it-works-step-item-description">
-                            {{ .Params.how_it_works_item_4_2_2 }}
-                        </div>
-                    </div>
-
-                </div>
-            </div>
-
-            <!-- STEP 5 -->
-            <div class="how-it-works-step">
-                <div class="how-it-works-step-number">
-                    {{ .Params.how_it_works_item_5_1 }}
-                </div>
-                <h3 class="how-it-works-step-title">{{ .Params.how_it_works_item_5_2}}</h3>
-                <div class="how-it-works-step-content">
-
-                    <div class="how-it-works-step-item">
-                        <div class="how-it-works-step-item-title">{{ .Params.how_it_works_item_5_1_1 }}</div>
-                        <div class="how-it-works-step-item-description">
-                            {{ .Params.how_it_works_item_5_1_2 }}
-                        </div>
-                    </div>
-
-                    <div class="how-it-works-step-item">
-                        <div class="how-it-works-step-item-title">{{ .Params.how_it_works_item_5_2_1 }}</div>
-                        <div class="how-it-works-step-item-description">
-                            {{ .Params.how_it_works_item_5_2_2 }}
-                        </div>
-                    </div>
-
-                    <div class="how-it-works-step-item">
-                        <div class="how-it-works-step-item-title">{{ .Params.how_it_works_item_5_3_1 }}</div>
-                        <div class="how-it-works-step-item-description">
-                            {{ .Params.how_it_works_item_5_3_2 }}
-                        </div>
-                    </div>
-
-                </div>
+            <div class="relative grid grid-cols-5 text-center">
+                <button class="hiw-step hiw-step-active" data-step="1" aria-pressed="true">
+                    <span class="hiw-node hiw-node-active"></span>
+                    <span class="hiw-label mt-3 block text-[#C6A052]">{{ .Params.how_it_works_item_1_1 }}</span>
+                    <span class="hiw-title mt-1 block text-[10px] sm:text-xs text-white/60 px-1">{{ .Params.how_it_works_item_1_2 }}</span>
+                </button>
+                <button class="hiw-step" data-step="2" aria-pressed="false">
+                    <span class="hiw-node hiw-node-future"></span>
+                    <span class="hiw-label mt-3 block">{{ .Params.how_it_works_item_2_1 }}</span>
+                    <span class="hiw-title mt-1 block text-[10px] sm:text-xs text-white/40 px-1">{{ .Params.how_it_works_item_2_2 }}</span>
+                </button>
+                <button class="hiw-step" data-step="3" aria-pressed="false">
+                    <span class="hiw-node hiw-node-future"></span>
+                    <span class="hiw-label mt-3 block">{{ .Params.how_it_works_item_3_1 }}</span>
+                    <span class="hiw-title mt-1 block text-[10px] sm:text-xs text-white/40 px-1">{{ .Params.how_it_works_item_3_2 }}</span>
+                </button>
+                <button class="hiw-step" data-step="4" aria-pressed="false">
+                    <span class="hiw-node hiw-node-future"></span>
+                    <span class="hiw-label mt-3 block">{{ .Params.how_it_works_item_4_1 }}</span>
+                    <span class="hiw-title mt-1 block text-[10px] sm:text-xs text-white/40 px-1">{{ .Params.how_it_works_item_4_2 }}</span>
+                </button>
+                <button class="hiw-step" data-step="5" aria-pressed="false">
+                    <span class="hiw-node hiw-node-future"></span>
+                    <span class="hiw-label mt-3 block">{{ .Params.how_it_works_item_5_1 }}</span>
+                    <span class="hiw-title mt-1 block text-[10px] sm:text-xs text-white/40 px-1">{{ .Params.how_it_works_item_5_2 }}</span>
+                </button>
             </div>
         </div>
+
+        <!-- Detail panels -->
+        <div class="hiw-panel border-t border-[#C6A052]/20 pt-8 min-h-[220px]">
+
+            <div class="hiw-content" id="hiw-c1">
+                <h3 class="mb-1"><span class="block text-[0.6rem] tracking-[0.3em] uppercase text-[#C6A052] mb-1">{{ .Params.how_it_works_item_1_1 }}</span>
+                <span class="font-['TT_Livret_Display_Trl'] text-xl sm:text-2xl font-light text-white">{{ .Params.how_it_works_item_1_2 }}</span></h3>
+                <ul class="mt-5 space-y-3">
+                    {{ if .Params.how_it_works_item_1_1_1 }}<li class="flex gap-3"><span class="text-[#DBA757] mt-1 flex-shrink-0">›</span><div><p class="text-white/80 text-sm font-medium">{{ .Params.how_it_works_item_1_1_1 }}</p><p class="text-white/50 text-sm">{{ .Params.how_it_works_item_1_1_2 }}</p></div></li>{{ end }}
+                    {{ if .Params.how_it_works_item_1_2_1 }}<li class="flex gap-3"><span class="text-[#DBA757] mt-1 flex-shrink-0">›</span><div><p class="text-white/80 text-sm font-medium">{{ .Params.how_it_works_item_1_2_1 }}</p><p class="text-white/50 text-sm">{{ .Params.how_it_works_item_1_2_2 }}</p></div></li>{{ end }}
+                    {{ if .Params.how_it_works_item_1_3_1 }}<li class="flex gap-3"><span class="text-[#DBA757] mt-1 flex-shrink-0">›</span><div><p class="text-white/80 text-sm font-medium">{{ .Params.how_it_works_item_1_3_1 }}</p><p class="text-white/50 text-sm">{{ .Params.how_it_works_item_1_3_2 }}</p></div></li>{{ end }}
+                    {{ if .Params.how_it_works_item_1_4_1 }}<li class="flex gap-3"><span class="text-[#DBA757] mt-1 flex-shrink-0">›</span><div><p class="text-white/80 text-sm font-medium">{{ .Params.how_it_works_item_1_4_1 }}</p><p class="text-white/50 text-sm">{{ .Params.how_it_works_item_1_4_2 }}</p></div></li>{{ end }}
+                    {{ if .Params.how_it_works_item_1_5_1 }}<li class="flex gap-3"><span class="text-[#DBA757] mt-1 flex-shrink-0">›</span><div><p class="text-white/80 text-sm font-medium">{{ .Params.how_it_works_item_1_5_1 }}</p><p class="text-white/50 text-sm">{{ .Params.how_it_works_item_1_5_2 }}</p></div></li>{{ end }}
+                </ul>
+            </div>
+
+            <div class="hiw-content hiw-hidden" id="hiw-c2">
+                <h3 class="mb-1"><span class="block text-[0.6rem] tracking-[0.3em] uppercase text-[#C6A052] mb-1">{{ .Params.how_it_works_item_2_1 }}</span>
+                <span class="font-['TT_Livret_Display_Trl'] text-xl sm:text-2xl font-light text-white">{{ .Params.how_it_works_item_2_2 }}</span></h3>
+                <ul class="mt-5 space-y-3">
+                    {{ if .Params.how_it_works_item_2_1_1 }}<li class="flex gap-3"><span class="text-[#DBA757] mt-1 flex-shrink-0">›</span><div><p class="text-white/80 text-sm font-medium">{{ .Params.how_it_works_item_2_1_1 }}</p><p class="text-white/50 text-sm">{{ .Params.how_it_works_item_2_1_2 }}</p></div></li>{{ end }}
+                    {{ if .Params.how_it_works_item_2_2_1 }}<li class="flex gap-3"><span class="text-[#DBA757] mt-1 flex-shrink-0">›</span><div><p class="text-white/80 text-sm font-medium">{{ .Params.how_it_works_item_2_2_1 }}</p><p class="text-white/50 text-sm">{{ .Params.how_it_works_item_2_2_2 }}</p></div></li>{{ end }}
+                    {{ if .Params.how_it_works_item_2_3_1 }}<li class="flex gap-3"><span class="text-[#DBA757] mt-1 flex-shrink-0">›</span><div><p class="text-white/80 text-sm font-medium">{{ .Params.how_it_works_item_2_3_1 }}</p><p class="text-white/50 text-sm">{{ .Params.how_it_works_item_2_3_2 }}</p></div></li>{{ end }}
+                    {{ if .Params.how_it_works_item_2_4_1 }}<li class="flex gap-3"><span class="text-[#DBA757] mt-1 flex-shrink-0">›</span><div><p class="text-white/80 text-sm font-medium">{{ .Params.how_it_works_item_2_4_1 }}</p><p class="text-white/50 text-sm">{{ .Params.how_it_works_item_2_4_2 }}</p></div></li>{{ end }}
+                    {{ if .Params.how_it_works_item_2_5_1 }}<li class="flex gap-3"><span class="text-[#DBA757] mt-1 flex-shrink-0">›</span><div><p class="text-white/80 text-sm font-medium">{{ .Params.how_it_works_item_2_5_1 }}</p><p class="text-white/50 text-sm">{{ .Params.how_it_works_item_2_5_2 }}</p></div></li>{{ end }}
+                </ul>
+            </div>
+
+            <div class="hiw-content hiw-hidden" id="hiw-c3">
+                <h3 class="mb-1"><span class="block text-[0.6rem] tracking-[0.3em] uppercase text-[#C6A052] mb-1">{{ .Params.how_it_works_item_3_1 }}</span>
+                <span class="font-['TT_Livret_Display_Trl'] text-xl sm:text-2xl font-light text-white">{{ .Params.how_it_works_item_3_2 }}</span></h3>
+                <ul class="mt-5 space-y-3">
+                    {{ if .Params.how_it_works_item_3_1_1 }}<li class="flex gap-3"><span class="text-[#DBA757] mt-1 flex-shrink-0">›</span><div><p class="text-white/80 text-sm font-medium">{{ .Params.how_it_works_item_3_1_1 }}</p><p class="text-white/50 text-sm">{{ .Params.how_it_works_item_3_1_2 }}</p></div></li>{{ end }}
+                    {{ if .Params.how_it_works_item_3_2_1 }}<li class="flex gap-3"><span class="text-[#DBA757] mt-1 flex-shrink-0">›</span><div><p class="text-white/80 text-sm font-medium">{{ .Params.how_it_works_item_3_2_1 }}</p><p class="text-white/50 text-sm">{{ .Params.how_it_works_item_3_2_2 }}</p></div></li>{{ end }}
+                </ul>
+            </div>
+
+            <div class="hiw-content hiw-hidden" id="hiw-c4">
+                <h3 class="mb-1"><span class="block text-[0.6rem] tracking-[0.3em] uppercase text-[#C6A052] mb-1">{{ .Params.how_it_works_item_4_1 }}</span>
+                <span class="font-['TT_Livret_Display_Trl'] text-xl sm:text-2xl font-light text-white">{{ .Params.how_it_works_item_4_2 }}</span></h3>
+                <ul class="mt-5 space-y-3">
+                    {{ if .Params.how_it_works_item_4_1_1 }}<li class="flex gap-3"><span class="text-[#DBA757] mt-1 flex-shrink-0">›</span><div><p class="text-white/80 text-sm font-medium">{{ .Params.how_it_works_item_4_1_1 }}</p><p class="text-white/50 text-sm">{{ .Params.how_it_works_item_4_1_2 }}</p></div></li>{{ end }}
+                    {{ if .Params.how_it_works_item_4_2_1 }}<li class="flex gap-3"><span class="text-[#DBA757] mt-1 flex-shrink-0">›</span><div><p class="text-white/80 text-sm font-medium">{{ .Params.how_it_works_item_4_2_1 }}</p><p class="text-white/50 text-sm">{{ .Params.how_it_works_item_4_2_2 }}</p></div></li>{{ end }}
+                </ul>
+            </div>
+
+            <div class="hiw-content hiw-hidden" id="hiw-c5">
+                <h3 class="mb-1"><span class="block text-[0.6rem] tracking-[0.3em] uppercase text-[#C6A052] mb-1">{{ .Params.how_it_works_item_5_1 }}</span>
+                <span class="font-['TT_Livret_Display_Trl'] text-xl sm:text-2xl font-light text-white">{{ .Params.how_it_works_item_5_2 }}</span></h3>
+                <ul class="mt-5 space-y-3">
+                    {{ if .Params.how_it_works_item_5_1_1 }}<li class="flex gap-3"><span class="text-[#DBA757] mt-1 flex-shrink-0">›</span><div><p class="text-white/80 text-sm font-medium">{{ .Params.how_it_works_item_5_1_1 }}</p><p class="text-white/50 text-sm">{{ .Params.how_it_works_item_5_1_2 }}</p></div></li>{{ end }}
+                    {{ if .Params.how_it_works_item_5_2_1 }}<li class="flex gap-3"><span class="text-[#DBA757] mt-1 flex-shrink-0">›</span><div><p class="text-white/80 text-sm font-medium">{{ .Params.how_it_works_item_5_2_1 }}</p><p class="text-white/50 text-sm">{{ .Params.how_it_works_item_5_2_2 }}</p></div></li>{{ end }}
+                    {{ if .Params.how_it_works_item_5_3_1 }}<li class="flex gap-3"><span class="text-[#DBA757] mt-1 flex-shrink-0">›</span><div><p class="text-white/80 text-sm font-medium">{{ .Params.how_it_works_item_5_3_1 }}</p><p class="text-white/50 text-sm">{{ .Params.how_it_works_item_5_3_2 }}</p></div></li>{{ end }}
+                </ul>
+            </div>
+
+        </div>
     </div>
+
+    <div class="absolute bottom-0 left-0 right-0 h-px bg-[#C6A052]/15" aria-hidden="true"></div>
 </section>
+
+<style>
+.hiw-step {
+    display: flex; flex-direction: column; align-items: center;
+    background: none; border: none; cursor: pointer; padding: 0 2px;
+    color: rgba(255,255,255,0.3); transition: color .2s;
+}
+.hiw-step:hover { color: rgba(255,255,255,0.7); }
+.hiw-step-active { color: #C6A052 !important; }
+.hiw-step:focus-visible { outline: none; }
+.hiw-node {
+    display: block; width: 10px; height: 10px; border-radius: 9999px;
+    position: relative; z-index: 2; transition: box-shadow .25s, background .25s;
+}
+.hiw-node-active { background: #C6A052; box-shadow: 0 0 0 5px rgba(198,160,82,0.18), 0 0 14px 3px rgba(198,160,82,0.25); width: 12px; height: 12px; }
+.hiw-node-future { background: rgba(255,255,255,0.15); border: 1px solid rgba(255,255,255,0.2); }
+.hiw-step:hover .hiw-node-future { background: rgba(255,255,255,0.3); }
+.hiw-label { font-size: 0.65rem; letter-spacing: 0.15em; font-weight: 300; }
+.hiw-title { line-height: 1.2; }
+.hiw-step-active .hiw-label { color: #C6A052; }
+.hiw-content { transition: opacity .35s ease, transform .35s ease; }
+.hiw-hidden { display: none; }
+#hiw-progress { transition: width .42s cubic-bezier(.22,.9,.28,1); }
+</style>
+
+<script>
+(function(){
+    const steps = document.querySelectorAll('.hiw-step');
+    const contents = document.querySelectorAll('.hiw-content');
+    const progress = document.getElementById('hiw-progress');
+    const total = steps.length;
+    let animating = false;
+
+    function activate(n) {
+        if (animating) return;
+        steps.forEach((s, i) => {
+            const isActive = i + 1 === n;
+            s.classList.toggle('hiw-step-active', isActive);
+            s.setAttribute('aria-pressed', isActive ? 'true' : 'false');
+            const node = s.querySelector('.hiw-node');
+            if (isActive) node.className = 'hiw-node hiw-node-active';
+            else node.className = 'hiw-node hiw-node-future';
+        });
+        if (progress) {
+            const pct = ((n - 1) / (total - 1)) * 100;
+            progress.style.width = 'calc(' + pct + '% * (1 - 1/' + total + ') + (100% / ' + total + ' * 0.5))';
+        }
+        const current = document.querySelector('.hiw-content:not(.hiw-hidden)');
+        const next = document.getElementById('hiw-c' + n);
+        if (!next || !current || current === next) {
+            contents.forEach((c, i) => c.classList.toggle('hiw-hidden', i + 1 !== n));
+            return;
+        }
+        animating = true;
+        current.style.transition = 'opacity .25s ease, transform .25s ease';
+        current.style.opacity = '0';
+        current.style.transform = 'translateY(6px)';
+        setTimeout(() => {
+            current.classList.add('hiw-hidden');
+            current.style.transition = current.style.opacity = current.style.transform = '';
+            next.classList.remove('hiw-hidden');
+            next.style.opacity = '0';
+            next.style.transform = 'translateY(-6px)';
+            next.style.transition = 'opacity .32s ease, transform .32s ease';
+            next.getBoundingClientRect();
+            requestAnimationFrame(() => { next.style.opacity = '1'; next.style.transform = 'translateY(0)'; });
+            setTimeout(() => { next.style.transition = next.style.opacity = next.style.transform = ''; animating = false; }, 350);
+        }, 230);
+    }
+
+    steps.forEach((btn, i) => btn.addEventListener('click', () => activate(i + 1)));
+})();
+</script>
+

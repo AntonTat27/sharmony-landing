@@ -1,125 +1,59 @@
-<section class="advantages-section">
-    <div class="advantages-container">
+<!-- ADVANTAGES — dark interactive accordion -->
+<section class="bg-[#03292B] text-white py-20 sm:py-28" id="advantages">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6">
 
-        <!-- MINI HEADING -->
-        <div class="advantages-header">
-            <h2 class="advantages-title">
-                {{ .Params.advantages_h1 }}
-            </h2>
-            <p class="advantages-subtitle">
-                {{ .Params.advantages_h2 }}
-            </p>
-        </div>
+        <div class="grid md:grid-cols-2 gap-12 sm:gap-20 md:gap-28 items-start">
 
-        <!-- ADVANTAGES GRID -->
-        <div class="advantages-grid">
+            <!-- LEFT: heading + subtitle -->
+            <div class="md:sticky md:top-32">
+                <h2 class="font-['TT_Livret_Display_Trl'] text-3xl sm:text-4xl md:text-5xl font-light leading-tight mb-6">
+                    {{ .Params.advantages_h1 }}
+                </h2>
+                <div class="w-16 h-px bg-[#DBA757] mb-8"></div>
+                <p class="text-white/50 leading-relaxed text-sm sm:text-base max-w-sm">
+                    {{ .Params.advantages_h2 }}
+                </p>
+            </div>
 
-            <!-- Advantage -->
-            <details class="advantages-item">
-                <summary>
-                    <span class="advantages-item-title">
-                        {{ .Params.advantages_item_1_1 }}
-                    </span>
-                    <span class="advantages-item-icon">+</span>
-                </summary>
+            <!-- RIGHT: accordion list -->
+            <div class="space-y-0">
 
-                <div class="advantages-item-content">
-                    <p class="advantages-item-text">{{ .Params.advantages_item_1_2 }}</p>
-                    <p class="advantages-item-text">{{ .Params.advantages_item_1_3 }}</p>
-                    <p class="advantages-item-text">{{ .Params.advantages_item_1_4 }}</p>
-                </div>
-            </details>
+                {{ $items := slice
+                    (slice .Params.advantages_item_1_1 .Params.advantages_item_1_2 .Params.advantages_item_1_3 .Params.advantages_item_1_4 "01")
+                    (slice .Params.advantages_item_2_1 .Params.advantages_item_2_2 .Params.advantages_item_2_3 .Params.advantages_item_2_4 "02")
+                    (slice .Params.advantages_item_3_1 .Params.advantages_item_3_2 .Params.advantages_item_3_3 .Params.advantages_item_3_4 "03")
+                    (slice .Params.advantages_item_4_1 .Params.advantages_item_4_2 .Params.advantages_item_4_3 .Params.advantages_item_4_4 "04")
+                    (slice .Params.advantages_item_5_1 .Params.advantages_item_5_2 .Params.advantages_item_5_3 .Params.advantages_item_5_4 "05")
+                    (slice .Params.advantages_item_6_1 .Params.advantages_item_6_2 .Params.advantages_item_6_3 .Params.advantages_item_6_4 "06")
+                    (slice .Params.advantages_item_7_1 .Params.advantages_item_7_2 .Params.advantages_item_7_3 .Params.advantages_item_7_4 "07")
+                }}
 
-            <details class="advantages-item">
-                <summary>
-                    <span class="advantages-item-title">
-                        {{ .Params.advantages_item_2_1 }}
-                    </span>
-                    <span class="advantages-item-icon">+</span>
-                </summary>
+                {{ range $items }}
+                <details class="adv-item border-b border-white/10 group">
+                    <summary class="flex items-center justify-between gap-4 py-5 cursor-pointer list-none select-none">
+                        <div class="flex items-center gap-5">
+                            <span class="text-[#DBA757]/40 text-xs tracking-[0.2em] font-light flex-shrink-0">{{ index . 4 }}</span>
+                            <span class="text-base sm:text-lg font-light text-white group-open:text-[#DBA757] transition-colors">
+                                {{ index . 0 }}
+                            </span>
+                        </div>
+                        <span class="adv-icon flex-shrink-0 w-7 h-7 flex items-center justify-center border border-white/20 text-white/60 group-open:border-[#DBA757]/60 group-open:text-[#DBA757] transition-all text-lg leading-none">+</span>
+                    </summary>
+                    <div class="pb-6 pl-10 space-y-2">
+                        {{ if index . 1 }}<p class="text-white/60 text-sm leading-relaxed">{{ index . 1 }}</p>{{ end }}
+                        {{ if index . 2 }}<p class="text-white/60 text-sm leading-relaxed">{{ index . 2 }}</p>{{ end }}
+                        {{ if index . 3 }}<p class="text-white/60 text-sm leading-relaxed">{{ index . 3 }}</p>{{ end }}
+                    </div>
+                </details>
+                {{ end }}
 
-                <div class="advantages-item-content">
-                    <p class="advantages-item-text">{{ .Params.advantages_item_2_2 }}</p>
-                    <p class="advantages-item-text">{{ .Params.advantages_item_2_3 }}</p>
-                    <p class="advantages-item-text">{{ .Params.advantages_item_2_4 }}</p>
-                </div>
-            </details>
-
-            <details class="advantages-item">
-                <summary>
-                    <span class="advantages-item-title">
-                        {{ .Params.advantages_item_3_1 }}
-                    </span>
-                    <span class="advantages-item-icon">+</span>
-                </summary>
-
-                <div class="advantages-item-content">
-                    <p class="advantages-item-text">{{ .Params.advantages_item_3_2 }}</p>
-                    <p class="advantages-item-text">{{ .Params.advantages_item_3_3 }}</p>
-                    <p class="advantages-item-text">{{ .Params.advantages_item_3_4 }}</p>
-                </div>
-            </details>
-
-            <details class="advantages-item">
-                <summary>
-                    <span class="advantages-item-title">
-                        {{ .Params.advantages_item_4_1 }}
-                    </span>
-                    <span class="advantages-item-icon">+</span>
-                </summary>
-
-                <div class="advantages-item-content">
-                    <p class="advantages-item-text">{{ .Params.advantages_item_4_2 }}</p>
-                    <p class="advantages-item-text">{{ .Params.advantages_item_4_3 }}</p>
-                    <p class="advantages-item-text">{{ .Params.advantages_item_4_4 }}</p>
-                </div>
-            </details>
-
-            <details class="advantages-item">
-                <summary>
-                    <span class="advantages-item-title">
-                        {{ .Params.advantages_item_5_1 }}
-                    </span>
-                    <span class="advantages-item-icon">+</span>
-                </summary>
-
-                <div class="advantages-item-content">
-                    <p class="advantages-item-text">{{ .Params.advantages_item_5_2 }}</p>
-                    <p class="advantages-item-text">{{ .Params.advantages_item_5_3 }}</p>
-                    <p class="advantages-item-text">{{ .Params.advantages_item_5_4 }}</p>
-                </div>
-            </details>
-
-            <details class="advantages-item">
-                <summary>
-                    <span class="advantages-item-title">
-                        {{ .Params.advantages_item_6_1 }}
-                    </span>
-                    <span class="advantages-item-icon">+</span>
-                </summary>
-
-                <div class="advantages-item-content">
-                    <p class="advantages-item-text">{{ .Params.advantages_item_6_2 }}</p>
-                    <p class="advantages-item-text">{{ .Params.advantages_item_6_3 }}</p>
-                    <p class="advantages-item-text">{{ .Params.advantages_item_6_4 }}</p>
-                </div>
-            </details>
-
-            <details class="advantages-item">
-                <summary>
-                    <span class="advantages-item-title">
-                        {{ .Params.advantages_item_7_1 }}
-                    </span>
-                    <span class="advantages-item-icon">+</span>
-                </summary>
-
-                <div class="advantages-item-content">
-                    <p class="advantages-item-text">{{ .Params.advantages_item_7_2 }}</p>
-                    <p class="advantages-item-text">{{ .Params.advantages_item_7_3 }}</p>
-                    <p class="advantages-item-text">{{ .Params.advantages_item_7_4 }}</p>
-                </div>
-            </details>
-
+            </div>
         </div>
     </div>
 </section>
+
+<style>
+details.adv-item summary::-webkit-details-marker { display: none; }
+details.adv-item[open] .adv-icon { transform: rotate(45deg); }
+</style>
+

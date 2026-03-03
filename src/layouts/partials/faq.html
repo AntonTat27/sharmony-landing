@@ -1,58 +1,70 @@
-<!-- FAQ -->
-<section class="faq-section">
-    <div class="faq-container">
-        <h2 class="faq-title">{{ .Params.faq_h1}}</h2>
+<!-- FAQ — polished accordion on beige -->
+<section class="bg-[#F8EDDD] text-[#03292B] py-20 sm:py-28" id="faq">
+    <div class="max-w-4xl mx-auto px-4 sm:px-6">
 
+        <div class="mb-12">
+            <h2 class="font-['TT_Livret_Display_Trl'] text-3xl sm:text-4xl font-light">
+                {{ .Params.faq_h1 }}
+            </h2>
+            <div class="w-12 h-px bg-[#DBA757] mt-4"></div>
+        </div>
 
-        <div class="faq-list">
-            <!-- FAQ item -->
-            <details class="faq-item">
-                <summary class="faq-question">
-                    {{ .Params.faq_item_1_1 }}
-                    <span class="faq-icon">+</span>
+        <div class="space-y-0">
+
+            <details class="faq-acc border-b border-[#03292B]/15 group">
+                <summary class="flex items-center justify-between gap-4 py-5 cursor-pointer list-none select-none">
+                    <span class="font-['TT_Livret_Display_Trl'] text-base sm:text-lg font-light text-[#03292B]">{{ .Params.faq_item_1_1 }}</span>
+                    <span class="faq-acc-icon flex-shrink-0 w-7 h-7 flex items-center justify-center border border-[#03292B]/20 text-[#DBA757] group-open:border-[#DBA757] transition-all text-lg leading-none">+</span>
                 </summary>
-                <p class="faq-answer">{{ .Params.faq_item_1_2 }}</p>
+                <p class="pb-5 text-[#03292B]/65 text-sm leading-relaxed">{{ .Params.faq_item_1_2 }}</p>
             </details>
 
-            <details class="faq-item">
-                <summary class="faq-question">
-                    {{ .Params.faq_item_2_1 }}
-                    <span class="faq-icon">+</span>
+            <details class="faq-acc border-b border-[#03292B]/15 group">
+                <summary class="flex items-center justify-between gap-4 py-5 cursor-pointer list-none select-none">
+                    <span class="font-['TT_Livret_Display_Trl'] text-base sm:text-lg font-light text-[#03292B]">{{ .Params.faq_item_2_1 }}</span>
+                    <span class="faq-acc-icon flex-shrink-0 w-7 h-7 flex items-center justify-center border border-[#03292B]/20 text-[#DBA757] group-open:border-[#DBA757] transition-all text-lg leading-none">+</span>
                 </summary>
-                <p class="faq-answer">{{ .Params.faq_item_2_2 }}</p>
+                <p class="pb-5 text-[#03292B]/65 text-sm leading-relaxed">{{ .Params.faq_item_2_2 }}</p>
             </details>
 
-            <details class="faq-item">
-                <summary class="faq-question">
-                    {{ .Params.faq_item_3_1 }}
-                    <span class="faq-icon">+</span>
+            <details class="faq-acc border-b border-[#03292B]/15 group">
+                <summary class="flex items-center justify-between gap-4 py-5 cursor-pointer list-none select-none">
+                    <span class="font-['TT_Livret_Display_Trl'] text-base sm:text-lg font-light text-[#03292B]">{{ .Params.faq_item_3_1 }}</span>
+                    <span class="faq-acc-icon flex-shrink-0 w-7 h-7 flex items-center justify-center border border-[#03292B]/20 text-[#DBA757] group-open:border-[#DBA757] transition-all text-lg leading-none">+</span>
                 </summary>
-                <p class="faq-answer">{{ .Params.faq_item_3_2 }}</p>
+                <p class="pb-5 text-[#03292B]/65 text-sm leading-relaxed">{{ .Params.faq_item_3_2 }}</p>
             </details>
 
-            <details class="faq-item">
-                <summary class="faq-question">
-                    {{ .Params.faq_item_4_1 }}
-                    <span class="faq-icon">+</span>
+            <details class="faq-acc border-b border-[#03292B]/15 group">
+                <summary class="flex items-center justify-between gap-4 py-5 cursor-pointer list-none select-none">
+                    <span class="font-['TT_Livret_Display_Trl'] text-base sm:text-lg font-light text-[#03292B]">{{ .Params.faq_item_4_1 }}</span>
+                    <span class="faq-acc-icon flex-shrink-0 w-7 h-7 flex items-center justify-center border border-[#03292B]/20 text-[#DBA757] group-open:border-[#DBA757] transition-all text-lg leading-none">+</span>
                 </summary>
-                <p class="faq-answer">{{ .Params.faq_item_4_2 }}</p>
+                <p class="pb-5 text-[#03292B]/65 text-sm leading-relaxed">{{ .Params.faq_item_4_2 }}</p>
             </details>
 
-            <details class="faq-item">
-                <summary class="faq-question">
-                    {{ .Params.faq_item_5_1 }}
-                    <span class="faq-icon">+</span>
+            <details class="faq-acc border-b border-[#03292B]/15 group">
+                <summary class="flex items-center justify-between gap-4 py-5 cursor-pointer list-none select-none">
+                    <span class="font-['TT_Livret_Display_Trl'] text-base sm:text-lg font-light text-[#03292B]">{{ .Params.faq_item_5_1 }}</span>
+                    <span class="faq-acc-icon flex-shrink-0 w-7 h-7 flex items-center justify-center border border-[#03292B]/20 text-[#DBA757] group-open:border-[#DBA757] transition-all text-lg leading-none">+</span>
                 </summary>
-                <p class="faq-answer">{{ .Params.faq_item_5_2 }}</p>
+                <p class="pb-5 text-[#03292B]/65 text-sm leading-relaxed">{{ .Params.faq_item_5_2 }}</p>
             </details>
 
-            <details class="faq-item">
-                <summary class="faq-question">
-                    {{ .Params.faq_item_6_1 }}
-                    <span class="faq-icon">+</span>
+            <details class="faq-acc group">
+                <summary class="flex items-center justify-between gap-4 py-5 cursor-pointer list-none select-none">
+                    <span class="font-['TT_Livret_Display_Trl'] text-base sm:text-lg font-light text-[#03292B]">{{ .Params.faq_item_6_1 }}</span>
+                    <span class="faq-acc-icon flex-shrink-0 w-7 h-7 flex items-center justify-center border border-[#03292B]/20 text-[#DBA757] group-open:border-[#DBA757] transition-all text-lg leading-none">+</span>
                 </summary>
-                <p class="faq-answer">{{ .Params.faq_item_6_2 }}</p>
+                <p class="pb-5 text-[#03292B]/65 text-sm leading-relaxed">{{ .Params.faq_item_6_2 }}</p>
             </details>
+
         </div>
     </div>
 </section>
+
+<style>
+details.faq-acc summary::-webkit-details-marker { display: none; }
+details.faq-acc[open] .faq-acc-icon { transform: rotate(45deg); background: #DBA757; color: #03292B; border-color: #DBA757; }
+</style>
+

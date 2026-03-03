@@ -1,60 +1,113 @@
-<section class="numbers-section">
-    <div class="numbers-container">
-        <!-- TITLE ABOVE NUMBERS -->
-        <div>
-            <h2 class="numbers-title">
+<section class="bg-[#03292B] text-white py-20 sm:py-28">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6">
+
+        <div class="mb-12 sm:mb-16">
+            <h2 class="font-['TT_Livret_Display_Trl'] text-3xl sm:text-4xl font-light text-white">
                 {{ .Params.numbers_h1 }}
             </h2>
+            <div class="w-12 h-px bg-[#DBA757] mt-4"></div>
         </div>
 
-        <!-- MARQUEE NUMBERS -->
-        <div class="numbers-marquee-wrapper">
-            <div class="numbers-marquee">
+        <!-- Marquee numbers strip -->
+        <div class="overflow-hidden relative">
+            <!-- left/right fade masks -->
+            <div class="absolute left-0 top-0 bottom-0 w-16 sm:w-32 z-10 pointer-events-none"
+                 style="background:linear-gradient(to right, #03292B, transparent);" aria-hidden="true"></div>
+            <div class="absolute right-0 top-0 bottom-0 w-16 sm:w-32 z-10 pointer-events-none"
+                 style="background:linear-gradient(to left, #03292B, transparent);" aria-hidden="true"></div>
 
-                <!-- ITEM -->
-                <div class="numbers-item">
-                    <span class="numbers-value">{{ .Params.numbers_item_1_1 }}</span>
-                    <span class="numbers-label">{{ .Params.numbers_item_1_2 }}</span>
+            <div class="numbers-marquee-wrap flex">
+                <!-- First pass -->
+                <div class="numbers-marquee-row flex flex-shrink-0 gap-0">
+
+                    <div class="flex flex-col items-center justify-center px-10 sm:px-16 py-6 border-r border-white/10 min-w-max">
+                        <span class="font-['TT_Livret_Display_Trl'] text-4xl sm:text-5xl font-light text-[#DBA757]">{{ .Params.numbers_item_1_1 }}</span>
+                        <span class="text-white/50 text-xs sm:text-sm tracking-widest uppercase mt-2">{{ .Params.numbers_item_1_2 }}</span>
+                    </div>
+                    <div class="flex flex-col items-center justify-center px-10 sm:px-16 py-6 border-r border-white/10 min-w-max">
+                        <span class="font-['TT_Livret_Display_Trl'] text-4xl sm:text-5xl font-light text-[#DBA757]">{{ .Params.numbers_item_2_1 }}</span>
+                        <span class="text-white/50 text-xs sm:text-sm tracking-widest uppercase mt-2">{{ .Params.numbers_item_2_2 }}</span>
+                    </div>
+                    <div class="flex flex-col items-center justify-center px-10 sm:px-16 py-6 border-r border-white/10 min-w-max">
+                        <span class="font-['TT_Livret_Display_Trl'] text-4xl sm:text-5xl font-light text-[#DBA757]">{{ .Params.numbers_item_3_1 }}</span>
+                        <span class="text-white/50 text-xs sm:text-sm tracking-widest uppercase mt-2">{{ .Params.numbers_item_3_2 }}</span>
+                    </div>
+                    <div class="flex flex-col items-center justify-center px-10 sm:px-16 py-6 border-r border-white/10 min-w-max">
+                        <span class="font-['TT_Livret_Display_Trl'] text-4xl sm:text-5xl font-light text-[#DBA757]">{{ .Params.numbers_item_4_1 }}</span>
+                        <span class="text-white/50 text-xs sm:text-sm tracking-widest uppercase mt-2">{{ .Params.numbers_item_4_2 }}</span>
+                    </div>
+                    <div class="flex flex-col items-center justify-center px-10 sm:px-16 py-6 border-r border-white/10 min-w-max">
+                        <span class="font-['TT_Livret_Display_Trl'] text-4xl sm:text-5xl font-light text-[#DBA757]">{{ .Params.numbers_item_5_1 }}</span>
+                        <span class="text-white/50 text-xs sm:text-sm tracking-widest uppercase mt-2">{{ .Params.numbers_item_5_2 }}</span>
+                    </div>
+                    <div class="flex flex-col items-center justify-center px-10 sm:px-16 py-6 border-r border-white/10 min-w-max">
+                        <span class="font-['TT_Livret_Display_Trl'] text-4xl sm:text-5xl font-light text-[#DBA757]">{{ .Params.numbers_item_6_1 }}</span>
+                        <span class="text-white/50 text-xs sm:text-sm tracking-widest uppercase mt-2">{{ .Params.numbers_item_6_2 }}</span>
+                    </div>
+                    <div class="flex flex-col items-center justify-center px-10 sm:px-16 py-6 border-r border-white/10 min-w-max">
+                        <span class="font-['TT_Livret_Display_Trl'] text-4xl sm:text-5xl font-light text-[#DBA757]">{{ .Params.numbers_item_7_1 }}</span>
+                        <span class="text-white/50 text-xs sm:text-sm tracking-widest uppercase mt-2">{{ .Params.numbers_item_7_2 }}</span>
+                    </div>
+                    <div class="flex flex-col items-center justify-center px-10 sm:px-16 py-6 min-w-max">
+                        <span class="font-['TT_Livret_Display_Trl'] text-4xl sm:text-5xl font-light text-[#DBA757]">{{ .Params.numbers_item_8_1 }}</span>
+                        <span class="text-white/50 text-xs sm:text-sm tracking-widest uppercase mt-2">{{ .Params.numbers_item_8_2 }}</span>
+                    </div>
+
                 </div>
+                <!-- Duplicate for seamless loop -->
+                <div class="numbers-marquee-row flex flex-shrink-0 gap-0" aria-hidden="true">
 
-                <div class="numbers-item">
-                    <span class="numbers-value">{{ .Params.numbers_item_2_1 }}</span>
-                    <span class="numbers-label">{{ .Params.numbers_item_2_2 }}</span>
+                    <div class="flex flex-col items-center justify-center px-10 sm:px-16 py-6 border-r border-white/10 min-w-max">
+                        <span class="font-['TT_Livret_Display_Trl'] text-4xl sm:text-5xl font-light text-[#DBA757]">{{ .Params.numbers_item_1_1 }}</span>
+                        <span class="text-white/50 text-xs sm:text-sm tracking-widest uppercase mt-2">{{ .Params.numbers_item_1_2 }}</span>
+                    </div>
+                    <div class="flex flex-col items-center justify-center px-10 sm:px-16 py-6 border-r border-white/10 min-w-max">
+                        <span class="font-['TT_Livret_Display_Trl'] text-4xl sm:text-5xl font-light text-[#DBA757]">{{ .Params.numbers_item_2_1 }}</span>
+                        <span class="text-white/50 text-xs sm:text-sm tracking-widest uppercase mt-2">{{ .Params.numbers_item_2_2 }}</span>
+                    </div>
+                    <div class="flex flex-col items-center justify-center px-10 sm:px-16 py-6 border-r border-white/10 min-w-max">
+                        <span class="font-['TT_Livret_Display_Trl'] text-4xl sm:text-5xl font-light text-[#DBA757]">{{ .Params.numbers_item_3_1 }}</span>
+                        <span class="text-white/50 text-xs sm:text-sm tracking-widest uppercase mt-2">{{ .Params.numbers_item_3_2 }}</span>
+                    </div>
+                    <div class="flex flex-col items-center justify-center px-10 sm:px-16 py-6 border-r border-white/10 min-w-max">
+                        <span class="font-['TT_Livret_Display_Trl'] text-4xl sm:text-5xl font-light text-[#DBA757]">{{ .Params.numbers_item_4_1 }}</span>
+                        <span class="text-white/50 text-xs sm:text-sm tracking-widest uppercase mt-2">{{ .Params.numbers_item_4_2 }}</span>
+                    </div>
+                    <div class="flex flex-col items-center justify-center px-10 sm:px-16 py-6 border-r border-white/10 min-w-max">
+                        <span class="font-['TT_Livret_Display_Trl'] text-4xl sm:text-5xl font-light text-[#DBA757]">{{ .Params.numbers_item_5_1 }}</span>
+                        <span class="text-white/50 text-xs sm:text-sm tracking-widest uppercase mt-2">{{ .Params.numbers_item_5_2 }}</span>
+                    </div>
+                    <div class="flex flex-col items-center justify-center px-10 sm:px-16 py-6 border-r border-white/10 min-w-max">
+                        <span class="font-['TT_Livret_Display_Trl'] text-4xl sm:text-5xl font-light text-[#DBA757]">{{ .Params.numbers_item_6_1 }}</span>
+                        <span class="text-white/50 text-xs sm:text-sm tracking-widest uppercase mt-2">{{ .Params.numbers_item_6_2 }}</span>
+                    </div>
+                    <div class="flex flex-col items-center justify-center px-10 sm:px-16 py-6 border-r border-white/10 min-w-max">
+                        <span class="font-['TT_Livret_Display_Trl'] text-4xl sm:text-5xl font-light text-[#DBA757]">{{ .Params.numbers_item_7_1 }}</span>
+                        <span class="text-white/50 text-xs sm:text-sm tracking-widest uppercase mt-2">{{ .Params.numbers_item_7_2 }}</span>
+                    </div>
+                    <div class="flex flex-col items-center justify-center px-10 sm:px-16 py-6 min-w-max">
+                        <span class="font-['TT_Livret_Display_Trl'] text-4xl sm:text-5xl font-light text-[#DBA757]">{{ .Params.numbers_item_8_1 }}</span>
+                        <span class="text-white/50 text-xs sm:text-sm tracking-widest uppercase mt-2">{{ .Params.numbers_item_8_2 }}</span>
+                    </div>
+
                 </div>
-
-                <div class="numbers-item">
-                    <span class="numbers-value">{{ .Params.numbers_item_3_1 }}</span>
-                    <span class="numbers-label">{{ .Params.numbers_item_3_2 }}</span>
-                </div>
-
-                <div class="numbers-item">
-                    <span class="numbers-value">{{ .Params.numbers_item_4_1 }}</span>
-                    <span class="numbers-label">{{ .Params.numbers_item_4_2 }}</span>
-                </div>
-
-                <div class="numbers-item">
-                    <span class="numbers-value">{{ .Params.numbers_item_5_1 }}</span>
-                    <span class="numbers-label">{{ .Params.numbers_item_5_2 }}</span>
-                </div>
-
-                <div class="numbers-item">
-                    <span class="numbers-value">{{ .Params.numbers_item_6_1 }}</span>
-                    <span class="numbers-label">{{ .Params.numbers_item_6_2 }}</span>
-                </div>
-
-                <!-- DUPLICATE SET FOR SMOOTH LOOP -->
-                <div class="numbers-item">
-                    <span class="numbers-value">{{ .Params.numbers_item_7_1 }}</span>
-                    <span class="numbers-label">{{ .Params.numbers_item_7_2 }}</span>
-                </div>
-
-                <div class="numbers-item">
-                    <span class="numbers-value">{{ .Params.numbers_item_8_1 }}</span>
-                    <span class="numbers-label">{{ .Params.numbers_item_8_2 }}</span>
-                </div>
-
             </div>
         </div>
-
     </div>
 </section>
+
+<style>
+.numbers-marquee-wrap {
+    animation: numbersScroll 30s linear infinite;
+}
+.numbers-marquee-wrap:hover { animation-play-state: paused; }
+@keyframes numbersScroll {
+    from { transform: translateX(0); }
+    to   { transform: translateX(-50%); }
+}
+@media (prefers-reduced-motion: reduce) {
+    .numbers-marquee-wrap { animation: none; }
+}
+</style>
+
+

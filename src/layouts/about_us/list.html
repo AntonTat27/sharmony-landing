@@ -1,324 +1,382 @@
 {{ define "main" }}
 
-<section class="bg-neutral-950 text-white">
+<!-- ========================= -->
+<!-- HERO SECTION — CINEMATIC  -->
+<!-- ========================= -->
+<section class="relative h-screen overflow-hidden">
+    <img src="/images/about_hero.jpg" alt="Sharmony — About Us"
+         loading="eager" decoding="async"
+         class="absolute inset-0 w-full h-full object-cover object-center z-0">
+    <!-- fallback gradient if image absent -->
+    <div class="absolute inset-0 z-0" style="background:linear-gradient(135deg,#03292B 0%,#071E1F 60%,#0A2A2B 100%);"></div>
+    <div class="absolute inset-0 bg-black/60 z-10 pointer-events-none" aria-hidden="true"></div>
 
-    <!-- HERO -->
-    <div class="relative overflow-hidden">
-
-        <div class="absolute inset-0 bg-[radial-gradient(circle_at_center,rgba(255,255,255,0.07),transparent_65%)]">
-        </div>
-
-        <div class="relative max-w-5xl mx-auto px-6 pt-40 pb-28 text-center">
-
-            <!-- 3D Logo -->
-            <div class="flex justify-center mb-16">
-                <div class="w-56 h-56 md:w-72 md:h-72 animate-float">
-                    <img src="/images/logo-3d.png" class="w-full h-full object-contain" />
-                </div>
-            </div>
-
-            <h1 class="text-4xl md:text-5xl font-semibold leading-tight mb-8">
-                SHARMONY PJSC — Innovation in Investments. Reliability. Global Vision.
-            </h1>
-
-            <p class="text-neutral-300 text-lg leading-relaxed max-w-3xl mx-auto">
-                International technology company headquartered in Hong Kong SAR,
-                uniting finance, real estate, blockchain, and digital technologies
-                to pioneer a groundbreaking standard in investments and asset management.
-            </p>
-
-        </div>
-    </div>
-
-
-    <!-- TEAM – WORLD-CLASS PROFESSIONALS -->
-    <div class="border-t border-neutral-900">
-        <div class="max-w-6xl mx-auto px-6 py-32">
-
-            <h2 class="text-3xl md:text-4xl font-semibold text-center mb-20">
-                Team — World-Class Professionals
-            </h2>
-
-            <!-- CIRCULAR PHOTO CLUSTER -->
-            <div class="relative flex flex-wrap justify-center items-center gap-8 mb-20">
-
-                <div class="circle-img w-24 h-24">
-                    <img src="/images/team1.jpg">
-                </div>
-
-                <div class="circle-img w-32 h-32">
-                    <img src="/images/team2.jpg">
-                </div>
-
-                <div class="circle-img w-28 h-28">
-                    <img src="/images/team3.jpg">
-                </div>
-
-                <div class="circle-img w-20 h-20">
-                    <img src="/images/team4.jpg">
-                </div>
-
-                <div class="circle-img w-28 h-28">
-                    <img src="/images/team5.jpg">
-                </div>
-
-                <div class="circle-img w-24 h-24">
-                    <img src="/images/team6.jpg">
-                </div>
-
-            </div>
-
-            <!-- TEAM STRUCTURE TEXT -->
-            <div class="grid md:grid-cols-2 gap-12">
-
-                <div class="team-card">
-                    <h3>Founders</h3>
-                    <p>
-                        Successful entrepreneurs with experience in development,
-                        fintech, and venture investments.
-                    </p>
-                </div>
-
-                <div class="team-card">
-                    <h3>Technology Board</h3>
-                    <p>
-                        Leading blockchain developers and architects of DeFi solutions.
-                    </p>
-                </div>
-
-                <div class="team-card">
-                    <h3>Legal Department</h3>
-                    <p>
-                        International law specialists ensuring full transaction security.
-                    </p>
-                </div>
-
-                <div class="team-card">
-                    <h3>Analysts & Asset Managers</h3>
-                    <p>
-                        Experts with years of experience in Asian and European real estate markets.
-                    </p>
-                </div>
-
-            </div>
+    <div class="relative max-w-7xl mx-auto px-4 sm:px-6 flex flex-col justify-center h-full z-30 pt-20">
+        <p class="uppercase tracking-[0.35em] text-[#31D0B2] text-xs sm:text-sm mb-6">About Sharmony</p>
+        <h1 class="font-['TT_Livret_Display_Trl'] text-white text-4xl sm:text-6xl md:text-7xl font-light leading-tight max-w-3xl mb-6">
+            Innovation in Investments.<br>
+            <span class="bg-clip-text text-transparent bg-gradient-to-r from-[#FFDDA8] to-[#DBA757]">Reliability. Global Vision.</span>
+        </h1>
+        <p class="text-white/70 text-base sm:text-lg max-w-xl leading-relaxed mb-10">
+            International technology company headquartered in Hong Kong SAR, with offices across Dubai, Türkiye, Thailand, Indonesia, and Georgia.
+        </p>
+        <div class="flex flex-wrap gap-3">
+            <button onclick="document.getElementById('team').scrollIntoView({behavior:'smooth'})"
+                class="px-6 py-3 bg-gradient-to-r from-[#FFDDA8] to-[#DBA757] text-[#03292B] font-semibold rounded-lg hover:brightness-110 transition text-sm sm:text-base">
+                Meet the Team
+            </button>
+            <button onclick="document.getElementById('contact').scrollIntoView({behavior:'smooth'})"
+                class="px-6 py-3 border border-[#31D0B2] text-[#31D0B2] font-semibold rounded-lg hover:bg-[#31D0B2]/10 transition text-sm sm:text-base">
+                Get in Touch
+            </button>
         </div>
     </div>
 
-
-    <!-- PROFESSIONAL COLLABORATION PRINCIPLES -->
-    <div class="border-t border-neutral-900">
-        <div class="max-w-6xl mx-auto px-6 py-32">
-
-            <h2 class="text-3xl md:text-4xl font-semibold text-center mb-20">
-                Professional Collaboration Principles
-            </h2>
-
-            <div class="grid md:grid-cols-4 gap-10">
-
-                <div class="principle-card">
-                    <h3>Transparency</h3>
-                    <p>All transactions recorded on the blockchain, with audits by independent firms.</p>
-                </div>
-
-                <div class="principle-card">
-                    <h3>Security</h3>
-                    <p>Licensed custodians, asset insurance and full GDPR/KYC/AML compliance.</p>
-                </div>
-
-                <div class="principle-card">
-                    <h3>Innovation</h3>
-                    <p>Proprietary RWA tokenization and smart contract infrastructure.</p>
-                </div>
-
-                <div class="principle-card">
-                    <h3>Accessibility</h3>
-                    <p>Lowered investment threshold without compromising reliability.</p>
-                </div>
-
-            </div>
-        </div>
-    </div>
-
-
-    <!-- KEY FACTS – STRUCTURE FROM SECOND IMAGE -->
-    <div class="border-t border-neutral-900">
-        <div class="max-w-7xl mx-auto px-6 py-32 grid md:grid-cols-2 gap-20">
-
-            <!-- LEFT TEXT BLOCK -->
-            <div>
-
-                <h2 class="text-3xl font-semibold mb-10">
-                    Key Facts About SHARMONY
-                </h2>
-
-                <div class="space-y-8 text-neutral-300">
-
-                    <div>
-                        <p class="font-medium text-white mb-2">Founded</p>
-                        <p>2025</p>
-                    </div>
-
-                    <div>
-                        <p class="font-medium text-white mb-2">Legal Structure</p>
-                        <ul class="space-y-2 text-sm">
-                            <li>Parent company registered in the Seychelles.</li>
-                            <li>Subsidiary (joint-stock, product holder) located in Hong Kong.</li>
-                            <li>Branches operate in each country of presence.</li>
-                        </ul>
-                    </div>
-
-                    <div>
-                        <p class="font-medium text-white mb-2">Partners</p>
-                        <p class="text-sm">
-                            Banks, developers, construction firms, legal companies,
-                            insurance providers, real estate agencies and associations.
-                        </p>
-                    </div>
-
-                    <div>
-                        <p class="font-medium text-white mb-2">Project Founder</p>
-                        <a href="#" class="text-neutral-300 hover:text-white transition text-sm">
-                            Alexander Lee — LinkedIn
-                        </a>
-                    </div>
-
-                </div>
-
-            </div>
-
-            <!-- RIGHT VISUAL -->
-            <div class="bg-neutral-900 rounded-3xl h-[480px] flex items-center justify-center">
-                <span class="text-neutral-500 text-sm">
-                    Office Locations / Map Visual
-                </span>
-            </div>
-
-        </div>
-
-        <!-- COUNTRY STRIP -->
-        <div class="max-w-6xl mx-auto px-6 pb-24 text-center text-neutral-400 text-sm tracking-wide">
-            UAE — Dubai &nbsp;&nbsp;
-            Turkey — Istanbul &nbsp;&nbsp;
-            Thailand — Bangkok &nbsp;&nbsp;
-            Indonesia — Denpasar &nbsp;&nbsp;
-            Georgia — Tbilisi
-        </div>
-    </div>
-
-
-    <!-- LETTER FROM CEO -->
-    <div class="border-t border-neutral-900">
-        <div class="max-w-5xl mx-auto px-6 py-32 grid md:grid-cols-2 gap-16 items-center">
-
-            <div class="w-64 h-64 rounded-2xl overflow-hidden border border-neutral-800 mx-auto">
-                <img src="/images/ceo.jpg" class="w-full h-full object-cover">
-            </div>
-
-            <div>
-                <h2 class="text-3xl font-semibold mb-6">
-                    Letter from the CEO
-                </h2>
-
-                <p class="text-neutral-300 mb-6 leading-relaxed">
-                    Building a future where real estate and technology seamlessly converge.
-                </p>
-
-                <p class="text-neutral-400 text-sm leading-relaxed">
-                    Sharmony is committed to redefining access to global real estate through
-                    tokenization, institutional governance and transparent infrastructure.
-                </p>
-
-                <div class="mt-8 text-neutral-500 text-sm">
-                    [First Name Last Name]<br>
-                    CEO, SHARMONY
-                </div>
-            </div>
-
-        </div>
-    </div>
-
+    <div class="absolute bottom-0 w-full h-24 sm:h-40 md:h-56 bg-gradient-to-b from-transparent to-[#03292B] z-20 pointer-events-none" aria-hidden="true"></div>
 </section>
 
 
-<style>
-    @keyframes float {
+<!-- ========================= -->
+<!-- TEAM SECTION              -->
+<!-- ========================= -->
+<section id="team" class="bg-[#03292B] text-[#F8EDDD] py-28 sm:py-36">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6">
 
-        0%,
-        100% {
-            transform: translateY(0px);
-        }
+        <div class="text-center mb-16 sm:mb-20">
+            <p class="uppercase tracking-[0.3em] text-[#31D0B2] text-xs sm:text-sm mb-4">Our People</p>
+            <h2 class="font-['TT_Livret_Display_Trl'] text-3xl sm:text-4xl md:text-5xl font-light mb-6">
+                World-Class Professionals
+            </h2>
+            <div class="w-20 h-px bg-[#DBA757] mx-auto"></div>
+        </div>
 
-        50% {
-            transform: translateY(-12px);
-        }
+        <!-- SCROLLING TEAM CAROUSEL -->
+        <div class="overflow-hidden">
+            <div id="teamScroller" class="flex gap-8 overflow-x-scroll scrollbar-hide" style="-ms-overflow-style:none;scrollbar-width:none;">
+
+                <!-- CARD template (×8 for seamless loop) -->
+                {{ range $i := (slice 1 2 3 4 5 6 7 8) }}
+                <div class="flex-shrink-0 w-72 bg-[#0A3436] border border-white/10 rounded-2xl p-8 flex flex-col items-center text-center hover:-translate-y-1 transition duration-300">
+                    <div class="w-28 h-28 rounded-full ring-2 ring-[#DBA757]/40 overflow-hidden mb-6 bg-[#03292B]">
+                        <img src="/images/team{{ $i }}.jpg"
+                             class="w-full h-full object-cover"
+                             onerror="this.style.display='none'"
+                             alt="">
+                        <!-- Placeholder avatar when image missing -->
+                        <div class="w-full h-full flex items-center justify-center text-[#DBA757]/40 text-4xl font-light">
+                            &#9651;
+                        </div>
+                    </div>
+                    <span class="inline-block px-3 py-1 rounded-full bg-[#DBA757]/15 text-[#DBA757] text-xs tracking-widest uppercase mb-3">Team</span>
+                    <h3 class="text-lg font-light mb-1">Name Surname</h3>
+                    <p class="text-sm text-white/50">Position · Department</p>
+                </div>
+                {{ end }}
+
+            </div>
+        </div>
+
+        <!-- TEAM STRUCTURE GRID -->
+        <div class="grid sm:grid-cols-2 md:grid-cols-4 gap-10 mt-20 text-sm">
+
+            <div class="border-t border-[#DBA757]/40 pt-6">
+                <h4 class="text-base text-white mb-3 font-light">Founders</h4>
+                <p class="text-white/60 leading-relaxed">Entrepreneurs with experience in development, fintech, and venture investments.</p>
+            </div>
+            <div class="border-t border-[#DBA757]/40 pt-6">
+                <h4 class="text-base text-white mb-3 font-light">Technology Board</h4>
+                <p class="text-white/60 leading-relaxed">Leading blockchain developers and architects of DeFi solutions.</p>
+            </div>
+            <div class="border-t border-[#DBA757]/40 pt-6">
+                <h4 class="text-base text-white mb-3 font-light">Legal Department</h4>
+                <p class="text-white/60 leading-relaxed">International law specialists ensuring full transaction security.</p>
+            </div>
+            <div class="border-t border-[#DBA757]/40 pt-6">
+                <h4 class="text-base text-white mb-3 font-light">Analysts & Asset Managers</h4>
+                <p class="text-white/60 leading-relaxed">Experts in Asian and European real estate markets.</p>
+            </div>
+
+        </div>
+    </div>
+</section>
+
+
+<!-- ========================= -->
+<!-- PROFESSIONAL PRINCIPLES   -->
+<!-- ========================= -->
+<section class="bg-[#F8EDDD] text-[#03292B] py-28 sm:py-36">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6">
+
+        <div class="text-center mb-16 sm:mb-20">
+            <p class="uppercase tracking-[0.3em] text-[#DBA757] text-xs sm:text-sm mb-4">Our Team</p>
+            <h2 class="font-['TT_Livret_Display_Trl'] text-3xl sm:text-4xl md:text-5xl font-light">
+                Professional Collaboration Principles
+            </h2>
+        </div>
+
+        <div class="grid sm:grid-cols-2 md:grid-cols-4 gap-8">
+
+            <!-- Transparency -->
+            <div class="bg-white rounded-xl p-8 border-t-4 border-[#DBA757] shadow-sm hover:shadow-lg hover:-translate-y-1 transition duration-300">
+                <div class="w-10 h-10 flex items-center justify-center mb-5 text-[#DBA757]">
+                    <svg fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24" class="w-8 h-8">
+                        <circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 3"/>
+                    </svg>
+                </div>
+                <h3 class="text-lg font-light mb-3">Transparency</h3>
+                <p class="text-sm text-[#03292B]/70 leading-relaxed">All transactions recorded on blockchain with independent audits.</p>
+            </div>
+
+            <!-- Security -->
+            <div class="bg-white rounded-xl p-8 border-t-4 border-[#DBA757] shadow-sm hover:shadow-lg hover:-translate-y-1 transition duration-300">
+                <div class="w-10 h-10 flex items-center justify-center mb-5 text-[#DBA757]">
+                    <svg fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24" class="w-8 h-8">
+                        <path d="M12 2l7 4v6c0 5-3.5 9.3-7 10.5C8.5 21.3 5 17 5 12V6l7-4z"/>
+                    </svg>
+                </div>
+                <h3 class="text-lg font-light mb-3">Security</h3>
+                <p class="text-sm text-[#03292B]/70 leading-relaxed">Licensed custodians, asset insurance, GDPR/KYC/AML compliance.</p>
+            </div>
+
+            <!-- Innovation -->
+            <div class="bg-white rounded-xl p-8 border-t-4 border-[#DBA757] shadow-sm hover:shadow-lg hover:-translate-y-1 transition duration-300">
+                <div class="w-10 h-10 flex items-center justify-center mb-5 text-[#DBA757]">
+                    <svg fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24" class="w-8 h-8">
+                        <path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z"/>
+                    </svg>
+                </div>
+                <h3 class="text-lg font-light mb-3">Innovation</h3>
+                <p class="text-sm text-[#03292B]/70 leading-relaxed">Proprietary developments in RWA tokenization and smart contracts.</p>
+            </div>
+
+            <!-- Accessibility -->
+            <div class="bg-white rounded-xl p-8 border-t-4 border-[#DBA757] shadow-sm hover:shadow-lg hover:-translate-y-1 transition duration-300">
+                <div class="w-10 h-10 flex items-center justify-center mb-5 text-[#DBA757]">
+                    <svg fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24" class="w-8 h-8">
+                        <circle cx="12" cy="12" r="10"/><path d="M2 12h20M12 2a15.3 15.3 0 0 1 0 20M12 2a15.3 15.3 0 0 0 0 20"/>
+                    </svg>
+                </div>
+                <h3 class="text-lg font-light mb-3">Accessibility</h3>
+                <p class="text-sm text-[#03292B]/70 leading-relaxed">Lowered investment thresholds without compromising reliability.</p>
+            </div>
+
+        </div>
+    </div>
+</section>
+
+
+<!-- ========================= -->
+<!-- KEY FACTS                 -->
+<!-- ========================= -->
+<section class="bg-[#03292B] text-[#F8EDDD] py-28 sm:py-36">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 grid md:grid-cols-2 gap-20 items-center">
+
+        <div>
+            <p class="uppercase tracking-[0.3em] text-[#31D0B2] text-xs sm:text-sm mb-6">Company Profile</p>
+            <h2 class="font-['TT_Livret_Display_Trl'] text-3xl sm:text-4xl md:text-5xl font-light mb-14">
+                Key Facts About SHARMONY
+            </h2>
+
+            <dl class="space-y-8">
+
+                <div class="border-l-2 border-[#DBA757] pl-6">
+                    <dt class="text-white text-sm uppercase tracking-widest mb-1">Founded</dt>
+                    <dd class="text-white/70">2025</dd>
+                </div>
+
+                <div class="border-l-2 border-[#DBA757] pl-6">
+                    <dt class="text-white text-sm uppercase tracking-widest mb-1">Legal Structure</dt>
+                    <dd class="text-white/70 space-y-1">
+                        <p>Parent company registered in Seychelles.</p>
+                        <p>Subsidiary joint-stock company in Hong Kong.</p>
+                        <p>Branches operate in each country of presence.</p>
+                    </dd>
+                </div>
+
+                <div class="border-l-2 border-[#DBA757] pl-6">
+                    <dt class="text-white text-sm uppercase tracking-widest mb-1">Partners</dt>
+                    <dd class="text-white/70">Banks, developers, construction firms, legal companies, insurance providers and real estate agencies.</dd>
+                </div>
+
+                <div class="border-l-2 border-[#DBA757] pl-6">
+                    <dt class="text-white text-sm uppercase tracking-widest mb-1">Project Founder</dt>
+                    <dd class="text-white/70">
+                        <a href="#" class="text-[#31D0B2] hover:text-[#31D0B2]/80 transition underline underline-offset-4">Alexander Lee (LinkedIn)</a>
+                    </dd>
+                </div>
+
+            </dl>
+        </div>
+
+        <div class="group overflow-hidden rounded-xl">
+            <img src="/images/office.jpg"
+                 class="w-full h-80 sm:h-[420px] object-cover group-hover:scale-105 transition duration-700"
+                 alt="Sharmony Office">
+        </div>
+
+    </div>
+</section>
+
+
+<!-- ========================= -->
+<!-- GLOBAL MAP                -->
+<!-- ========================= -->
+<section class="bg-[#03292B] text-[#F8EDDD] py-28 sm:py-36 border-t border-white/5">
+    <div class="max-w-6xl mx-auto px-4 sm:px-6 text-center">
+
+        <p class="uppercase tracking-[0.35em] text-[#31D0B2] text-xs sm:text-sm mb-6">Worldwide Operations</p>
+        <h2 class="font-['TT_Livret_Display_Trl'] text-3xl sm:text-4xl md:text-5xl font-light mb-16">
+            Global Operational Network
+        </h2>
+
+        <div class="mb-12">
+            <img src="/images/offices_map.svg" alt="Sharmony Offices Map" class="w-full"/>
+        </div>
+
+        <!-- City pin legend -->
+        <div class="flex flex-wrap justify-center gap-6 sm:gap-10">
+            {{ range (slice "Hong Kong" "Dubai" "Istanbul" "Bangkok" "Jakarta" "Tbilisi") }}
+            <div class="flex items-center gap-2">
+                <span class="w-2.5 h-2.5 rounded-full bg-[#DBA757] flex-shrink-0"></span>
+                <span class="text-sm text-white/70">{{ . }}</span>
+            </div>
+            {{ end }}
+        </div>
+
+    </div>
+</section>
+
+
+<!-- ========================= -->
+<!-- NUMBERS — STATS           -->
+<!-- ========================= -->
+<section class="bg-[#F8EDDD] text-[#03292B] py-28 sm:py-36">
+    <div class="max-w-6xl mx-auto px-4 sm:px-6">
+
+        <div class="text-center mb-16">
+            <p class="uppercase tracking-[0.3em] text-[#DBA757] text-xs sm:text-sm mb-4">By the Numbers</p>
+            <h2 class="font-['TT_Livret_Display_Trl'] text-3xl sm:text-4xl font-light">Sharmony at a Glance</h2>
+        </div>
+
+        <div class="grid grid-cols-2 md:grid-cols-4 gap-10 text-center">
+
+            <div class="about-stat">
+                <div class="font-['TT_Livret_Display_Trl'] text-5xl sm:text-6xl font-light text-[#DBA757] mb-3"
+                     data-target="50" data-suffix="+">0</div>
+                <p class="text-sm sm:text-base text-[#03292B]/70">Professionals</p>
+            </div>
+
+            <div class="about-stat">
+                <div class="font-['TT_Livret_Display_Trl'] text-5xl sm:text-6xl font-light text-[#DBA757] mb-3"
+                     data-prefix="$" data-target="100" data-suffix="M">0</div>
+                <p class="text-sm sm:text-base text-[#03292B]/70">Assets Under Management</p>
+            </div>
+
+            <div class="about-stat">
+                <div class="font-['TT_Livret_Display_Trl'] text-5xl sm:text-6xl font-light text-[#DBA757] mb-3"
+                     data-target="30" data-suffix="+">0</div>
+                <p class="text-sm sm:text-base text-[#03292B]/70">Countries</p>
+            </div>
+
+            <div class="about-stat">
+                <div class="font-['TT_Livret_Display_Trl'] text-5xl sm:text-6xl font-light text-[#DBA757] mb-3"
+                     data-target="6" data-suffix=" Offices">0</div>
+                <p class="text-sm sm:text-base text-[#03292B]/70">Global Offices</p>
+            </div>
+
+        </div>
+    </div>
+</section>
+
+
+<!-- ========================= -->
+<!-- CEO CTA — QUOTE           -->
+<!-- ========================= -->
+<section class="bg-[#03292B] text-[#F8EDDD] py-28 sm:py-36">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 grid md:grid-cols-2 gap-20 items-center">
+
+        <!-- Image with triangle accent -->
+        <div class="relative group">
+            <div class="overflow-hidden rounded-xl">
+                <img src="/images/ceo.jpg"
+                     class="w-full h-80 sm:h-[460px] object-cover object-top group-hover:scale-105 transition duration-700"
+                     alt="Alexander Lee, CEO">
+            </div>
+            <!-- Gold corner accent -->
+            <div class="absolute -bottom-4 -right-4 w-20 h-20 border-r-2 border-b-2 border-[#DBA757]/60 pointer-events-none"></div>
+            <div class="absolute -top-4 -left-4 w-20 h-20 border-l-2 border-t-2 border-[#DBA757]/60 pointer-events-none"></div>
+        </div>
+
+        <div>
+            <!-- Decorative quote mark -->
+            <div class="text-[#DBA757] text-8xl font-serif leading-none mb-4 select-none" aria-hidden="true">&ldquo;</div>
+
+            <p class="text-xl sm:text-2xl font-light italic text-white/80 leading-relaxed mb-8 max-w-lg">
+                Building a future where real estate and technology seamlessly converge.
+            </p>
+
+            <div class="mb-10">
+                <p class="text-white font-light text-lg">Alexander Lee</p>
+                <p class="text-white/50 text-sm tracking-widest uppercase">CEO, SHARMONY PJSC</p>
+            </div>
+
+            <a href="#contact"
+               class="inline-block px-10 py-4 bg-gradient-to-r from-[#FFDDA8] to-[#DBA757] text-[#03292B] font-semibold rounded-lg hover:brightness-110 transition">
+                Contact Our Team
+            </a>
+        </div>
+
+    </div>
+</section>
+
+
+<!-- ========================= -->
+<!-- SCRIPTS                   -->
+<!-- ========================= -->
+<script>
+(function () {
+    /* ── Team auto-scroll ── */
+    const scroller = document.getElementById('teamScroller');
+    if (scroller) {
+        let pos = 0;
+        let paused = false;
+        scroller.addEventListener('mouseenter', () => paused = true);
+        scroller.addEventListener('mouseleave', () => paused = false);
+        (function tick() {
+            if (!paused) {
+                pos += 0.4;
+                if (pos >= scroller.scrollWidth / 2) pos = 0;
+                scroller.scrollLeft = pos;
+            }
+            requestAnimationFrame(tick);
+        })();
     }
 
-    .animate-float {
-        animation: float 8s ease-in-out infinite;
+    /* ── Stat counter animation ── */
+    const stats = document.querySelectorAll('.about-stat [data-target]');
+    if (stats.length) {
+        const io = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (!entry.isIntersecting) return;
+                const el = entry.target;
+                const target = parseInt(el.dataset.target, 10);
+                const prefix = el.dataset.prefix || '';
+                const suffix = el.dataset.suffix || '';
+                const duration = 1400;
+                const start = performance.now();
+                function step(now) {
+                    const progress = Math.min((now - start) / duration, 1);
+                    const eased = 1 - Math.pow(1 - progress, 3);
+                    el.textContent = prefix + Math.floor(eased * target) + suffix;
+                    if (progress < 1) requestAnimationFrame(step);
+                }
+                requestAnimationFrame(step);
+                io.unobserve(el);
+            });
+        }, { threshold: 0.4 });
+        stats.forEach(el => io.observe(el));
     }
-
-    .circle-img {
-        border-radius: 9999px;
-        overflow: hidden;
-        border: 1px solid #1f1f1f;
-        transition: transform 0.5s ease;
-    }
-
-    .circle-img img {
-        width: 100%;
-        height: 100%;
-        object-fit: cover;
-    }
-
-    .circle-img:hover {
-        transform: scale(1.08);
-    }
-
-    .team-card {
-        padding: 2rem;
-        border-radius: 1rem;
-        background: #0a0a0a;
-        border: 1px solid #1f1f1f;
-        transition: transform 0.4s ease, border-color 0.4s ease;
-    }
-
-    .team-card h3 {
-        font-weight: 500;
-        margin-bottom: 1rem;
-    }
-
-    .team-card p {
-        color: #cfcfcf;
-        font-size: 0.9rem;
-    }
-
-    .team-card:hover {
-        transform: translateY(-6px);
-        border-color: #2f2f2f;
-    }
-
-    .principle-card {
-        padding: 2rem;
-        border-radius: 1rem;
-        background: #0a0a0a;
-        border: 1px solid #1f1f1f;
-        transition: transform 0.4s ease, box-shadow 0.4s ease;
-    }
-
-    .principle-card h3 {
-        font-weight: 500;
-        margin-bottom: 1rem;
-    }
-
-    .principle-card p {
-        color: #cfcfcf;
-        font-size: 0.9rem;
-    }
-
-    .principle-card:hover {
-        transform: translateY(-8px);
-        box-shadow: 0 20px 40px rgba(0, 0, 0, 0.35);
-    }
-</style>
+})();
+</script>
 
 {{ end }}

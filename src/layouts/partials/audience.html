@@ -1,134 +1,86 @@
-<section class="audience-section">
-    <div class="audience-container">
+<section class="bg-[#F8EDDD] text-[#03292B] py-20 sm:py-28" id="audience">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6">
 
         <!-- HEADINGS -->
-        <div class="audience-header">
-            <h2 class="audience-title">
+        <div class="max-w-3xl mb-12 sm:mb-14">
+            <h2 class="font-['TT_Livret_Display_Trl'] text-3xl sm:text-4xl md:text-5xl font-light leading-tight mb-4">
                 {{ .Params.audience_h1 }}
-                <span class="audience-title-secondary">
+                <span class="text-[#DBA757]">
                     {{ .Params.audience_h2 }}
                 </span>
             </h2>
-
-            <p class="audience-description">
+            <p class="text-[#03292B]/55 text-base leading-relaxed max-w-xl">
                 {{ .Params.audience_h3 }}
             </p>
-
-            <div class="audience-highlight">
-                {{ .Params.audience_h4 }}
-            </div>
         </div>
 
-        <!-- AUDIENCE BLOCKS -->
-        <div class="audience-grid">
+        <!-- AUDIENCE GRID -->
+        <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8">
 
-            <!-- BLOCK -->
-            <div class="audience-card">
-                <div class="audience-card-header">
-                    <div class="audience-card-icon">
-                        <!-- icon -->
-                        <svg fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24">
-                            <path d="M12 3v18M3 12h18"/>
-                        </svg>
-                    </div>
-                    <h3 class="audience-card-title">
-                        {{ .Params.audience_item_1_1 }}
-                    </h3>
+            <!-- Card 1 -->
+            <div class="bg-white border border-[#03292B]/8 p-8">
+                <div class="w-10 h-10 flex items-center justify-center border border-[#DBA757]/60 text-[#DBA757] mb-6">
+                    <svg fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24" class="w-5 h-5">
+                        <path d="M12 3v18M3 12h18"/>
+                    </svg>
                 </div>
-
-                <p class="audience-card-description">
-                    {{ .Params.audience_item_1_2 }}
-                </p>
+                <h3 class="font-['TT_Livret_Display_Trl'] text-lg font-light mb-2">{{ .Params.audience_item_1_1 }}</h3>
+                <p class="text-[#03292B]/55 text-sm leading-relaxed">{{ .Params.audience_item_1_2 }}</p>
             </div>
 
-            <!-- Real Estate Sellers -->
-            <div class="audience-card">
-                <div class="audience-card-header">
-                    <div class="audience-card-icon">
-                        <svg fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24">
-                            <path d="M3 10l9-7 9 7v10a2 2 0 0 1-2 2h-4"/>
-                        </svg>
-                    </div>
-                    <h3 class="audience-card-title">
-                        {{ .Params.audience_item_2_1 }}
-                    </h3>
+            <!-- Card 2 -->
+            <div class="bg-white border border-[#03292B]/8 p-8">
+                <div class="w-10 h-10 flex items-center justify-center border border-[#DBA757]/60 text-[#DBA757] mb-6">
+                    <svg fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24" class="w-5 h-5">
+                        <path d="M3 10l9-7 9 7v10a2 2 0 0 1-2 2h-4v-6H8v6H4a2 2 0 0 1-2-2z"/>
+                    </svg>
                 </div>
-
-                <p class="audience-card-description">
-                    {{ .Params.audience_item_2_2 }}
-                </p>
+                <h3 class="font-['TT_Livret_Display_Trl'] text-lg font-light mb-2">{{ .Params.audience_item_2_1 }}</h3>
+                <p class="text-[#03292B]/55 text-sm leading-relaxed">{{ .Params.audience_item_2_2 }}</p>
             </div>
 
-            <!-- Buyers -->
-            <div class="audience-card">
-                <div class="audience-card-header">
-                    <div class="audience-card-icon">
-                        <svg fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24">
-                            <path d="M16 12a4 4 0 1 1-8 0 4 4 0 0 1 8 0z"/>
-                        </svg>
-                    </div>
-                    <h3 class="audience-card-title">
-                        {{ .Params.audience_item_3_1 }}
-                    </h3>
+            <!-- Card 3 -->
+            <div class="bg-white border border-[#03292B]/8 p-8">
+                <div class="w-10 h-10 flex items-center justify-center border border-[#DBA757]/60 text-[#DBA757] mb-6">
+                    <svg fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24" class="w-5 h-5">
+                        <circle cx="12" cy="8" r="4"/><path d="M4 20c0-4 3.6-7 8-7s8 3 8 7"/>
+                    </svg>
                 </div>
-
-                <p class="audience-card-description">
-                    {{ .Params.audience_item_3_2 }}
-                </p>
+                <h3 class="font-['TT_Livret_Display_Trl'] text-lg font-light mb-2">{{ .Params.audience_item_3_1 }}</h3>
+                <p class="text-[#03292B]/55 text-sm leading-relaxed">{{ .Params.audience_item_3_2 }}</p>
             </div>
 
-            <!-- Investors -->
-            <div class="audience-card">
-                <div class="audience-card-header">
-                    <div class="audience-card-icon">
-                        <svg fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24">
-                            <path d="M4 19V5m6 14V9m6 10V3"/>
-                        </svg>
-                    </div>
-                    <h3 class="audience-card-title">
-                        {{ .Params.audience_item_4_1 }}
-                    </h3>
+            <!-- Card 4 -->
+            <div class="bg-white border border-[#03292B]/8 p-8">
+                <div class="w-10 h-10 flex items-center justify-center border border-[#DBA757]/60 text-[#DBA757] mb-6">
+                    <svg fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24" class="w-5 h-5">
+                        <path d="M4 19V5m6 14V9m6 10V3"/>
+                    </svg>
                 </div>
-
-                <p class="audience-card-description">
-                    {{ .Params.audience_item_4_2 }}
-                </p>
+                <h3 class="font-['TT_Livret_Display_Trl'] text-lg font-light mb-2">{{ .Params.audience_item_4_1 }}</h3>
+                <p class="text-[#03292B]/55 text-sm leading-relaxed">{{ .Params.audience_item_4_2 }}</p>
             </div>
 
-            <!-- Partners -->
-            <div class="audience-card">
-                <div class="audience-card-header">
-                    <div class="audience-card-icon">
-                        <svg fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24">
-                            <path d="M12 6v6l4 2"/>
-                        </svg>
-                    </div>
-                    <h3 class="audience-card-title">
-                        {{ .Params.audience_item_5_1 }}
-                    </h3>
+            <!-- Card 5 -->
+            <div class="bg-white border border-[#03292B]/8 p-8">
+                <div class="w-10 h-10 flex items-center justify-center border border-[#DBA757]/60 text-[#DBA757] mb-6">
+                    <svg fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24" class="w-5 h-5">
+                        <path d="M17 20H7a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h10a2 2 0 0 1 2 2v12a2 2 0 0 1-2 2z"/><path d="M12 11v4M12 8h.01"/>
+                    </svg>
                 </div>
-
-                <p class="audience-card-description">
-                    {{ .Params.audience_item_5_2 }}
-                </p>
+                <h3 class="font-['TT_Livret_Display_Trl'] text-lg font-light mb-2">{{ .Params.audience_item_5_1 }}</h3>
+                <p class="text-[#03292B]/55 text-sm leading-relaxed">{{ .Params.audience_item_5_2 }}</p>
             </div>
 
-            <!-- Travellers -->
-            <div class="audience-card">
-                <div class="audience-card-header">
-                    <div class="audience-card-icon">
-                        <svg fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24">
-                            <path d="M2 12h20M12 2v20"/>
-                        </svg>
-                    </div>
-                    <h3 class="audience-card-title">
-                        {{ .Params.audience_item_6_1 }}
-                    </h3>
+            <!-- Card 6 -->
+            <div class="bg-white border border-[#03292B]/8 p-8">
+                <div class="w-10 h-10 flex items-center justify-center border border-[#DBA757]/60 text-[#DBA757] mb-6">
+                    <svg fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24" class="w-5 h-5">
+                        <circle cx="12" cy="12" r="10"/><path d="M2 12h20M12 2a15.3 15.3 0 0 1 0 20M12 2a15.3 15.3 0 0 0 0 20"/>
+                    </svg>
                 </div>
-
-                <p class="audience-card-description">
-                    {{ .Params.audience_item_6_2 }}
-                </p>
+                <h3 class="font-['TT_Livret_Display_Trl'] text-lg font-light mb-2">{{ .Params.audience_item_6_1 }}</h3>
+                <p class="text-[#03292B]/55 text-sm leading-relaxed">{{ .Params.audience_item_6_2 }}</p>
             </div>
 
         </div>

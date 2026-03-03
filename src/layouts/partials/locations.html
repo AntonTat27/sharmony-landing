@@ -1,209 +1,122 @@
-<section class="locations-section">
-    <div class="locations-container">
+<section class="bg-[#03292B] text-white py-20 sm:py-28" id="locations">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6">
 
         <!-- SECTION HEADING -->
-        <div class="locations-header">
-            <h2 class="locations-title">
-                {{ .Params.locations_h1 }}
-                <span class="locations-title-secondary">
-                    {{ .Params.locations_h2 }}
-                </span>
-            </h2>
-            <p class="locations-description">
+        <div class="flex flex-col sm:flex-row sm:items-end sm:justify-between gap-6 mb-12 sm:mb-16">
+            <div>
+                <h2 class="font-['TT_Livret_Display_Trl'] text-3xl sm:text-4xl md:text-5xl font-light leading-tight">
+                    {{ .Params.locations_h1 }}
+                    <span class="text-[#DBA757]">
+                        {{ .Params.locations_h2 }}
+                    </span>
+                </h2>
+                <div class="w-12 h-px bg-[#DBA757] mt-4"></div>
+            </div>
+            <p class="text-white/50 text-sm max-w-xs leading-relaxed sm:text-right hidden sm:block">
                 {{ .Params.locations_h3 }}
             </p>
         </div>
 
-        <!-- SLIDER -->
-        <div class="locations-slider">
-            <div class="locations-slider-wrapper">
+        <!-- SLIDER with arrows -->
+        <div class="relative">
+            <!-- Arrow buttons -->
+            <button id="loc-prev" aria-label="Previous location"
+                class="absolute left-0 top-1/2 -translate-y-1/2 -translate-x-4 z-20 w-10 h-10 flex items-center justify-center border border-white/20 bg-[#03292B] text-white/60 hover:text-[#DBA757] hover:border-[#DBA757]/40 transition rounded-full hidden sm:flex">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none"><path d="M15 6L9 12L15 18" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            </button>
+            <button id="loc-next" aria-label="Next location"
+                class="absolute right-0 top-1/2 -translate-y-1/2 translate-x-4 z-20 w-10 h-10 flex items-center justify-center border border-white/20 bg-[#03292B] text-white/60 hover:text-[#DBA757] hover:border-[#DBA757]/40 transition rounded-full hidden sm:flex">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none"><path d="M9 6L15 12L9 18" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            </button>
+
+            <div id="loc-slider" class="flex gap-6 overflow-x-scroll" style="-ms-overflow-style:none;scrollbar-width:none;">
 
                 <!-- UAE -->
-                <div class="locations-card">
+                <div class="flex-shrink-0 w-80 sm:w-96 relative overflow-hidden rounded-xl group">
                     <img src="/images/uae.jpg" alt='{{ printf "%s real estate" .Params.locations_item_1_1 }}'
-                        class="locations-card-img" />
-                    <div class="locations-card-gradient"></div>
-
-                    <div class="locations-card-content">
-                        <h3 class="locations-card-title">{{ .Params.locations_item_1_1 }}</h3>
-
-                        <div class="locations-card-grid">
-                            <div>
-                                <div class="locations-card-label">{{ .Params.locations_item_1_2 }}</div>
-                                <div class="locations-card-value">{{ .Params.locations_item_1_3 }}</div>
-                            </div>
-                            <div>
-                                <div class="locations-card-label">{{ .Params.locations_item_1_4 }}</div>
-                                <div class="locations-card-value">{{ .Params.locations_item_1_5 }}</div>
-                            </div>
-                            <div>
-                                <div class="locations-card-label">{{ .Params.locations_item_1_6 }}</div>
-                                <div class="locations-card-value">{{ .Params.locations_item_1_7 }}</div>
-                            </div>
-                            <div>
-                                <div class="locations-card-label">{{ .Params.locations_item_1_8 }}</div>
-                                <div class="locations-card-value">{{ .Params.locations_item_1_9 }}</div>
-                            </div>
-                            <div>
-                                <div class="locations-card-label">{{ .Params.locations_item_1_10 }}</div>
-                                <div class="locations-card-value">{{ .Params.locations_item_1_11 }}</div>
-                            </div>
-                            <div>
-                                <div class="locations-card-label">{{ .Params.locations_item_1_12 }}</div>
-                                <div class="locations-card-value">{{ .Params.locations_item_1_13 }}</div>
-                            </div>
+                         class="w-full h-[480px] object-cover group-hover:scale-105 transition duration-700"/>
+                    <div class="absolute inset-0 bg-gradient-to-t from-black/85 via-black/30 to-transparent"></div>
+                    <div class="absolute bottom-0 left-0 right-0 p-8">
+                        <h3 class="font-['TT_Livret_Display_Trl'] text-2xl font-light text-white mb-4">{{ .Params.locations_item_1_1 }}</h3>
+                        <div class="grid grid-cols-2 gap-x-6 gap-y-3">
+                            <div><div class="text-white/40 text-xs uppercase tracking-widest mb-0.5">{{ .Params.locations_item_1_2 }}</div><div class="text-[#DBA757] text-sm">{{ .Params.locations_item_1_3 }}</div></div>
+                            <div><div class="text-white/40 text-xs uppercase tracking-widest mb-0.5">{{ .Params.locations_item_1_4 }}</div><div class="text-[#DBA757] text-sm">{{ .Params.locations_item_1_5 }}</div></div>
+                            <div><div class="text-white/40 text-xs uppercase tracking-widest mb-0.5">{{ .Params.locations_item_1_6 }}</div><div class="text-white/80 text-sm">{{ .Params.locations_item_1_7 }}</div></div>
+                            <div><div class="text-white/40 text-xs uppercase tracking-widest mb-0.5">{{ .Params.locations_item_1_8 }}</div><div class="text-white/80 text-sm">{{ .Params.locations_item_1_9 }}</div></div>
+                            <div><div class="text-white/40 text-xs uppercase tracking-widest mb-0.5">{{ .Params.locations_item_1_10 }}</div><div class="text-white/80 text-sm">{{ .Params.locations_item_1_11 }}</div></div>
+                            <div><div class="text-white/40 text-xs uppercase tracking-widest mb-0.5">{{ .Params.locations_item_1_12 }}</div><div class="text-white/80 text-sm">{{ .Params.locations_item_1_13 }}</div></div>
                         </div>
                     </div>
                 </div>
 
                 <!-- THAILAND -->
-                <div class="locations-card">
+                <div class="flex-shrink-0 w-80 sm:w-96 relative overflow-hidden rounded-xl group">
                     <img src="/images/thailand.jpg" alt='{{ printf "%s real estate" .Params.locations_item_2_1 }}'
-                         class="locations-card-img" />
-                    <div class="locations-card-gradient"></div>
-
-                    <div class="locations-card-content">
-                        <h3 class="locations-card-title">{{ .Params.locations_item_2_1 }}</h3>
-
-                        <div class="locations-card-grid">
-                            <div>
-                                <div class="locations-card-label">{{ .Params.locations_item_2_2 }}</div>
-                                <div class="locations-card-value">{{ .Params.locations_item_2_3 }}</div>
-                            </div>
-                            <div>
-                                <div class="locations-card-label">{{ .Params.locations_item_2_4 }}</div>
-                                <div class="locations-card-value">{{ .Params.locations_item_2_5 }}</div>
-                            </div>
-                            <div>
-                                <div class="locations-card-label">{{ .Params.locations_item_2_6 }}</div>
-                                <div class="locations-card-value">{{ .Params.locations_item_2_7 }}</div>
-                            </div>
-                            <div>
-                                <div class="locations-card-label">{{ .Params.locations_item_2_8 }}</div>
-                                <div class="locations-card-value">{{ .Params.locations_item_2_9 }}</div>
-                            </div>
-                            <div>
-                                <div class="locations-card-label">{{ .Params.locations_item_2_10 }}</div>
-                                <div class="locations-card-value">{{ .Params.locations_item_2_11 }}</div>
-                            </div>
-                            <div>
-                                <div class="locations-card-label">{{ .Params.locations_item_2_12 }}</div>
-                                <div class="locations-card-value">{{ .Params.locations_item_2_13 }}</div>
-                            </div>
+                         class="w-full h-[480px] object-cover group-hover:scale-105 transition duration-700"/>
+                    <div class="absolute inset-0 bg-gradient-to-t from-black/85 via-black/30 to-transparent"></div>
+                    <div class="absolute bottom-0 left-0 right-0 p-8">
+                        <h3 class="font-['TT_Livret_Display_Trl'] text-2xl font-light text-white mb-4">{{ .Params.locations_item_2_1 }}</h3>
+                        <div class="grid grid-cols-2 gap-x-6 gap-y-3">
+                            <div><div class="text-white/40 text-xs uppercase tracking-widest mb-0.5">{{ .Params.locations_item_2_2 }}</div><div class="text-[#DBA757] text-sm">{{ .Params.locations_item_2_3 }}</div></div>
+                            <div><div class="text-white/40 text-xs uppercase tracking-widest mb-0.5">{{ .Params.locations_item_2_4 }}</div><div class="text-[#DBA757] text-sm">{{ .Params.locations_item_2_5 }}</div></div>
+                            <div><div class="text-white/40 text-xs uppercase tracking-widest mb-0.5">{{ .Params.locations_item_2_6 }}</div><div class="text-white/80 text-sm">{{ .Params.locations_item_2_7 }}</div></div>
+                            <div><div class="text-white/40 text-xs uppercase tracking-widest mb-0.5">{{ .Params.locations_item_2_8 }}</div><div class="text-white/80 text-sm">{{ .Params.locations_item_2_9 }}</div></div>
+                            <div><div class="text-white/40 text-xs uppercase tracking-widest mb-0.5">{{ .Params.locations_item_2_10 }}</div><div class="text-white/80 text-sm">{{ .Params.locations_item_2_11 }}</div></div>
+                            <div><div class="text-white/40 text-xs uppercase tracking-widest mb-0.5">{{ .Params.locations_item_2_12 }}</div><div class="text-white/80 text-sm">{{ .Params.locations_item_2_13 }}</div></div>
                         </div>
                     </div>
                 </div>
 
                 <!-- TURKEY -->
-                <div class="locations-card">
+                <div class="flex-shrink-0 w-80 sm:w-96 relative overflow-hidden rounded-xl group">
                     <img src="/images/turkey.jpg" alt='{{ printf "%s real estate" .Params.locations_item_3_1 }}'
-                         class="locations-card-img" />
-                    <div class="locations-card-gradient"></div>
-
-                    <div class="locations-card-content">
-                        <h3 class="locations-card-title">{{ .Params.locations_item_3_1 }}</h3>
-
-                        <div class="locations-card-grid">
-                            <div>
-                                <div class="locations-card-label">{{ .Params.locations_item_3_2 }}</div>
-                                <div class="locations-card-value">{{ .Params.locations_item_3_3 }}</div>
-                            </div>
-                            <div>
-                                <div class="locations-card-label">{{ .Params.locations_item_3_4 }}</div>
-                                <div class="locations-card-value">{{ .Params.locations_item_3_5 }}</div>
-                            </div>
-                            <div>
-                                <div class="locations-card-label">{{ .Params.locations_item_3_6 }}</div>
-                                <div class="locations-card-value">{{ .Params.locations_item_3_7 }}</div>
-                            </div>
-                            <div>
-                                <div class="locations-card-label">{{ .Params.locations_item_3_8 }}</div>
-                                <div class="locations-card-value">{{ .Params.locations_item_3_9 }}</div>
-                            </div>
-                            <div>
-                                <div class="locations-card-label">{{ .Params.locations_item_3_10 }}</div>
-                                <div class="locations-card-value">{{ .Params.locations_item_3_11 }}</div>
-                            </div>
-                            <div>
-                                <div class="locations-card-label">{{ .Params.locations_item_3_12 }}</div>
-                                <div class="locations-card-value">{{ .Params.locations_item_3_13 }}</div>
-                            </div>
+                         class="w-full h-[480px] object-cover group-hover:scale-105 transition duration-700"/>
+                    <div class="absolute inset-0 bg-gradient-to-t from-black/85 via-black/30 to-transparent"></div>
+                    <div class="absolute bottom-0 left-0 right-0 p-8">
+                        <h3 class="font-['TT_Livret_Display_Trl'] text-2xl font-light text-white mb-4">{{ .Params.locations_item_3_1 }}</h3>
+                        <div class="grid grid-cols-2 gap-x-6 gap-y-3">
+                            <div><div class="text-white/40 text-xs uppercase tracking-widest mb-0.5">{{ .Params.locations_item_3_2 }}</div><div class="text-[#DBA757] text-sm">{{ .Params.locations_item_3_3 }}</div></div>
+                            <div><div class="text-white/40 text-xs uppercase tracking-widest mb-0.5">{{ .Params.locations_item_3_4 }}</div><div class="text-[#DBA757] text-sm">{{ .Params.locations_item_3_5 }}</div></div>
+                            <div><div class="text-white/40 text-xs uppercase tracking-widest mb-0.5">{{ .Params.locations_item_3_6 }}</div><div class="text-white/80 text-sm">{{ .Params.locations_item_3_7 }}</div></div>
+                            <div><div class="text-white/40 text-xs uppercase tracking-widest mb-0.5">{{ .Params.locations_item_3_8 }}</div><div class="text-white/80 text-sm">{{ .Params.locations_item_3_9 }}</div></div>
+                            <div><div class="text-white/40 text-xs uppercase tracking-widest mb-0.5">{{ .Params.locations_item_3_10 }}</div><div class="text-white/80 text-sm">{{ .Params.locations_item_3_11 }}</div></div>
+                            <div><div class="text-white/40 text-xs uppercase tracking-widest mb-0.5">{{ .Params.locations_item_3_12 }}</div><div class="text-white/80 text-sm">{{ .Params.locations_item_3_13 }}</div></div>
                         </div>
                     </div>
                 </div>
 
                 <!-- INDONESIA -->
-                <div class="locations-card">
+                <div class="flex-shrink-0 w-80 sm:w-96 relative overflow-hidden rounded-xl group">
                     <img src="/images/indonesia.jpg" alt='{{ printf "%s real estate" .Params.locations_item_4_1 }}'
-                         class="locations-card-img" />
-                    <div class="locations-card-gradient"></div>
-
-                    <div class="locations-card-content">
-                        <h3 class="locations-card-title">{{ .Params.locations_item_4_1 }}</h3>
-
-                        <div class="locations-card-grid">
-                            <div>
-                                <div class="locations-card-label">{{ .Params.locations_item_4_2 }}</div>
-                                <div class="locations-card-value">{{ .Params.locations_item_4_3 }}</div>
-                            </div>
-                            <div>
-                                <div class="locations-card-label">{{ .Params.locations_item_4_4 }}</div>
-                                <div class="locations-card-value">{{ .Params.locations_item_4_5 }}</div>
-                            </div>
-                            <div>
-                                <div class="locations-card-label">{{ .Params.locations_item_4_6 }}</div>
-                                <div class="locations-card-value">{{ .Params.locations_item_4_7 }}</div>
-                            </div>
-                            <div>
-                                <div class="locations-card-label">{{ .Params.locations_item_4_8 }}</div>
-                                <div class="locations-card-value">{{ .Params.locations_item_4_9 }}</div>
-                            </div>
-                            <div>
-                                <div class="locations-card-label">{{ .Params.locations_item_4_10 }}</div>
-                                <div class="locations-card-value">{{ .Params.locations_item_4_11 }}</div>
-                            </div>
-                            <div>
-                                <div class="locations-card-label">{{ .Params.locations_item_4_12 }}</div>
-                                <div class="locations-card-value">{{ .Params.locations_item_4_13 }}</div>
-                            </div>
+                         class="w-full h-[480px] object-cover group-hover:scale-105 transition duration-700"/>
+                    <div class="absolute inset-0 bg-gradient-to-t from-black/85 via-black/30 to-transparent"></div>
+                    <div class="absolute bottom-0 left-0 right-0 p-8">
+                        <h3 class="font-['TT_Livret_Display_Trl'] text-2xl font-light text-white mb-4">{{ .Params.locations_item_4_1 }}</h3>
+                        <div class="grid grid-cols-2 gap-x-6 gap-y-3">
+                            <div><div class="text-white/40 text-xs uppercase tracking-widest mb-0.5">{{ .Params.locations_item_4_2 }}</div><div class="text-[#DBA757] text-sm">{{ .Params.locations_item_4_3 }}</div></div>
+                            <div><div class="text-white/40 text-xs uppercase tracking-widest mb-0.5">{{ .Params.locations_item_4_4 }}</div><div class="text-[#DBA757] text-sm">{{ .Params.locations_item_4_5 }}</div></div>
+                            <div><div class="text-white/40 text-xs uppercase tracking-widest mb-0.5">{{ .Params.locations_item_4_6 }}</div><div class="text-white/80 text-sm">{{ .Params.locations_item_4_7 }}</div></div>
+                            <div><div class="text-white/40 text-xs uppercase tracking-widest mb-0.5">{{ .Params.locations_item_4_8 }}</div><div class="text-white/80 text-sm">{{ .Params.locations_item_4_9 }}</div></div>
+                            <div><div class="text-white/40 text-xs uppercase tracking-widest mb-0.5">{{ .Params.locations_item_4_10 }}</div><div class="text-white/80 text-sm">{{ .Params.locations_item_4_11 }}</div></div>
+                            <div><div class="text-white/40 text-xs uppercase tracking-widest mb-0.5">{{ .Params.locations_item_4_12 }}</div><div class="text-white/80 text-sm">{{ .Params.locations_item_4_13 }}</div></div>
                         </div>
                     </div>
                 </div>
 
                 <!-- GEORGIA -->
-                <div class="locations-card">
+                <div class="flex-shrink-0 w-80 sm:w-96 relative overflow-hidden rounded-xl group">
                     <img src="/images/georgia.jpg" alt='{{ printf "%s real estate" .Params.locations_item_5_1 }}'
-                         class="locations-card-img" />
-                    <div class="locations-card-gradient"></div>
-
-                    <div class="locations-card-content">
-                        <h3 class="locations-card-title">{{ .Params.locations_item_5_1 }}</h3>
-
-                        <div class="locations-card-grid">
-                            <div>
-                                <div class="locations-card-label">{{ .Params.locations_item_5_2 }}</div>
-                                <div class="locations-card-value">{{ .Params.locations_item_5_3 }}</div>
-                            </div>
-                            <div>
-                                <div class="locations-card-label">{{ .Params.locations_item_5_4 }}</div>
-                                <div class="locations-card-value">{{ .Params.locations_item_5_5 }}</div>
-                            </div>
-                            <div>
-                                <div class="locations-card-label">{{ .Params.locations_item_5_6 }}</div>
-                                <div class="locations-card-value">{{ .Params.locations_item_5_7 }}</div>
-                            </div>
-                            <div>
-                                <div class="locations-card-label">{{ .Params.locations_item_5_8 }}</div>
-                                <div class="locations-card-value">{{ .Params.locations_item_5_9 }}</div>
-                            </div>
-                            <div>
-                                <div class="locations-card-label">{{ .Params.locations_item_5_10 }}</div>
-                                <div class="locations-card-value">{{ .Params.locations_item_5_11 }}</div>
-                            </div>
-                            <div>
-                                <div class="locations-card-label">{{ .Params.locations_item_5_12 }}</div>
-                                <div class="locations-card-value">{{ .Params.locations_item_5_13 }}</div>
-                            </div>
+                         class="w-full h-[480px] object-cover group-hover:scale-105 transition duration-700"/>
+                    <div class="absolute inset-0 bg-gradient-to-t from-black/85 via-black/30 to-transparent"></div>
+                    <div class="absolute bottom-0 left-0 right-0 p-8">
+                        <h3 class="font-['TT_Livret_Display_Trl'] text-2xl font-light text-white mb-4">{{ .Params.locations_item_5_1 }}</h3>
+                        <div class="grid grid-cols-2 gap-x-6 gap-y-3">
+                            <div><div class="text-white/40 text-xs uppercase tracking-widest mb-0.5">{{ .Params.locations_item_5_2 }}</div><div class="text-[#DBA757] text-sm">{{ .Params.locations_item_5_3 }}</div></div>
+                            <div><div class="text-white/40 text-xs uppercase tracking-widest mb-0.5">{{ .Params.locations_item_5_4 }}</div><div class="text-[#DBA757] text-sm">{{ .Params.locations_item_5_5 }}</div></div>
+                            <div><div class="text-white/40 text-xs uppercase tracking-widest mb-0.5">{{ .Params.locations_item_5_6 }}</div><div class="text-white/80 text-sm">{{ .Params.locations_item_5_7 }}</div></div>
+                            <div><div class="text-white/40 text-xs uppercase tracking-widest mb-0.5">{{ .Params.locations_item_5_8 }}</div><div class="text-white/80 text-sm">{{ .Params.locations_item_5_9 }}</div></div>
+                            <div><div class="text-white/40 text-xs uppercase tracking-widest mb-0.5">{{ .Params.locations_item_5_10 }}</div><div class="text-white/80 text-sm">{{ .Params.locations_item_5_11 }}</div></div>
+                            <div><div class="text-white/40 text-xs uppercase tracking-widest mb-0.5">{{ .Params.locations_item_5_12 }}</div><div class="text-white/80 text-sm">{{ .Params.locations_item_5_13 }}</div></div>
                         </div>
                     </div>
                 </div>
@@ -213,3 +126,19 @@
 
     </div>
 </section>
+
+<script>
+(function(){
+    const slider = document.getElementById('loc-slider');
+    const prev = document.getElementById('loc-prev');
+    const next = document.getElementById('loc-next');
+    if (!slider) return;
+    const step = () => (slider.querySelector('[class*="w-80"], [class*="w-96"]') || {offsetWidth: 400}).offsetWidth + 24;
+    if (prev) prev.addEventListener('click', () => slider.scrollBy({left: -step(), behavior:'smooth'}));
+    if (next) next.addEventListener('click', () => slider.scrollBy({left:  step(), behavior:'smooth'}));
+    // hide scrollbar
+    slider.style.scrollbarWidth = 'none';
+    slider.style.msOverflowStyle = 'none';
+})();
+</script>
+

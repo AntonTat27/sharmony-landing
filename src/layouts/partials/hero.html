@@ -1,56 +1,239 @@
-<section class="hero-section">
-    <div class="hero-container">
-        <div class="hero-grid">
-            <!-- LEFT CONTENT -->
-            <div class="hero-content">
-                <h1 class="hero-title">
-                    {{ .Params.main_intro_h1 }}<br />
-                    <span class="hero-title-secondary">{{ .Params.main_intro_h2 }}</span>
-                </h1>
+<section class="relative h-screen overflow-hidden">
+    <img src="/images/hero_bg.jpg" alt="Sharmony — Premium Real Estate Investments"
+         loading="eager" decoding="async"
+         class="absolute inset-0 w-full h-full object-cover object-center z-0">
+    <!-- gradient fallback if image absent -->
+    <div class="absolute inset-0 z-0" style="background:linear-gradient(135deg,#03292B 0%,#071E1F 60%,#0A2A2B 100%);"></div>
+<!--    <div class="absolute inset-0 bg-black/65 z-10 pointer-events-none" aria-hidden="true"></div>-->
 
-                <p class="hero-text">
-                    {{ .Params.main_intro_text}}
+    <div class="relative max-w-7xl mx-auto px-4 sm:px-6 flex flex-col justify-center h-full z-30 pt-16">
+        <p class="uppercase tracking-[0.35em] text-[#31D0B2] text-xs sm:text-sm mb-6">
+            Real Estate · Tokenized
+        </p>
+
+        <h1 class="font-['TT_Livret_Display_Trl'] text-white text-4xl sm:text-6xl md:text-7xl font-light leading-tight max-w-4xl mb-6">
+            {{ .Params.main_intro_h1 }}<br>
+            <span class="bg-clip-text text-transparent bg-gradient-to-r from-[#FFDDA8] to-[#DBA757]">
+                {{ .Params.main_intro_h2 }}
+            </span>
+        </h1>
+
+                <p class="text-white/70 text-base sm:text-lg max-w-xl leading-relaxed mb-10 animate-fade-in" style="animation-delay:0.4s;">
+                    {{ .Params.main_intro_text }}
                 </p>
 
-                <div class="hero-buttons">
-                    <a href="#" class="hero-btn-primary">
+                <div class="flex flex-wrap gap-4 animate-fade-in" style="animation-delay:0.6s;">
+                    <a href="#locations"
+                       class="group px-8 py-4 bg-gradient-to-r from-[#FFDDA8] to-[#DBA757] text-[#03292B] font-semibold rounded-lg hover:shadow-[0_0_30px_rgba(255,221,168,0.4)] transition-all duration-300 text-sm sm:text-base">
                         {{ .Params.btn_explore }}
+                        <svg class="inline-block ml-2 w-4 h-4 group-hover:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 7l5 5m0 0l-5 5m5-5H6"/>
+                        </svg>
                     </a>
-                    <a href="#" class="hero-btn-secondary">
+                    <a href="#how-it-works"
+                       class="px-8 py-4 border-2 border-[#31D0B2] text-[#31D0B2] font-semibold rounded-lg hover:bg-[#31D0B2]/10 transition text-sm sm:text-base">
                         {{ .Params.btn_learn }}
                     </a>
                 </div>
+
+                <!-- Trust Badges -->
+                <div class="flex flex-wrap items-center gap-6 mt-12 pt-8 border-t border-white/10 animate-fade-in" style="animation-delay:0.8s;">
+                    <div class="flex items-center gap-2">
+                        <svg class="w-5 h-5 text-[#31D0B2]" fill="currentColor" viewBox="0 0 20 20">
+                            <path fill-rule="evenodd" d="M6.267 3.455a3.066 3.066 0 001.745-.723 3.066 3.066 0 013.976 0 3.066 3.066 0 001.745.723 3.066 3.066 0 012.812 2.812c.051.643.304 1.254.723 1.745a3.066 3.066 0 010 3.976 3.066 3.066 0 00-.723 1.745 3.066 3.066 0 01-2.812 2.812 3.066 3.066 0 00-1.745.723 3.066 3.066 0 01-3.976 0 3.066 3.066 0 00-1.745-.723 3.066 3.066 0 01-2.812-2.812 3.066 3.066 0 00-.723-1.745 3.066 3.066 0 010-3.976 3.066 3.066 0 00.723-1.745 3.066 3.066 0 012.812-2.812zm7.44 5.252a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"/>
+                        </svg>
+                        <span class="text-white/60 text-sm">Blockchain Secured</span>
+                    </div>
+                    <div class="flex items-center gap-2">
+                        <svg class="w-5 h-5 text-[#31D0B2]" fill="currentColor" viewBox="0 0 20 20">
+                            <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"/>
+                        </svg>
+                        <span class="text-white/60 text-sm">Licensed & Regulated</span>
+                    </div>
+                    <div class="flex items-center gap-2">
+                        <svg class="w-5 h-5 text-[#31D0B2]" fill="currentColor" viewBox="0 0 20 20">
+                            <path d="M8.433 7.418c.155-.103.346-.196.567-.267v1.698a2.305 2.305 0 01-.567-.267C8.07 8.34 8 8.114 8 8c0-.114.07-.34.433-.582zM11 12.849v-1.698c.22.071.412.164.567.267.364.243.433.468.433.582 0 .114-.07.34-.433.582a2.305 2.305 0 01-.567.267z"/>
+                            <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm1-13a1 1 0 10-2 0v.092a4.535 4.535 0 00-1.676.662C6.602 6.234 6 7.009 6 8c0 .99.602 1.765 1.324 2.246.48.32 1.054.545 1.676.662v1.941c-.391-.127-.68-.317-.843-.504a1 1 0 10-1.51 1.31c.562.649 1.413 1.076 2.353 1.253V15a1 1 0 102 0v-.092a4.535 4.535 0 001.676-.662C13.398 13.766 14 12.991 14 12c0-.99-.602-1.765-1.324-2.246A4.535 4.535 0 0011 9.092V7.151c.391.127.68.317.843.504a1 1 0 101.511-1.31c-.563-.649-1.413-1.076-2.354-1.253V5z" clip-rule="evenodd"/>
+                        </svg>
+                        <span class="text-white/60 text-sm">From $100 Investment</span>
+                    </div>
+                </div>
             </div>
 
-            <!-- RIGHT VISUAL -->
-            <div class="hero-visual">
-                <div class="hero-visual-box">
-                    <!-- Slider / Visual Placeholder -->
-                    <div class="hero-visual-content">
-                        <div class="hero-visual-gradient"></div>
+            <!-- RIGHT: Interactive Property Showcase -->
+            <div class="relative hidden lg:flex items-center justify-center">
+                <!-- Animated property cards stack -->
+                <div class="relative w-full max-w-md aspect-[4/5]">
 
-                        <div class="hero-visual-text">
-                            <div class="hero-visual-label">
-                                {{ .Params.main_intro_slider1 }}
+                    <!-- Card 3 (back) -->
+                    <div class="absolute inset-0 bg-gradient-to-br from-[#0A3436] to-[#03292B] rounded-2xl border border-white/10 p-6 shadow-2xl transform rotate-3 translate-y-4 opacity-40">
+                    </div>
+
+                    <!-- Card 2 (middle) -->
+                    <div class="absolute inset-0 bg-gradient-to-br from-[#0A3436] to-[#03292B] rounded-2xl border border-white/10 p-6 shadow-2xl transform rotate-1 translate-y-2 opacity-60">
+                    </div>
+
+                    <!-- Card 1 (front) - Animated -->
+                    <div id="heroPropertyCard" class="absolute inset-0 bg-gradient-to-br from-[#0A3436] to-[#053B3D] rounded-2xl border border-[#31D0B2]/30 shadow-2xl overflow-hidden hover:border-[#31D0B2]/50 transition-all duration-500">
+                        <div class="relative h-full flex flex-col">
+                            <!-- Property Image -->
+                            <div class="relative h-56 bg-[#071E1F] overflow-hidden">
+                                <img id="heroPropertyImage" src="/images/thailand.jpg"
+                                     class="w-full h-full object-cover transition-transform duration-700 hover:scale-110"
+                                     alt="Investment Property">
+                                <div class="absolute top-4 right-4 px-3 py-1.5 bg-[#31D0B2] text-[#03292B] text-xs font-semibold rounded-full">
+                                    Available
+                                </div>
                             </div>
-                            <div class="hero-visual-title">
-                                {{ .Params.main_intro_slider2 }}
+
+                            <!-- Property Details -->
+                            <div class="flex-1 p-6 flex flex-col">
+                                <div class="mb-4">
+                                    <h3 id="heroPropertyTitle" class="text-white text-xl font-light mb-2">Luxury Resort, Thailand</h3>
+                                    <p class="text-white/50 text-sm flex items-center gap-1">
+                                        <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"/>
+                                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"/>
+                                        </svg>
+                                        <span id="heroPropertyLocation">Phuket, Thailand</span>
+                                    </p>
+                                </div>
+
+                                <div class="grid grid-cols-2 gap-4 mb-6">
+                                    <div>
+                                        <p class="text-white/50 text-xs mb-1">Token Price</p>
+                                        <p id="heroPropertyPrice" class="text-[#FFDDA8] text-lg font-semibold">$250</p>
+                                    </div>
+                                    <div>
+                                        <p class="text-white/50 text-xs mb-1">Annual Yield</p>
+                                        <p id="heroPropertyYield" class="text-[#31D0B2] text-lg font-semibold">12.5%</p>
+                                    </div>
+                                </div>
+
+                                <div class="mt-auto">
+                                    <div class="w-full bg-white/10 rounded-full h-2 mb-2">
+                                        <div id="heroPropertyProgress" class="bg-gradient-to-r from-[#31D0B2] to-[#70E2D0] h-2 rounded-full transition-all duration-1000" style="width:67%"></div>
+                                    </div>
+                                    <p class="text-white/50 text-xs">
+                                        <span id="heroPropertyFunded">67%</span> funded
+                                    </p>
+                                </div>
                             </div>
                         </div>
                     </div>
 
-                    <!-- Slider controls -->
-                    <div class="hero-slider-dots">
-                        <span class="hero-slider-dot"></span>
-                        <span class="hero-slider-dot inactive"></span>
-                        <span class="hero-slider-dot inactive"></span>
-                    </div>
+                    <!-- Floating particles for depth -->
+                    <div class="absolute -top-10 -right-10 w-20 h-20 bg-[#DBA757]/10 rounded-full blur-2xl animate-float"></div>
+                    <div class="absolute -bottom-10 -left-10 w-32 h-32 bg-[#31D0B2]/10 rounded-full blur-2xl animate-float" style="animation-delay:1.5s;"></div>
                 </div>
-
-                <!-- Subtle glow -->
-                <div class="hero-glow"></div>
             </div>
 
         </div>
     </div>
+
+    <!-- Fade-out to next section -->
+    <div class="absolute bottom-0 w-full h-32 bg-gradient-to-b from-transparent to-[#03292B] z-20 pointer-events-none" aria-hidden="true"></div>
 </section>
+
+<style>
+@keyframes fade-in {
+    from { opacity: 0; transform: translateY(20px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+@keyframes gradient {
+    0%, 100% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+}
+@keyframes float {
+    0%, 100% { transform: translateY(0px); }
+    50% { transform: translateY(-20px); }
+}
+.animate-fade-in {
+    animation: fade-in 0.8s ease-out forwards;
+    opacity: 0;
+}
+.animate-gradient {
+    animation: gradient 3s ease infinite;
+}
+.animate-float {
+    animation: float 6s ease-in-out infinite;
+}
+</style>
+
+<script>
+// Property carousel data
+(function() {
+    const properties = [
+        {
+            image: '/images/thailand.jpg',
+            title: 'Luxury Resort, Thailand',
+            location: 'Phuket, Thailand',
+            price: '$250',
+            yield: '12.5%',
+            funded: '67%',
+            progress: 67
+        },
+        {
+            image: '/images/uae.jpg',
+            title: 'Premium Tower, UAE',
+            location: 'Dubai Marina',
+            price: '$500',
+            yield: '10.2%',
+            funded: '82%',
+            progress: 82
+        },
+        {
+            image: '/images/turkey.jpg',
+            title: 'Coastal Residence, Türkiye',
+            location: 'Antalya, Türkiye',
+            price: '$180',
+            yield: '14.8%',
+            funded: '45%',
+            progress: 45
+        },
+        {
+            image: '/images/indonesia.jpg',
+            title: 'Beach Villa, Indonesia',
+            location: 'Bali, Indonesia',
+            price: '$320',
+            yield: '13.1%',
+            funded: '91%',
+            progress: 91
+        }
+    ];
+
+    let currentIndex = 0;
+
+    function updateProperty() {
+        const prop = properties[currentIndex];
+        const elements = {
+            image: document.getElementById('heroPropertyImage'),
+            title: document.getElementById('heroPropertyTitle'),
+            location: document.getElementById('heroPropertyLocation'),
+            price: document.getElementById('heroPropertyPrice'),
+            yield: document.getElementById('heroPropertyYield'),
+            funded: document.getElementById('heroPropertyFunded'),
+            progress: document.getElementById('heroPropertyProgress')
+        };
+
+        if (elements.image) {
+            elements.image.style.opacity = '0';
+            setTimeout(() => {
+                elements.image.src = prop.image;
+                elements.image.style.opacity = '1';
+            }, 300);
+        }
+        if (elements.title) elements.title.textContent = prop.title;
+        if (elements.location) elements.location.textContent = prop.location;
+        if (elements.price) elements.price.textContent = prop.price;
+        if (elements.yield) elements.yield.textContent = prop.yield;
+        if (elements.funded) elements.funded.textContent = prop.funded;
+        if (elements.progress) elements.progress.style.width = prop.progress + '%';
+
+        currentIndex = (currentIndex + 1) % properties.length;
+    }
+
+    // Change property every 4 seconds
+    setInterval(updateProperty, 4000);
+})();
+</script>

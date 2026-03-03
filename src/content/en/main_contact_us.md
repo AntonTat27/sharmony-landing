@@ -33,11 +33,6 @@ contact_us_card_item_1_2: STAY CONNECTED
 contact_us_card_item_2_1: Direct
 contact_us_card_item_2_2: CHATS & SUPPORT
 
-contact_us_card_item_3_1: Insights
-contact_us_card_item_3_2: READ OUR MEDIUM
-contact_us_card_item_3_3: Deep dives into digital harmony.
-contact_us_card_item_3_4: ead Blog →
-
 contact_us_card_item_4_1: Digital Harmony for Creators
   
 ---

@@ -1,87 +1,113 @@
-<section id="contact" class="contact-section">
-    <div class="container">
-        <div class="contact-grid">
-            <div class="contact-card">
-                <h2 class="contact-title">{{ .Params.contact_us_h1 }}</h2>
-                <p class="contact-subtitle">{{ .Params.contact_us_h2 }}</p>
+<!-- CONTACT US — dark green section with premium form -->
+<section id="contact" class="bg-[#03292B] text-white py-20 sm:py-28">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6">
 
-                <form action="#" method="POST" class="contact-form">
-                    <div class="profile-switcher-container">
-                        <span class="switcher-label">{{ .Params.contact_us_form_item_1_1 }}</span>
-                        <div class="profile-switcher">
-                            <input type="radio" id="investor" name="client_type" value="investor" checked>
-                            <label for="investor" class="switch-option">{{ .Params.contact_us_form_item_1_2 }}</label>
-                            <input type="radio" id="partner" name="client_type" value="partner">
-                            <label for="partner" class="switch-option">{{ .Params.contact_us_form_item_1_3 }}</label>
-                            <div class="profile-slider"></div>
+        <div class="grid md:grid-cols-2 gap-12 sm:gap-20 items-start">
+
+            <!-- FORM SIDE -->
+            <div>
+                <h2 class="font-['TT_Livret_Display_Trl'] text-3xl sm:text-4xl font-light mb-3">{{ .Params.contact_us_h1 }}</h2>
+                <p class="text-white/50 mb-10 text-sm leading-relaxed">{{ .Params.contact_us_h2 }}</p>
+
+                <form action="#" method="POST">
+
+                    <!-- Role switcher -->
+                    <div class="mb-8">
+                        <p class="text-xs uppercase tracking-[0.25em] text-white/40 mb-3">{{ .Params.contact_us_form_item_1_1 }}</p>
+                        <div class="inline-flex border border-white/15 rounded-lg overflow-hidden">
+                            <label class="contact-role-label">
+                                <input type="radio" name="client_type" value="investor" checked class="sr-only">
+                                <span class="contact-role-opt contact-role-active">{{ .Params.contact_us_form_item_1_2 }}</span>
+                            </label>
+                            <label class="contact-role-label">
+                                <input type="radio" name="client_type" value="partner" class="sr-only">
+                                <span class="contact-role-opt">{{ .Params.contact_us_form_item_1_3 }}</span>
+                            </label>
                         </div>
                     </div>
 
-                    <div class="form-grid">
-                        <div class="form-group">
-                            <label for="name">{{ .Params.contact_us_form_item_2_1 }}</label>
-                            <input type="text" id="name" name="name" placeholder="{{ .Params.contact_us_form_item_2_2 }}" required>
+                    <!-- Form grid -->
+                    <div class="grid sm:grid-cols-2 gap-5 mb-5">
+                        <div>
+                            <label class="block text-xs uppercase tracking-[0.2em] text-white/40 mb-2">{{ .Params.contact_us_form_item_2_1 }}</label>
+                            <input type="text" name="name" placeholder="{{ .Params.contact_us_form_item_2_2 }}" required
+                                class="w-full bg-white/5 border border-white/10 text-white placeholder-white/25 px-4 py-3 text-sm rounded-lg focus:border-[#DBA757]/60 focus:outline-none transition">
                         </div>
-                        <div class="form-group">
-                            <label for="email">{{ .Params.contact_us_form_item_3_1 }}</label>
-                            <input type="email" id="email" name="email" placeholder="{{ .Params.contact_us_form_item_3_2 }}" required>
+                        <div>
+                            <label class="block text-xs uppercase tracking-[0.2em] text-white/40 mb-2">{{ .Params.contact_us_form_item_3_1 }}</label>
+                            <input type="email" name="email" placeholder="{{ .Params.contact_us_form_item_3_2 }}" required
+                                class="w-full bg-white/5 border border-white/10 text-white placeholder-white/25 px-4 py-3 text-sm rounded-lg focus:border-[#DBA757]/60 focus:outline-none transition">
                         </div>
-                        <div class="form-group">
-                            <label for="phone">{{ .Params.contact_us_form_item_4_1 }} <span class="optional">({{ .Params.contact_us_form_item_4_2 }})</span></label>
-                            <input type="tel" id="phone" name="phone" placeholder="+1 234 ...">
+                        <div>
+                            <label class="block text-xs uppercase tracking-[0.2em] text-white/40 mb-2">{{ .Params.contact_us_form_item_4_1 }} <span class="normal-case text-white/25">({{ .Params.contact_us_form_item_4_2 }})</span></label>
+                            <input type="tel" name="phone" placeholder="+1 234 ..."
+                                class="w-full bg-white/5 border border-white/10 text-white placeholder-white/25 px-4 py-3 text-sm rounded-lg focus:border-[#DBA757]/60 focus:outline-none transition">
                         </div>
-                        <div class="form-group">
-                            <label for="company">{{ .Params.contact_us_form_item_5_1 }} <span class="optional">({{ .Params.contact_us_form_item_5_2 }})</span></label>
-                            <input type="text" id="company" name="company" placeholder="{{ .Params.contact_us_form_item_5_3 }}">
+                        <div>
+                            <label class="block text-xs uppercase tracking-[0.2em] text-white/40 mb-2">{{ .Params.contact_us_form_item_5_1 }} <span class="normal-case text-white/25">({{ .Params.contact_us_form_item_5_2 }})</span></label>
+                            <input type="text" name="company" placeholder="{{ .Params.contact_us_form_item_5_3 }}"
+                                class="w-full bg-white/5 border border-white/10 text-white placeholder-white/25 px-4 py-3 text-sm rounded-lg focus:border-[#DBA757]/60 focus:outline-none transition">
                         </div>
                     </div>
 
-                    <div class="form-group full-width">
-                        <label for="message">{{ .Params.contact_us_form_item_6_1 }}</label>
-                        <textarea id="message" name="message" rows="4" placeholder="{{ .Params.contact_us_form_item_6_2 }}" required></textarea>
+                    <div class="mb-8">
+                        <label class="block text-xs uppercase tracking-[0.2em] text-white/40 mb-2">{{ .Params.contact_us_form_item_6_1 }}</label>
+                        <textarea name="message" rows="4" placeholder="{{ .Params.contact_us_form_item_6_2 }}" required
+                            class="w-full bg-white/5 border border-white/10 text-white placeholder-white/25 px-4 py-3 text-sm rounded-lg focus:border-[#DBA757]/60 focus:outline-none transition resize-none"></textarea>
                     </div>
 
-                    <button type="submit" class="contact-btn">{{ .Params.contact_us_form_btn_send }}</button>
+                    <button type="submit"
+                        class="w-full sm:w-auto px-10 py-4 bg-gradient-to-r from-[#FFDDA8] to-[#DBA757] text-[#03292B] font-semibold rounded-lg hover:brightness-110 transition text-sm sm:text-base">
+                        {{ .Params.contact_us_form_btn_send }}
+                    </button>
                 </form>
             </div>
 
-            <div class="contact-info-stack">
-                <div class="brand-card">
-                    <div class="brand-main-content">
-                        <div class="brand-footer">SHARMONY</div>
+            <!-- INFO SIDE -->
+            <div class="space-y-6">
 
-                        <div class="info-card">
-                            <span class="card-tag">{{ .Params.contact_us_card_item_1_1 }}</span>
-                            <h3>{{ .Params.contact_us_card_item_1_2 }}</h3>
-                            <div class="card-links">
-                                <a href="#">LinkedIn</a>
-                                <a href="#">Twitter/X</a>
-                            </div>
-                        </div>
-
-                        <div class="info-card">
-                            <span class="card-tag">{{ .Params.contact_us_card_item_2_1 }}</span>
-                            <h3>{{ .Params.contact_us_card_item_2_2 }}</h3>
-                            <div class="card-links">
-                                <a href="#">Telegram</a>
-                                <a href="#">Discord</a>
-                            </div>
-                        </div>
-
-                        <div class="info-card">
-                            <span class="card-tag">{{ .Params.contact_us_card_item_3_1 }}</span>
-                            <h3>{{ .Params.contact_us_card_item_3_2 }}</h3>
-                            <p>{{ .Params.contact_us_card_item_3_3 }}</p>
-                            <a href="#" class="card-link-arrow">{{ .Params.contact_us_card_item_3_4 }}</a>
-                        </div>
+                <div class="border-l-2 border-[#31D0B2] pl-6 py-2">
+                    <p class="text-xs uppercase tracking-[0.25em] text-[#31D0B2] mb-2">{{ .Params.contact_us_card_item_1_1 }}</p>
+                    <h3 class="font-['TT_Livret_Display_Trl'] text-xl font-light mb-3">{{ .Params.contact_us_card_item_1_2 }}</h3>
+                    <div class="flex gap-4">
+                        <a href="#" class="text-sm text-[#DBA757] hover:text-[#DBA757]/80 transition underline underline-offset-4">LinkedIn</a>
+                        <a href="#" class="text-sm text-[#DBA757] hover:text-[#DBA757]/80 transition underline underline-offset-4">Twitter/X</a>
                     </div>
+                </div>
 
-                    <div class="footer-wrapper">
-                        <p class="footer-tagline">{{ .Params.contact_us_card_item_4_1 }}</p>
-                        <div class="footer-dot"></div>
+                <div class="border-l-2 border-[#31D0B2] pl-6 py-2">
+                    <p class="text-xs uppercase tracking-[0.25em] text-[#31D0B2] mb-2">{{ .Params.contact_us_card_item_2_1 }}</p>
+                    <h3 class="font-['TT_Livret_Display_Trl'] text-xl font-light mb-3">{{ .Params.contact_us_card_item_2_2 }}</h3>
+                    <div class="flex gap-4">
+                        <a href="#" class="text-sm text-[#DBA757] hover:text-[#DBA757]/80 transition underline underline-offset-4">Telegram</a>
+                        <a href="#" class="text-sm text-[#DBA757] hover:text-[#DBA757]/80 transition underline underline-offset-4">Discord</a>
                     </div>
                 </div>
             </div>
         </div>
     </div>
 </section>
+
+<style>
+.contact-role-label { display: contents; }
+.contact-role-opt {
+    display: block; padding: 0.5rem 1.25rem; font-size: 0.8rem; letter-spacing: 0.05em;
+    cursor: pointer; color: rgba(255,255,255,0.4); transition: all .2s;
+}
+.contact-role-opt:hover { color: rgba(255,255,255,0.7); }
+.contact-role-label input:checked + .contact-role-opt,
+.contact-role-active {
+    background: rgba(219,167,87,0.15); color: #DBA757;
+}
+</style>
+
+<script>
+(function(){
+    document.querySelectorAll('.contact-role-label input').forEach(radio => {
+        radio.addEventListener('change', () => {
+            document.querySelectorAll('.contact-role-opt').forEach(opt => opt.classList.remove('contact-role-active'));
+            radio.nextElementSibling.classList.add('contact-role-active');
+        });
+    });
+})();
+</script>

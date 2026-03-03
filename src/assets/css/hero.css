@@ -1,9 +1,10 @@
-/* Hero Section - Light Theme (Section 1 - Odd) */
+/* Hero Section — legacy class kept for fallback; layout now driven by Tailwind inline in hero.html */
 .hero-section {
     position: relative;
     overflow: hidden;
-    background-color: #F2E8D5;
-    color: #03292B;
+    background-color: #03292B;
+    color: #F8EDDD;
+    min-height: 100vh;
 }
 
 .hero-container {
@@ -170,3 +171,4 @@
     border-radius: 50%;
     pointer-events: none;
 }
+
