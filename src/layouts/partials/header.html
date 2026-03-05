@@ -21,7 +21,10 @@
     <nav class="navigation-bar">
         <div class="nav-inner">
             <a href="{{ .Site.Home.Permalink }}" class="nav-logo">
-                <img src='{{ "/images/logo.svg" | relURL}}' alt="SHARMONY">
+                <picture>
+                    <source media="(max-width: 600px)" srcset='{{ "/images/logo_without_text.svg" | relURL }}'>
+                    <img src='{{ "/images/logo.svg" | relURL}}' alt="SHARMONY logo">
+                </picture>
             </a>
             <!-- Mobile Hamburger -->
             <button class="nav-toggle" aria-label="Open Menu">

@@ -103,6 +103,7 @@
 }
 
 .nav-inner {
+    margin: 0 30px;
     display: flex;
     justify-content: space-between;
     align-items: center; /* Vertical centering for all items */
@@ -116,7 +117,7 @@
 }
 
 .nav-logo img {
-    height: 32px; /* Ensure logo doesn't blow up */
+    max-height: 32px; /* Ensure logo doesn't blow up */
     width: auto;
 }
 
