@@ -1,101 +1,288 @@
 {{ define "main" }}
 
 <!-- ========================= -->
-<!-- HERO SECTION — CINEMATIC  -->
+<!-- HERO — ABOUT US           -->
 <!-- ========================= -->
-<section class="relative h-screen overflow-hidden">
-    <img src="/images/about_hero.jpg" alt="Sharmony — About Us"
-         loading="eager" decoding="async"
-         class="absolute inset-0 w-full h-full object-cover object-center z-0">
-    <!-- fallback gradient if image absent -->
-    <div class="absolute inset-0 z-0" style="background:linear-gradient(135deg,#03292B 0%,#071E1F 60%,#0A2A2B 100%);"></div>
-    <div class="absolute inset-0 bg-black/60 z-10 pointer-events-none" aria-hidden="true"></div>
+<section class="relative bg-[#03292B] overflow-hidden">
 
-    <div class="relative max-w-7xl mx-auto px-4 sm:px-6 flex flex-col justify-center h-full z-30 pt-20">
-        <p class="uppercase tracking-[0.35em] text-[#31D0B2] text-xs sm:text-sm mb-6">About Sharmony</p>
-        <h1 class="font-['TT_Livret_Display_Trl'] text-white text-4xl sm:text-6xl md:text-7xl font-light leading-tight max-w-3xl mb-6">
-            Innovation in Investments.<br>
-            <span class="bg-clip-text text-transparent bg-gradient-to-r from-[#FFDDA8] to-[#DBA757]">Reliability. Global Vision.</span>
-        </h1>
-        <p class="text-white/70 text-base sm:text-lg max-w-xl leading-relaxed mb-10">
-            International technology company headquartered in Hong Kong SAR, with offices across Dubai, Türkiye, Thailand, Indonesia, and Georgia.
-        </p>
-        <div class="flex flex-wrap gap-3">
-            <button onclick="document.getElementById('team').scrollIntoView({behavior:'smooth'})"
-                class="px-6 py-3 bg-gradient-to-r from-[#FFDDA8] to-[#DBA757] text-[#03292B] font-semibold rounded-lg hover:brightness-110 transition text-sm sm:text-base">
-                Meet the Team
-            </button>
-            <button onclick="document.getElementById('contact').scrollIntoView({behavior:'smooth'})"
-                class="px-6 py-3 border border-[#31D0B2] text-[#31D0B2] font-semibold rounded-lg hover:bg-[#31D0B2]/10 transition text-sm sm:text-base">
-                Get in Touch
-            </button>
+    <!-- Full-bleed background — placeholder until real photo is supplied -->
+    <div class="absolute inset-0 w-full h-full z-0 overflow-hidden"
+         style="background:linear-gradient(135deg,#04373A 0%,#076266 40%,#0A3D3A 70%,#031E20 100%);">
+        <!-- Decorative geometric pattern -->
+        <svg class="absolute inset-0 w-full h-full opacity-[0.07]" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid slice">
+            <defs>
+                <pattern id="heroGrid" width="60" height="60" patternUnits="userSpaceOnUse">
+                    <path d="M 60 0 L 0 0 0 60" fill="none" stroke="#31D0B2" stroke-width="0.8"/>
+                </pattern>
+                <pattern id="heroDiag" width="120" height="120" patternUnits="userSpaceOnUse">
+                    <line x1="0" y1="0" x2="120" y2="120" stroke="#DBA757" stroke-width="0.5"/>
+                    <line x1="120" y1="0" x2="0" y2="120" stroke="#DBA757" stroke-width="0.5"/>
+                </pattern>
+            </defs>
+            <rect width="100%" height="100%" fill="url(#heroGrid)"/>
+            <rect width="100%" height="100%" fill="url(#heroDiag)"/>
+        </svg>
+        <!-- Large decorative circles -->
+        <div class="absolute -top-32 -right-32 w-[600px] h-[600px] rounded-full opacity-10"
+             style="background:radial-gradient(circle,#31D0B2 0%,transparent 70%);"></div>
+        <div class="absolute -bottom-24 left-1/3 w-[400px] h-[400px] rounded-full opacity-10"
+             style="background:radial-gradient(circle,#DBA757 0%,transparent 70%);"></div>
+        <!-- Placeholder label -->
+        <div class="absolute bottom-6 right-6 flex items-center gap-2 opacity-30 pointer-events-none select-none">
+            <svg class="w-4 h-4 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24"><rect x="3" y="3" width="18" height="18" rx="2" stroke-width="1.5"/><circle cx="8.5" cy="8.5" r="1.5" stroke-width="1.5"/><path d="M21 15l-5-5L5 21" stroke-width="1.5"/></svg>
+            <span class="text-white text-[10px] uppercase tracking-widest">hero image placeholder</span>
         </div>
     </div>
 
-    <div class="absolute bottom-0 w-full h-24 sm:h-40 md:h-56 bg-gradient-to-b from-transparent to-[#03292B] z-20 pointer-events-none" aria-hidden="true"></div>
+    <!-- Dark gradient: strong on left for text legibility, fades on right -->
+    <div class="absolute inset-0 z-[1]"
+         style="background:linear-gradient(105deg,rgba(3,41,43,0.97) 0%,rgba(3,41,43,0.82) 45%,rgba(3,41,43,0.35) 100%);"></div>
+
+    <!-- ══════════════════════════════════════
+         DESKTOP  (lg+)
+         Two columns: text left, framed photo
+         + floating cards right. Big top gap.
+         ══════════════════════════════════════ -->
+    <div class="hidden lg:flex items-center gap-16 xl:gap-24
+                max-w-7xl mx-auto w-full px-8 xl:px-12 relative z-10"
+         style="min-height:calc(100vh - 128px); padding-top:clamp(4rem,8vh,6rem); padding-bottom:3rem;">
+
+        <!-- LEFT -->
+        <div class="flex-1 flex flex-col justify-center">
+
+            <div class="inline-flex items-center gap-2 mb-6">
+                <span class="w-2 h-2 rounded-full bg-[#31D0B2] animate-pulse flex-shrink-0"></span>
+                <span class="text-[#31D0B2] uppercase tracking-[0.3em] text-xs">About Sharmony</span>
+            </div>
+
+            <h1 class="font-['TT_Livret_Display_Trl'] text-white font-light leading-[1.06] mb-6"
+                style="font-size:clamp(2.8rem,4.5vw,4.75rem);">
+                Innovation<br>in Investments.<br>
+                <span class="bg-clip-text text-transparent bg-gradient-to-r from-[#FFDDA8] to-[#DBA757]">
+                    Reliability.<br>Global Vision.
+                </span>
+            </h1>
+
+            <p class="text-white/60 text-base leading-relaxed max-w-md mb-8">
+                International technology company headquartered in Hong Kong SAR, with offices across Dubai, Türkiye, Thailand, Indonesia, and Georgia.
+            </p>
+
+            <div class="flex gap-4 mb-12">
+                <a href="#team"
+                   class="inline-flex items-center gap-2 px-7 py-3.5 bg-gradient-to-r from-[#FFDDA8] to-[#DBA757] text-[#03292B] rounded-lg font-semibold text-sm hover:brightness-105 transition-all">
+                    Meet the Team
+                    <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 7l5 5m0 0l-5 5m5-5H6"/>
+                    </svg>
+                </a>
+                <a href="#contact"
+                   class="inline-flex items-center px-7 py-3.5 border border-[#31D0B2]/55 text-[#31D0B2] rounded-lg text-sm hover:bg-[#31D0B2]/10 transition-all">
+                    Contact Us
+                </a>
+            </div>
+
+            <!-- Stat strip -->
+            <div class="flex items-center gap-7 pt-8 border-t border-white/15">
+                <div>
+                    <div class="font-['TT_Livret_Display_Trl'] text-[#DBA757] text-3xl font-light leading-none">50+</div>
+                    <div class="text-white/45 text-[11px] uppercase tracking-widest mt-1.5">Professionals</div>
+                </div>
+                <div class="w-px h-10 bg-white/15 flex-shrink-0"></div>
+                <div>
+                    <div class="font-['TT_Livret_Display_Trl'] text-[#DBA757] text-3xl font-light leading-none">$100M</div>
+                    <div class="text-white/45 text-[11px] uppercase tracking-widest mt-1.5">Assets Managed</div>
+                </div>
+                <div class="w-px h-10 bg-white/15 flex-shrink-0"></div>
+                <div>
+                    <div class="font-['TT_Livret_Display_Trl'] text-[#DBA757] text-3xl font-light leading-none">30+</div>
+                    <div class="text-white/45 text-[11px] uppercase tracking-widest mt-1.5">Countries</div>
+                </div>
+                <div class="w-px h-10 bg-white/15 flex-shrink-0"></div>
+                <div>
+                    <div class="font-['TT_Livret_Display_Trl'] text-[#DBA757] text-3xl font-light leading-none">6+</div>
+                    <div class="text-white/45 text-[11px] uppercase tracking-widest mt-1.5">Offices</div>
+                </div>
+            </div>
+        </div>
+
+        <!-- RIGHT: framed photo placeholder + floating cards -->
+        <div class="relative flex-shrink-0 w-[380px] xl:w-[420px]">
+            <div class="relative rounded-2xl overflow-hidden shadow-2xl ring-1 ring-white/10" style="height:520px;
+                 background:linear-gradient(160deg,#0A3D3A 0%,#0D4A47 50%,#07363A 100%);">
+                <!-- Decorative grid -->
+                <svg class="absolute inset-0 w-full h-full opacity-[0.08]" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid slice">
+                    <defs><pattern id="cardGrid" width="40" height="40" patternUnits="userSpaceOnUse">
+                        <path d="M 40 0 L 0 0 0 40" fill="none" stroke="#31D0B2" stroke-width="0.7"/>
+                    </pattern></defs>
+                    <rect width="100%" height="100%" fill="url(#cardGrid)"/>
+                </svg>
+                <!-- Placeholder icon & label -->
+                <div class="absolute inset-0 flex flex-col items-center justify-center gap-3 pointer-events-none select-none">
+                    <svg class="w-16 h-16 text-white/20" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <rect x="3" y="3" width="18" height="18" rx="2" stroke-width="1"/>
+                        <circle cx="8.5" cy="8.5" r="1.5" stroke-width="1"/>
+                        <path d="M21 15l-5-5L5 21" stroke-width="1"/>
+                    </svg>
+                    <span class="text-white/25 text-xs uppercase tracking-widest">Placeholder photo</span>
+                </div>
+                <div class="absolute inset-0"
+                     style="background:linear-gradient(to top,rgba(3,41,43,0.65) 0%,transparent 55%);"></div>
+            </div>
+        </div>
+
+    </div><!-- /desktop -->
+
+
+    <!-- ══════════════════════════════════════
+         MOBILE  (below lg)
+         Photo strip with headline overlay,
+         then content + stats grid below.
+         ══════════════════════════════════════ -->
+    <div class="lg:hidden relative z-10">
+
+        <!-- Photo strip — headline sits on top of it -->
+        <div class="relative w-full" style="height:60vw;min-height:240px;max-height:360px;">
+            <!-- Eyebrow -->
+            <div class="absolute top-5 left-5 z-10 inline-flex items-center gap-2">
+                <span class="w-1.5 h-1.5 rounded-full bg-[#31D0B2] flex-shrink-0"></span>
+                <span class="text-[#31D0B2] uppercase tracking-[0.28em] text-[10px] font-medium">About Sharmony</span>
+            </div>
+            <!-- Headline at bottom of photo -->
+            <div class="absolute bottom-5 left-5 right-5 z-10">
+                <h1 class="font-['TT_Livret_Display_Trl'] text-white font-light leading-[1.1]"
+                    style="font-size:clamp(1.75rem,7.5vw,2.5rem);">
+                    Innovation in Investments.<br>
+                    <span class="bg-clip-text text-transparent bg-gradient-to-r from-[#FFDDA8] to-[#DBA757]">
+                        Reliability. Global Vision.
+                    </span>
+                </h1>
+            </div>
+            <!-- Gradient for legibility -->
+            <div class="absolute inset-0 z-[1]"
+                 style="background:linear-gradient(to bottom,rgba(3,41,43,0.15) 0%,rgba(3,41,43,0.88) 78%,#03292B 100%);"></div>
+        </div>
+
+        <!-- Content flows seamlessly from photo -->
+        <div class="bg-[#03292B] px-5 pt-5 pb-10">
+
+            <p class="text-white/60 text-sm leading-relaxed mb-6">
+                International technology company headquartered in Hong Kong SAR, with offices across Dubai, Türkiye, Thailand, Indonesia, and Georgia.
+            </p>
+
+            <!-- CTAs -->
+            <div class="flex gap-3 mb-6">
+                <a href="#team"
+                   class="flex-1 inline-flex items-center justify-center gap-1.5 py-3.5 bg-gradient-to-r from-[#FFDDA8] to-[#DBA757] text-[#03292B] rounded-lg font-semibold text-sm">
+                    Meet the Team
+                    <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M13 7l5 5m0 0l-5 5m5-5H6"/>
+                    </svg>
+                </a>
+                <a href="#contact"
+                   class="flex-1 inline-flex items-center justify-center py-3.5 border border-[#31D0B2]/55 text-[#31D0B2] rounded-lg text-sm">
+                    Contact Us
+                </a>
+            </div>
+
+            <!-- 2×2 stat grid -->
+            <div class="grid grid-cols-2 gap-2.5 mb-6">
+                <div class="bg-white/[0.05] border border-white/[0.08] rounded-xl px-4 py-4">
+                    <div class="font-['TT_Livret_Display_Trl'] text-[#DBA757] text-2xl font-light leading-none">50+</div>
+                    <div class="text-white/40 text-[10px] uppercase tracking-widest mt-1.5">Professionals</div>
+                </div>
+                <div class="bg-white/[0.05] border border-white/[0.08] rounded-xl px-4 py-4">
+                    <div class="font-['TT_Livret_Display_Trl'] text-[#DBA757] text-2xl font-light leading-none">$100M</div>
+                    <div class="text-white/40 text-[10px] uppercase tracking-widest mt-1.5">Assets Managed</div>
+                </div>
+                <div class="bg-white/[0.05] border border-white/[0.08] rounded-xl px-4 py-4">
+                    <div class="font-['TT_Livret_Display_Trl'] text-[#DBA757] text-2xl font-light leading-none">30+</div>
+                    <div class="text-white/40 text-[10px] uppercase tracking-widest mt-1.5">Countries</div>
+                </div>
+                <div class="bg-white/[0.05] border border-white/[0.08] rounded-xl px-4 py-4">
+                    <div class="font-['TT_Livret_Display_Trl'] text-[#DBA757] text-2xl font-light leading-none">6+</div>
+                    <div class="text-white/40 text-[10px] uppercase tracking-widest mt-1.5">Offices</div>
+                </div>
+            </div>
+
+        </div>
+    </div><!-- /mobile -->
+
 </section>
 
 
 <!-- ========================= -->
 <!-- TEAM SECTION              -->
 <!-- ========================= -->
-<section id="team" class="bg-[#03292B] text-[#F8EDDD] py-28 sm:py-36">
-    <div class="max-w-7xl mx-auto px-4 sm:px-6">
+<section id="team" class="bg-[#03292B] text-[#F8EDDD] py-16 sm:py-24 lg:py-32 overflow-hidden">
+    <div class="max-w-7xl mx-auto px-5 sm:px-6">
 
-        <div class="text-center mb-16 sm:mb-20">
-            <p class="uppercase tracking-[0.3em] text-[#31D0B2] text-xs sm:text-sm mb-4">Our People</p>
-            <h2 class="font-['TT_Livret_Display_Trl'] text-3xl sm:text-4xl md:text-5xl font-light mb-6">
+        <div class="text-center mb-10 sm:mb-16">
+            <p class="uppercase tracking-[0.3em] text-[#31D0B2] text-xs sm:text-sm mb-3">Our Team</p>
+            <h2 class="font-['TT_Livret_Display_Trl'] text-2xl sm:text-4xl md:text-5xl font-light mb-4 sm:mb-6">
                 World-Class Professionals
             </h2>
-            <div class="w-20 h-px bg-[#DBA757] mx-auto"></div>
+            <div class="w-16 h-px bg-[#DBA757] mx-auto"></div>
         </div>
 
-        <!-- SCROLLING TEAM CAROUSEL -->
-        <div class="overflow-hidden">
-            <div id="teamScroller" class="flex gap-8 overflow-x-scroll scrollbar-hide" style="-ms-overflow-style:none;scrollbar-width:none;">
+    <!-- CAROUSEL: full-bleed so it extends edge-to-edge -->
+    <!-- wrapper: NO overflow-hidden — scroller needs to be the clipping element -->
+    <div class="relative">
+        <!-- Fade masks on left/right for desktop polish -->
+        <div class="absolute left-0 top-0 bottom-0 w-8 sm:w-16 z-10 pointer-events-none"
+             style="background:linear-gradient(to right,#03292B,transparent);" aria-hidden="true"></div>
+        <div class="absolute right-0 top-0 bottom-0 w-8 sm:w-16 z-10 pointer-events-none"
+             style="background:linear-gradient(to left,#03292B,transparent);" aria-hidden="true"></div>
 
-                <!-- CARD template (×8 for seamless loop) -->
-                {{ range $i := (slice 1 2 3 4 5 6 7 8) }}
-                <div class="flex-shrink-0 w-72 bg-[#0A3436] border border-white/10 rounded-2xl p-8 flex flex-col items-center text-center hover:-translate-y-1 transition duration-300">
-                    <div class="w-28 h-28 rounded-full ring-2 ring-[#DBA757]/40 overflow-hidden mb-6 bg-[#03292B]">
-                        <img src="/images/team{{ $i }}.jpg"
-                             class="w-full h-full object-cover"
-                             onerror="this.style.display='none'"
-                             alt="">
-                        <!-- Placeholder avatar when image missing -->
-                        <div class="w-full h-full flex items-center justify-center text-[#DBA757]/40 text-4xl font-light">
-                            &#9651;
-                        </div>
-                    </div>
-                    <span class="inline-block px-3 py-1 rounded-full bg-[#DBA757]/15 text-[#DBA757] text-xs tracking-widest uppercase mb-3">Team</span>
-                    <h3 class="text-lg font-light mb-1">Name Surname</h3>
-                    <p class="text-sm text-white/50">Position · Department</p>
+        <div id="teamScroller"
+             class="flex gap-5 sm:gap-6 overflow-x-auto pb-4 px-5 sm:px-6"
+             style="-ms-overflow-style:none;scrollbar-width:none;-webkit-overflow-scrolling:touch;">
+
+            {{ $initials := (slice "AL" "MK" "SJ" "RB" "YT" "DP" "NV" "CH") }}
+            {{ range $i := (slice 0 1 2 3 4 5 6 7) }}
+            {{ $ini := index $initials $i }}
+            <div class="team-card flex-shrink-0 w-[72vw] sm:w-64 md:w-72 bg-[#0A3436] border border-white/10 rounded-2xl p-6 sm:p-7 flex flex-col items-center text-center transition duration-300 hover:border-[#DBA757]/30 hover:shadow-lg hover:shadow-[#DBA757]/5">
+                <!-- Avatar placeholder -->
+                <div class="w-20 h-20 sm:w-24 sm:h-24 rounded-full ring-2 ring-[#DBA757]/40 overflow-hidden mb-4 sm:mb-5 flex-shrink-0 flex items-center justify-center relative"
+                     style="background:linear-gradient(135deg,#0D4A47 0%,#0A3436 100%);">
+                    <svg class="absolute inset-0 w-full h-full opacity-10" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid slice">
+                        <defs><pattern id="av{{ $i }}" width="12" height="12" patternUnits="userSpaceOnUse">
+                            <circle cx="6" cy="6" r="1" fill="#31D0B2"/>
+                        </pattern></defs>
+                        <rect width="100%" height="100%" fill="url(#av{{ $i }})"/>
+                    </svg>
+                    <span class="relative text-[#DBA757]/70 text-lg font-light tracking-wide select-none">{{ $ini }}</span>
                 </div>
-                {{ end }}
-
+                <span class="inline-block px-3 py-0.5 rounded-full bg-[#DBA757]/15 text-[#DBA757] text-[10px] tracking-widest uppercase mb-2">Team</span>
+                <h3 class="text-base sm:text-lg font-light mb-1 text-[#F8EDDD]">Name Surname</h3>
+                <p class="text-xs sm:text-sm text-white/45">Position · Department</p>
             </div>
+            {{ end }}
+
         </div>
 
-        <!-- TEAM STRUCTURE GRID -->
-        <div class="grid sm:grid-cols-2 md:grid-cols-4 gap-10 mt-20 text-sm">
+        <!-- Mobile swipe hint -->
+        <p class="sm:hidden text-center text-white/30 text-xs mt-3 tracking-widest uppercase select-none" aria-hidden="true">← swipe →</p>
+    </div>
 
-            <div class="border-t border-[#DBA757]/40 pt-6">
-                <h4 class="text-base text-white mb-3 font-light">Founders</h4>
-                <p class="text-white/60 leading-relaxed">Entrepreneurs with experience in development, fintech, and venture investments.</p>
+    <!-- TEAM STRUCTURE GRID -->
+    <div class="max-w-7xl mx-auto px-5 sm:px-6">
+        <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-6 sm:gap-8 mt-12 sm:mt-16 text-sm">
+            <div class="border-t border-[#DBA757]/40 pt-5">
+                <h4 class="text-base text-white mb-2 font-light">Founders</h4>
+                <p class="text-white/55 leading-relaxed text-sm">Entrepreneurs with experience in development, fintech, and venture investments.</p>
             </div>
-            <div class="border-t border-[#DBA757]/40 pt-6">
-                <h4 class="text-base text-white mb-3 font-light">Technology Board</h4>
-                <p class="text-white/60 leading-relaxed">Leading blockchain developers and architects of DeFi solutions.</p>
+            <div class="border-t border-[#DBA757]/40 pt-5">
+                <h4 class="text-base text-white mb-2 font-light">Technology Board</h4>
+                <p class="text-white/55 leading-relaxed text-sm">Leading blockchain developers and architects of DeFi solutions.</p>
             </div>
-            <div class="border-t border-[#DBA757]/40 pt-6">
-                <h4 class="text-base text-white mb-3 font-light">Legal Department</h4>
-                <p class="text-white/60 leading-relaxed">International law specialists ensuring full transaction security.</p>
+            <div class="border-t border-[#DBA757]/40 pt-5">
+                <h4 class="text-base text-white mb-2 font-light">Legal Department</h4>
+                <p class="text-white/55 leading-relaxed text-sm">International law specialists ensuring full transaction security.</p>
             </div>
-            <div class="border-t border-[#DBA757]/40 pt-6">
-                <h4 class="text-base text-white mb-3 font-light">Analysts & Asset Managers</h4>
-                <p class="text-white/60 leading-relaxed">Experts in Asian and European real estate markets.</p>
+            <div class="border-t border-[#DBA757]/40 pt-5">
+                <h4 class="text-base text-white mb-2 font-light">Analysts &amp; Asset Managers</h4>
+                <p class="text-white/55 leading-relaxed text-sm">Experts in Asian and European real estate markets.</p>
             </div>
-
         </div>
     </div>
 </section>
@@ -104,60 +291,60 @@
 <!-- ========================= -->
 <!-- PROFESSIONAL PRINCIPLES   -->
 <!-- ========================= -->
-<section class="bg-[#F8EDDD] text-[#03292B] py-28 sm:py-36">
-    <div class="max-w-7xl mx-auto px-4 sm:px-6">
+<section class="bg-[#F8EDDD] text-[#03292B] py-16 sm:py-24 lg:py-32">
+    <div class="max-w-7xl mx-auto px-5 sm:px-6">
 
-        <div class="text-center mb-16 sm:mb-20">
-            <p class="uppercase tracking-[0.3em] text-[#DBA757] text-xs sm:text-sm mb-4">Our Team</p>
-            <h2 class="font-['TT_Livret_Display_Trl'] text-3xl sm:text-4xl md:text-5xl font-light">
+        <div class="text-center mb-10 sm:mb-14 lg:mb-18">
+            <p class="uppercase tracking-[0.3em] text-[#DBA757] text-xs sm:text-sm mb-3">Our Team</p>
+            <h2 class="font-['TT_Livret_Display_Trl'] text-2xl sm:text-4xl md:text-5xl font-light">
                 Professional Collaboration Principles
             </h2>
         </div>
 
-        <div class="grid sm:grid-cols-2 md:grid-cols-4 gap-8">
+        <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-5 sm:gap-6">
 
             <!-- Transparency -->
-            <div class="bg-white rounded-xl p-8 border-t-4 border-[#DBA757] shadow-sm hover:shadow-lg hover:-translate-y-1 transition duration-300">
-                <div class="w-10 h-10 flex items-center justify-center mb-5 text-[#DBA757]">
-                    <svg fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24" class="w-8 h-8">
+            <div class="bg-white rounded-xl p-6 sm:p-7 border-t-4 border-[#DBA757] shadow-sm">
+                <div class="w-10 h-10 flex items-center justify-center mb-4 text-[#DBA757]">
+                    <svg fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24" class="w-7 h-7">
                         <circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 3"/>
                     </svg>
                 </div>
-                <h3 class="text-lg font-light mb-3">Transparency</h3>
-                <p class="text-sm text-[#03292B]/70 leading-relaxed">All transactions recorded on blockchain with independent audits.</p>
+                <h3 class="text-base sm:text-lg font-light mb-2">Transparency</h3>
+                <p class="text-sm text-[#03292B]/65 leading-relaxed">All transactions recorded on blockchain with independent audits.</p>
             </div>
 
             <!-- Security -->
-            <div class="bg-white rounded-xl p-8 border-t-4 border-[#DBA757] shadow-sm hover:shadow-lg hover:-translate-y-1 transition duration-300">
-                <div class="w-10 h-10 flex items-center justify-center mb-5 text-[#DBA757]">
-                    <svg fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24" class="w-8 h-8">
+            <div class="bg-white rounded-xl p-6 sm:p-7 border-t-4 border-[#DBA757] shadow-sm">
+                <div class="w-10 h-10 flex items-center justify-center mb-4 text-[#DBA757]">
+                    <svg fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24" class="w-7 h-7">
                         <path d="M12 2l7 4v6c0 5-3.5 9.3-7 10.5C8.5 21.3 5 17 5 12V6l7-4z"/>
                     </svg>
                 </div>
-                <h3 class="text-lg font-light mb-3">Security</h3>
-                <p class="text-sm text-[#03292B]/70 leading-relaxed">Licensed custodians, asset insurance, GDPR/KYC/AML compliance.</p>
+                <h3 class="text-base sm:text-lg font-light mb-2">Security</h3>
+                <p class="text-sm text-[#03292B]/65 leading-relaxed">Licensed custodians, asset insurance, GDPR/KYC/AML compliance.</p>
             </div>
 
             <!-- Innovation -->
-            <div class="bg-white rounded-xl p-8 border-t-4 border-[#DBA757] shadow-sm hover:shadow-lg hover:-translate-y-1 transition duration-300">
-                <div class="w-10 h-10 flex items-center justify-center mb-5 text-[#DBA757]">
-                    <svg fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24" class="w-8 h-8">
+            <div class="bg-white rounded-xl p-6 sm:p-7 border-t-4 border-[#DBA757] shadow-sm">
+                <div class="w-10 h-10 flex items-center justify-center mb-4 text-[#DBA757]">
+                    <svg fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24" class="w-7 h-7">
                         <path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z"/>
                     </svg>
                 </div>
-                <h3 class="text-lg font-light mb-3">Innovation</h3>
-                <p class="text-sm text-[#03292B]/70 leading-relaxed">Proprietary developments in RWA tokenization and smart contracts.</p>
+                <h3 class="text-base sm:text-lg font-light mb-2">Innovation</h3>
+                <p class="text-sm text-[#03292B]/65 leading-relaxed">Proprietary developments in RWA tokenization and smart contracts.</p>
             </div>
 
             <!-- Accessibility -->
-            <div class="bg-white rounded-xl p-8 border-t-4 border-[#DBA757] shadow-sm hover:shadow-lg hover:-translate-y-1 transition duration-300">
-                <div class="w-10 h-10 flex items-center justify-center mb-5 text-[#DBA757]">
-                    <svg fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24" class="w-8 h-8">
+            <div class="bg-white rounded-xl p-6 sm:p-7 border-t-4 border-[#DBA757] shadow-sm">
+                <div class="w-10 h-10 flex items-center justify-center mb-4 text-[#DBA757]">
+                    <svg fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24" class="w-7 h-7">
                         <circle cx="12" cy="12" r="10"/><path d="M2 12h20M12 2a15.3 15.3 0 0 1 0 20M12 2a15.3 15.3 0 0 0 0 20"/>
                     </svg>
                 </div>
-                <h3 class="text-lg font-light mb-3">Accessibility</h3>
-                <p class="text-sm text-[#03292B]/70 leading-relaxed">Lowered investment thresholds without compromising reliability.</p>
+                <h3 class="text-base sm:text-lg font-light mb-2">Accessibility</h3>
+                <p class="text-sm text-[#03292B]/65 leading-relaxed">Lowered investment thresholds without compromising reliability.</p>
             </div>
 
         </div>
@@ -168,52 +355,65 @@
 <!-- ========================= -->
 <!-- KEY FACTS                 -->
 <!-- ========================= -->
-<section class="bg-[#03292B] text-[#F8EDDD] py-28 sm:py-36">
-    <div class="max-w-7xl mx-auto px-4 sm:px-6 grid md:grid-cols-2 gap-20 items-center">
+<section class="bg-[#03292B] text-[#F8EDDD] py-16 sm:py-24 lg:py-32">
+    <div class="max-w-7xl mx-auto px-5 sm:px-6">
+        <div class="grid md:grid-cols-2 gap-10 md:gap-20 items-stretch">
 
-        <div>
-            <p class="uppercase tracking-[0.3em] text-[#31D0B2] text-xs sm:text-sm mb-6">Company Profile</p>
-            <h2 class="font-['TT_Livret_Display_Trl'] text-3xl sm:text-4xl md:text-5xl font-light mb-14">
-                Key Facts About SHARMONY
-            </h2>
-
-            <dl class="space-y-8">
-
-                <div class="border-l-2 border-[#DBA757] pl-6">
-                    <dt class="text-white text-sm uppercase tracking-widest mb-1">Founded</dt>
-                    <dd class="text-white/70">2025</dd>
+            <!-- Image first on mobile -->
+            <div class="group overflow-hidden rounded-xl order-first md:order-last relative h-full">
+                <div class="w-full h-52 sm:h-72 md:h-full h-full relative overflow-hidden rounded-xl"
+                     style="background:linear-gradient(145deg,#0A3D3A 0%,#0D4A47 40%,#07363A 100%);">
+                    <svg class="absolute inset-0 w-full h-full opacity-[0.07]" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid slice">
+                        <defs><pattern id="offGrid" width="32" height="32" patternUnits="userSpaceOnUse">
+                            <path d="M 32 0 L 0 0 0 32" fill="none" stroke="#31D0B2" stroke-width="0.6"/>
+                        </pattern></defs>
+                        <rect width="100%" height="100%" fill="url(#offGrid)"/>
+                    </svg>
+                    <div class="absolute inset-0 flex flex-col items-center justify-center gap-3 select-none pointer-events-none">
+                        <svg class="w-14 h-14 text-white/15" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <rect x="2" y="7" width="20" height="14" rx="1.5" stroke-width="1"/>
+                            <path d="M16 7V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v2" stroke-width="1"/>
+                            <line x1="12" y1="12" x2="12" y2="12.01" stroke-width="2"/>
+                        </svg>
+                        <span class="text-white/20 text-[10px] uppercase tracking-widest">Office photo</span>
+                    </div>
+                    <div class="absolute inset-0 group-hover:bg-white/[0.02] transition duration-700"></div>
                 </div>
+            </div>
 
-                <div class="border-l-2 border-[#DBA757] pl-6">
-                    <dt class="text-white text-sm uppercase tracking-widest mb-1">Legal Structure</dt>
-                    <dd class="text-white/70 space-y-1">
-                        <p>Parent company registered in Seychelles.</p>
-                        <p>Subsidiary joint-stock company in Hong Kong.</p>
-                        <p>Branches operate in each country of presence.</p>
-                    </dd>
-                </div>
+            <div class="order-last md:order-first">
+                <p class="uppercase tracking-[0.3em] text-[#31D0B2] text-xs sm:text-sm mb-4">Company</p>
+                <h2 class="font-['TT_Livret_Display_Trl'] text-[clamp(1.75rem,4vw,3.5rem)] font-light mb-8 sm:mb-12 leading-tight">
+                    Key Facts About SHARMONY
+                </h2>
 
-                <div class="border-l-2 border-[#DBA757] pl-6">
-                    <dt class="text-white text-sm uppercase tracking-widest mb-1">Partners</dt>
-                    <dd class="text-white/70">Banks, developers, construction firms, legal companies, insurance providers and real estate agencies.</dd>
-                </div>
+                <dl class="space-y-5 sm:space-y-7">
+                    <div class="border-l-2 border-[#DBA757] pl-5">
+                        <dt class="text-white text-xs uppercase tracking-widest mb-1">Founded</dt>
+                        <dd class="text-white/70 text-sm sm:text-base">2025</dd>
+                    </div>
+                    <div class="border-l-2 border-[#DBA757] pl-5">
+                        <dt class="text-white text-xs uppercase tracking-widest mb-1">Legal Structure</dt>
+                        <dd class="text-white/70 text-sm sm:text-base space-y-1">
+                            <p>Parent company registered in Seychelles.</p>
+                            <p>Subsidiary joint-stock company in Hong Kong.</p>
+                            <p>Branches operate in each country of presence.</p>
+                        </dd>
+                    </div>
+                    <div class="border-l-2 border-[#DBA757] pl-5">
+                        <dt class="text-white text-xs uppercase tracking-widest mb-1">Partners</dt>
+                        <dd class="text-white/70 text-sm sm:text-base">Banks, developers, construction firms, legal companies, insurance providers and real estate agencies.</dd>
+                    </div>
+                    <div class="border-l-2 border-[#DBA757] pl-5">
+                        <dt class="text-white text-xs uppercase tracking-widest mb-1">Project Founder</dt>
+                        <dd>
+                            <a href="#" class="text-[#31D0B2] hover:text-[#31D0B2]/80 transition underline underline-offset-4 text-sm sm:text-base">Alexander Lee (LinkedIn)</a>
+                        </dd>
+                    </div>
+                </dl>
+            </div>
 
-                <div class="border-l-2 border-[#DBA757] pl-6">
-                    <dt class="text-white text-sm uppercase tracking-widest mb-1">Project Founder</dt>
-                    <dd class="text-white/70">
-                        <a href="#" class="text-[#31D0B2] hover:text-[#31D0B2]/80 transition underline underline-offset-4">Alexander Lee (LinkedIn)</a>
-                    </dd>
-                </div>
-
-            </dl>
         </div>
-
-        <div class="group overflow-hidden rounded-xl">
-            <img src="/images/office.jpg"
-                 class="w-full h-80 sm:h-[420px] object-cover group-hover:scale-105 transition duration-700"
-                 alt="Sharmony Office">
-        </div>
-
     </div>
 </section>
 
@@ -221,26 +421,104 @@
 <!-- ========================= -->
 <!-- GLOBAL MAP                -->
 <!-- ========================= -->
-<section class="bg-[#03292B] text-[#F8EDDD] py-28 sm:py-36 border-t border-white/5">
-    <div class="max-w-6xl mx-auto px-4 sm:px-6 text-center">
+<section class="bg-[#03292B] text-[#F8EDDD] py-16 sm:py-24 lg:py-32 border-t border-white/5">
+    <div class="max-w-7xl mx-auto px-5 sm:px-6">
 
-        <p class="uppercase tracking-[0.35em] text-[#31D0B2] text-xs sm:text-sm mb-6">Worldwide Operations</p>
-        <h2 class="font-['TT_Livret_Display_Trl'] text-3xl sm:text-4xl md:text-5xl font-light mb-16">
-            Global Operational Network
-        </h2>
-
-        <div class="mb-12">
-            <img src="/images/offices_map.svg" alt="Sharmony Offices Map" class="w-full"/>
+        <div class="text-center mb-10 sm:mb-14">
+            <p class="uppercase tracking-[0.35em] text-[#31D0B2] text-xs sm:text-sm mb-4">Worldwide Operations</p>
+            <h2 class="font-['TT_Livret_Display_Trl'] text-2xl sm:text-4xl md:text-5xl font-light mb-4">
+                Global Operational Network
+            </h2>
         </div>
 
-        <!-- City pin legend -->
-        <div class="flex flex-wrap justify-center gap-6 sm:gap-10">
-            {{ range (slice "Hong Kong" "Dubai" "Istanbul" "Bangkok" "Jakarta" "Tbilisi") }}
-            <div class="flex items-center gap-2">
-                <span class="w-2.5 h-2.5 rounded-full bg-[#DBA757] flex-shrink-0"></span>
-                <span class="text-sm text-white/70">{{ . }}</span>
+        <!-- SVG map with pin markers -->
+        <div class="relative mb-12 sm:mb-16 rounded-2xl overflow-hidden"
+             style="background:linear-gradient(145deg,#062224 0%,#083335 60%,#051B1D 100%);">
+            <!-- Subtle grid overlay -->
+            <svg class="absolute inset-0 w-full h-full opacity-[0.06] pointer-events-none" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid slice">
+                <defs>
+                    <pattern id="mapGrid" width="50" height="50" patternUnits="userSpaceOnUse">
+                        <path d="M 50 0 L 0 0 0 50" fill="none" stroke="#31D0B2" stroke-width="0.6"/>
+                    </pattern>
+                </defs>
+                <rect width="100%" height="100%" fill="url(#mapGrid)"/>
+            </svg>
+
+            <!-- World map SVG -->
+            <div class="relative px-4 py-6 sm:px-8 sm:py-10">
+                <img src="/images/offices_map.svg" alt="Sharmony Offices Map"
+                     class="w-full relative z-10 opacity-60"
+                     style="filter:brightness(0) invert(1) opacity(0.18);">
+
+                <!-- Pin markers — positioned as % of container -->
+                <!-- Hong Kong: ~83% x, ~45% y -->
+                <div class="map-pin absolute z-20" style="left:83%;top:44%;" data-city="Hong Kong" data-role="HQ">
+                    <div class="relative flex flex-col items-center">
+                        <div class="w-4 h-4 sm:w-5 sm:h-5 rounded-full bg-[#DBA757] ring-2 ring-[#DBA757]/40 animate-ping absolute opacity-60"></div>
+                        <div class="w-4 h-4 sm:w-5 sm:h-5 rounded-full bg-[#DBA757] ring-2 ring-[#DBA757]/50 relative cursor-pointer"></div>
+                        <div class="mt-1.5 hidden sm:block bg-[#03292B]/90 border border-[#DBA757]/30 rounded-lg px-2.5 py-1 whitespace-nowrap shadow-lg">
+                            <span class="text-[#DBA757] text-[10px] font-semibold uppercase tracking-wider">HQ</span>
+                            <span class="text-white/60 text-[10px] ml-1">Hong Kong</span>
+                        </div>
+                    </div>
+                </div>
+                <!-- Dubai: ~62% x, ~48% y -->
+                <div class="map-pin absolute z-20" style="left:62%;top:47%;" data-city="Dubai">
+                    <div class="relative flex flex-col items-center">
+                        <div class="w-3 h-3 sm:w-4 sm:h-4 rounded-full bg-[#31D0B2] ring-2 ring-[#31D0B2]/40 animate-ping absolute opacity-50"></div>
+                        <div class="w-3 h-3 sm:w-4 sm:h-4 rounded-full bg-[#31D0B2] relative cursor-pointer"></div>
+                        <div class="mt-1.5 hidden sm:block bg-[#03292B]/90 border border-[#31D0B2]/30 rounded-lg px-2 py-1 whitespace-nowrap shadow-lg">
+                            <span class="text-white/60 text-[10px]">Dubai</span>
+                        </div>
+                    </div>
+                </div>
+                <!-- Istanbul: ~59% x, ~39% y -->
+                <div class="map-pin absolute z-20" style="left:59%;top:38%;" data-city="Istanbul">
+                    <div class="relative flex flex-col items-center">
+                        <div class="w-3 h-3 sm:w-4 sm:h-4 rounded-full bg-[#31D0B2] ring-2 ring-[#31D0B2]/40 animate-ping absolute opacity-50"></div>
+                        <div class="w-3 h-3 sm:w-4 sm:h-4 rounded-full bg-[#31D0B2] relative cursor-pointer"></div>
+                        <div class="mt-1.5 hidden sm:block bg-[#03292B]/90 border border-[#31D0B2]/30 rounded-lg px-2 py-1 whitespace-nowrap shadow-lg">
+                            <span class="text-white/60 text-[10px]">Istanbul</span>
+                        </div>
+                    </div>
+                </div>
+                <!-- Bangkok: ~78% x, ~53% y -->
+                <div class="map-pin absolute z-20" style="left:78%;top:52%;" data-city="Bangkok">
+                    <div class="relative flex flex-col items-center">
+                        <div class="w-3 h-3 sm:w-4 sm:h-4 rounded-full bg-[#31D0B2] ring-2 ring-[#31D0B2]/40 animate-ping absolute opacity-50"></div>
+                        <div class="w-3 h-3 sm:w-4 sm:h-4 rounded-full bg-[#31D0B2] relative cursor-pointer"></div>
+                        <div class="mt-1.5 hidden sm:block bg-[#03292B]/90 border border-[#31D0B2]/30 rounded-lg px-2 py-1 whitespace-nowrap shadow-lg">
+                            <span class="text-white/60 text-[10px]">Bangkok</span>
+                        </div>
+                    </div>
+                </div>
+                <!-- Jakarta: ~80% x, ~60% y -->
+                <div class="map-pin absolute z-20" style="left:80%;top:59%;" data-city="Jakarta">
+                    <div class="relative flex flex-col items-center">
+                        <div class="w-3 h-3 sm:w-4 sm:h-4 rounded-full bg-[#31D0B2] ring-2 ring-[#31D0B2]/40 animate-ping absolute opacity-50"></div>
+                        <div class="w-3 h-3 sm:w-4 sm:h-4 rounded-full bg-[#31D0B2] relative cursor-pointer"></div>
+                        <div class="mt-1.5 hidden sm:block bg-[#03292B]/90 border border-[#31D0B2]/30 rounded-lg px-2 py-1 whitespace-nowrap shadow-lg">
+                            <span class="text-white/60 text-[10px]">Jakarta</span>
+                        </div>
+                    </div>
+                </div>
+                <!-- Tbilisi: ~62% x, ~37% y -->
+                <div class="map-pin absolute z-20" style="left:62%;top:36%;" data-city="Tbilisi">
+                    <div class="relative flex flex-col items-center">
+                        <div class="w-3 h-3 sm:w-4 sm:h-4 rounded-full bg-[#31D0B2] ring-2 ring-[#31D0B2]/40 animate-ping absolute opacity-50"></div>
+                        <div class="w-3 h-3 sm:w-4 sm:h-4 rounded-full bg-[#31D0B2] relative cursor-pointer"></div>
+                        <div class="mt-1.5 hidden sm:block bg-[#03292B]/90 border border-[#31D0B2]/30 rounded-lg px-2 py-1 whitespace-nowrap shadow-lg">
+                            <span class="text-white/60 text-[10px]">Tbilisi</span>
+                        </div>
+                    </div>
+                </div>
             </div>
-            {{ end }}
+
+            <!-- Legend -->
+            <div class="flex items-center justify-center gap-5 px-5 pb-5 text-xs text-white/45">
+                <span class="flex items-center gap-1.5"><span class="w-3 h-3 rounded-full bg-[#DBA757] flex-shrink-0"></span>Headquarters</span>
+                <span class="flex items-center gap-1.5"><span class="w-3 h-3 rounded-full bg-[#31D0B2] flex-shrink-0"></span>Offices</span>
+            </div>
         </div>
 
     </div>
@@ -250,38 +528,38 @@
 <!-- ========================= -->
 <!-- NUMBERS — STATS           -->
 <!-- ========================= -->
-<section class="bg-[#F8EDDD] text-[#03292B] py-28 sm:py-36">
-    <div class="max-w-6xl mx-auto px-4 sm:px-6">
+<section class="bg-[#F8EDDD] text-[#03292B] py-16 sm:py-24 lg:py-32">
+    <div class="max-w-6xl mx-auto px-5 sm:px-6">
 
-        <div class="text-center mb-16">
-            <p class="uppercase tracking-[0.3em] text-[#DBA757] text-xs sm:text-sm mb-4">By the Numbers</p>
-            <h2 class="font-['TT_Livret_Display_Trl'] text-3xl sm:text-4xl font-light">Sharmony at a Glance</h2>
+        <div class="text-center mb-10 sm:mb-14">
+            <p class="uppercase tracking-[0.3em] text-[#DBA757] text-xs sm:text-sm mb-3">By the Numbers</p>
+            <h2 class="font-['TT_Livret_Display_Trl'] text-2xl sm:text-4xl font-light">Sharmony at a Glance</h2>
         </div>
 
-        <div class="grid grid-cols-2 md:grid-cols-4 gap-10 text-center">
+        <div class="grid grid-cols-2 md:grid-cols-4 gap-6 sm:gap-10 text-center">
 
-            <div class="about-stat">
-                <div class="font-['TT_Livret_Display_Trl'] text-5xl sm:text-6xl font-light text-[#DBA757] mb-3"
+            <div class="about-stat bg-white rounded-xl p-5 sm:p-0 sm:bg-transparent sm:rounded-none shadow-sm sm:shadow-none">
+                <div class="font-['TT_Livret_Display_Trl'] text-[clamp(2rem,8vw,4rem)] sm:text-5xl lg:text-6xl font-light text-[#DBA757] mb-1 sm:mb-3"
                      data-target="50" data-suffix="+">0</div>
-                <p class="text-sm sm:text-base text-[#03292B]/70">Professionals</p>
+                <p class="text-xs sm:text-base text-[#03292B]/65">Professionals</p>
             </div>
 
-            <div class="about-stat">
-                <div class="font-['TT_Livret_Display_Trl'] text-5xl sm:text-6xl font-light text-[#DBA757] mb-3"
+            <div class="about-stat bg-white rounded-xl p-5 sm:p-0 sm:bg-transparent sm:rounded-none shadow-sm sm:shadow-none">
+                <div class="font-['TT_Livret_Display_Trl'] text-[clamp(2rem,8vw,4rem)] sm:text-5xl lg:text-6xl font-light text-[#DBA757] mb-1 sm:mb-3"
                      data-prefix="$" data-target="100" data-suffix="M">0</div>
-                <p class="text-sm sm:text-base text-[#03292B]/70">Assets Under Management</p>
+                <p class="text-xs sm:text-base text-[#03292B]/65">Assets Under Management</p>
             </div>
 
-            <div class="about-stat">
-                <div class="font-['TT_Livret_Display_Trl'] text-5xl sm:text-6xl font-light text-[#DBA757] mb-3"
+            <div class="about-stat bg-white rounded-xl p-5 sm:p-0 sm:bg-transparent sm:rounded-none shadow-sm sm:shadow-none">
+                <div class="font-['TT_Livret_Display_Trl'] text-[clamp(2rem,8vw,4rem)] sm:text-5xl lg:text-6xl font-light text-[#DBA757] mb-1 sm:mb-3"
                      data-target="30" data-suffix="+">0</div>
-                <p class="text-sm sm:text-base text-[#03292B]/70">Countries</p>
+                <p class="text-xs sm:text-base text-[#03292B]/65">Countries</p>
             </div>
 
-            <div class="about-stat">
-                <div class="font-['TT_Livret_Display_Trl'] text-5xl sm:text-6xl font-light text-[#DBA757] mb-3"
-                     data-target="6" data-suffix=" Offices">0</div>
-                <p class="text-sm sm:text-base text-[#03292B]/70">Global Offices</p>
+            <div class="about-stat bg-white rounded-xl p-5 sm:p-0 sm:bg-transparent sm:rounded-none shadow-sm sm:shadow-none">
+                <div class="font-['TT_Livret_Display_Trl'] text-[clamp(2rem,8vw,4rem)] sm:text-5xl lg:text-6xl font-light text-[#DBA757] mb-1 sm:mb-3"
+                     data-target="6" data-suffix="+">0</div>
+                <p class="text-xs sm:text-base text-[#03292B]/65">Offices</p>
             </div>
 
         </div>
@@ -292,40 +570,56 @@
 <!-- ========================= -->
 <!-- CEO CTA — QUOTE           -->
 <!-- ========================= -->
-<section class="bg-[#03292B] text-[#F8EDDD] py-28 sm:py-36">
-    <div class="max-w-7xl mx-auto px-4 sm:px-6 grid md:grid-cols-2 gap-20 items-center">
+<section class="bg-[#03292B] text-[#F8EDDD] py-16 sm:py-24 lg:py-32">
+    <div class="max-w-7xl mx-auto px-5 sm:px-6">
+        <div class="grid md:grid-cols-2 gap-10 md:gap-20 items-stretch">
 
-        <!-- Image with triangle accent -->
-        <div class="relative group">
-            <div class="overflow-hidden rounded-xl">
-                <img src="/images/ceo.jpg"
-                     class="w-full h-80 sm:h-[460px] object-cover object-top group-hover:scale-105 transition duration-700"
-                     alt="Alexander Lee, CEO">
+            <!-- CEO image with corner accents -->
+            <div class="relative group h-60 sm:h-80 md:h-full">
+                <div class="overflow-hidden rounded-xl relative h-full min-h-[15rem] sm:min-h-[20rem] md:min-h-0">
+                    <div class="w-full h-full relative flex items-end justify-center"
+                         style="background:linear-gradient(165deg,#0A3D3A 0%,#0C4543 35%,#07363A 100%);">
+                        <svg class="absolute inset-0 w-full h-full opacity-[0.07]" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid slice">
+                            <defs><pattern id="ceoGrid" width="32" height="32" patternUnits="userSpaceOnUse">
+                                <path d="M 32 0 L 0 0 0 32" fill="none" stroke="#31D0B2" stroke-width="0.6"/>
+                            </pattern></defs>
+                            <rect width="100%" height="100%" fill="url(#ceoGrid)"/>
+                        </svg>
+                        <!-- Person silhouette -->
+                        <svg class="absolute w-48 sm:w-64 md:w-72 bottom-0 opacity-[0.18]" viewBox="0 0 200 260" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <circle cx="100" cy="65" r="42" fill="#DBA757"/>
+                            <path d="M10 260c0-60 36-108 90-108s90 48 90 108H10z" fill="#DBA757"/>
+                        </svg>
+                        <div class="absolute top-5 left-5 select-none pointer-events-none">
+                            <span class="text-white/20 text-[10px] uppercase tracking-widest">CEO portrait placeholder</span>
+                        </div>
+                        <div class="absolute inset-0"
+                             style="background:linear-gradient(to top,rgba(3,41,43,0.6) 0%,transparent 50%);"></div>
+                    </div>
+                </div>
+                <div class="absolute -bottom-3 -right-3 sm:-bottom-4 sm:-right-4 w-10 sm:w-20 h-10 sm:h-20 border-r-2 border-b-2 border-[#DBA757]/60 pointer-events-none"></div>
+                <div class="absolute -top-3 -left-3 sm:-top-4 sm:-left-4 w-10 sm:w-20 h-10 sm:h-20 border-l-2 border-t-2 border-[#DBA757]/60 pointer-events-none"></div>
             </div>
-            <!-- Gold corner accent -->
-            <div class="absolute -bottom-4 -right-4 w-20 h-20 border-r-2 border-b-2 border-[#DBA757]/60 pointer-events-none"></div>
-            <div class="absolute -top-4 -left-4 w-20 h-20 border-l-2 border-t-2 border-[#DBA757]/60 pointer-events-none"></div>
-        </div>
 
-        <div>
-            <!-- Decorative quote mark -->
-            <div class="text-[#DBA757] text-8xl font-serif leading-none mb-4 select-none" aria-hidden="true">&ldquo;</div>
+            <div>
+                <div class="text-[#DBA757] text-5xl sm:text-8xl font-serif leading-none mb-3 sm:mb-4 select-none" aria-hidden="true">&ldquo;</div>
 
-            <p class="text-xl sm:text-2xl font-light italic text-white/80 leading-relaxed mb-8 max-w-lg">
-                Building a future where real estate and technology seamlessly converge.
-            </p>
+                <p class="text-base sm:text-xl md:text-2xl font-light italic text-white/80 leading-relaxed mb-5 sm:mb-8 max-w-lg">
+                    Building a future where real estate and technology seamlessly converge.
+                </p>
 
-            <div class="mb-10">
-                <p class="text-white font-light text-lg">Alexander Lee</p>
-                <p class="text-white/50 text-sm tracking-widest uppercase">CEO, SHARMONY PJSC</p>
+                <div class="mb-6 sm:mb-10">
+                    <p class="text-white font-light text-base sm:text-lg">Alexander Lee</p>
+                    <p class="text-white/50 text-xs sm:text-sm tracking-widest uppercase">CEO, SHARMONY PJSC</p>
+                </div>
+
+                <a href="#contact"
+                   class="inline-block w-full sm:w-auto text-center px-8 sm:px-10 py-4 bg-gradient-to-r from-[#FFDDA8] to-[#DBA757] text-[#03292B] font-semibold rounded-lg hover:brightness-110 transition text-sm sm:text-base">
+                    Contact Our Team
+                </a>
             </div>
 
-            <a href="#contact"
-               class="inline-block px-10 py-4 bg-gradient-to-r from-[#FFDDA8] to-[#DBA757] text-[#03292B] font-semibold rounded-lg hover:brightness-110 transition">
-                Contact Our Team
-            </a>
         </div>
-
     </div>
 </section>
 
@@ -335,17 +629,62 @@
 <!-- ========================= -->
 <script>
 (function () {
-    /* ── Team auto-scroll ── */
+    /* ── Team carousel ── */
     const scroller = document.getElementById('teamScroller');
     if (scroller) {
+        const isMobile = () => window.innerWidth < 640;
+
         let pos = 0;
         let paused = false;
-        scroller.addEventListener('mouseenter', () => paused = true);
-        scroller.addEventListener('mouseleave', () => paused = false);
+
+        /* On mobile: add scroll-snap so swipe snaps to cards.
+           On desktop: keep snap OFF so RAF can drive scrollLeft freely. */
+        function applySnap() {
+            if (isMobile()) {
+                scroller.style.scrollSnapType = 'x mandatory';
+                scroller.querySelectorAll('.team-card, .team-clone').forEach(c => {
+                    c.style.scrollSnapAlign = 'start';
+                });
+            } else {
+                scroller.style.scrollSnapType = '';
+                scroller.querySelectorAll('.team-card, .team-clone').forEach(c => {
+                    c.style.scrollSnapAlign = '';
+                });
+            }
+        }
+
+        /* Clone cards for seamless infinite loop — desktop only */
+        function setupLoop() {
+            scroller.querySelectorAll('.team-clone').forEach(el => el.remove());
+            if (!isMobile()) {
+                Array.from(scroller.querySelectorAll('.team-card')).forEach(card => {
+                    const clone = card.cloneNode(true);
+                    clone.classList.add('team-clone');
+                    clone.setAttribute('aria-hidden', 'true');
+                    scroller.appendChild(clone);
+                });
+            }
+            applySnap();
+        }
+        setupLoop();
+        window.addEventListener('resize', setupLoop);
+
+        /* Pause on hover (desktop), resume on leave */
+        scroller.addEventListener('mouseenter', () => { paused = true; });
+        scroller.addEventListener('mouseleave', () => { paused = false; });
+
+        /* Pause on touch so user can swipe freely, resume after momentum */
+        scroller.addEventListener('touchstart', () => { paused = true; }, { passive: true });
+        scroller.addEventListener('touchend', () => {
+            setTimeout(() => { paused = false; }, 2000);
+        }, { passive: true });
+
+        /* RAF loop — drives scrollLeft on desktop only */
         (function tick() {
-            if (!paused) {
-                pos += 0.4;
-                if (pos >= scroller.scrollWidth / 2) pos = 0;
+            if (!paused && !isMobile()) {
+                pos += 0.5;
+                const halfWidth = scroller.scrollWidth / 2;
+                if (pos >= halfWidth) pos = 0;
                 scroller.scrollLeft = pos;
             }
             requestAnimationFrame(tick);

@@ -19,7 +19,7 @@
 
         <!-- SLIDER with arrows -->
         <div class="relative">
-            <!-- Arrow buttons -->
+            <!-- Arrow buttons — hidden on mobile (swipe instead) -->
             <button id="loc-prev" aria-label="Previous location"
                 class="absolute left-0 top-1/2 -translate-y-1/2 -translate-x-4 z-20 w-10 h-10 flex items-center justify-center border border-white/20 bg-[#03292B] text-white/60 hover:text-[#DBA757] hover:border-[#DBA757]/40 transition rounded-full hidden sm:flex">
                 <svg width="16" height="16" viewBox="0 0 24 24" fill="none"><path d="M15 6L9 12L15 18" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
@@ -29,10 +29,10 @@
                 <svg width="16" height="16" viewBox="0 0 24 24" fill="none"><path d="M9 6L15 12L9 18" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
             </button>
 
-            <div id="loc-slider" class="flex gap-6 overflow-x-scroll" style="-ms-overflow-style:none;scrollbar-width:none;">
+            <div id="loc-slider" class="flex gap-4 sm:gap-6 overflow-x-scroll" style="-ms-overflow-style:none;scrollbar-width:none;scroll-snap-type:x mandatory;-webkit-overflow-scrolling:touch;">
 
                 <!-- UAE -->
-                <div class="flex-shrink-0 w-80 sm:w-96 relative overflow-hidden rounded-xl group">
+                <div class="flex-shrink-0 w-[82vw] sm:w-80 md:w-96 relative overflow-hidden rounded-xl group" style="scroll-snap-align:start;">
                     <img src="/images/uae.jpg" alt='{{ printf "%s real estate" .Params.locations_item_1_1 }}'
                          class="w-full h-[480px] object-cover group-hover:scale-105 transition duration-700"/>
                     <div class="absolute inset-0 bg-gradient-to-t from-black/85 via-black/30 to-transparent"></div>
@@ -50,7 +50,7 @@
                 </div>
 
                 <!-- THAILAND -->
-                <div class="flex-shrink-0 w-80 sm:w-96 relative overflow-hidden rounded-xl group">
+                <div class="flex-shrink-0 w-[82vw] sm:w-80 md:w-96 relative overflow-hidden rounded-xl group" style="scroll-snap-align:start;">
                     <img src="/images/thailand.jpg" alt='{{ printf "%s real estate" .Params.locations_item_2_1 }}'
                          class="w-full h-[480px] object-cover group-hover:scale-105 transition duration-700"/>
                     <div class="absolute inset-0 bg-gradient-to-t from-black/85 via-black/30 to-transparent"></div>
@@ -68,7 +68,7 @@
                 </div>
 
                 <!-- TURKEY -->
-                <div class="flex-shrink-0 w-80 sm:w-96 relative overflow-hidden rounded-xl group">
+                <div class="flex-shrink-0 w-[82vw] sm:w-80 md:w-96 relative overflow-hidden rounded-xl group" style="scroll-snap-align:start;">
                     <img src="/images/turkey.jpg" alt='{{ printf "%s real estate" .Params.locations_item_3_1 }}'
                          class="w-full h-[480px] object-cover group-hover:scale-105 transition duration-700"/>
                     <div class="absolute inset-0 bg-gradient-to-t from-black/85 via-black/30 to-transparent"></div>
@@ -86,7 +86,7 @@
                 </div>
 
                 <!-- INDONESIA -->
-                <div class="flex-shrink-0 w-80 sm:w-96 relative overflow-hidden rounded-xl group">
+                <div class="flex-shrink-0 w-[82vw] sm:w-80 md:w-96 relative overflow-hidden rounded-xl group" style="scroll-snap-align:start;">
                     <img src="/images/indonesia.jpg" alt='{{ printf "%s real estate" .Params.locations_item_4_1 }}'
                          class="w-full h-[480px] object-cover group-hover:scale-105 transition duration-700"/>
                     <div class="absolute inset-0 bg-gradient-to-t from-black/85 via-black/30 to-transparent"></div>
@@ -104,7 +104,7 @@
                 </div>
 
                 <!-- GEORGIA -->
-                <div class="flex-shrink-0 w-80 sm:w-96 relative overflow-hidden rounded-xl group">
+                <div class="flex-shrink-0 w-[82vw] sm:w-80 md:w-96 relative overflow-hidden rounded-xl group" style="scroll-snap-align:start;">
                     <img src="/images/georgia.jpg" alt='{{ printf "%s real estate" .Params.locations_item_5_1 }}'
                          class="w-full h-[480px] object-cover group-hover:scale-105 transition duration-700"/>
                     <div class="absolute inset-0 bg-gradient-to-t from-black/85 via-black/30 to-transparent"></div>

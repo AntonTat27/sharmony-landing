@@ -1,59 +1,59 @@
 <!-- CONTACT US — dark green section with premium form -->
-<section id="contact" class="bg-[#03292B] text-white py-20 sm:py-28">
-    <div class="max-w-7xl mx-auto px-4 sm:px-6">
+<section id="contact" class="bg-[#03292B] text-white py-16 sm:py-24">
+    <div class="max-w-7xl mx-auto px-5 sm:px-6">
 
-        <div class="grid md:grid-cols-2 gap-12 sm:gap-20 items-start">
+        <div class="grid md:grid-cols-2 gap-10 sm:gap-16 md:gap-20 items-start">
 
             <!-- FORM SIDE -->
             <div>
-                <h2 class="font-['TT_Livret_Display_Trl'] text-3xl sm:text-4xl font-light mb-3">{{ .Params.contact_us_h1 }}</h2>
-                <p class="text-white/50 mb-10 text-sm leading-relaxed">{{ .Params.contact_us_h2 }}</p>
+                <h2 class="font-['TT_Livret_Display_Trl'] text-2xl sm:text-3xl md:text-4xl font-light mb-2 sm:mb-3">{{ .Params.contact_us_h1 }}</h2>
+                <p class="text-white/50 mb-8 sm:mb-10 text-sm leading-relaxed">{{ .Params.contact_us_h2 }}</p>
 
                 <form action="#" method="POST">
 
                     <!-- Role switcher -->
-                    <div class="mb-8">
+                    <div class="mb-7">
                         <p class="text-xs uppercase tracking-[0.25em] text-white/40 mb-3">{{ .Params.contact_us_form_item_1_1 }}</p>
-                        <div class="inline-flex border border-white/15 rounded-lg overflow-hidden">
-                            <label class="contact-role-label">
+                        <div class="inline-flex border border-white/15 rounded-lg overflow-hidden w-full sm:w-auto">
+                            <label class="contact-role-label flex-1 sm:flex-none">
                                 <input type="radio" name="client_type" value="investor" checked class="sr-only">
-                                <span class="contact-role-opt contact-role-active">{{ .Params.contact_us_form_item_1_2 }}</span>
+                                <span class="contact-role-opt contact-role-active text-center">{{ .Params.contact_us_form_item_1_2 }}</span>
                             </label>
-                            <label class="contact-role-label">
+                            <label class="contact-role-label flex-1 sm:flex-none">
                                 <input type="radio" name="client_type" value="partner" class="sr-only">
-                                <span class="contact-role-opt">{{ .Params.contact_us_form_item_1_3 }}</span>
+                                <span class="contact-role-opt text-center">{{ .Params.contact_us_form_item_1_3 }}</span>
                             </label>
                         </div>
                     </div>
 
-                    <!-- Form grid -->
-                    <div class="grid sm:grid-cols-2 gap-5 mb-5">
+                    <!-- Form grid: 1-col mobile, 2-col sm+ -->
+                    <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 sm:gap-5 mb-4 sm:mb-5">
                         <div>
                             <label class="block text-xs uppercase tracking-[0.2em] text-white/40 mb-2">{{ .Params.contact_us_form_item_2_1 }}</label>
                             <input type="text" name="name" placeholder="{{ .Params.contact_us_form_item_2_2 }}" required
-                                class="w-full bg-white/5 border border-white/10 text-white placeholder-white/25 px-4 py-3 text-sm rounded-lg focus:border-[#DBA757]/60 focus:outline-none transition">
+                                class="w-full bg-white/5 border border-white/10 text-white placeholder-white/25 px-4 py-3.5 text-sm rounded-lg focus:border-[#DBA757]/60 focus:outline-none transition">
                         </div>
                         <div>
                             <label class="block text-xs uppercase tracking-[0.2em] text-white/40 mb-2">{{ .Params.contact_us_form_item_3_1 }}</label>
                             <input type="email" name="email" placeholder="{{ .Params.contact_us_form_item_3_2 }}" required
-                                class="w-full bg-white/5 border border-white/10 text-white placeholder-white/25 px-4 py-3 text-sm rounded-lg focus:border-[#DBA757]/60 focus:outline-none transition">
+                                class="w-full bg-white/5 border border-white/10 text-white placeholder-white/25 px-4 py-3.5 text-sm rounded-lg focus:border-[#DBA757]/60 focus:outline-none transition">
                         </div>
                         <div>
                             <label class="block text-xs uppercase tracking-[0.2em] text-white/40 mb-2">{{ .Params.contact_us_form_item_4_1 }} <span class="normal-case text-white/25">({{ .Params.contact_us_form_item_4_2 }})</span></label>
                             <input type="tel" name="phone" placeholder="+1 234 ..."
-                                class="w-full bg-white/5 border border-white/10 text-white placeholder-white/25 px-4 py-3 text-sm rounded-lg focus:border-[#DBA757]/60 focus:outline-none transition">
+                                class="w-full bg-white/5 border border-white/10 text-white placeholder-white/25 px-4 py-3.5 text-sm rounded-lg focus:border-[#DBA757]/60 focus:outline-none transition">
                         </div>
                         <div>
                             <label class="block text-xs uppercase tracking-[0.2em] text-white/40 mb-2">{{ .Params.contact_us_form_item_5_1 }} <span class="normal-case text-white/25">({{ .Params.contact_us_form_item_5_2 }})</span></label>
                             <input type="text" name="company" placeholder="{{ .Params.contact_us_form_item_5_3 }}"
-                                class="w-full bg-white/5 border border-white/10 text-white placeholder-white/25 px-4 py-3 text-sm rounded-lg focus:border-[#DBA757]/60 focus:outline-none transition">
+                                class="w-full bg-white/5 border border-white/10 text-white placeholder-white/25 px-4 py-3.5 text-sm rounded-lg focus:border-[#DBA757]/60 focus:outline-none transition">
                         </div>
                     </div>
 
-                    <div class="mb-8">
+                    <div class="mb-6 sm:mb-8">
                         <label class="block text-xs uppercase tracking-[0.2em] text-white/40 mb-2">{{ .Params.contact_us_form_item_6_1 }}</label>
                         <textarea name="message" rows="4" placeholder="{{ .Params.contact_us_form_item_6_2 }}" required
-                            class="w-full bg-white/5 border border-white/10 text-white placeholder-white/25 px-4 py-3 text-sm rounded-lg focus:border-[#DBA757]/60 focus:outline-none transition resize-none"></textarea>
+                            class="w-full bg-white/5 border border-white/10 text-white placeholder-white/25 px-4 py-3.5 text-sm rounded-lg focus:border-[#DBA757]/60 focus:outline-none transition resize-none"></textarea>
                     </div>
 
                     <button type="submit"
@@ -64,23 +64,39 @@
             </div>
 
             <!-- INFO SIDE -->
-            <div class="space-y-6">
+            <div class="space-y-4 sm:space-y-6 mt-4 sm:mt-0">
 
-                <div class="border-l-2 border-[#31D0B2] pl-6 py-2">
+                <div class="border border-white/10 rounded-xl p-5 sm:p-6">
                     <p class="text-xs uppercase tracking-[0.25em] text-[#31D0B2] mb-2">{{ .Params.contact_us_card_item_1_1 }}</p>
-                    <h3 class="font-['TT_Livret_Display_Trl'] text-xl font-light mb-3">{{ .Params.contact_us_card_item_1_2 }}</h3>
+                    <h3 class="font-['TT_Livret_Display_Trl'] text-lg sm:text-xl font-light mb-3">{{ .Params.contact_us_card_item_1_2 }}</h3>
                     <div class="flex gap-4">
                         <a href="#" class="text-sm text-[#DBA757] hover:text-[#DBA757]/80 transition underline underline-offset-4">LinkedIn</a>
                         <a href="#" class="text-sm text-[#DBA757] hover:text-[#DBA757]/80 transition underline underline-offset-4">Twitter/X</a>
                     </div>
                 </div>
 
-                <div class="border-l-2 border-[#31D0B2] pl-6 py-2">
+                <div class="border border-white/10 rounded-xl p-5 sm:p-6">
                     <p class="text-xs uppercase tracking-[0.25em] text-[#31D0B2] mb-2">{{ .Params.contact_us_card_item_2_1 }}</p>
-                    <h3 class="font-['TT_Livret_Display_Trl'] text-xl font-light mb-3">{{ .Params.contact_us_card_item_2_2 }}</h3>
+                    <h3 class="font-['TT_Livret_Display_Trl'] text-lg sm:text-xl font-light mb-3">{{ .Params.contact_us_card_item_2_2 }}</h3>
                     <div class="flex gap-4">
                         <a href="#" class="text-sm text-[#DBA757] hover:text-[#DBA757]/80 transition underline underline-offset-4">Telegram</a>
                         <a href="#" class="text-sm text-[#DBA757] hover:text-[#DBA757]/80 transition underline underline-offset-4">Discord</a>
+                    </div>
+                </div>
+
+                <!-- Quick trust signals on mobile -->
+                <div class="grid grid-cols-3 gap-3 pt-2">
+                    <div class="text-center p-3 bg-white/5 rounded-lg">
+                        <p class="text-[#DBA757] text-lg font-light font-['TT_Livret_Display_Trl']">24/7</p>
+                        <p class="text-white/50 text-[10px] uppercase tracking-widest mt-0.5">Support</p>
+                    </div>
+                    <div class="text-center p-3 bg-white/5 rounded-lg">
+                        <p class="text-[#DBA757] text-lg font-light font-['TT_Livret_Display_Trl']">6</p>
+                        <p class="text-white/50 text-[10px] uppercase tracking-widest mt-0.5">Offices</p>
+                    </div>
+                    <div class="text-center p-3 bg-white/5 rounded-lg">
+                        <p class="text-[#DBA757] text-lg font-light font-['TT_Livret_Display_Trl']">30+</p>
+                        <p class="text-white/50 text-[10px] uppercase tracking-widest mt-0.5">Countries</p>
                     </div>
                 </div>
             </div>
@@ -91,8 +107,9 @@
 <style>
 .contact-role-label { display: contents; }
 .contact-role-opt {
-    display: block; padding: 0.5rem 1.25rem; font-size: 0.8rem; letter-spacing: 0.05em;
+    display: block; padding: 0.6rem 1.25rem; font-size: 0.8rem; letter-spacing: 0.05em;
     cursor: pointer; color: rgba(255,255,255,0.4); transition: all .2s;
+    touch-action: manipulation;
 }
 .contact-role-opt:hover { color: rgba(255,255,255,0.7); }
 .contact-role-label input:checked + .contact-role-opt,

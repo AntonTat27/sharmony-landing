@@ -54,57 +54,57 @@
         </div>
 
         <!-- Detail panels -->
-        <div class="hiw-panel border-t border-[#C6A052]/20 pt-8 min-h-[220px]">
+        <div class="hiw-panel border-t border-[#C6A052]/20 pt-8">
 
             <div class="hiw-content" id="hiw-c1">
-                <h3 class="mb-1"><span class="block text-[0.6rem] tracking-[0.3em] uppercase text-[#C6A052] mb-1">{{ .Params.how_it_works_item_1_1 }}</span>
+                <h3 class="mb-5"><span class="block text-[0.6rem] tracking-[0.3em] uppercase text-[#C6A052] mb-1">{{ .Params.how_it_works_item_1_1 }}</span>
                 <span class="font-['TT_Livret_Display_Trl'] text-xl sm:text-2xl font-light text-white">{{ .Params.how_it_works_item_1_2 }}</span></h3>
-                <ul class="mt-5 space-y-3">
-                    {{ if .Params.how_it_works_item_1_1_1 }}<li class="flex gap-3"><span class="text-[#DBA757] mt-1 flex-shrink-0">›</span><div><p class="text-white/80 text-sm font-medium">{{ .Params.how_it_works_item_1_1_1 }}</p><p class="text-white/50 text-sm">{{ .Params.how_it_works_item_1_1_2 }}</p></div></li>{{ end }}
-                    {{ if .Params.how_it_works_item_1_2_1 }}<li class="flex gap-3"><span class="text-[#DBA757] mt-1 flex-shrink-0">›</span><div><p class="text-white/80 text-sm font-medium">{{ .Params.how_it_works_item_1_2_1 }}</p><p class="text-white/50 text-sm">{{ .Params.how_it_works_item_1_2_2 }}</p></div></li>{{ end }}
-                    {{ if .Params.how_it_works_item_1_3_1 }}<li class="flex gap-3"><span class="text-[#DBA757] mt-1 flex-shrink-0">›</span><div><p class="text-white/80 text-sm font-medium">{{ .Params.how_it_works_item_1_3_1 }}</p><p class="text-white/50 text-sm">{{ .Params.how_it_works_item_1_3_2 }}</p></div></li>{{ end }}
-                    {{ if .Params.how_it_works_item_1_4_1 }}<li class="flex gap-3"><span class="text-[#DBA757] mt-1 flex-shrink-0">›</span><div><p class="text-white/80 text-sm font-medium">{{ .Params.how_it_works_item_1_4_1 }}</p><p class="text-white/50 text-sm">{{ .Params.how_it_works_item_1_4_2 }}</p></div></li>{{ end }}
-                    {{ if .Params.how_it_works_item_1_5_1 }}<li class="flex gap-3"><span class="text-[#DBA757] mt-1 flex-shrink-0">›</span><div><p class="text-white/80 text-sm font-medium">{{ .Params.how_it_works_item_1_5_1 }}</p><p class="text-white/50 text-sm">{{ .Params.how_it_works_item_1_5_2 }}</p></div></li>{{ end }}
+                <ul class="space-y-3">
+                    {{ if .Params.how_it_works_item_1_1_1 }}<li class="hiw-subitem"><button class="hiw-subitem-header" aria-expanded="false"><div class="flex gap-3"><span class="text-[#DBA757] flex-shrink-0">›</span><p class="text-white/80 text-sm font-medium flex-1 text-left">{{ .Params.how_it_works_item_1_1_1 }}</p><span class="hiw-subitem-toggle flex-shrink-0">›</span></div></button><div class="hiw-subitem-content"><p class="text-white/50 text-sm mt-2 ml-6">{{ .Params.how_it_works_item_1_1_2 }}</p></div></li>{{ end }}
+                    {{ if .Params.how_it_works_item_1_2_1 }}<li class="hiw-subitem"><button class="hiw-subitem-header" aria-expanded="false"><div class="flex gap-3"><span class="text-[#DBA757] flex-shrink-0">›</span><p class="text-white/80 text-sm font-medium flex-1 text-left">{{ .Params.how_it_works_item_1_2_1 }}</p><span class="hiw-subitem-toggle flex-shrink-0">›</span></div></button><div class="hiw-subitem-content"><p class="text-white/50 text-sm mt-2 ml-6">{{ .Params.how_it_works_item_1_2_2 }}</p></div></li>{{ end }}
+                    {{ if .Params.how_it_works_item_1_3_1 }}<li class="hiw-subitem"><button class="hiw-subitem-header" aria-expanded="false"><div class="flex gap-3"><span class="text-[#DBA757] flex-shrink-0">›</span><p class="text-white/80 text-sm font-medium flex-1 text-left">{{ .Params.how_it_works_item_1_3_1 }}</p><span class="hiw-subitem-toggle flex-shrink-0">›</span></div></button><div class="hiw-subitem-content"><p class="text-white/50 text-sm mt-2 ml-6">{{ .Params.how_it_works_item_1_3_2 }}</p></div></li>{{ end }}
+                    {{ if .Params.how_it_works_item_1_4_1 }}<li class="hiw-subitem"><button class="hiw-subitem-header" aria-expanded="false"><div class="flex gap-3"><span class="text-[#DBA757] flex-shrink-0">›</span><p class="text-white/80 text-sm font-medium flex-1 text-left">{{ .Params.how_it_works_item_1_4_1 }}</p><span class="hiw-subitem-toggle flex-shrink-0">›</span></div></button><div class="hiw-subitem-content"><p class="text-white/50 text-sm mt-2 ml-6">{{ .Params.how_it_works_item_1_4_2 }}</p></div></li>{{ end }}
+                    {{ if .Params.how_it_works_item_1_5_1 }}<li class="hiw-subitem"><button class="hiw-subitem-header" aria-expanded="false"><div class="flex gap-3"><span class="text-[#DBA757] flex-shrink-0">›</span><p class="text-white/80 text-sm font-medium flex-1 text-left">{{ .Params.how_it_works_item_1_5_1 }}</p><span class="hiw-subitem-toggle flex-shrink-0">›</span></div></button><div class="hiw-subitem-content"><p class="text-white/50 text-sm mt-2 ml-6">{{ .Params.how_it_works_item_1_5_2 }}</p></div></li>{{ end }}
                 </ul>
             </div>
 
             <div class="hiw-content hiw-hidden" id="hiw-c2">
-                <h3 class="mb-1"><span class="block text-[0.6rem] tracking-[0.3em] uppercase text-[#C6A052] mb-1">{{ .Params.how_it_works_item_2_1 }}</span>
+                <h3 class="mb-5"><span class="block text-[0.6rem] tracking-[0.3em] uppercase text-[#C6A052] mb-1">{{ .Params.how_it_works_item_2_1 }}</span>
                 <span class="font-['TT_Livret_Display_Trl'] text-xl sm:text-2xl font-light text-white">{{ .Params.how_it_works_item_2_2 }}</span></h3>
-                <ul class="mt-5 space-y-3">
-                    {{ if .Params.how_it_works_item_2_1_1 }}<li class="flex gap-3"><span class="text-[#DBA757] mt-1 flex-shrink-0">›</span><div><p class="text-white/80 text-sm font-medium">{{ .Params.how_it_works_item_2_1_1 }}</p><p class="text-white/50 text-sm">{{ .Params.how_it_works_item_2_1_2 }}</p></div></li>{{ end }}
-                    {{ if .Params.how_it_works_item_2_2_1 }}<li class="flex gap-3"><span class="text-[#DBA757] mt-1 flex-shrink-0">›</span><div><p class="text-white/80 text-sm font-medium">{{ .Params.how_it_works_item_2_2_1 }}</p><p class="text-white/50 text-sm">{{ .Params.how_it_works_item_2_2_2 }}</p></div></li>{{ end }}
-                    {{ if .Params.how_it_works_item_2_3_1 }}<li class="flex gap-3"><span class="text-[#DBA757] mt-1 flex-shrink-0">›</span><div><p class="text-white/80 text-sm font-medium">{{ .Params.how_it_works_item_2_3_1 }}</p><p class="text-white/50 text-sm">{{ .Params.how_it_works_item_2_3_2 }}</p></div></li>{{ end }}
-                    {{ if .Params.how_it_works_item_2_4_1 }}<li class="flex gap-3"><span class="text-[#DBA757] mt-1 flex-shrink-0">›</span><div><p class="text-white/80 text-sm font-medium">{{ .Params.how_it_works_item_2_4_1 }}</p><p class="text-white/50 text-sm">{{ .Params.how_it_works_item_2_4_2 }}</p></div></li>{{ end }}
-                    {{ if .Params.how_it_works_item_2_5_1 }}<li class="flex gap-3"><span class="text-[#DBA757] mt-1 flex-shrink-0">›</span><div><p class="text-white/80 text-sm font-medium">{{ .Params.how_it_works_item_2_5_1 }}</p><p class="text-white/50 text-sm">{{ .Params.how_it_works_item_2_5_2 }}</p></div></li>{{ end }}
+                <ul class="space-y-3">
+                    {{ if .Params.how_it_works_item_2_1_1 }}<li class="hiw-subitem"><button class="hiw-subitem-header" aria-expanded="false"><div class="flex gap-3"><span class="text-[#DBA757] flex-shrink-0">›</span><p class="text-white/80 text-sm font-medium flex-1 text-left">{{ .Params.how_it_works_item_2_1_1 }}</p><span class="hiw-subitem-toggle flex-shrink-0">›</span></div></button><div class="hiw-subitem-content"><p class="text-white/50 text-sm mt-2 ml-6">{{ .Params.how_it_works_item_2_1_2 }}</p></div></li>{{ end }}
+                    {{ if .Params.how_it_works_item_2_2_1 }}<li class="hiw-subitem"><button class="hiw-subitem-header" aria-expanded="false"><div class="flex gap-3"><span class="text-[#DBA757] flex-shrink-0">›</span><p class="text-white/80 text-sm font-medium flex-1 text-left">{{ .Params.how_it_works_item_2_2_1 }}</p><span class="hiw-subitem-toggle flex-shrink-0">›</span></div></button><div class="hiw-subitem-content"><p class="text-white/50 text-sm mt-2 ml-6">{{ .Params.how_it_works_item_2_2_2 }}</p></div></li>{{ end }}
+                    {{ if .Params.how_it_works_item_2_3_1 }}<li class="hiw-subitem"><button class="hiw-subitem-header" aria-expanded="false"><div class="flex gap-3"><span class="text-[#DBA757] flex-shrink-0">›</span><p class="text-white/80 text-sm font-medium flex-1 text-left">{{ .Params.how_it_works_item_2_3_1 }}</p><span class="hiw-subitem-toggle flex-shrink-0">›</span></div></button><div class="hiw-subitem-content"><p class="text-white/50 text-sm mt-2 ml-6">{{ .Params.how_it_works_item_2_3_2 }}</p></div></li>{{ end }}
+                    {{ if .Params.how_it_works_item_2_4_1 }}<li class="hiw-subitem"><button class="hiw-subitem-header" aria-expanded="false"><div class="flex gap-3"><span class="text-[#DBA757] flex-shrink-0">›</span><p class="text-white/80 text-sm font-medium flex-1 text-left">{{ .Params.how_it_works_item_2_4_1 }}</p><span class="hiw-subitem-toggle flex-shrink-0">›</span></div></button><div class="hiw-subitem-content"><p class="text-white/50 text-sm mt-2 ml-6">{{ .Params.how_it_works_item_2_4_2 }}</p></div></li>{{ end }}
+                    {{ if .Params.how_it_works_item_2_5_1 }}<li class="hiw-subitem"><button class="hiw-subitem-header" aria-expanded="false"><div class="flex gap-3"><span class="text-[#DBA757] flex-shrink-0">›</span><p class="text-white/80 text-sm font-medium flex-1 text-left">{{ .Params.how_it_works_item_2_5_1 }}</p><span class="hiw-subitem-toggle flex-shrink-0">›</span></div></button><div class="hiw-subitem-content"><p class="text-white/50 text-sm mt-2 ml-6">{{ .Params.how_it_works_item_2_5_2 }}</p></div></li>{{ end }}
                 </ul>
             </div>
 
             <div class="hiw-content hiw-hidden" id="hiw-c3">
-                <h3 class="mb-1"><span class="block text-[0.6rem] tracking-[0.3em] uppercase text-[#C6A052] mb-1">{{ .Params.how_it_works_item_3_1 }}</span>
+                <h3 class="mb-5"><span class="block text-[0.6rem] tracking-[0.3em] uppercase text-[#C6A052] mb-1">{{ .Params.how_it_works_item_3_1 }}</span>
                 <span class="font-['TT_Livret_Display_Trl'] text-xl sm:text-2xl font-light text-white">{{ .Params.how_it_works_item_3_2 }}</span></h3>
-                <ul class="mt-5 space-y-3">
-                    {{ if .Params.how_it_works_item_3_1_1 }}<li class="flex gap-3"><span class="text-[#DBA757] mt-1 flex-shrink-0">›</span><div><p class="text-white/80 text-sm font-medium">{{ .Params.how_it_works_item_3_1_1 }}</p><p class="text-white/50 text-sm">{{ .Params.how_it_works_item_3_1_2 }}</p></div></li>{{ end }}
-                    {{ if .Params.how_it_works_item_3_2_1 }}<li class="flex gap-3"><span class="text-[#DBA757] mt-1 flex-shrink-0">›</span><div><p class="text-white/80 text-sm font-medium">{{ .Params.how_it_works_item_3_2_1 }}</p><p class="text-white/50 text-sm">{{ .Params.how_it_works_item_3_2_2 }}</p></div></li>{{ end }}
+                <ul class="space-y-3">
+                    {{ if .Params.how_it_works_item_3_1_1 }}<li class="hiw-subitem"><button class="hiw-subitem-header" aria-expanded="false"><div class="flex gap-3"><span class="text-[#DBA757] flex-shrink-0">›</span><p class="text-white/80 text-sm font-medium flex-1 text-left">{{ .Params.how_it_works_item_3_1_1 }}</p><span class="hiw-subitem-toggle flex-shrink-0">›</span></div></button><div class="hiw-subitem-content"><p class="text-white/50 text-sm mt-2 ml-6">{{ .Params.how_it_works_item_3_1_2 }}</p></div></li>{{ end }}
+                    {{ if .Params.how_it_works_item_3_2_1 }}<li class="hiw-subitem"><button class="hiw-subitem-header" aria-expanded="false"><div class="flex gap-3"><span class="text-[#DBA757] flex-shrink-0">›</span><p class="text-white/80 text-sm font-medium flex-1 text-left">{{ .Params.how_it_works_item_3_2_1 }}</p><span class="hiw-subitem-toggle flex-shrink-0">›</span></div></button><div class="hiw-subitem-content"><p class="text-white/50 text-sm mt-2 ml-6">{{ .Params.how_it_works_item_3_2_2 }}</p></div></li>{{ end }}
                 </ul>
             </div>
 
             <div class="hiw-content hiw-hidden" id="hiw-c4">
-                <h3 class="mb-1"><span class="block text-[0.6rem] tracking-[0.3em] uppercase text-[#C6A052] mb-1">{{ .Params.how_it_works_item_4_1 }}</span>
+                <h3 class="mb-5"><span class="block text-[0.6rem] tracking-[0.3em] uppercase text-[#C6A052] mb-1">{{ .Params.how_it_works_item_4_1 }}</span>
                 <span class="font-['TT_Livret_Display_Trl'] text-xl sm:text-2xl font-light text-white">{{ .Params.how_it_works_item_4_2 }}</span></h3>
-                <ul class="mt-5 space-y-3">
-                    {{ if .Params.how_it_works_item_4_1_1 }}<li class="flex gap-3"><span class="text-[#DBA757] mt-1 flex-shrink-0">›</span><div><p class="text-white/80 text-sm font-medium">{{ .Params.how_it_works_item_4_1_1 }}</p><p class="text-white/50 text-sm">{{ .Params.how_it_works_item_4_1_2 }}</p></div></li>{{ end }}
-                    {{ if .Params.how_it_works_item_4_2_1 }}<li class="flex gap-3"><span class="text-[#DBA757] mt-1 flex-shrink-0">›</span><div><p class="text-white/80 text-sm font-medium">{{ .Params.how_it_works_item_4_2_1 }}</p><p class="text-white/50 text-sm">{{ .Params.how_it_works_item_4_2_2 }}</p></div></li>{{ end }}
+                <ul class="space-y-3">
+                    {{ if .Params.how_it_works_item_4_1_1 }}<li class="hiw-subitem"><button class="hiw-subitem-header" aria-expanded="false"><div class="flex gap-3"><span class="text-[#DBA757] flex-shrink-0">›</span><p class="text-white/80 text-sm font-medium flex-1 text-left">{{ .Params.how_it_works_item_4_1_1 }}</p><span class="hiw-subitem-toggle flex-shrink-0">›</span></div></button><div class="hiw-subitem-content"><p class="text-white/50 text-sm mt-2 ml-6">{{ .Params.how_it_works_item_4_1_2 }}</p></div></li>{{ end }}
+                    {{ if .Params.how_it_works_item_4_2_1 }}<li class="hiw-subitem"><button class="hiw-subitem-header" aria-expanded="false"><div class="flex gap-3"><span class="text-[#DBA757] flex-shrink-0">›</span><p class="text-white/80 text-sm font-medium flex-1 text-left">{{ .Params.how_it_works_item_4_2_1 }}</p><span class="hiw-subitem-toggle flex-shrink-0">›</span></div></button><div class="hiw-subitem-content"><p class="text-white/50 text-sm mt-2 ml-6">{{ .Params.how_it_works_item_4_2_2 }}</p></div></li>{{ end }}
                 </ul>
             </div>
 
             <div class="hiw-content hiw-hidden" id="hiw-c5">
-                <h3 class="mb-1"><span class="block text-[0.6rem] tracking-[0.3em] uppercase text-[#C6A052] mb-1">{{ .Params.how_it_works_item_5_1 }}</span>
+                <h3 class="mb-5"><span class="block text-[0.6rem] tracking-[0.3em] uppercase text-[#C6A052] mb-1">{{ .Params.how_it_works_item_5_1 }}</span>
                 <span class="font-['TT_Livret_Display_Trl'] text-xl sm:text-2xl font-light text-white">{{ .Params.how_it_works_item_5_2 }}</span></h3>
-                <ul class="mt-5 space-y-3">
-                    {{ if .Params.how_it_works_item_5_1_1 }}<li class="flex gap-3"><span class="text-[#DBA757] mt-1 flex-shrink-0">›</span><div><p class="text-white/80 text-sm font-medium">{{ .Params.how_it_works_item_5_1_1 }}</p><p class="text-white/50 text-sm">{{ .Params.how_it_works_item_5_1_2 }}</p></div></li>{{ end }}
-                    {{ if .Params.how_it_works_item_5_2_1 }}<li class="flex gap-3"><span class="text-[#DBA757] mt-1 flex-shrink-0">›</span><div><p class="text-white/80 text-sm font-medium">{{ .Params.how_it_works_item_5_2_1 }}</p><p class="text-white/50 text-sm">{{ .Params.how_it_works_item_5_2_2 }}</p></div></li>{{ end }}
-                    {{ if .Params.how_it_works_item_5_3_1 }}<li class="flex gap-3"><span class="text-[#DBA757] mt-1 flex-shrink-0">›</span><div><p class="text-white/80 text-sm font-medium">{{ .Params.how_it_works_item_5_3_1 }}</p><p class="text-white/50 text-sm">{{ .Params.how_it_works_item_5_3_2 }}</p></div></li>{{ end }}
+                <ul class="space-y-3">
+                    {{ if .Params.how_it_works_item_5_1_1 }}<li class="hiw-subitem"><button class="hiw-subitem-header" aria-expanded="false"><div class="flex gap-3"><span class="text-[#DBA757] flex-shrink-0">›</span><p class="text-white/80 text-sm font-medium flex-1 text-left">{{ .Params.how_it_works_item_5_1_1 }}</p><span class="hiw-subitem-toggle flex-shrink-0">›</span></div></button><div class="hiw-subitem-content"><p class="text-white/50 text-sm mt-2 ml-6">{{ .Params.how_it_works_item_5_1_2 }}</p></div></li>{{ end }}
+                    {{ if .Params.how_it_works_item_5_2_1 }}<li class="hiw-subitem"><button class="hiw-subitem-header" aria-expanded="false"><div class="flex gap-3"><span class="text-[#DBA757] flex-shrink-0">›</span><p class="text-white/80 text-sm font-medium flex-1 text-left">{{ .Params.how_it_works_item_5_2_1 }}</p><span class="hiw-subitem-toggle flex-shrink-0">›</span></div></button><div class="hiw-subitem-content"><p class="text-white/50 text-sm mt-2 ml-6">{{ .Params.how_it_works_item_5_2_2 }}</p></div></li>{{ end }}
+                    {{ if .Params.how_it_works_item_5_3_1 }}<li class="hiw-subitem"><button class="hiw-subitem-header" aria-expanded="false"><div class="flex gap-3"><span class="text-[#DBA757] flex-shrink-0">›</span><p class="text-white/80 text-sm font-medium flex-1 text-left">{{ .Params.how_it_works_item_5_3_1 }}</p><span class="hiw-subitem-toggle flex-shrink-0">›</span></div></button><div class="hiw-subitem-content"><p class="text-white/50 text-sm mt-2 ml-6">{{ .Params.how_it_works_item_5_3_2 }}</p></div></li>{{ end }}
                 </ul>
             </div>
 
@@ -117,8 +117,12 @@
 <style>
 .hiw-step {
     display: flex; flex-direction: column; align-items: center;
-    background: none; border: none; cursor: pointer; padding: 0 2px;
+    background: none; border: none; cursor: pointer;
+    padding: 0 4px;
+    min-height: 48px; /* touch target */
     color: rgba(255,255,255,0.3); transition: color .2s;
+    touch-action: manipulation;
+    -webkit-tap-highlight-color: transparent;
 }
 .hiw-step:hover { color: rgba(255,255,255,0.7); }
 .hiw-step-active { color: #C6A052 !important; }
@@ -130,12 +134,48 @@
 .hiw-node-active { background: #C6A052; box-shadow: 0 0 0 5px rgba(198,160,82,0.18), 0 0 14px 3px rgba(198,160,82,0.25); width: 12px; height: 12px; }
 .hiw-node-future { background: rgba(255,255,255,0.15); border: 1px solid rgba(255,255,255,0.2); }
 .hiw-step:hover .hiw-node-future { background: rgba(255,255,255,0.3); }
-.hiw-label { font-size: 0.65rem; letter-spacing: 0.15em; font-weight: 300; }
+.hiw-label { font-size: 0.6rem; letter-spacing: 0.1em; font-weight: 300; }
 .hiw-title { line-height: 1.2; }
 .hiw-step-active .hiw-label { color: #C6A052; }
 .hiw-content { transition: opacity .35s ease, transform .35s ease; }
 .hiw-hidden { display: none; }
 #hiw-progress { transition: width .42s cubic-bezier(.22,.9,.28,1); }
+
+/* Sub-item expandable styles */
+.hiw-subitem-header {
+    background: none; border: none; cursor: pointer; padding: 0;
+    color: inherit; font: inherit;
+    width: 100%;
+    transition: opacity .2s ease;
+}
+.hiw-subitem-header:hover {
+    opacity: 0.8;
+}
+.hiw-subitem-header:focus-visible {
+    outline: 2px solid #C6A052;
+    outline-offset: 2px;
+}
+.hiw-subitem-toggle {
+    display: inline-flex; align-items: center; justify-content: center;
+    transition: transform .3s ease;
+    font-size: 0.9em; line-height: 1;
+}
+.hiw-subitem-header[aria-expanded="true"] .hiw-subitem-toggle {
+    transform: rotate(90deg);
+}
+.hiw-subitem-content {
+    max-height: 0; overflow: hidden;
+    transition: max-height .35s ease, opacity .35s ease;
+    opacity: 0;
+}
+.hiw-subitem-header[aria-expanded="true"] + .hiw-subitem-content {
+    max-height: 500px;
+    opacity: 1;
+}
+
+@media (max-width: 480px) {
+    .hiw-title { display: none; } /* Too cramped at 5 steps on very small screens */
+}
 </style>
 
 <script>
@@ -145,6 +185,16 @@
     const progress = document.getElementById('hiw-progress');
     const total = steps.length;
     let animating = false;
+
+    // Handle sub-item expand/collapse
+    document.querySelectorAll('.hiw-subitem-header').forEach(header => {
+        header.addEventListener('click', (e) => {
+            e.preventDefault();
+            e.stopPropagation();
+            const isExpanded = header.getAttribute('aria-expanded') === 'true';
+            header.setAttribute('aria-expanded', !isExpanded);
+        });
+    });
 
     function activate(n) {
         if (animating) return;

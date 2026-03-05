@@ -2,12 +2,12 @@
 <section class="bg-[#03292B] text-white py-20 sm:py-28 border-t border-white/5" id="recommendations">
     <div class="max-w-7xl mx-auto px-4 sm:px-6">
 
-        <div class="flex items-end justify-between mb-12">
+        <div class="flex items-end justify-between mb-10 sm:mb-12">
             <div>
-                <h2 class="font-['TT_Livret_Display_Trl'] text-3xl sm:text-4xl font-light">{{ .Params.recommendations_h1 }}</h2>
+                <h2 class="font-['TT_Livret_Display_Trl'] text-2xl sm:text-3xl md:text-4xl font-light">{{ .Params.recommendations_h1 }}</h2>
                 <div class="w-12 h-px bg-[#DBA757] mt-4"></div>
             </div>
-            <div class="flex gap-3 flex-shrink-0">
+            <div class="flex gap-2 sm:gap-3 flex-shrink-0">
                 <button id="rec-prev" aria-label="Previous"
                     class="w-9 h-9 flex items-center justify-center border border-white/20 text-white/50 hover:text-[#DBA757] hover:border-[#DBA757]/40 transition rounded-full">
                     <svg width="14" height="14" viewBox="0 0 24 24" fill="none"><path d="M15 6L9 12L15 18" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>
@@ -19,9 +19,9 @@
             </div>
         </div>
 
-        <div id="rec-slider" class="flex gap-6 overflow-x-scroll" style="-ms-overflow-style:none;scrollbar-width:none;">
+        <div id="rec-slider" class="flex gap-4 sm:gap-6 overflow-x-scroll" style="-ms-overflow-style:none;scrollbar-width:none;scroll-snap-type:x mandatory;-webkit-overflow-scrolling:touch;">
 
-            <div class="flex-shrink-0 w-80 border border-white/10 p-8">
+            <div class="flex-shrink-0 w-[85vw] sm:w-80 border border-white/10 p-6 sm:p-8" style="scroll-snap-align:start;">
                 <div class="text-[#DBA757]/50 text-3xl font-serif mb-4 leading-none select-none">&ldquo;</div>
                 <p class="text-white/60 text-sm leading-relaxed mb-6">{{ .Params.recommendations_item_1_2 }}</p>
                 <div class="border-t border-white/10 pt-4 flex items-center justify-between">
@@ -30,7 +30,7 @@
                 </div>
             </div>
 
-            <div class="flex-shrink-0 w-80 border border-white/10 p-8">
+            <div class="flex-shrink-0 w-[85vw] sm:w-80 border border-white/10 p-6 sm:p-8" style="scroll-snap-align:start;">
                 <div class="text-[#DBA757]/50 text-3xl font-serif mb-4 leading-none select-none">&ldquo;</div>
                 <p class="text-white/60 text-sm leading-relaxed mb-6">{{ .Params.recommendations_item_2_2 }}</p>
                 <div class="border-t border-white/10 pt-4 flex items-center justify-between">
@@ -39,7 +39,7 @@
                 </div>
             </div>
 
-            <div class="flex-shrink-0 w-80 border border-white/10 p-8">
+            <div class="flex-shrink-0 w-[85vw] sm:w-80 border border-white/10 p-6 sm:p-8" style="scroll-snap-align:start;">
                 <div class="text-[#DBA757]/50 text-3xl font-serif mb-4 leading-none select-none">&ldquo;</div>
                 <p class="text-white/60 text-sm leading-relaxed mb-6">{{ .Params.recommendations_item_3_2 }}</p>
                 <div class="border-t border-white/10 pt-4 flex items-center justify-between">
@@ -48,7 +48,7 @@
                 </div>
             </div>
 
-            <div class="flex-shrink-0 w-80 border border-white/10 p-8">
+            <div class="flex-shrink-0 w-[85vw] sm:w-80 border border-white/10 p-6 sm:p-8" style="scroll-snap-align:start;">
                 <div class="text-[#DBA757]/50 text-3xl font-serif mb-4 leading-none select-none">&ldquo;</div>
                 <p class="text-white/60 text-sm leading-relaxed mb-6">{{ .Params.recommendations_item_4_2 }}</p>
                 <div class="border-t border-white/10 pt-4 flex items-center justify-between">
@@ -67,9 +67,8 @@
     const prev = document.getElementById('rec-prev');
     const next = document.getElementById('rec-next');
     if (!slider) return;
-    const step = () => { const c = slider.firstElementChild; return c ? c.offsetWidth + 24 : 344; };
+    const step = () => { const c = slider.firstElementChild; return c ? c.offsetWidth + 16 : 344; };
     if (prev) prev.addEventListener('click', () => slider.scrollBy({ left: -step(), behavior: 'smooth' }));
     if (next) next.addEventListener('click', () => slider.scrollBy({ left:  step(), behavior: 'smooth' }));
 })();
 </script>
-

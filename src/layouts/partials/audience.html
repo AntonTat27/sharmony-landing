@@ -2,24 +2,24 @@
     <div class="max-w-7xl mx-auto px-4 sm:px-6">
 
         <!-- HEADINGS -->
-        <div class="max-w-3xl mb-12 sm:mb-14">
+        <div class="max-w-3xl mb-10 sm:mb-14">
             <h2 class="font-['TT_Livret_Display_Trl'] text-3xl sm:text-4xl md:text-5xl font-light leading-tight mb-4">
                 {{ .Params.audience_h1 }}
                 <span class="text-[#DBA757]">
                     {{ .Params.audience_h2 }}
                 </span>
             </h2>
-            <p class="text-[#03292B]/55 text-base leading-relaxed max-w-xl">
+            <p class="text-[#03292B]/55 text-sm sm:text-base leading-relaxed max-w-xl">
                 {{ .Params.audience_h3 }}
             </p>
         </div>
 
-        <!-- AUDIENCE GRID -->
-        <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8">
+        <!-- AUDIENCE GRID: 1 col on mobile, 2 on sm, 3 on lg -->
+        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-6 md:gap-8">
 
             <!-- Card 1 -->
-            <div class="bg-white border border-[#03292B]/8 p-8">
-                <div class="w-10 h-10 flex items-center justify-center border border-[#DBA757]/60 text-[#DBA757] mb-6">
+            <div class="bg-white border border-[#03292B]/8 p-6 sm:p-8">
+                <div class="w-10 h-10 flex items-center justify-center border border-[#DBA757]/60 text-[#DBA757] mb-5 sm:mb-6">
                     <svg fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24" class="w-5 h-5">
                         <path d="M12 3v18M3 12h18"/>
                     </svg>
@@ -29,8 +29,8 @@
             </div>
 
             <!-- Card 2 -->
-            <div class="bg-white border border-[#03292B]/8 p-8">
-                <div class="w-10 h-10 flex items-center justify-center border border-[#DBA757]/60 text-[#DBA757] mb-6">
+            <div class="bg-white border border-[#03292B]/8 p-6 sm:p-8">
+                <div class="w-10 h-10 flex items-center justify-center border border-[#DBA757]/60 text-[#DBA757] mb-5 sm:mb-6">
                     <svg fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24" class="w-5 h-5">
                         <path d="M3 10l9-7 9 7v10a2 2 0 0 1-2 2h-4v-6H8v6H4a2 2 0 0 1-2-2z"/>
                     </svg>
@@ -40,8 +40,8 @@
             </div>
 
             <!-- Card 3 -->
-            <div class="bg-white border border-[#03292B]/8 p-8">
-                <div class="w-10 h-10 flex items-center justify-center border border-[#DBA757]/60 text-[#DBA757] mb-6">
+            <div class="bg-white border border-[#03292B]/8 p-6 sm:p-8">
+                <div class="w-10 h-10 flex items-center justify-center border border-[#DBA757]/60 text-[#DBA757] mb-5 sm:mb-6">
                     <svg fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24" class="w-5 h-5">
                         <circle cx="12" cy="8" r="4"/><path d="M4 20c0-4 3.6-7 8-7s8 3 8 7"/>
                     </svg>
@@ -51,8 +51,8 @@
             </div>
 
             <!-- Card 4 -->
-            <div class="bg-white border border-[#03292B]/8 p-8">
-                <div class="w-10 h-10 flex items-center justify-center border border-[#DBA757]/60 text-[#DBA757] mb-6">
+            <div class="bg-white border border-[#03292B]/8 p-6 sm:p-8">
+                <div class="w-10 h-10 flex items-center justify-center border border-[#DBA757]/60 text-[#DBA757] mb-5 sm:mb-6">
                     <svg fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24" class="w-5 h-5">
                         <path d="M4 19V5m6 14V9m6 10V3"/>
                     </svg>
@@ -62,8 +62,8 @@
             </div>
 
             <!-- Card 5 -->
-            <div class="bg-white border border-[#03292B]/8 p-8">
-                <div class="w-10 h-10 flex items-center justify-center border border-[#DBA757]/60 text-[#DBA757] mb-6">
+            <div class="bg-white border border-[#03292B]/8 p-6 sm:p-8">
+                <div class="w-10 h-10 flex items-center justify-center border border-[#DBA757]/60 text-[#DBA757] mb-5 sm:mb-6">
                     <svg fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24" class="w-5 h-5">
                         <path d="M17 20H7a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h10a2 2 0 0 1 2 2v12a2 2 0 0 1-2 2z"/><path d="M12 11v4M12 8h.01"/>
                     </svg>
@@ -73,8 +73,8 @@
             </div>
 
             <!-- Card 6 -->
-            <div class="bg-white border border-[#03292B]/8 p-8">
-                <div class="w-10 h-10 flex items-center justify-center border border-[#DBA757]/60 text-[#DBA757] mb-6">
+            <div class="bg-white border border-[#03292B]/8 p-6 sm:p-8">
+                <div class="w-10 h-10 flex items-center justify-center border border-[#DBA757]/60 text-[#DBA757] mb-5 sm:mb-6">
                     <svg fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24" class="w-5 h-5">
                         <circle cx="12" cy="12" r="10"/><path d="M2 12h20M12 2a15.3 15.3 0 0 1 0 20M12 2a15.3 15.3 0 0 0 0 20"/>
                     </svg>

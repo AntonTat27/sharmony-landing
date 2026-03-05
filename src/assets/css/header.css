@@ -254,23 +254,19 @@
         display: none;
     }
 
-    /* Clean up the top bar */
-    /* 1. Ensure the container for login/toggle stays visible */
-    .nav-actions {
-        display: flex !important;
-        gap: 12px;
-        order: 3;
+    /* Ensure the header row handles Logo, Hamburger, Login, and Lang */
+    .nav-inner {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 0 16px;
+        gap: 8px;
     }
 
-    /* 2. Hide the search bar input to save space */
-    .search-bar {
-        display: none;
-    }
-
-    /* 3. Adjust Login Button for Mobile */
-    .btn-login {
-        padding: 8px 12px;
-        font-size: 13px;
+    .nav-logo {
+        order: 1;
+        margin-right: 0;
+        flex: 1;
     }
 
     .nav-toggle {
@@ -279,22 +275,52 @@
         border: none;
         color: #70E2D0;
         font-size: 28px;
-        order: 3; /* Move to the right */
+        cursor: pointer;
+        order: 2;
+        touch-action: manipulation;
+        -webkit-tap-highlight-color: transparent;
+        padding: 4px;
+    }
+
+    /* Keep login + lang visible on the right */
+    .nav-actions {
+        display: flex !important;
+        align-items: center;
+        gap: 8px;
+        order: 3;
+        flex-shrink: 0;
+    }
+
+    /* Hide search bar */
+    .search-bar {
+        display: none;
+    }
+
+    /* Adjust Login Button for Mobile */
+    .btn-login {
+        padding: 8px 12px;
+        font-size: 13px;
+    }
+
+    .nav-menu-wrapper {
+        order: 4;
+        width: 100%;
     }
 
     .nav-menu-pill {
         display: none;
-        position: absolute;
-        top: 80px; /* Height of nav */
+        position: fixed;
+        top: 128px; /* banner (48px) + nav (80px) */
         left: 0;
         width: 100%;
         flex-direction: column;
         background: #021B1C;
         border-radius: 0;
         border-top: 1px solid #053B3D;
-        padding: 30px;
-        z-index: 100;
+        padding: 24px 20px 32px;
+        z-index: 999;
         text-align: center;
+        box-shadow: 0 8px 24px rgba(0,0,0,0.5);
     }
 
     .nav-menu-pill.show {
@@ -302,27 +328,28 @@
         animation: slideDown 0.3s ease-out;
     }
 
-    .nav-actions {
-        display: none;
-    }
-
-    /* Hide search/login on mobile nav (or move inside menu) */
-}
-
-@media (max-width: 600px) {
-
-    /* Show it only inside the open menu */
-    .nav-menu-pill.show .lang-switcher {
-        display: flex;
-        margin-top: 20px;
+    .nav-menu-pill li {
+        width: 100%;
         justify-content: center;
     }
 
-    /* Ensure the header row only handles Logo, Hamburger, and Login */
+    .nav-menu-pill a {
+        display: block;
+        padding: 12px 0;
+        font-size: 15px;
+        opacity: 0.8;
+    }
+}
+
+@media (max-width: 600px) {
+    /* Adjust nav inner padding for small screens */
     .nav-inner {
-        display: flex;
-        justify-content: space-between;
-        padding: 0 15px;
+        padding: 0 12px;
+    }
+
+    /* On very small screens, keep the banner-content tight */
+    .header-banner {
+        padding: 10px 12px;
     }
 }
 

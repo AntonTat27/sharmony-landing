@@ -42,9 +42,9 @@
             </p>
         </div>
 
-        <div class="grid md:grid-cols-2 gap-12 md:gap-20 items-center">
+        <div class="grid md:grid-cols-2 gap-10 md:gap-20 items-center">
 
-            <div class="space-y-12 sm:space-y-16">
+            <div class="space-y-10 sm:space-y-16">
 
                 <div class="relative">
                     <span class="absolute -top-10 left-0 text-8xl font-light text-[#C6A052] opacity-10">01</span>
@@ -173,13 +173,13 @@
                 <div class="overflow-hidden">
                     <img
                         src="https://images.unsplash.com/photo-1600585154340-be6161a56a0c?q=80&w=2070&auto=format&fit=crop"
-                        class="w-full h-72 sm:h-96 md:h-[500px] object-cover"
+                        class="w-full h-64 sm:h-96 md:h-[500px] object-cover"
                         alt="Luxury villa"
                     />
                 </div>
 
-                <!-- TRIANGLE MAGNIFIED AREA — shown on all screens -->
-                <div class="absolute inset-0 pointer-events-none">
+                <!-- TRIANGLE MAGNIFIED AREA — shown only on md+ screens -->
+                <div class="absolute inset-0 pointer-events-none hidden md:block">
 
                     <div class="triangle-cutout-bg" aria-hidden="true"></div>
                     <div class="triangle-outline" aria-hidden="true"></div>
@@ -211,10 +211,10 @@
     <div class="relative max-w-6xl mx-auto px-4 sm:px-6 py-16 sm:py-24 md:py-32">
 
         <!-- Header -->
-        <div class="flex flex-col md:flex-row md:items-end md:justify-between gap-4 sm:gap-6 mb-12 sm:mb-20">
+        <div class="flex flex-col md:flex-row md:items-end md:justify-between gap-4 sm:gap-6 mb-10 sm:mb-20">
             <div>
                 <p class="uppercase tracking-[0.35em] text-[#C6A052] text-xs mb-4">Development Timeline</p>
-                <h2 class="font-['TT_Livret_Display_Trl'] text-3xl sm:text-4xl md:text-5xl font-light leading-tight">
+                <h2 class="font-['TT_Livret_Display_Trl'] text-2xl sm:text-4xl md:text-5xl font-light leading-tight">
                     From First Stone<br>to Global Portfolio
                 </h2>
             </div>
@@ -533,26 +533,26 @@
 
 /* Mobile overrides */
 @media (max-width: 767px) {
-    #hero { padding-top: 4rem; }
-    #hero h1 { font-size: 2.25rem; }
-    #roadmap { padding-top: 4rem; padding-bottom: 4rem; }
-    #roadmap h2 { font-size: 2rem; }
+    #hero .relative.max-w-7xl { padding-top: 6rem; }
+    #hero h1 { font-size: 1.875rem; line-height: 1.2; }
     #roadmap .rm3-step-date { display: none; }
     #roadmap .rm3-content { padding-left: 0; padding-right: 0; }
-    #final-cta { padding-top: 4rem; padding-bottom: 4rem; }
-    #final-cta h2 { font-size: 2.25rem; }
+    #final-cta h2 { font-size: 1.875rem; }
     #final-cta p { font-size: 0.875rem; }
+    .rm3-body { font-size: 0.875rem; line-height: 1.6; }
+    .rm3-list { font-size: 0.8125rem; }
 }
 
 /* Mobile privilege dots */
 .priv-dot {
     display: block;
-    width: 8px;
-    height: 8px;
+    width: 10px;
+    height: 10px;
     border-radius: 9999px;
     background: rgba(255,255,255,0.2);
     cursor: pointer;
     transition: background .2s;
+    touch-action: manipulation;
 }
 .priv-dot-active { background: #C6A052; }
 
@@ -675,7 +675,7 @@
 
         <!-- Mobile layout: card with dot navigation -->
         <div class="sm:hidden">
-            <div class="border border-white/10 bg-white/5 backdrop-blur-sm p-6 min-h-[200px]">
+            <div class="border border-white/10 bg-white/5 backdrop-blur-sm p-6 min-h-[220px]">
                 <div id="privilegeContentMobile" class="transition-all duration-500">
                     <p class="uppercase tracking-[0.3em] text-[#C6A052] text-xs mb-4">Platform Privileges</p>
                     <h3 id="privilegeTitleMobile" class="text-xl font-light mb-4">Payment Utility</h3>
@@ -686,16 +686,16 @@
                 </div>
             </div>
             <div class="flex items-center justify-center gap-4 mt-6">
-                <button id="priv-mob-prev" class="priv-arrow" aria-label="Previous privilege">
+                <button id="priv-mob-prev" class="priv-arrow w-10 h-10" aria-label="Previous privilege">
                     <svg width="16" height="16" viewBox="0 0 24 24" fill="none"><path d="M15 6L9 12L15 18" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
                 </button>
-                <div class="flex gap-2" id="priv-dots">
+                <div class="flex gap-3" id="priv-dots">
                     <span class="priv-dot priv-dot-active" data-step="1"></span>
                     <span class="priv-dot" data-step="2"></span>
                     <span class="priv-dot" data-step="3"></span>
                     <span class="priv-dot" data-step="4"></span>
                 </div>
-                <button id="priv-mob-next" class="priv-arrow" aria-label="Next privilege">
+                <button id="priv-mob-next" class="priv-arrow w-10 h-10" aria-label="Next privilege">
                     <svg width="16" height="16" viewBox="0 0 24 24" fill="none"><path d="M9 6L15 12L9 18" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
                 </button>
             </div>
