@@ -74,4 +74,7 @@ locations_item_5_10: Экономика
 locations_item_5_11: Стабильная (ВВП +5–6%)
 locations_item_5_12: Лучшие районы
 locations_item_5_13: Тбилиси, Батуми
+
+locations_aria_prev: Предыдущая локация
+locations_aria_next: Следующая локация
 ---

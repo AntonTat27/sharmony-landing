@@ -1,3 +1,7 @@
+{{ $currentLang := .Site.Language.Lang }}
+{{ $ui := index .Site.Data $currentLang "ui" }}
+{{ $heroUI := $ui.hero }}
+
 <section class="relative h-screen overflow-hidden">
     <img src="/images/hero_bg.jpg" alt="Sharmony — Premium Real Estate Investments"
          loading="eager" decoding="async"
@@ -10,7 +14,7 @@
         <!-- LEFT: textual content -->
         <div class="w-full lg:w-1/2">
                 <p class="uppercase tracking-[0.35em] text-[#31D0B2] text-xs sm:text-sm mb-4 sm:mb-6">
-                Real Estate · Tokenized
+                {{ $heroUI.subtitle }}
             </p>
 
             <h1 class="font-['TT_Livret_Display_Trl'] text-white text-3xl sm:text-5xl md:text-6xl lg:text-7xl font-light leading-tight max-w-4xl mb-4 sm:mb-6">
@@ -49,7 +53,7 @@
                               d="M6.267 3.455a3.066 3.066 0 001.745-.723 3.066 3.066 0 013.976 0 3.066 3.066 0 001.745.723 3.066 3.066 0 012.812 2.812c.051.643.304 1.254.723 1.745a3.066 3.066 0 010 3.976 3.066 3.066 0 00-.723 1.745 3.066 3.066 0 01-2.812 2.812 3.066 3.066 0 00-1.745.723 3.066 3.066 0 01-3.976 0 3.066 3.066 0 00-1.745-.723 3.066 3.066 0 01-2.812-2.812 3.066 3.066 0 00-.723-1.745 3.066 3.066 0 010-3.976 3.066 3.066 0 00.723-1.745 3.066 3.066 0 012.812-2.812zm7.44 5.252a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z"
                               clip-rule="evenodd"/>
                     </svg>
-                    <span class="text-white/60 text-xs sm:text-sm">Blockchain Secured</span>
+                    <span class="text-white/60 text-xs sm:text-sm">{{ .Params.hero_badge_blockchain }}</span>
                 </div>
                 <div class="flex items-center gap-2">
                     <svg class="w-5 h-5 text-[#31D0B2]" fill="currentColor" viewBox="0 0 20 20">
@@ -57,7 +61,7 @@
                               d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z"
                               clip-rule="evenodd"/>
                     </svg>
-                    <span class="text-white/60 text-xs sm:text-sm">Licensed &amp; Regulated</span>
+                    <span class="text-white/60 text-xs sm:text-sm">{{ .Params.hero_badge_licensed }}</span>
                 </div>
                 <div class="flex items-center gap-2">
                     <svg class="w-5 h-5 text-[#31D0B2]" fill="currentColor" viewBox="0 0 20 20">
@@ -66,7 +70,7 @@
                               d="M10 18a8 8 0 100-16 8 8 0 000 16zm1-13a1 1 0 10-2 0v.092a4.535 4.535 0 00-1.676.662C6.602 6.234 6 7.009 6 8c0 .99.602 1.765 1.324 2.246.48.32 1.054.545 1.676.662v1.941c-.391-.127-.68-.317-.843-.504a1 1 0 10-1.51 1.31c.562.649 1.413 1.076 2.353 1.253V15a1 1 0 102 0v-.092a4.535 4.535 0 001.676-.662C13.398 13.766 14 12.991 14 12c0-.99-.602-1.765-1.324-2.246A4.535 4.535 0 0011 9.092V7.151c.391.127.68.317.843.504a1 1 0 101.511-1.31c-.563-.649-1.413-1.076-2.354-1.253V5z"
                               clip-rule="evenodd"/>
                     </svg>
-                    <span class="text-white/60 text-xs sm:text-sm">From $100 Investment</span>
+                    <span class="text-white/60 text-xs sm:text-sm">{{ .Params.hero_badge_investment }}</span>
                 </div>
             </div>
         </div>

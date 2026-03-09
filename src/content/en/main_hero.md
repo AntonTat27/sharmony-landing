@@ -13,4 +13,9 @@ btn_explore: Explore platform
 btn_learn: Learn more
 main_intro_slider1: Global properties
 main_intro_slider2: Asia • Europe • USA
+
+hero_subtitle: Real Estate · Tokenized
+hero_badge_blockchain: Blockchain Secured
+hero_badge_licensed: Licensed & Regulated
+hero_badge_investment: From $100 Investment
 ---

@@ -18,4 +18,6 @@ recommendations_item_4_1: Советник 2
 recommendations_item_4_2: Эксперт по правовым вопросам и комплаенсу
 recommendations_item_4_3: LinkedIn →
 
+recommendations_aria_prev: Предыдущий
+recommendations_aria_next: Следующий
 ---

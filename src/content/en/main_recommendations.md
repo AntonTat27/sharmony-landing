@@ -18,4 +18,6 @@ recommendations_item_4_1: Advisor 2
 recommendations_item_4_2: Legal & compliance expert
 recommendations_item_4_3: LinkedIn →
 
+recommendations_aria_prev: Previous
+recommendations_aria_next: Next
 ---

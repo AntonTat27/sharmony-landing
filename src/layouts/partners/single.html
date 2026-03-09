@@ -12,17 +12,15 @@
     <canvas id="hero-sphere" class="absolute inset-0 w-full h-full z-20 pointer-events-none"></canvas>
 
     <div class="relative max-w-7xl mx-auto px-4 sm:px-6 flex flex-col justify-center items-center text-center h-full z-30 pt-20">
-        <p class="uppercase tracking-[0.35em] text-[#31D0B2] text-xs sm:text-sm mb-6">Partnerships</p>
+        <p class="uppercase tracking-[0.35em] text-[#31D0B2] text-xs sm:text-sm mb-6">{{ .Params.hero_eyebrow }}</p>
         <h1 class="font-['TT_Livret_Display_Trl'] text-white text-4xl sm:text-6xl md:text-7xl font-light leading-tight max-w-4xl mb-6">
-            Become a partner of Sharmony,<br>
-            <span class="bg-clip-text text-transparent bg-gradient-to-r from-[#FFDDA8] to-[#DBA757]">a revolutionary fractional real estate platform</span>
+            {{ .Params.hero_h1 }}<br>
+            <span class="bg-clip-text text-transparent bg-gradient-to-r from-[#FFDDA8] to-[#DBA757]">{{ .Params.hero_h1_accent }}</span>
         </h1>
-        <p class="text-white/70 text-base sm:text-lg max-w-2xl leading-relaxed mb-10">
-            Join an ecosystem that combines blockchain technology, investment and tourism to create unique opportunities.
-        </p>
+        <p class="text-white/70 text-base sm:text-lg max-w-2xl leading-relaxed mb-10">{{ .Params.hero_desc }}</p>
         <a href="#contact"
            class="group inline-flex items-center gap-2 px-8 py-4 bg-gradient-to-r from-[#FFDDA8] to-[#DBA757] text-[#03292B] font-semibold rounded-lg hover:shadow-[0_0_30px_rgba(255,221,168,0.4)] hover:brightness-110 transition-all duration-300 text-sm sm:text-base">
-            Become a partner – ask a question
+            {{ .Params.hero_btn }}
             <svg class="w-4 h-4 group-hover:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 7l5 5m0 0l-5 5m5-5H6"/>
             </svg>
@@ -40,9 +38,9 @@
     <div class="max-w-6xl mx-auto px-4 sm:px-6">
 
         <div class="mb-16 sm:mb-20">
-            <p class="uppercase tracking-[0.3em] text-[#C6A052] text-xs sm:text-sm mb-4">Why partner with us</p>
+            <p class="uppercase tracking-[0.3em] text-[#C6A052] text-xs sm:text-sm mb-4">{{ .Params.benefits_eyebrow }}</p>
             <h2 class="font-['TT_Livret_Display_Trl'] text-3xl sm:text-4xl md:text-5xl font-light text-[#03292B] leading-tight mb-6">
-                Why is it beneficial to cooperate with Sharmony?
+                {{ .Params.benefits_h2 }}
             </h2>
             <div class="w-16 h-px bg-[#DBA757]"></div>
         </div>
@@ -58,8 +56,8 @@
                     </div>
                 </div>
                 <div class="flex-1">
-                    <h3 class="font-['TT_Livret_Display_Trl'] text-xl font-light text-[#03292B] mb-2">New customers</h3>
-                    <p class="text-[#03292B]/70 leading-relaxed text-sm">Access to a global audience of investors, tourists and crypto-enthusiasts.</p>
+                    <h3 class="font-['TT_Livret_Display_Trl'] text-xl font-light text-[#03292B] mb-2">{{ .Params.benefits_1_title }}</h3>
+                    <p class="text-[#03292B]/70 leading-relaxed text-sm">{{ .Params.benefits_1_desc }}</p>
                 </div>
             </div>
 
@@ -71,8 +69,8 @@
                     </div>
                 </div>
                 <div class="flex-1">
-                    <h3 class="font-['TT_Livret_Display_Trl'] text-xl font-light text-[#03292B] mb-2">Future technologies</h3>
-                    <p class="text-[#03292B]/70 leading-relaxed text-sm">Utilizing NFT and blockchain for transparent and secure transactions.</p>
+                    <h3 class="font-['TT_Livret_Display_Trl'] text-xl font-light text-[#03292B] mb-2">{{ .Params.benefits_2_title }}</h3>
+                    <p class="text-[#03292B]/70 leading-relaxed text-sm">{{ .Params.benefits_2_desc }}</p>
                 </div>
             </div>
 
@@ -84,8 +82,8 @@
                     </div>
                 </div>
                 <div class="flex-1">
-                    <h3 class="font-['TT_Livret_Display_Trl'] text-xl font-light text-[#03292B] mb-2">Flexible terms and conditions</h3>
-                    <p class="text-[#03292B]/70 leading-relaxed text-sm">Ability to customize offers to suit your business goals.</p>
+                    <h3 class="font-['TT_Livret_Display_Trl'] text-xl font-light text-[#03292B] mb-2">{{ .Params.benefits_3_title }}</h3>
+                    <p class="text-[#03292B]/70 leading-relaxed text-sm">{{ .Params.benefits_3_desc }}</p>
                 </div>
             </div>
 
@@ -97,8 +95,8 @@
                     </div>
                 </div>
                 <div class="flex-1">
-                    <h3 class="font-['TT_Livret_Display_Trl'] text-xl font-light text-[#03292B] mb-2">Marketing support</h3>
-                    <p class="text-[#03292B]/70 leading-relaxed text-sm">Promotion of your properties and services through our channels and partner network.</p>
+                    <h3 class="font-['TT_Livret_Display_Trl'] text-xl font-light text-[#03292B] mb-2">{{ .Params.benefits_4_title }}</h3>
+                    <p class="text-[#03292B]/70 leading-relaxed text-sm">{{ .Params.benefits_4_desc }}</p>
                 </div>
             </div>
 
@@ -110,8 +108,8 @@
                     </div>
                 </div>
                 <div class="flex-1">
-                    <h3 class="font-['TT_Livret_Display_Trl'] text-xl font-light text-[#03292B] mb-2">High profitability</h3>
-                    <p class="text-[#03292B]/70 leading-relaxed text-sm">Participation in projects with ROI up to 18% per annum.</p>
+                    <h3 class="font-['TT_Livret_Display_Trl'] text-xl font-light text-[#03292B] mb-2">{{ .Params.benefits_5_title }}</h3>
+                    <p class="text-[#03292B]/70 leading-relaxed text-sm">{{ .Params.benefits_5_desc }}</p>
                 </div>
             </div>
 
@@ -127,13 +125,9 @@
     <div class="max-w-7xl mx-auto px-4 sm:px-6">
 
         <div class="text-center mb-16 sm:mb-20">
-            <p class="uppercase tracking-[0.3em] text-[#31D0B2] text-xs sm:text-sm mb-4">Ecosystem</p>
-            <h2 class="font-['TT_Livret_Display_Trl'] text-3xl sm:text-4xl md:text-5xl font-light text-white leading-tight mb-4">
-                Our best partners – who do we want?
-            </h2>
-            <p class="text-white/50 text-sm max-w-2xl mx-auto leading-relaxed">
-                Six categories of partners building the future of fractional real estate with us.
-            </p>
+            <p class="uppercase tracking-[0.3em] text-[#31D0B2] text-xs sm:text-sm mb-4">{{ .Params.types_eyebrow }}</p>
+            <h2 class="font-['TT_Livret_Display_Trl'] text-3xl sm:text-4xl md:text-5xl font-light text-white leading-tight mb-4">{{ .Params.types_h2 }}</h2>
+            <p class="text-white/50 text-sm max-w-2xl mx-auto leading-relaxed">{{ .Params.types_desc }}</p>
         </div>
 
         <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
@@ -141,13 +135,13 @@
             <!-- Card 1 -->
             <div class="group relative bg-[#0A3436] border border-white/10 p-8 hover:border-[#31D0B2]/50 transition duration-300 flex flex-col">
                 <div class="inline-block mb-6 px-4 py-2 bg-[#31D0B2]/10 border border-[#31D0B2]/40 rounded-full">
-                    <span class="text-[#31D0B2] text-xs uppercase tracking-[0.15em] font-light">Real Estate</span>
+                    <span class="text-[#31D0B2] text-xs uppercase tracking-[0.15em] font-light">{{ .Params.types_1_badge }}</span>
                 </div>
                 <h3 class="font-['TT_Livret_Display_Trl'] text-2xl font-light text-white mb-4 leading-tight">
-                    Developers &<br>builders
+                    {{ .Params.types_1_title }}
                 </h3>
                 <p class="text-white/60 text-sm leading-relaxed flex-1 mb-6">
-                    Include your properties in our platform and attract investors with a minimum entry threshold. Examples: Villas in Dubai, apartments in Thailand, resort properties in Turkey.
+                    {{ .Params.types_1_desc }}
                 </p>
                 <div class="flex items-center justify-between pt-6 border-t border-white/10">
                     <span class="text-[#DBA757] text-xs font-light">→ CTA</span>
@@ -160,13 +154,13 @@
             <!-- Card 2 -->
             <div class="group relative bg-[#0A3436] border border-white/10 p-8 hover:border-[#31D0B2]/50 transition duration-300 flex flex-col">
                 <div class="inline-block mb-6 px-4 py-2 bg-[#31D0B2]/10 border border-[#31D0B2]/40 rounded-full">
-                    <span class="text-[#31D0B2] text-xs uppercase tracking-[0.15em] font-light">Sales</span>
+                    <span class="text-[#31D0B2] text-xs uppercase tracking-[0.15em] font-light">{{ .Params.types_2_badge }}</span>
                 </div>
                 <h3 class="font-['TT_Livret_Display_Trl'] text-2xl font-light text-white mb-4 leading-tight">
-                    Real Estate<br>agencies & brokers
+                    {{ .Params.types_2_title }}
                 </h3>
                 <p class="text-white/60 text-sm leading-relaxed flex-1 mb-6">
-                    Receive commission for referring clients. Expand the offer for your clients through a fractional model.
+                    {{ .Params.types_2_desc }}
                 </p>
                 <div class="flex items-center justify-between pt-6 border-t border-white/10">
                     <span class="text-[#DBA757] text-xs font-light">→ CTA</span>
@@ -179,13 +173,13 @@
             <!-- Card 3 -->
             <div class="group relative bg-[#0A3436] border border-white/10 p-8 hover:border-[#31D0B2]/50 transition duration-300 flex flex-col">
                 <div class="inline-block mb-6 px-4 py-2 bg-[#31D0B2]/10 border border-[#31D0B2]/40 rounded-full">
-                    <span class="text-[#31D0B2] text-xs uppercase tracking-[0.15em] font-light">Travel</span>
+                    <span class="text-[#31D0B2] text-xs uppercase tracking-[0.15em] font-light">{{ .Params.types_3_badge }}</span>
                 </div>
                 <h3 class="font-['TT_Livret_Display_Trl'] text-2xl font-light text-white mb-4 leading-tight">
-                    Travel companies<br>& hotels
+                    {{ .Params.types_3_title }}
                 </h3>
                 <p class="text-white/60 text-sm leading-relaxed flex-1 mb-6">
-                    Integrate fractional real estate into your tours. Offer customers ownership interests in premium properties.
+                    {{ .Params.types_3_desc }}
                 </p>
                 <div class="flex items-center justify-between pt-6 border-t border-white/10">
                     <span class="text-[#DBA757] text-xs font-light">→ CTA</span>
@@ -198,13 +192,13 @@
             <!-- Card 4 -->
             <div class="group relative bg-[#0A3436] border border-white/10 p-8 hover:border-[#31D0B2]/50 transition duration-300 flex flex-col">
                 <div class="inline-block mb-6 px-4 py-2 bg-[#31D0B2]/10 border border-[#31D0B2]/40 rounded-full">
-                    <span class="text-[#31D0B2] text-xs uppercase tracking-[0.15em] font-light">Web3</span>
+                    <span class="text-[#31D0B2] text-xs uppercase tracking-[0.15em] font-light">{{ .Params.types_4_badge }}</span>
                 </div>
                 <h3 class="font-['TT_Livret_Display_Trl'] text-2xl font-light text-white mb-4 leading-tight">
-                    Web3<br>ecosystems
+                    {{ .Params.types_4_title }}
                 </h3>
                 <p class="text-white/60 text-sm leading-relaxed flex-1 mb-6">
-                    Partner with us to engage digital asset holders and integrate NFT solutions into your platform.
+                    {{ .Params.types_4_desc }}
                 </p>
                 <div class="flex items-center justify-between pt-6 border-t border-white/10">
                     <span class="text-[#DBA757] text-xs font-light">→ CTA</span>
@@ -217,13 +211,13 @@
             <!-- Card 5 -->
             <div class="group relative bg-[#0A3436] border border-white/10 p-8 hover:border-[#31D0B2]/50 transition duration-300 flex flex-col">
                 <div class="inline-block mb-6 px-4 py-2 bg-[#31D0B2]/10 border border-[#31D0B2]/40 rounded-full">
-                    <span class="text-[#31D0B2] text-xs uppercase tracking-[0.15em] font-light">Finance</span>
+                    <span class="text-[#31D0B2] text-xs uppercase tracking-[0.15em] font-light">{{ .Params.types_5_badge }}</span>
                 </div>
                 <h3 class="font-['TT_Livret_Display_Trl'] text-2xl font-light text-white mb-4 leading-tight">
-                    Banks, insurance<br>& notaries
+                    {{ .Params.types_5_title }}
                 </h3>
                 <p class="text-white/60 text-sm leading-relaxed flex-1 mb-6">
-                    Increase your customer base and earn money from real estate transactions and custody services.
+                    {{ .Params.types_5_desc }}
                 </p>
                 <div class="flex items-center justify-between pt-6 border-t border-white/10">
                     <span class="text-[#DBA757] text-xs font-light">→ CTA</span>
@@ -236,13 +230,13 @@
             <!-- Card 6 -->
             <div class="group relative bg-[#0A3436] border border-white/10 p-8 hover:border-[#31D0B2]/50 transition duration-300 flex flex-col">
                 <div class="inline-block mb-6 px-4 py-2 bg-[#31D0B2]/10 border border-[#31D0B2]/40 rounded-full">
-                    <span class="text-[#31D0B2] text-xs uppercase tracking-[0.15em] font-light">Services</span>
+                    <span class="text-[#31D0B2] text-xs uppercase tracking-[0.15em] font-light">{{ .Params.types_6_badge }}</span>
                 </div>
                 <h3 class="font-['TT_Livret_Display_Trl'] text-2xl font-light text-white mb-4 leading-tight">
-                    Support<br>services
+                    {{ .Params.types_6_title }}
                 </h3>
                 <p class="text-white/60 text-sm leading-relaxed flex-1 mb-6">
-                    Transportation, concierge, catering — new opportunities for stable income regardless of seasonal demand.
+                    {{ .Params.types_6_desc }}
                 </p>
                 <div class="flex items-center justify-between pt-6 border-t border-white/10">
                     <span class="text-[#DBA757] text-xs font-light">→ CTA</span>
@@ -266,9 +260,9 @@
     <div class="relative max-w-7xl mx-auto px-4 sm:px-6">
 
         <div class="text-center mb-16 sm:mb-20">
-            <p class="uppercase tracking-[0.35em] text-[#C6A052] text-xs mb-4">Process</p>
+            <p class="uppercase tracking-[0.35em] text-[#C6A052] text-xs mb-4">{{ .Params.steps_eyebrow }}</p>
             <h2 class="font-['TT_Livret_Display_Trl'] text-3xl sm:text-4xl md:text-5xl font-light leading-tight">
-                How to become a partner?
+                {{ .Params.steps_h2 }}
             </h2>
             <div class="w-12 h-px bg-[#C6A052] mt-4 mx-auto"></div>
         </div>
@@ -277,23 +271,23 @@
 
             <div class="relative border border-white/10 p-8 sm:p-10 overflow-hidden">
                 <span class="absolute -bottom-5 -right-3 text-[9rem] leading-none font-light text-[#C6A052] select-none pointer-events-none" style="opacity:0.07;">1</span>
-                <p class="uppercase tracking-[0.3em] text-[#C6A052] text-xs mb-6">Step one</p>
-                <h3 class="font-['TT_Livret_Display_Trl'] text-xl sm:text-2xl font-light text-white mb-4">Leave a request</h3>
-                <p class="text-white/60 text-sm leading-relaxed">Contact us via the form on this page or reach out to our team directly.</p>
+                <p class="uppercase tracking-[0.3em] text-[#C6A052] text-xs mb-6">{{ .Params.steps_1_eyebrow }}</p>
+                <h3 class="font-['TT_Livret_Display_Trl'] text-xl sm:text-2xl font-light text-white mb-4">{{ .Params.steps_1_title }}</h3>
+                <p class="text-white/60 text-sm leading-relaxed">{{ .Params.steps_1_desc }}</p>
             </div>
 
             <div class="relative border border-white/10 p-8 sm:p-10 overflow-hidden">
                 <span class="absolute -bottom-5 -right-3 text-[9rem] leading-none font-light text-[#C6A052] select-none pointer-events-none" style="opacity:0.07;">2</span>
-                <p class="uppercase tracking-[0.3em] text-[#C6A052] text-xs mb-6">Step two</p>
-                <h3 class="font-['TT_Livret_Display_Trl'] text-xl sm:text-2xl font-light text-white mb-4">Discuss the terms</h3>
-                <p class="text-white/60 text-sm leading-relaxed">Meet with our managers, explore the options and choose a cooperation model that fits your goals.</p>
+                <p class="uppercase tracking-[0.3em] text-[#C6A052] text-xs mb-6">{{ .Params.steps_2_eyebrow }}</p>
+                <h3 class="font-['TT_Livret_Display_Trl'] text-xl sm:text-2xl font-light text-white mb-4">{{ .Params.steps_2_title }}</h3>
+                <p class="text-white/60 text-sm leading-relaxed">{{ .Params.steps_2_desc }}</p>
             </div>
 
             <div class="relative border border-white/10 p-8 sm:p-10 overflow-hidden">
                 <span class="absolute -bottom-5 -right-3 text-[9rem] leading-none font-light text-[#C6A052] select-none pointer-events-none" style="opacity:0.07;">3</span>
-                <p class="uppercase tracking-[0.3em] text-[#C6A052] text-xs mb-6">Step three</p>
-                <h3 class="font-['TT_Livret_Display_Trl'] text-xl sm:text-2xl font-light text-white mb-4">Launch &amp; profit</h3>
-                <p class="text-white/60 text-sm leading-relaxed">Start your projects within our ecosystem and benefit from cooperation.</p>
+                <p class="uppercase tracking-[0.3em] text-[#C6A052] text-xs mb-6">{{ .Params.steps_3_eyebrow }}</p>
+                <h3 class="font-['TT_Livret_Display_Trl'] text-xl sm:text-2xl font-light text-white mb-4">{{ .Params.steps_3_title }}</h3>
+                <p class="text-white/60 text-sm leading-relaxed">{{ .Params.steps_3_desc }}</p>
             </div>
 
         </div>
@@ -308,15 +302,13 @@
 <!-- ========================= -->
 <section id="contact" class="bg-[#03292B] text-white py-20 sm:py-28">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 text-center">
-        <p class="uppercase tracking-[0.35em] text-[#31D0B2] text-xs sm:text-sm mb-6">Get in touch</p>
-        <h2 class="font-['TT_Livret_Display_Trl'] text-3xl sm:text-4xl md:text-5xl font-light leading-tight mb-3 max-w-3xl mx-auto">
-            Ready to change the real estate market with us?
-        </h2>
-        <p class="text-white/50 text-sm sm:text-base mb-8">Contact us today!</p>
+        <p class="uppercase tracking-[0.35em] text-[#31D0B2] text-xs sm:text-sm mb-6">{{ .Params.cta_eyebrow }}</p>
+        <h2 class="font-['TT_Livret_Display_Trl'] text-3xl sm:text-4xl md:text-5xl font-light leading-tight mb-3 max-w-3xl mx-auto">{{ .Params.cta_h2 }}</h2>
+        <p class="text-white/50 text-sm sm:text-base mb-8">{{ .Params.cta_desc }}</p>
         <div class="w-20 h-px bg-[#DBA757] mx-auto mb-10"></div>
         <a href="#"
            class="group inline-flex items-center gap-2 px-8 py-4 bg-gradient-to-r from-[#FFDDA8] to-[#DBA757] text-[#03292B] font-semibold rounded-lg hover:shadow-[0_0_30px_rgba(255,221,168,0.4)] hover:brightness-110 transition-all duration-300 text-sm sm:text-base">
-            Contact Us
+            {{ .Params.cta_btn }}
             <svg class="w-4 h-4 group-hover:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 7l5 5m0 0l-5 5m5-5H6"/>
             </svg>
@@ -332,8 +324,8 @@
     <div class="max-w-7xl mx-auto px-4 sm:px-6">
 
         <div class="text-center mb-14">
-            <p class="uppercase tracking-[0.35em] text-[#31D0B2] text-xs sm:text-sm mb-4">Downloads</p>
-            <h2 class="font-['TT_Livret_Display_Trl'] text-3xl sm:text-4xl font-light text-white mb-4">Offers for cooperation</h2>
+            <p class="uppercase tracking-[0.35em] text-[#31D0B2] text-xs sm:text-sm mb-4">{{ .Params.downloads_eyebrow }}</p>
+            <h2 class="font-['TT_Livret_Display_Trl'] text-3xl sm:text-4xl font-light text-white mb-4">{{ .Params.downloads_h2 }}</h2>
             <div class="w-16 h-px bg-[#DBA757] mx-auto"></div>
         </div>
 
@@ -344,8 +336,8 @@
                     <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4"/></svg>
                 </div>
                 <div>
-                    <p class="text-white font-light text-sm leading-snug">To developers and contractors</p>
-                    <p class="text-[#DBA757] text-xs mt-1">↓ Download presentation</p>
+                    <p class="text-white font-light text-sm leading-snug">{{ .Params.downloads_1_title }}</p>
+                    <p class="text-[#DBA757] text-xs mt-1">{{ .Params.downloads_dl_label }}</p>
                 </div>
             </a>
 
@@ -354,8 +346,8 @@
                     <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4"/></svg>
                 </div>
                 <div>
-                    <p class="text-white font-light text-sm leading-snug">To realtors, real estate agencies, and brokers</p>
-                    <p class="text-[#DBA757] text-xs mt-1">↓ Download presentation</p>
+                    <p class="text-white font-light text-sm leading-snug">{{ .Params.downloads_2_title }}</p>
+                    <p class="text-[#DBA757] text-xs mt-1">{{ .Params.downloads_dl_label }}</p>
                 </div>
             </a>
 
@@ -364,8 +356,8 @@
                     <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4"/></svg>
                 </div>
                 <div>
-                    <p class="text-white font-light text-sm leading-snug">To tourist companies and hoteliers</p>
-                    <p class="text-[#DBA757] text-xs mt-1">↓ Download presentation</p>
+                    <p class="text-white font-light text-sm leading-snug">{{ .Params.downloads_3_title }}</p>
+                    <p class="text-[#DBA757] text-xs mt-1">{{ .Params.downloads_dl_label }}</p>
                 </div>
             </a>
 
@@ -374,8 +366,8 @@
                     <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4"/></svg>
                 </div>
                 <div>
-                    <p class="text-white font-light text-sm leading-snug">To Web3 communities</p>
-                    <p class="text-[#DBA757] text-xs mt-1">↓ Download presentation</p>
+                    <p class="text-white font-light text-sm leading-snug">{{ .Params.downloads_4_title }}</p>
+                    <p class="text-[#DBA757] text-xs mt-1">{{ .Params.downloads_dl_label }}</p>
                 </div>
             </a>
 
@@ -384,8 +376,8 @@
                     <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4"/></svg>
                 </div>
                 <div>
-                    <p class="text-white font-light text-sm leading-snug">To banks, insurance companies, lawyers, and notaries</p>
-                    <p class="text-[#DBA757] text-xs mt-1">↓ Download presentation</p>
+                    <p class="text-white font-light text-sm leading-snug">{{ .Params.downloads_5_title }}</p>
+                    <p class="text-[#DBA757] text-xs mt-1">{{ .Params.downloads_dl_label }}</p>
                 </div>
             </a>
 
@@ -394,8 +386,8 @@
                     <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4"/></svg>
                 </div>
                 <div>
-                    <p class="text-white font-light text-sm leading-snug">To service companies</p>
-                    <p class="text-[#DBA757] text-xs mt-1">↓ Download presentation</p>
+                    <p class="text-white font-light text-sm leading-snug">{{ .Params.downloads_6_title }}</p>
+                    <p class="text-[#DBA757] text-xs mt-1">{{ .Params.downloads_dl_label }}</p>
                 </div>
             </a>
 

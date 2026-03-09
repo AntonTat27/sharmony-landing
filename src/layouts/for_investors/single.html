@@ -7,17 +7,13 @@
         class="absolute inset-0 w-full h-full object-cover object-center z-0">
     <div class="absolute inset-0 bg-black/70 z-10 pointer-events-none" aria-hidden="true"></div>
     <div class="relative max-w-7xl mx-auto px-4 sm:px-6 flex flex-col justify-center h-full z-30 pt-16">
-        <h1 class="text-white text-3xl sm:text-5xl md:text-7xl font-['TT_Livret_Display_Trl'] leading-tight max-w-3xl">Digital key to
-            real-world investments: <span
-                class="bg-clip-text text-transparent bg-gradient-to-r from-[#FFDDA8] to-[#DBA757]">SHARMONY
-                project</span></h1>
+        <h1 class="text-white text-3xl sm:text-5xl md:text-7xl font-['TT_Livret_Display_Trl'] leading-tight max-w-3xl">{{ .Params.hero_h1 }}
+            <span class="bg-clip-text text-transparent bg-gradient-to-r from-[#FFDDA8] to-[#DBA757]">{{ .Params.hero_h1_accent }}</span></h1>
         <div class="mt-8 flex flex-wrap gap-3">
             <button onclick="document.getElementById('sharm-option').scrollIntoView({ behavior: 'smooth' })"
-                class="px-5 py-3 bg-gradient-to-r from-[#FFDDA8] to-[#DBA757] text-[#03292B] font-semibold rounded-lg hover:brightness-110 transition text-sm sm:text-base">Request
-                Allocation</button>
+                class="px-5 py-3 bg-gradient-to-r from-[#FFDDA8] to-[#DBA757] text-[#03292B] font-semibold rounded-lg hover:brightness-110 transition text-sm sm:text-base">{{ .Params.hero_btn_allocation }}</button>
             <button onclick="document.getElementById('legal').scrollIntoView({ behavior: 'smooth' })"
-                class="px-5 py-3 border border-[#31D0B2] text-[#31D0B2] font-semibold rounded-lg hover:bg-[#31D0B2]/10 transition text-sm sm:text-base">View
-                Legal Framework</button>
+                class="px-5 py-3 border border-[#31D0B2] text-[#31D0B2] font-semibold rounded-lg hover:bg-[#31D0B2]/10 transition text-sm sm:text-base">{{ .Params.hero_btn_legal }}</button>
         </div>
     </div>
     <div class="absolute bottom-0 w-full h-24 sm:h-36 md:h-60 bg-gradient-to-b from-transparent to-[#03292B] z-20 pointer-events-none" aria-hidden="true"></div>
@@ -31,15 +27,9 @@
     <div class="relative max-w-7xl mx-auto px-4 sm:px-6 py-16 sm:py-24 md:py-32">
 
         <div class="text-center max-w-3xl mx-auto mb-12 sm:mb-20">
-            <p class="uppercase tracking-widest text-[#31D0B2] text-sm mb-4">
-                Financial Instrument
-            </p>
-            <h2 class="text-3xl sm:text-4xl md:text-5xl font-light mb-6">
-                The SHARM Option
-            </h2>
-            <p class="text-base sm:text-lg text-neutral-300">
-                A structured digital framework enabling scalable, tokenized real estate participation.
-            </p>
+            <p class="uppercase tracking-widest text-[#31D0B2] text-sm mb-4">{{ .Params.sharm_eyebrow }}</p>
+            <h2 class="text-3xl sm:text-4xl md:text-5xl font-light mb-6">{{ .Params.sharm_h2 }}</h2>
+            <p class="text-base sm:text-lg text-neutral-300">{{ .Params.sharm_desc }}</p>
         </div>
 
         <div class="grid md:grid-cols-2 gap-10 md:gap-20 items-center">
@@ -48,52 +38,60 @@
 
                 <div class="relative">
                     <span class="absolute -top-10 left-0 text-8xl font-light text-[#C6A052] opacity-10">01</span>
-                    <h3 class="text-xl sm:text-2xl font-light mb-4">Tokenized Asset Infrastructure</h3>
-                    <p class="text-neutral-300 max-w-md text-sm sm:text-base">
-                        Structured digital representation of real estate equity,
-                        designed for transparent participation and compliant ownership distribution.
-                    </p>
+                    <h3 class="text-xl sm:text-2xl font-light mb-4">{{ .Params.sharm_item_1_title }}</h3>
+                    <p class="text-neutral-300 max-w-md text-sm sm:text-base">{{ .Params.sharm_item_1_desc }}</p>
                 </div>
 
                 <div class="relative">
                     <span class="absolute -top-10 left-0 text-8xl font-light text-[#C6A052] opacity-10">02</span>
-                    <h3 class="text-xl sm:text-2xl font-light mb-4">Fractional Equity Architecture</h3>
-                    <p class="text-neutral-300 max-w-md text-sm sm:text-base">
-                        Enables scalable access to institutional-grade property
-                        while maintaining structural integrity and legal clarity.
-                    </p>
+                    <h3 class="text-xl sm:text-2xl font-light mb-4">{{ .Params.sharm_item_2_title }}</h3>
+                    <p class="text-neutral-300 max-w-md text-sm sm:text-base">{{ .Params.sharm_item_2_desc }}</p>
                 </div>
 
                 <div class="relative">
                     <span class="absolute -top-10 left-0 text-8xl font-light text-[#C6A052] opacity-10">03</span>
-                    <h3 class="text-xl sm:text-2xl font-light mb-4">Blockchain Settlement Layer</h3>
-                    <p class="text-neutral-300 max-w-md text-sm sm:text-base">
-                        Smart contract execution and transparent transaction
-                        recording powered by distributed ledger infrastructure.
-                    </p>
+                    <h3 class="text-xl sm:text-2xl font-light mb-4">{{ .Params.sharm_item_3_title }}</h3>
+                    <p class="text-neutral-300 max-w-md text-sm sm:text-base">{{ .Params.sharm_item_3_desc }}</p>
                 </div>
 
             </div>
 
             <!-- Coin Visual -->
-            <div class="flex justify-center items-center w-full mt-8 md:mt-0 overflow-hidden">
-                <div class="relative w-56 h-56 sm:w-72 sm:h-72 md:w-80 md:h-80 lg:w-96 lg:h-96 flex-shrink-0">
+            <div class="coin-scene-wrapper flex flex-col justify-center items-center w-full mt-8 md:mt-0">
 
-                    <!-- Glow (clipped to container bounds) -->
-                    <div class="absolute inset-0 z-10 pointer-events-none flex items-center justify-center" aria-hidden="true">
-                        <div class="w-full h-full rounded-full" style="background: radial-gradient(circle, rgba(49,208,178,0.45) 0%, rgba(49,208,178,0.22) 30%, rgba(3,41,43,0) 70%); filter: blur(32px); mix-blend-mode:screen;"></div>
+                <div class="coin-scene relative w-52 h-52 sm:w-64 sm:h-64 md:w-72 md:h-72 lg:w-80 lg:h-80 shrink-0">
+
+                    <!-- Soft ambient glow -->
+                    <div class="absolute inset-[-18%] rounded-full pointer-events-none coin-glow" aria-hidden="true"
+                         style="background: radial-gradient(circle, rgba(198,160,82,0.2) 0%, transparent 70%); filter: blur(24px);"></div>
+
+                    <!-- Slow orbit ring -->
+                    <div class="absolute inset-[-6%] rounded-full pointer-events-none animate-spin-slow"
+                         style="border: 1px solid rgba(198,160,82,0.2);" aria-hidden="true"></div>
+
+                    <!-- TOKEN face -->
+                    <div class="coin-face coin-token absolute inset-0 rounded-full flex flex-col items-center justify-center"
+                         style="background: radial-gradient(circle at 38% 32%, #d4aa50 0%, #a07828 55%, #7a5c18 100%);
+                                border: 2px solid rgba(255,220,100,0.25);
+                                box-shadow: 0 12px 48px rgba(0,0,0,0.5), inset 0 1px 0 rgba(255,240,160,0.3);">
+                        <img src="/images/sharmony_logo_2.svg" alt="Sharmony" class="w-[36%] h-auto mb-2"
+                             style="filter: brightness(0) invert(1) opacity(0.15);">
+                        <span class="text-[0.6rem] tracking-[0.3em] uppercase" style="color: rgba(255,235,160,0.5);">{{ .Params.sharm_asset_label }}(Hover)</span>
                     </div>
 
-                    <!-- Rotating ring -->
-                    <div class="absolute inset-0 z-20 pointer-events-none flex items-center justify-center">
-                        <div class="w-full h-full rounded-full border border-dashed border-[#31D0B2]/30 animate-spin-slow"></div>
-                    </div>
-
-                    <!-- Coin -->
-                    <div class="absolute inset-0 z-30 flex items-center justify-center">
-                        <div class="w-[78%] h-[78%] rounded-full bg-gradient-to-br from-[#C6A052] to-[#9E7C35] flex items-center justify-center shadow-2xl">
-                            <span class="text-xl sm:text-2xl md:text-3xl font-light text-[#03292B] tracking-widest">SHARM</span>
-                        </div>
+                    <!-- STOCK face (crossfades in on hover) -->
+                    <div class="coin-face coin-stock absolute inset-0 rounded-full flex flex-col items-center justify-center gap-2"
+                         style="background: radial-gradient(circle at 38% 32%, #0d5a50 0%, #062e2a 65%, #031e1c 100%);
+                                border: 2px solid rgba(49,208,178,0.2);
+                                box-shadow: 0 12px 48px rgba(0,0,0,0.5), inset 0 1px 0 rgba(49,208,178,0.15);">
+                        <!-- Minimal upward chart -->
+                        <svg class="w-[48%] h-auto" viewBox="0 0 64 36" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+                            <polyline points="2,32 14,26 26,28 38,18 50,12 62,4"
+                                      stroke="#31D0B2" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                            <polygon points="2,32 14,26 26,28 38,18 50,12 62,4 62,36 2,36"
+                                     fill="rgba(49,208,178,0.07)"/>
+                        </svg>
+                        <span class="text-[0.6rem] tracking-[0.3em] uppercase" style="color: rgba(49,208,178,0.6);">{{ .Params.sharm_stock_label }}</span>
                     </div>
 
                 </div>
@@ -107,7 +105,7 @@
 </section>
 
 <!-- ========================= -->
-<!-- SECTION 3 – REFINED LUXURY TECH -->
+<!-- SECTION 3 – FRACTIONAL MODEL -->
 <!-- ========================= -->
 <section class="relative" style="background-color:#F8EDDD;">
 
@@ -118,18 +116,11 @@
             <div class="space-y-10 sm:space-y-16 md:space-y-20">
 
                 <div>
-                    <p class="uppercase tracking-[0.3em] text-[#C6A052] text-sm mb-6 sm:mb-8">
-                        Fractional Model
-                    </p>
+                    <p class="uppercase tracking-[0.3em] text-[#C6A052] text-sm mb-6 sm:mb-8">{{ .Params.fractional_eyebrow }}</p>
 
-                    <h2 class="text-4xl sm:text-5xl md:text-6xl font-light leading-[1.05] mb-6 sm:mb-10 text-[#03292B]">
-                        Real Estate <br> Re-Engineered.
-                    </h2>
+                    <h2 class="text-4xl sm:text-5xl md:text-6xl font-light leading-[1.05] mb-6 sm:mb-10 text-[#03292B]">{{ .Params.fractional_h2 }}</h2>
 
-                    <p class="text-base sm:text-lg text-[#03292B]/70 max-w-lg leading-relaxed">
-                        Institutional-grade real estate transformed into structured digital units —
-                        preserving legal integrity while unlocking scalable liquidity.
-                    </p>
+                    <p class="text-base sm:text-lg text-[#03292B]/70 max-w-lg leading-relaxed">{{ .Params.fractional_desc }}</p>
                 </div>
 
                 <div class="space-y-8 sm:space-y-14">
@@ -139,8 +130,8 @@
                             01
                         </div>
                         <div>
-                            <h3 class="text-lg sm:text-xl font-light mb-2 sm:mb-3 text-[#03292B]">Blockchain Settlement</h3>
-                            <p class="text-[#03292B]/70 leading-relaxed text-sm sm:text-base">Smart contract execution ensures transparent transaction flow.</p>
+                            <h3 class="text-lg sm:text-xl font-light mb-2 sm:mb-3 text-[#03292B]">{{ .Params.fractional_item_1_title }}</h3>
+                            <p class="text-[#03292B]/70 leading-relaxed text-sm sm:text-base">{{ .Params.fractional_item_1_desc }}</p>
                         </div>
                     </div>
 
@@ -149,8 +140,8 @@
                             02
                         </div>
                         <div>
-                            <h3 class="text-lg sm:text-xl font-light mb-2 sm:mb-3 text-[#03292B]">Fractional Participation</h3>
-                            <p class="text-[#03292B]/70 leading-relaxed text-sm sm:text-base">Investors access premium assets at scalable ownership levels.</p>
+                            <h3 class="text-lg sm:text-xl font-light mb-2 sm:mb-3 text-[#03292B]">{{ .Params.fractional_item_2_title }}</h3>
+                            <p class="text-[#03292B]/70 leading-relaxed text-sm sm:text-base">{{ .Params.fractional_item_2_desc }}</p>
                         </div>
                     </div>
 
@@ -159,50 +150,71 @@
                             03
                         </div>
                         <div>
-                            <h3 class="text-lg sm:text-xl font-light mb-2 sm:mb-3 text-[#03292B]">Regulatory Structure</h3>
-                            <p class="text-[#03292B]/70 leading-relaxed text-sm sm:text-base">Designed within compliant financial frameworks.</p>
+                            <h3 class="text-lg sm:text-xl font-light mb-2 sm:mb-3 text-[#03292B]">{{ .Params.fractional_item_3_title }}</h3>
+                            <p class="text-[#03292B]/70 leading-relaxed text-sm sm:text-base">{{ .Params.fractional_item_3_desc }}</p>
                         </div>
                     </div>
 
                 </div>
             </div>
 
-            <!-- Image Side -->
-            <div class="relative group">
+            <!-- Image Side – Puzzle pieces -->
+            <div class="puzzle-grid-wrap">
+                <svg class="puzzle-svg" viewBox="-15 -15 297 270" xmlns="http://www.w3.org/2000/svg"
+                     aria-label="Fractional villa ownership illustrated as four puzzle pieces">
+                    <defs>
+                        <clipPath id="puzzle-clip-1" clipPathUnits="userSpaceOnUse"
+                                  transform="translate(133.5,120) scale(1.075) translate(-133.5,-120)">
+                            <path d="M138.537 0.099C140.981 1.822 143.193 4.516 145.31 6.664L187.854 49.754L239.42 101.788C248.407 110.813 257.763 119.589 266.343 129.007C253.568 128.666 240.709 128.929 227.925 128.906L212.97 128.879C210.04 128.874 207.022 128.723 204.102 128.975C202.481 129.114 201.057 129.488 200.005 130.832C198.978 132.145 198.895 133.393 199.137 134.98C201.772 139.445 204.363 142.359 203.682 148.08C203.239 151.792 200.797 155.934 197.858 158.141C194.673 160.531 190.018 161.362 186.137 160.635C182.284 159.914 178.735 157.473 176.575 154.178C173.738 149.847 173.73 144.124 176.302 139.666C177.406 137.752 179.222 135.639 179.569 133.41C179.703 132.552 179.666 131.466 179.041 130.789C178.166 129.844 176.199 129.57 175.004 129.427C170.956 128.942 166.532 129.29 162.449 129.294C154.408 129.234 146.366 129.298 138.327 129.484C138.276 119.501 138.292 109.516 138.37 99.533C141.438 100.835 144.444 100.938 147.695 100.456C154.23 99.488 160.18 96.273 164.098 90.823C167.767 85.717 169.207 78.925 168.172 72.728C167.125 66.214 163.52 60.4 158.171 56.599C152.023 52.188 145.718 51.694 138.476 52.916L138.537 0.099Z"/>
+                        </clipPath>
+                        <clipPath id="puzzle-clip-2" clipPathUnits="userSpaceOnUse"
+                                  transform="translate(133.5,120) scale(1.075) translate(-133.5,-120)">
+                            <path d="M128.608 0C129.103 0.854 128.843 45.401 128.841 50.369C128.839 54.613 128.356 60.121 129.023 64.167C129.155 64.968 129.484 65.753 130.071 66.325C133.021 69.203 137.377 63.482 140.125 62.354C141.567 61.761 143.303 61.657 144.853 61.702C148.805 61.817 152.607 63.703 155.306 66.582C158.064 69.475 159.521 73.386 159.334 77.395C159.108 81.468 157.177 85.497 154.06 88.112C150.19 91.359 143.433 92.809 138.822 90.287C136.77 89.165 135.126 86.603 132.626 86.5C131.603 86.458 130.559 86.884 129.827 87.598C129.144 88.265 128.878 89.033 128.764 89.966C128.254 94.173 128.658 98.815 128.653 103.078L128.613 129.616L101.821 129.768C103.718 125.11 103.703 119.126 102.26 114.346C100.456 108.368 96.202 103.557 90.753 100.666C85.088 97.661 78.602 96.917 72.469 98.841C65.534 101.017 60.592 105.598 57.267 112.011C54.515 117.716 54.318 123.196 55.789 129.306L0 129.42C23.208 105.601 46.981 82.303 70.427 58.723L107.768 21.126C114.722 14.093 121.528 6.907 128.608 0Z"/>
+                        </clipPath>
+                        <clipPath id="puzzle-clip-3" clipPathUnits="userSpaceOnUse"
+                                  transform="translate(133.5,120) scale(1.075) translate(-133.5,-120)">
+                            <path d="M138.23 138.794C147.646 138.718 157.062 138.714 166.479 138.782C165.498 143.027 165.047 147.061 165.989 151.367C167.321 157.457 170.861 162.842 176.107 166.184C181.721 169.716 188.493 170.856 194.939 169.353C200.955 167.963 206.433 163.769 209.653 158.494C213.357 152.427 213.754 145.733 212.166 138.936C219.27 138.748 226.408 138.858 233.517 138.83L233.508 239.969L138.272 240L138.262 218.182C138.258 214.532 138.603 210.472 138.021 206.887C137.886 206.059 137.627 205.41 137.022 204.814C133.746 201.578 130.002 205.801 126.835 206.979C125.268 207.562 123.27 207.709 121.605 207.674C117.605 207.589 113.771 206.08 111.02 203.074C108.413 200.224 107.229 196.341 107.411 192.502C107.59 188.711 109.342 184.632 112.223 182.144C116.579 178.458 122.649 177.63 127.82 180.015C129.922 180.965 132.26 182.638 134.613 182.711C135.694 182.744 136.697 182.384 137.455 181.594C138.096 180.926 138.113 179.743 138.187 178.851C138.563 174.277 138.295 169.499 138.283 164.906L138.23 138.794Z"/>
+                        </clipPath>
+                        <!-- Piece 4: same scale as others -->
+                        <clipPath id="puzzle-clip-4" clipPathUnits="userSpaceOnUse"
+                                  transform="translate(133.5,120) scale(1.075) translate(-133.5,-120)">
+                            <path d="M77.407 106.87C78.651 106.782 79.869 106.714 81.113 106.879C85.32 107.399 89.126 109.654 91.626 113.107C95.107 117.898 95.27 124.367 92.035 129.331C91.072 130.823 88.968 132.679 88.768 134.439C88.646 135.431 88.96 136.426 89.626 137.165C90.45 138.073 92.717 138.417 92.754 138.422C92.754 138.422 100.857 138.547 104.79 138.541C112.787 138.495 120.784 138.532 128.781 138.65C128.691 149.194 128.664 159.738 128.699 170.282C124.871 169.41 121.166 169.068 117.284 169.859C110.823 171.176 105.479 175.107 101.914 180.655C98.602 185.808 97.659 192.008 98.94 197.98C100.288 204.264 103.853 209.828 109.284 213.287C115.329 217.137 121.84 217.431 128.641 215.885L128.647 239.984L118.238 239.967L33.771 239.975L33.856 179.411C33.882 165.688 33.663 151.946 33.858 138.227L55.319 138.288C55.319 138.288 62.914 138.672 66.433 138.137C67.374 137.994 68.058 137.738 68.619 136.898C70.609 133.914 67.249 131.019 65.937 128.523C65.378 127.462 65.109 126.275 64.898 125.1C64.117 120.839 65.078 116.441 67.563 112.906C69.964 109.438 73.367 107.596 77.407 106.87Z"/>
+                        </clipPath>
+                    </defs>
 
-                <div class="overflow-hidden">
-                    <img
-                        src="https://images.unsplash.com/photo-1600585154340-be6161a56a0c?q=80&w=2070&auto=format&fit=crop"
-                        class="w-full h-64 sm:h-96 md:h-[500px] object-cover"
-                        alt="Luxury villa"
-                    />
-                </div>
+                    <!-- Piece 1 – top-right -->
+                    <g class="puzzle-piece" clip-path="url(#puzzle-clip-1)">
+                        <image href="/images/investors_fractional_resort.png" x="-15" y="-15" width="297" height="270" preserveAspectRatio="xMidYMid slice"/>
+                    </g>
 
-                <!-- TRIANGLE MAGNIFIED AREA — shown only on md+ screens -->
-                <div class="absolute inset-0 pointer-events-none hidden md:block">
+                    <!-- Piece 2 – top-left -->
+                    <g class="puzzle-piece" clip-path="url(#puzzle-clip-2)">
+                        <image href="/images/investors_fractional_resort.png" x="-15" y="-15" width="297" height="270" preserveAspectRatio="xMidYMid slice"/>
+                    </g>
 
-                    <div class="triangle-cutout-bg" aria-hidden="true"></div>
-                    <div class="triangle-outline" aria-hidden="true"></div>
+                    <!-- Piece 3 – bottom-right -->
+                    <g class="puzzle-piece" clip-path="url(#puzzle-clip-3)">
+                        <image href="/images/investors_fractional_resort.png" x="-15" y="-15" width="297" height="270" preserveAspectRatio="xMidYMid slice"/>
+                    </g>
 
-                    <div class="triangle-magnifier group-hover:scale-[1.02] transition duration-700">
-                        <div class="triangle-bg"></div>
-                        <div class="triangle-tint" aria-hidden="true"></div>
-                        <div class="absolute inset-0 flex items-center justify-center px-8 text-center z-30">
-                            <p class="text-white text-sm sm:text-lg md:text-xl font-medium leading-relaxed max-w-md">
-                                1/24 share = 2 weeks per year.
-                            </p>
-                        </div>
-                    </div>
-
-                </div>
-
+                    <!-- Piece 4 – bottom-left: gold glow + hover scale, text in solid body -->
+                    <g class="puzzle-piece puzzle-piece--text" clip-path="url(#puzzle-clip-4)">
+                        <image href="/images/investors_fractional_resort.png" x="-15" y="-15" width="297" height="270" preserveAspectRatio="xMidYMid slice"/>
+                        <!-- Tint covers entire bounding box — will be clipped by the clipPath to just the piece 4 shape -->
+                        <rect class="p4-tint" x="0" y="0" width="267" height="240" fill="rgba(3,20,15,0.60)"/>
+                        <!-- Text centered in piece 4's solid body: x=81, y positioned for good readability -->
+                        <text x="70" y="170" class="p4-line1">1/24 share</text>
+                        <text x="65" y="185" class="p4-line2">= 2 weeks</text>
+                        <text x="65" y="200" class="p4-line2">per year</text>
+                    </g>
+                </svg>
             </div>
         </div>
     </div>
 </section>
 
 <!-- ========================= -->
-<!-- SECTION – SHARMONY ROADMAP -->
+<!-- SECTION – ROADMAP -->
 <!-- ========================= -->
 <section class="relative text-white overflow-hidden" style="background: linear-gradient(to bottom, #071E1F, #0A2A2B);" id="roadmap">
 
@@ -213,14 +225,10 @@
         <!-- Header -->
         <div class="flex flex-col md:flex-row md:items-end md:justify-between gap-4 sm:gap-6 mb-10 sm:mb-20">
             <div>
-                <p class="uppercase tracking-[0.35em] text-[#C6A052] text-xs mb-4">Development Timeline</p>
-                <h2 class="font-['TT_Livret_Display_Trl'] text-2xl sm:text-4xl md:text-5xl font-light leading-tight">
-                    From First Stone<br>to Global Portfolio
-                </h2>
+                <p class="uppercase tracking-[0.35em] text-[#C6A052] text-xs mb-4">{{ .Params.roadmap_eyebrow }}</p>
+                <h2 class="font-['TT_Livret_Display_Trl'] text-2xl sm:text-4xl md:text-5xl font-light leading-tight">{{ .Params.roadmap_h2 }}</h2>
             </div>
-            <p class="text-white/40 text-sm max-w-xs leading-relaxed md:text-right hidden sm:block">
-                Select a phase to explore<br>what it means for investors.
-            </p>
+            <p class="text-white/40 text-sm max-w-xs leading-relaxed md:text-right hidden sm:block">{{ .Params.roadmap_hint }}</p>
         </div>
 
         <!-- ── Step track ── -->
@@ -268,70 +276,70 @@
 
             <div class="rm3-content" id="rm3-c1">
                 <h3 class="rm3-heading">
-                    <span class="rm3-eyebrow rm3-eyebrow-active">Phase I: In Progress</span>
-                    <span class="rm3-title-heading">Foundation &amp; Capital Raise</span>
+                    <span class="rm3-eyebrow rm3-eyebrow-active">{{ .Params.roadmap_phase_1_label }}</span>
+                    <span class="rm3-title-heading">{{ .Params.roadmap_phase_1_title }}</span>
                 </h3>
-                <p class="rm3-body">Legal entity formation and the SHARM private presale — raising the seed capital to secure our first resort site in Sharm el-Sheikh.</p>
+                <p class="rm3-body">{{ .Params.roadmap_phase_1_desc }}</p>
                 <ul class="rm3-list">
-                    <li>UAE-registered SPV &amp; holding structure</li>
-                    <li>SHARM private presale at $10 per token</li>
-                    <li>Smart contract audit &amp; deployment</li>
-                    <li>Site selection and due diligence finalised</li>
+                    <li>{{ .Params.roadmap_phase_1_li_1 }}</li>
+                    <li>{{ .Params.roadmap_phase_1_li_2 }}</li>
+                    <li>{{ .Params.roadmap_phase_1_li_3 }}</li>
+                    <li>{{ .Params.roadmap_phase_1_li_4 }}</li>
                 </ul>
             </div>
 
             <div class="rm3-content rm3-hidden" id="rm3-c2">
                 <h3 class="rm3-heading">
-                    <span class="rm3-eyebrow">Phase II</span>
-                    <span class="rm3-title-heading">First Resort — Acquisition &amp; Build</span>
+                    <span class="rm3-eyebrow">{{ .Params.roadmap_phase_2_label }}</span>
+                    <span class="rm3-title-heading">{{ .Params.roadmap_phase_2_title }}</span>
                 </h3>
-                <p class="rm3-body">Land acquisition and construction commencement at the flagship Sharm el-Sheikh property — the real-world asset underpinning SHARM token value.</p>
+                <p class="rm3-body">{{ .Params.roadmap_phase_2_desc }}</p>
                 <ul class="rm3-list">
-                    <li>Flagship resort site secured</li>
-                    <li>Architecture, permits &amp; construction partner in place</li>
-                    <li>First investor dividends from pre-letting revenue</li>
-                    <li>SHARMONY marketplace beta launch</li>
+                    <li>{{ .Params.roadmap_phase_2_li_1 }}</li>
+                    <li>{{ .Params.roadmap_phase_2_li_2 }}</li>
+                    <li>{{ .Params.roadmap_phase_2_li_3 }}</li>
+                    <li>{{ .Params.roadmap_phase_2_li_4 }}</li>
                 </ul>
             </div>
 
             <div class="rm3-content rm3-hidden" id="rm3-c3">
                 <h3 class="rm3-heading">
-                    <span class="rm3-eyebrow">Phase III</span>
-                    <span class="rm3-title-heading">Platform &amp; Property Activation</span>
+                    <span class="rm3-eyebrow">{{ .Params.roadmap_phase_3_label }}</span>
+                    <span class="rm3-title-heading">{{ .Params.roadmap_phase_3_title }}</span>
                 </h3>
-                <p class="rm3-body">The first resort opens and the platform goes public — investors begin receiving regular income distributions.</p>
+                <p class="rm3-body">{{ .Params.roadmap_phase_3_desc }}</p>
                 <ul class="rm3-list">
-                    <li>Flagship resort open for guests</li>
-                    <li>Fractional ownership fully tokenised on-chain</li>
-                    <li>Revenue-sharing distributions commence</li>
-                    <li>Marketplace public launch with secondary trading</li>
+                    <li>{{ .Params.roadmap_phase_3_li_1 }}</li>
+                    <li>{{ .Params.roadmap_phase_3_li_2 }}</li>
+                    <li>{{ .Params.roadmap_phase_3_li_3 }}</li>
+                    <li>{{ .Params.roadmap_phase_3_li_4 }}</li>
                 </ul>
             </div>
 
             <div class="rm3-content rm3-hidden" id="rm3-c4">
                 <h3 class="rm3-heading">
-                    <span class="rm3-eyebrow">Phase IV</span>
-                    <span class="rm3-title-heading">Portfolio Expansion</span>
+                    <span class="rm3-eyebrow">{{ .Params.roadmap_phase_4_label }}</span>
+                    <span class="rm3-title-heading">{{ .Params.roadmap_phase_4_title }}</span>
                 </h3>
-                <p class="rm3-body">A second premium property is acquired and the model scales — broader compliance, institutional access, and SHARM listed on major exchanges.</p>
+                <p class="rm3-body">{{ .Params.roadmap_phase_4_desc }}</p>
                 <ul class="rm3-list">
-                    <li>Second resort acquired &amp; tokenised</li>
-                    <li>Multi-jurisdiction regulatory framework</li>
-                    <li>Institutional investor programme</li>
-                    <li>SHARM listed on major exchanges</li>
+                    <li>{{ .Params.roadmap_phase_4_li_1 }}</li>
+                    <li>{{ .Params.roadmap_phase_4_li_2 }}</li>
+                    <li>{{ .Params.roadmap_phase_4_li_3 }}</li>
+                    <li>{{ .Params.roadmap_phase_4_li_4 }}</li>
                 </ul>
             </div>
 
             <div class="rm3-content rm3-hidden" id="rm3-c5">
                 <h3 class="rm3-heading">
-                    <span class="rm3-eyebrow" style="opacity:.5">Horizon</span>
-                    <span class="rm3-title-heading" style="opacity:.6">Global Real Estate Ecosystem</span>
+                    <span class="rm3-eyebrow" style="opacity:.5">{{ .Params.roadmap_phase_5_label }}</span>
+                    <span class="rm3-title-heading" style="opacity:.6">{{ .Params.roadmap_phase_5_title }}</span>
                 </h3>
-                <p class="rm3-body" style="opacity:.45">SHARMONY becomes a multi-property, multi-country platform — offering institutional-grade real estate returns to investors worldwide through a single transparent digital instrument.</p>
+                <p class="rm3-body" style="opacity:.45">{{ .Params.roadmap_phase_5_desc }}</p>
                 <ul class="rm3-list" style="opacity:.4">
-                    <li>Properties across multiple jurisdictions</li>
-                    <li>Full DAO governance active</li>
-                    <li>Global investor base, deep liquidity</li>
+                    <li>{{ .Params.roadmap_phase_5_li_1 }}</li>
+                    <li>{{ .Params.roadmap_phase_5_li_2 }}</li>
+                    <li>{{ .Params.roadmap_phase_5_li_3 }}</li>
                 </ul>
             </div>
 
@@ -556,53 +564,54 @@
 }
 .priv-dot-active { background: #C6A052; }
 
-/* Triangle */
-.triangle-magnifier,
-.triangle-outline,
-.triangle-cutout-bg {
-    position: absolute;
-    top: 0;
-    bottom: 0;
-    right: auto;
-    margin: auto;
-    width: 55%;
-    height: 110%;
-    clip-path: polygon(0 0, 91% 50%, 0 100%);
+/* Puzzle pieces grid */
+.puzzle-grid-wrap {
+    width: 100%;
+    max-width: 480px;
+    margin: 0 auto;
+    padding: 20px;
 }
-.triangle-magnifier {
-    overflow: hidden;
-    filter: none;
-    z-index: 3;
+.puzzle-svg {
+    width: 100%;
+    height: auto;
+    display: block;
+    overflow: visible;
 }
-.triangle-cutout-bg {
-    width: 52%;
-    clip-path: polygon(0 0, 3% 0, 100% 50%, 3% 100%, 0 100%);
-    background: #F8EDDD;
-    z-index: 2;
+/* All pieces share the same base transition */
+.puzzle-piece {
+    transition: transform 0.45s cubic-bezier(0.2,0.9,0.2,1),
+                filter    0.45s ease;
 }
-.triangle-outline {
-    border: 1px solid rgba(3, 41, 43, 0.45);
-    background: transparent;
-    z-index: 4;
+/* Piece 4: gold glow at rest signals interactivity */
+.puzzle-piece--text {
+    cursor: pointer;
+    filter: drop-shadow(0 0 5px rgba(198,160,82,0.6));
+    transform-origin: 81px 173px;
 }
-.triangle-bg {
-    position: absolute;
-    inset: 0;
-    background-image: url('https://images.unsplash.com/photo-1600585154340-be6161a56a0c?q=80&w=2070&auto=format&fit=crop');
-    background-size: cover;
-    background-position: center;
-    transform: scale(1.20);
-    transform-origin: 35% 50%;
-    will-change: transform, filter;
-    z-index: 0;
+.puzzle-piece--text:hover {
+    transform: translate(-5px, 5px) scale(1.08);
+    filter: drop-shadow(0 0 16px rgba(198,160,82,1.0));
 }
-.triangle-tint {
-    position: absolute;
-    inset: 0;
-    background: rgba(0,0,0,0.55);
-    z-index: 5;
-    mix-blend-mode: normal;
-    pointer-events: none;
+.puzzle-piece--text:hover .p4-tint { fill: rgba(3,20,15,0.15); }
+.p4-tint { transition: fill 0.4s ease; }
+.p4-line1 {
+    font-size: 13px;
+    font-weight: 700;
+    fill: #FFDDA8;
+    text-anchor: middle;
+    filter: drop-shadow(0 1px 6px rgba(0,0,0,1));
+}
+.p4-line2 {
+    font-size: 11px;
+    font-weight: 400;
+    fill: rgba(255,255,255,0.95);
+    text-anchor: middle;
+    filter: drop-shadow(0 1px 5px rgba(0,0,0,1));
+}
+
+.p4-line1,
+.p4-line2{
+    dominant-baseline: middle;
 }
 
 /* Improve hierarchy: eyebrow subdued, heading uses display font and stronger presence */
@@ -639,22 +648,16 @@
     <div class="relative z-20 max-w-7xl mx-auto px-4 sm:px-6 py-16 sm:py-24 md:py-40">
 
         <div class="text-center max-w-3xl mx-auto mb-12 sm:mb-24">
-            <p class="uppercase tracking-[0.3em] text-[#C6A052] text-sm mb-6">
-                Ecosystem Benefits
-            </p>
-            <h2 class="text-3xl sm:text-4xl md:text-5xl font-light mb-6 sm:mb-8">
-                SHARM Platform Privileges
-            </h2>
-            <p class="text-white/60 leading-relaxed text-sm sm:text-base">
-                The SHARM option gives investors access to the rights and returns of the SHARMONY ecosystem
-            </p>
+            <p class="uppercase tracking-[0.3em] text-[#C6A052] text-sm mb-6">{{ .Params.privileges_eyebrow }}</p>
+            <h2 class="text-3xl sm:text-4xl md:text-5xl font-light mb-6 sm:mb-8">{{ .Params.privileges_h2 }}</h2>
+            <p class="text-white/60 leading-relaxed text-sm sm:text-base">{{ .Params.privileges_desc }}</p>
         </div>
 
-        <!-- Desktop layout: side stripe nav + content box -->
+        <!-- Desktop layout -->
         <div class="hidden sm:flex items-stretch gap-3">
 
             <div id="priv-nav" class="relative flex flex-col items-center justify-between w-14" role="navigation" aria-label="Platform privileges navigation" tabindex="0">
-                <button id="priv-arrow-up" class="priv-arrow" aria-label="Previous privilege">
+                <button id="priv-arrow-up" class="priv-arrow" aria-label="{{ .Params.privileges_aria_prev }}">
                     <svg width="16" height="16" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M6 15L12 9L18 15" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
                 </button>
                 <div id="stripes" class="stripes flex flex-col items-center justify-center flex-1 gap-3" role="list" aria-label="Privileges list">
@@ -663,38 +666,32 @@
                     <button onclick="showPrivilege(3)" class="stripe-btn" data-id="3" aria-controls="privilegeContent" role="listitem" aria-label="Privilege 3"><span id="stripe3" class="stripe-visual"></span></button>
                     <button onclick="showPrivilege(4)" class="stripe-btn" data-id="4" aria-controls="privilegeContent" role="listitem" aria-label="Privilege 4"><span id="stripe4" class="stripe-visual"></span></button>
                 </div>
-                <button id="priv-arrow-down" class="priv-arrow" aria-label="Next privilege">
+                <button id="priv-arrow-down" class="priv-arrow" aria-label="{{ .Params.privileges_aria_next }}">
                     <svg width="16" height="16" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M6 9L12 15L18 9" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
                 </button>
             </div>
 
             <div class="flex-1 border border-white/10 bg-white/5 backdrop-blur-sm p-8 sm:p-12 md:p-16 min-h-[260px]">
                 <div id="privilegeContent" class="transition-all duration-500">
-                    <p id="privilegeLabel" class="uppercase tracking-[0.3em] text-[#C6A052] text-sm mb-6">Platform Privileges</p>
-                    <h3 id="privilegeTitle" class="text-2xl sm:text-3xl font-light mb-6 sm:mb-8">Payment Utility</h3>
-                    <p id="privilegeText" class="text-white/70 leading-relaxed max-w-2xl text-sm sm:text-base">
-                        Use the SHARM NFT token as a payment tool for platform services
-                        with discounted access to premium features and ecosystem utilities.
-                    </p>
+                    <p id="privilegeLabel" class="uppercase tracking-[0.3em] text-[#C6A052] text-sm mb-6">{{ .Params.privileges_label }}</p>
+                    <h3 id="privilegeTitle" class="text-2xl sm:text-3xl font-light mb-6 sm:mb-8">{{ .Params.privileges_1_title }}</h3>
+                    <p id="privilegeText" class="text-white/70 leading-relaxed max-w-2xl text-sm sm:text-base">{{ .Params.privileges_1_text }}</p>
                 </div>
             </div>
 
         </div>
 
-        <!-- Mobile layout: card with dot navigation -->
+        <!-- Mobile layout -->
         <div class="sm:hidden">
             <div class="border border-white/10 bg-white/5 backdrop-blur-sm p-6 min-h-[220px]">
                 <div id="privilegeContentMobile" class="transition-all duration-500">
-                    <p class="uppercase tracking-[0.3em] text-[#C6A052] text-xs mb-4">Platform Privileges</p>
-                    <h3 id="privilegeTitleMobile" class="text-xl font-light mb-4">Payment Utility</h3>
-                    <p id="privilegeTextMobile" class="text-white/70 leading-relaxed text-sm">
-                        Use the SHARM NFT token as a payment tool for platform services
-                        with discounted access to premium features and ecosystem utilities.
-                    </p>
+                    <p class="uppercase tracking-[0.3em] text-[#C6A052] text-xs mb-4">{{ .Params.privileges_label }}</p>
+                    <h3 id="privilegeTitleMobile" class="text-xl font-light mb-4">{{ .Params.privileges_1_title }}</h3>
+                    <p id="privilegeTextMobile" class="text-white/70 leading-relaxed text-sm">{{ .Params.privileges_1_text }}</p>
                 </div>
             </div>
             <div class="flex items-center justify-center gap-4 mt-6">
-                <button id="priv-mob-prev" class="priv-arrow w-10 h-10" aria-label="Previous privilege">
+                <button id="priv-mob-prev" class="priv-arrow w-10 h-10" aria-label="{{ .Params.privileges_aria_prev }}">
                     <svg width="16" height="16" viewBox="0 0 24 24" fill="none"><path d="M15 6L9 12L15 18" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
                 </button>
                 <div class="flex gap-3" id="priv-dots">
@@ -703,7 +700,7 @@
                     <span class="priv-dot" data-step="3"></span>
                     <span class="priv-dot" data-step="4"></span>
                 </div>
-                <button id="priv-mob-next" class="priv-arrow w-10 h-10" aria-label="Next privilege">
+                <button id="priv-mob-next" class="priv-arrow w-10 h-10" aria-label="{{ .Params.privileges_aria_next }}">
                     <svg width="16" height="16" viewBox="0 0 24 24" fill="none"><path d="M9 6L15 12L9 18" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
                 </button>
             </div>
@@ -720,8 +717,8 @@
     <div class="max-w-7xl mx-auto px-4 sm:px-6 py-16 sm:py-28 md:py-44">
 
         <div class="text-center max-w-3xl mx-auto mb-8 sm:mb-10">
-            <p class="uppercase tracking-[0.3em] text-[#C6A052] text-sm mb-6">Token Sale</p>
-            <h2 class="text-3xl sm:text-4xl md:text-5xl font-light mb-8">Why SHARM Options Are Limited</h2>
+            <p class="uppercase tracking-[0.3em] text-[#C6A052] text-sm mb-6">{{ .Params.token_eyebrow }}</p>
+            <h2 class="text-3xl sm:text-4xl md:text-5xl font-light mb-8">{{ .Params.token_h2 }}</h2>
             <div class="w-24 h-px bg-[#C6A052] mx-auto"></div>
         </div>
 
@@ -733,32 +730,32 @@
                 <div class="space-y-5 sm:space-y-6">
 
                     <div class="flex justify-between border-b border-white/10 pb-4">
-                        <span class="text-white/60 text-sm sm:text-base">Total Supply</span>
-                        <span class="font-light text-sm sm:text-base">5,000,000 SHARM</span>
+                        <span class="text-white/60 text-sm sm:text-base">{{ .Params.token_total_supply_label }}</span>
+                        <span class="font-light text-sm sm:text-base">{{ .Params.token_total_supply_value }}</span>
                     </div>
 
                     <div class="flex justify-between border-b border-white/10 pb-4">
-                        <span class="text-white/60 text-sm sm:text-base">Investment Allocation</span>
-                        <span class="font-light text-sm sm:text-base text-right ml-4">1,500,000 SHARM (30%)</span>
+                        <span class="text-white/60 text-sm sm:text-base">{{ .Params.token_investment_label }}</span>
+                        <span class="font-light text-sm sm:text-base text-right ml-4">{{ .Params.token_investment_value }}</span>
                     </div>
 
                     <div class="flex justify-between border-b border-white/10 pb-4">
-                        <span class="text-white/60 text-sm sm:text-base">Private Presale</span>
-                        <span class="font-light text-sm sm:text-base text-right ml-4">500,000 SHARM (10%)</span>
+                        <span class="text-white/60 text-sm sm:text-base">{{ .Params.token_presale_label }}</span>
+                        <span class="font-light text-sm sm:text-base text-right ml-4">{{ .Params.token_presale_value }}</span>
                     </div>
 
                     <div class="flex justify-between border-b border-white/10 pb-4">
-                        <span class="text-white/60 text-sm sm:text-base">Format</span>
-                        <span class="font-light text-sm sm:text-base">Private Presale</span>
+                        <span class="text-white/60 text-sm sm:text-base">{{ .Params.token_format_label }}</span>
+                        <span class="font-light text-sm sm:text-base">{{ .Params.token_format_value }}</span>
                     </div>
 
                     <div class="flex justify-between pb-4">
-                        <span class="text-white/60 text-sm sm:text-base">Price</span>
-                        <span class="font-light text-[#C6A052] text-sm sm:text-base">1 SHARM = 10 USDT</span>
+                        <span class="text-white/60 text-sm sm:text-base">{{ .Params.token_price_label }}</span>
+                        <span class="font-light text-[#C6A052] text-sm sm:text-base">{{ .Params.token_price_value }}</span>
                     </div>
 
                     <div class="pt-4 sm:pt-6 text-white/50 text-sm">
-                        Private presale closes May 15, 2026.
+                        {{ .Params.token_closes }}
                     </div>
 
                 </div>
@@ -767,7 +764,7 @@
                 <div class="flex flex-col items-center space-y-7 sm:space-y-9">
 
                     <div class="text-center">
-                        <p class="uppercase tracking-[0.25em] text-sm text-[#C6A052] mb-2">Token Distribution</p>
+                        <p class="uppercase tracking-[0.25em] text-sm text-[#C6A052] mb-2">{{ .Params.token_distribution_label }}</p>
                     </div>
 
                     <div class="relative w-52 h-52 sm:w-64 sm:h-64 md:w-72 md:h-72 rounded-full"
@@ -781,15 +778,15 @@
                     <div class="flex flex-col items-start space-y-3">
                         <div class="flex items-center gap-3">
                             <span class="w-4 h-4 rounded-full flex-shrink-0" style="background:#C6A052"></span>
-                            <span class="text-white/80 text-sm sm:text-base">60% — Liquidity, Team & Marketing</span>
+                            <span class="text-white/80 text-sm sm:text-base">{{ .Params.token_dist_1 }}</span>
                         </div>
                         <div class="flex items-center gap-3">
                             <span class="w-4 h-4 rounded-full flex-shrink-0" style="background:#31D0B2"></span>
-                            <span class="text-white/80 text-sm sm:text-base">30% — Investments</span>
+                            <span class="text-white/80 text-sm sm:text-base">{{ .Params.token_dist_2 }}</span>
                         </div>
                         <div class="flex items-center gap-3">
                             <span class="w-4 h-4 rounded-full flex-shrink-0" style="background:rgba(255,255,255,0.1)"></span>
-                            <span class="text-white/80 text-sm sm:text-base">10% — Closed Presale</span>
+                            <span class="text-white/80 text-sm sm:text-base">{{ .Params.token_dist_3 }}</span>
                         </div>
                     </div>
 
@@ -798,7 +795,7 @@
                        uppercase tracking-[0.25em] text-sm
                        hover:bg-[#C6A052] hover:text-[#071A1B]
                        transition-all duration-500">
-                        Register for Closed Presale
+                        {{ .Params.token_cta }}
                     </a>
 
                 </div>
@@ -812,30 +809,37 @@
 
 <!-- FINAL CTA SECTION -->
 <section id="final-cta" class="bg-[#03292B] py-16 sm:py-24 md:py-32 text-center px-4">
-    <h2 class="text-3xl sm:text-4xl md:text-5xl font-['TT_Livret_Display_Trl'] text-white mb-6 max-w-3xl mx-auto leading-tight">Secure Your Position in the SHARMONY Ecosystem</h2>
-    <p class="text-[#94A3B8] mb-10 sm:mb-12 max-w-3xl mx-auto text-sm sm:text-base">Join the seed phase of a tokenized real estate infrastructure
-        designed for global scale.</p>
+    <h2 class="text-3xl sm:text-4xl md:text-5xl font-['TT_Livret_Display_Trl'] text-white mb-6 max-w-3xl mx-auto leading-tight">{{ .Params.final_h2 }}</h2>
+    <p class="text-[#94A3B8] mb-10 sm:mb-12 max-w-3xl mx-auto text-sm sm:text-base">{{ .Params.final_desc }}</p>
     <div class="flex flex-col sm:flex-row justify-center gap-3 sm:gap-4">
-        <button
-            class="px-8 py-4 bg-gradient-to-r from-[#FFDDA8] to-[#DBA757] text-[#03292B] font-semibold rounded-lg hover:brightness-110 transition text-sm sm:text-base">
-            White paper
-        </button>
-        <button
-            class="px-8 py-4 border border-[#31D0B2] text-[#31D0B2] font-semibold rounded-lg hover:bg-[#31D0B2]/10 transition text-sm sm:text-base">
-            Project presentation
-        </button>
+        <button class="px-8 py-4 bg-gradient-to-r from-[#FFDDA8] to-[#DBA757] text-[#03292B] font-semibold rounded-lg hover:brightness-110 transition text-sm sm:text-base">{{ .Params.final_btn_whitepaper }}</button>
+        <button class="px-8 py-4 border border-[#31D0B2] text-[#31D0B2] font-semibold rounded-lg hover:bg-[#31D0B2]/10 transition text-sm sm:text-base">{{ .Params.final_btn_presentation }}</button>
     </div>
 </section>
 
-<!-- Slow spin utility -->
+<!-- Coin styles -->
 <style>
     @keyframes spin-slow {
         from { transform: rotate(0deg); }
         to { transform: rotate(360deg); }
     }
-    .animate-spin-slow {
-        animation: spin-slow 30s linear infinite;
-    }
+    .animate-spin-slow { animation: spin-slow 40s linear infinite; }
+
+    /* Coin crossfade */
+    .coin-scene { cursor: pointer; }
+    .coin-face { transition: opacity 0.25s ease; }
+    .coin-token { opacity: 1; z-index: 2; }
+    .coin-stock  { opacity: 0; z-index: 1; }
+    .coin-scene:hover .coin-token { opacity: 0; }
+    .coin-scene:hover .coin-stock  { opacity: 1; }
+
+    /* Glow shifts on hover */
+    .coin-glow { transition: background 0.25s ease; }
+
+    /* Label */
+    .coin-label-token, .coin-label-stock { transition: opacity 0.2s ease; }
+    .coin-scene-wrapper:hover .coin-label-token { opacity: 0; }
+    .coin-scene-wrapper:hover .coin-label-stock { display: inline !important; opacity: 1; }
 
     /* Stripe navigation */
     .priv-arrow {

@@ -28,14 +28,20 @@ contact_us_form_btn_send: ОТПРАВИТЬ СООБЩЕНИЕ
 
 contact_us_card_item_1_1: Соцсети
 contact_us_card_item_1_2: ОСТАВАЙТЕСЬ НА СВЯЗИ
+contact_us_card_item_1_3: LinkedIn
+contact_us_card_item_1_4: Twitter/X
 
 contact_us_card_item_2_1: Прямая связь
 contact_us_card_item_2_2: ЧАТЫ И ПОДДЕРЖКА
+contact_us_card_item_2_3: Telegram
+contact_us_card_item_2_4: Discord
 
-contact_us_card_item_3_1: Инсайты
-contact_us_card_item_3_2: ЧИТАЙТЕ НАШ MEDIUM
-contact_us_card_item_3_3: Погружение в цифровую гармонию.
-contact_us_card_item_3_4: Читать блог →
+contact_us_badge_1: 24/7
+contact_us_badge_1_label: Поддержка
+contact_us_badge_2: 6
+contact_us_badge_2_label: Офисов
+contact_us_badge_3: 30+
+contact_us_badge_3_label: Стран
 
 contact_us_card_item_4_1: Цифровая гармония для создателей
 ---

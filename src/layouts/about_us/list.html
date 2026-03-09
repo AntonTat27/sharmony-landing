@@ -30,7 +30,7 @@
         <!-- Placeholder label -->
         <div class="absolute bottom-6 right-6 flex items-center gap-2 opacity-30 pointer-events-none select-none">
             <svg class="w-4 h-4 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24"><rect x="3" y="3" width="18" height="18" rx="2" stroke-width="1.5"/><circle cx="8.5" cy="8.5" r="1.5" stroke-width="1.5"/><path d="M21 15l-5-5L5 21" stroke-width="1.5"/></svg>
-            <span class="text-white text-[10px] uppercase tracking-widest">hero image placeholder</span>
+            <span class="text-white text-[10px] uppercase tracking-widest">{{ .Params.map_placeholder }}</span>
         </div>
     </div>
 
@@ -52,55 +52,56 @@
 
             <div class="inline-flex items-center gap-2 mb-6">
                 <span class="w-2 h-2 rounded-full bg-[#31D0B2] animate-pulse flex-shrink-0"></span>
-                <span class="text-[#31D0B2] uppercase tracking-[0.3em] text-xs">About Sharmony</span>
+                <span class="text-[#31D0B2] uppercase tracking-[0.3em] text-xs">{{ .Params.hero_eyebrow }}</span>
             </div>
 
             <h1 class="font-['TT_Livret_Display_Trl'] text-white font-light leading-[1.06] mb-6"
                 style="font-size:clamp(2.8rem,4.5vw,4.75rem);">
-                Innovation<br>in Investments.<br>
+                {{ .Params.hero_h1_line1 }}<br>
+                {{ .Params.hero_h1_line2 }}<br>
                 <span class="bg-clip-text text-transparent bg-gradient-to-r from-[#FFDDA8] to-[#DBA757]">
-                    Reliability.<br>Global Vision.
+                    {{ .Params.hero_h1_accent }}
                 </span>
             </h1>
 
             <p class="text-white/60 text-base leading-relaxed max-w-md mb-8">
-                International technology company headquartered in Hong Kong SAR, with offices across Dubai, Türkiye, Thailand, Indonesia, and Georgia.
+                {{ .Params.hero_description }}
             </p>
 
             <div class="flex gap-4 mb-12">
                 <a href="#team"
                    class="inline-flex items-center gap-2 px-7 py-3.5 bg-gradient-to-r from-[#FFDDA8] to-[#DBA757] text-[#03292B] rounded-lg font-semibold text-sm hover:brightness-105 transition-all">
-                    Meet the Team
+                    {{ .Params.hero_btn_team }}
                     <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 7l5 5m0 0l-5 5m5-5H6"/>
                     </svg>
                 </a>
                 <a href="#contact"
                    class="inline-flex items-center px-7 py-3.5 border border-[#31D0B2]/55 text-[#31D0B2] rounded-lg text-sm hover:bg-[#31D0B2]/10 transition-all">
-                    Contact Us
+                    {{ .Params.hero_btn_contact }}
                 </a>
             </div>
 
             <!-- Stat strip -->
             <div class="flex items-center gap-7 pt-8 border-t border-white/15">
                 <div>
-                    <div class="font-['TT_Livret_Display_Trl'] text-[#DBA757] text-3xl font-light leading-none">50+</div>
-                    <div class="text-white/45 text-[11px] uppercase tracking-widest mt-1.5">Professionals</div>
+                    <div class="font-['TT_Livret_Display_Trl'] text-[#DBA757] text-3xl font-light leading-none">{{ .Params.hero_stat_1_value }}</div>
+                    <div class="text-white/45 text-[11px] uppercase tracking-widest mt-1.5">{{ .Params.hero_stat_1_label }}</div>
                 </div>
                 <div class="w-px h-10 bg-white/15 flex-shrink-0"></div>
                 <div>
-                    <div class="font-['TT_Livret_Display_Trl'] text-[#DBA757] text-3xl font-light leading-none">$100M</div>
-                    <div class="text-white/45 text-[11px] uppercase tracking-widest mt-1.5">Assets Managed</div>
+                    <div class="font-['TT_Livret_Display_Trl'] text-[#DBA757] text-3xl font-light leading-none">{{ .Params.hero_stat_2_value }}</div>
+                    <div class="text-white/45 text-[11px] uppercase tracking-widest mt-1.5">{{ .Params.hero_stat_2_label }}</div>
                 </div>
                 <div class="w-px h-10 bg-white/15 flex-shrink-0"></div>
                 <div>
-                    <div class="font-['TT_Livret_Display_Trl'] text-[#DBA757] text-3xl font-light leading-none">30+</div>
-                    <div class="text-white/45 text-[11px] uppercase tracking-widest mt-1.5">Countries</div>
+                    <div class="font-['TT_Livret_Display_Trl'] text-[#DBA757] text-3xl font-light leading-none">{{ .Params.hero_stat_3_value }}</div>
+                    <div class="text-white/45 text-[11px] uppercase tracking-widest mt-1.5">{{ .Params.hero_stat_3_label }}</div>
                 </div>
                 <div class="w-px h-10 bg-white/15 flex-shrink-0"></div>
                 <div>
-                    <div class="font-['TT_Livret_Display_Trl'] text-[#DBA757] text-3xl font-light leading-none">6+</div>
-                    <div class="text-white/45 text-[11px] uppercase tracking-widest mt-1.5">Offices</div>
+                    <div class="font-['TT_Livret_Display_Trl'] text-[#DBA757] text-3xl font-light leading-none">{{ .Params.hero_stat_4_value }}</div>
+                    <div class="text-white/45 text-[11px] uppercase tracking-widest mt-1.5">{{ .Params.hero_stat_4_label }}</div>
                 </div>
             </div>
         </div>
@@ -145,15 +146,15 @@
             <!-- Eyebrow -->
             <div class="absolute top-5 left-5 z-10 inline-flex items-center gap-2">
                 <span class="w-1.5 h-1.5 rounded-full bg-[#31D0B2] flex-shrink-0"></span>
-                <span class="text-[#31D0B2] uppercase tracking-[0.28em] text-[10px] font-medium">About Sharmony</span>
+                <span class="text-[#31D0B2] uppercase tracking-[0.28em] text-[10px] font-medium">{{ .Params.hero_eyebrow }}</span>
             </div>
             <!-- Headline at bottom of photo -->
             <div class="absolute bottom-5 left-5 right-5 z-10">
                 <h1 class="font-['TT_Livret_Display_Trl'] text-white font-light leading-[1.1]"
                     style="font-size:clamp(1.75rem,7.5vw,2.5rem);">
-                    Innovation in Investments.<br>
+                    {{ .Params.hero_h1_line1 }} {{ .Params.hero_h1_line2 }}<br>
                     <span class="bg-clip-text text-transparent bg-gradient-to-r from-[#FFDDA8] to-[#DBA757]">
-                        Reliability. Global Vision.
+                        {{ .Params.hero_h1_accent }}
                     </span>
                 </h1>
             </div>
@@ -166,41 +167,41 @@
         <div class="bg-[#03292B] px-5 pt-5 pb-10">
 
             <p class="text-white/60 text-sm leading-relaxed mb-6">
-                International technology company headquartered in Hong Kong SAR, with offices across Dubai, Türkiye, Thailand, Indonesia, and Georgia.
+                {{ .Params.hero_description }}
             </p>
 
             <!-- CTAs -->
             <div class="flex gap-3 mb-6">
                 <a href="#team"
                    class="flex-1 inline-flex items-center justify-center gap-1.5 py-3.5 bg-gradient-to-r from-[#FFDDA8] to-[#DBA757] text-[#03292B] rounded-lg font-semibold text-sm">
-                    Meet the Team
+                    {{ .Params.hero_btn_team }}
                     <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M13 7l5 5m0 0l-5 5m5-5H6"/>
                     </svg>
                 </a>
                 <a href="#contact"
                    class="flex-1 inline-flex items-center justify-center py-3.5 border border-[#31D0B2]/55 text-[#31D0B2] rounded-lg text-sm">
-                    Contact Us
+                    {{ .Params.hero_btn_contact }}
                 </a>
             </div>
 
             <!-- 2×2 stat grid -->
             <div class="grid grid-cols-2 gap-2.5 mb-6">
                 <div class="bg-white/[0.05] border border-white/[0.08] rounded-xl px-4 py-4">
-                    <div class="font-['TT_Livret_Display_Trl'] text-[#DBA757] text-2xl font-light leading-none">50+</div>
-                    <div class="text-white/40 text-[10px] uppercase tracking-widest mt-1.5">Professionals</div>
+                    <div class="font-['TT_Livret_Display_Trl'] text-[#DBA757] text-2xl font-light leading-none">{{ .Params.hero_stat_1_value }}</div>
+                    <div class="text-white/40 text-[10px] uppercase tracking-widest mt-1.5">{{ .Params.hero_stat_1_label }}</div>
                 </div>
                 <div class="bg-white/[0.05] border border-white/[0.08] rounded-xl px-4 py-4">
-                    <div class="font-['TT_Livret_Display_Trl'] text-[#DBA757] text-2xl font-light leading-none">$100M</div>
-                    <div class="text-white/40 text-[10px] uppercase tracking-widest mt-1.5">Assets Managed</div>
+                    <div class="font-['TT_Livret_Display_Trl'] text-[#DBA757] text-2xl font-light leading-none">{{ .Params.hero_stat_2_value }}</div>
+                    <div class="text-white/40 text-[10px] uppercase tracking-widest mt-1.5">{{ .Params.hero_stat_2_label }}</div>
                 </div>
                 <div class="bg-white/[0.05] border border-white/[0.08] rounded-xl px-4 py-4">
-                    <div class="font-['TT_Livret_Display_Trl'] text-[#DBA757] text-2xl font-light leading-none">30+</div>
-                    <div class="text-white/40 text-[10px] uppercase tracking-widest mt-1.5">Countries</div>
+                    <div class="font-['TT_Livret_Display_Trl'] text-[#DBA757] text-2xl font-light leading-none">{{ .Params.hero_stat_3_value }}</div>
+                    <div class="text-white/40 text-[10px] uppercase tracking-widest mt-1.5">{{ .Params.hero_stat_3_label }}</div>
                 </div>
                 <div class="bg-white/[0.05] border border-white/[0.08] rounded-xl px-4 py-4">
-                    <div class="font-['TT_Livret_Display_Trl'] text-[#DBA757] text-2xl font-light leading-none">6+</div>
-                    <div class="text-white/40 text-[10px] uppercase tracking-widest mt-1.5">Offices</div>
+                    <div class="font-['TT_Livret_Display_Trl'] text-[#DBA757] text-2xl font-light leading-none">{{ .Params.hero_stat_4_value }}</div>
+                    <div class="text-white/40 text-[10px] uppercase tracking-widest mt-1.5">{{ .Params.hero_stat_4_label }}</div>
                 </div>
             </div>
 
@@ -217,9 +218,9 @@
     <div class="max-w-7xl mx-auto px-5 sm:px-6">
 
         <div class="text-center mb-10 sm:mb-16">
-            <p class="uppercase tracking-[0.3em] text-[#31D0B2] text-xs sm:text-sm mb-3">Our Team</p>
+            <p class="uppercase tracking-[0.3em] text-[#31D0B2] text-xs sm:text-sm mb-3">{{ .Params.team_eyebrow }}</p>
             <h2 class="font-['TT_Livret_Display_Trl'] text-2xl sm:text-4xl md:text-5xl font-light mb-4 sm:mb-6">
-                World-Class Professionals
+                {{ .Params.team_h2 }}
             </h2>
             <div class="w-16 h-px bg-[#DBA757] mx-auto"></div>
         </div>
@@ -261,30 +262,31 @@
         </div>
 
         <!-- Mobile swipe hint -->
-        <p class="sm:hidden text-center text-white/30 text-xs mt-3 tracking-widest uppercase select-none" aria-hidden="true">← swipe →</p>
+        <p class="sm:hidden text-center text-white/30 text-xs mt-3 tracking-widest uppercase select-none" aria-hidden="true">{{ .Params.team_swipe_hint }}</p>
     </div>
 
     <!-- TEAM STRUCTURE GRID -->
     <div class="max-w-7xl mx-auto px-5 sm:px-6">
         <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-6 sm:gap-8 mt-12 sm:mt-16 text-sm">
             <div class="border-t border-[#DBA757]/40 pt-5">
-                <h4 class="text-base text-white mb-2 font-light">Founders</h4>
-                <p class="text-white/55 leading-relaxed text-sm">Entrepreneurs with experience in development, fintech, and venture investments.</p>
+                <h4 class="text-base text-white mb-2 font-light">{{ .Params.team_dept_1_title }}</h4>
+                <p class="text-white/55 leading-relaxed text-sm">{{ .Params.team_dept_1_desc }}</p>
             </div>
             <div class="border-t border-[#DBA757]/40 pt-5">
-                <h4 class="text-base text-white mb-2 font-light">Technology Board</h4>
-                <p class="text-white/55 leading-relaxed text-sm">Leading blockchain developers and architects of DeFi solutions.</p>
+                <h4 class="text-base text-white mb-2 font-light">{{ .Params.team_dept_2_title }}</h4>
+                <p class="text-white/55 leading-relaxed text-sm">{{ .Params.team_dept_2_desc }}</p>
             </div>
             <div class="border-t border-[#DBA757]/40 pt-5">
-                <h4 class="text-base text-white mb-2 font-light">Legal Department</h4>
-                <p class="text-white/55 leading-relaxed text-sm">International law specialists ensuring full transaction security.</p>
+                <h4 class="text-base text-white mb-2 font-light">{{ .Params.team_dept_3_title }}</h4>
+                <p class="text-white/55 leading-relaxed text-sm">{{ .Params.team_dept_3_desc }}</p>
             </div>
             <div class="border-t border-[#DBA757]/40 pt-5">
-                <h4 class="text-base text-white mb-2 font-light">Analysts &amp; Asset Managers</h4>
-                <p class="text-white/55 leading-relaxed text-sm">Experts in Asian and European real estate markets.</p>
+                <h4 class="text-base text-white mb-2 font-light">{{ .Params.team_dept_4_title }}</h4>
+                <p class="text-white/55 leading-relaxed text-sm">{{ .Params.team_dept_4_desc }}</p>
             </div>
         </div>
-    </div>
+    </div><!-- /team structure grid -->
+    </div><!-- /max-w-7xl -->
 </section>
 
 
@@ -295,9 +297,9 @@
     <div class="max-w-7xl mx-auto px-5 sm:px-6">
 
         <div class="text-center mb-10 sm:mb-14 lg:mb-18">
-            <p class="uppercase tracking-[0.3em] text-[#DBA757] text-xs sm:text-sm mb-3">Our Team</p>
+            <p class="uppercase tracking-[0.3em] text-[#DBA757] text-xs sm:text-sm mb-3">{{ .Params.principles_eyebrow }}</p>
             <h2 class="font-['TT_Livret_Display_Trl'] text-2xl sm:text-4xl md:text-5xl font-light">
-                Professional Collaboration Principles
+                {{ .Params.principles_h2 }}
             </h2>
         </div>
 
@@ -310,8 +312,8 @@
                         <circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 3"/>
                     </svg>
                 </div>
-                <h3 class="text-base sm:text-lg font-light mb-2">Transparency</h3>
-                <p class="text-sm text-[#03292B]/65 leading-relaxed">All transactions recorded on blockchain with independent audits.</p>
+                <h3 class="text-base sm:text-lg font-light mb-2">{{ .Params.principles_1_title }}</h3>
+                <p class="text-sm text-[#03292B]/65 leading-relaxed">{{ .Params.principles_1_desc }}</p>
             </div>
 
             <!-- Security -->
@@ -321,8 +323,8 @@
                         <path d="M12 2l7 4v6c0 5-3.5 9.3-7 10.5C8.5 21.3 5 17 5 12V6l7-4z"/>
                     </svg>
                 </div>
-                <h3 class="text-base sm:text-lg font-light mb-2">Security</h3>
-                <p class="text-sm text-[#03292B]/65 leading-relaxed">Licensed custodians, asset insurance, GDPR/KYC/AML compliance.</p>
+                <h3 class="text-base sm:text-lg font-light mb-2">{{ .Params.principles_2_title }}</h3>
+                <p class="text-sm text-[#03292B]/65 leading-relaxed">{{ .Params.principles_2_desc }}</p>
             </div>
 
             <!-- Innovation -->
@@ -332,8 +334,8 @@
                         <path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z"/>
                     </svg>
                 </div>
-                <h3 class="text-base sm:text-lg font-light mb-2">Innovation</h3>
-                <p class="text-sm text-[#03292B]/65 leading-relaxed">Proprietary developments in RWA tokenization and smart contracts.</p>
+                <h3 class="text-base sm:text-lg font-light mb-2">{{ .Params.principles_3_title }}</h3>
+                <p class="text-sm text-[#03292B]/65 leading-relaxed">{{ .Params.principles_3_desc }}</p>
             </div>
 
             <!-- Accessibility -->
@@ -343,8 +345,8 @@
                         <circle cx="12" cy="12" r="10"/><path d="M2 12h20M12 2a15.3 15.3 0 0 1 0 20M12 2a15.3 15.3 0 0 0 0 20"/>
                     </svg>
                 </div>
-                <h3 class="text-base sm:text-lg font-light mb-2">Accessibility</h3>
-                <p class="text-sm text-[#03292B]/65 leading-relaxed">Lowered investment thresholds without compromising reliability.</p>
+                <h3 class="text-base sm:text-lg font-light mb-2">{{ .Params.principles_4_title }}</h3>
+                <p class="text-sm text-[#03292B]/65 leading-relaxed">{{ .Params.principles_4_desc }}</p>
             </div>
 
         </div>
@@ -382,32 +384,32 @@
             </div>
 
             <div class="order-last md:order-first">
-                <p class="uppercase tracking-[0.3em] text-[#31D0B2] text-xs sm:text-sm mb-4">Company</p>
+                <p class="uppercase tracking-[0.3em] text-[#31D0B2] text-xs sm:text-sm mb-4">{{ .Params.facts_eyebrow }}</p>
                 <h2 class="font-['TT_Livret_Display_Trl'] text-[clamp(1.75rem,4vw,3.5rem)] font-light mb-8 sm:mb-12 leading-tight">
-                    Key Facts About SHARMONY
+                    {{ .Params.facts_h2 }}
                 </h2>
 
                 <dl class="space-y-5 sm:space-y-7">
                     <div class="border-l-2 border-[#DBA757] pl-5">
-                        <dt class="text-white text-xs uppercase tracking-widest mb-1">Founded</dt>
-                        <dd class="text-white/70 text-sm sm:text-base">2025</dd>
+                        <dt class="text-white text-xs uppercase tracking-widest mb-1">{{ .Params.facts_founded_label }}</dt>
+                        <dd class="text-white/70 text-sm sm:text-base">{{ .Params.facts_founded_value }}</dd>
                     </div>
                     <div class="border-l-2 border-[#DBA757] pl-5">
-                        <dt class="text-white text-xs uppercase tracking-widest mb-1">Legal Structure</dt>
+                        <dt class="text-white text-xs uppercase tracking-widest mb-1">{{ .Params.facts_legal_label }}</dt>
                         <dd class="text-white/70 text-sm sm:text-base space-y-1">
-                            <p>Parent company registered in Seychelles.</p>
-                            <p>Subsidiary joint-stock company in Hong Kong.</p>
-                            <p>Branches operate in each country of presence.</p>
+                            <p>{{ .Params.facts_legal_value_1 }}</p>
+                            <p>{{ .Params.facts_legal_value_2 }}</p>
+                            <p>{{ .Params.facts_legal_value_3 }}</p>
                         </dd>
                     </div>
                     <div class="border-l-2 border-[#DBA757] pl-5">
-                        <dt class="text-white text-xs uppercase tracking-widest mb-1">Partners</dt>
-                        <dd class="text-white/70 text-sm sm:text-base">Banks, developers, construction firms, legal companies, insurance providers and real estate agencies.</dd>
+                        <dt class="text-white text-xs uppercase tracking-widest mb-1">{{ .Params.facts_partners_label }}</dt>
+                        <dd class="text-white/70 text-sm sm:text-base">{{ .Params.facts_partners_value }}</dd>
                     </div>
                     <div class="border-l-2 border-[#DBA757] pl-5">
-                        <dt class="text-white text-xs uppercase tracking-widest mb-1">Project Founder</dt>
+                        <dt class="text-white text-xs uppercase tracking-widest mb-1">{{ .Params.facts_founder_label }}</dt>
                         <dd>
-                            <a href="#" class="text-[#31D0B2] hover:text-[#31D0B2]/80 transition underline underline-offset-4 text-sm sm:text-base">Alexander Lee (LinkedIn)</a>
+                            <a href="#" class="text-[#31D0B2] hover:text-[#31D0B2]/80 transition underline underline-offset-4 text-sm sm:text-base">{{ .Params.facts_founder_link }}</a>
                         </dd>
                     </div>
                 </dl>
@@ -421,108 +423,550 @@
 <!-- ========================= -->
 <!-- GLOBAL MAP                -->
 <!-- ========================= -->
+<style>
+/* ── Map pin interactions ── */
+.map-pin-btn {
+    cursor: pointer; position: absolute; z-index: 20;
+    transition: filter 0.2s;
+}
+.map-pin-btn:hover { filter: brightness(1.3); }
+.map-pin-btn:hover .pin-dot { transform: scale(1.5); }
+
+.pin-dot {
+    width: 7px; height: 7px; border-radius: 50%;
+    transition: transform 0.2s;
+}
+.pin-pulse {
+    position: absolute; border-radius: 50%;
+    width: 7px; height: 7px;
+    left: 0; top: 0;
+    animation: map-pulse 2s ease-out infinite;
+    pointer-events: none;
+}
+@keyframes map-pulse {
+    0%   { transform: scale(1);   opacity: 0.6; }
+    70%  { transform: scale(3.2); opacity: 0; }
+    100% { transform: scale(3.2); opacity: 0; }
+}
+.map-pin-btn.is-active .pin-dot {
+    box-shadow: 0 0 0 3px rgba(49,208,178,0.4);
+}
+.map-pin-btn.is-active .pin-dot-hq {
+    box-shadow: 0 0 0 3px rgba(219,167,87,0.5);
+}
+
+.pin-label {
+    position: absolute; white-space: nowrap; pointer-events: auto; cursor: pointer;
+    background: rgba(3,41,43,0.93);
+    border: 1px solid rgba(255,255,255,0.14);
+    border-radius: 5px;
+    padding: 4px 8px;
+    font-size: 11px;
+    letter-spacing: 0.04em;
+    color: rgba(255,255,255,0.8);
+    line-height: 1.3;
+    transition: background 0.15s, border-color 0.15s;
+}
+.pin-label:hover {
+    background: rgba(3,41,43,1);
+    border-color: rgba(49,208,178,0.35);
+}
+.pin-label-hq {
+    border-color: rgba(219,167,87,0.35);
+    color: rgba(219,167,87,0.9);
+}
+/* label placement helpers — set by inline style per pin */
+
+/* ── Photo reel ── */
+.map-reel { position: relative; width: 100%; height: 100%; overflow: hidden; border-radius: 0.75rem; }
+.map-slide {
+    position: absolute; inset: 0; width: 100%; height: 100%;
+    object-fit: cover; opacity: 0;
+    transition: opacity 0.85s ease-in-out, transform 0.85s ease-in-out;
+    transform: scale(1.05);
+}
+.map-slide.is-active { opacity: 1; transform: scale(1); }
+.map-reel-progress {
+    position: absolute; top: 0; left: 0; height: 3px; width: 0%;
+    background: linear-gradient(to right, #DBA757, #FFDDA8);
+    z-index: 10; border-radius: 0 2px 2px 0;
+}
+.map-reel-dots {
+    position: absolute; bottom: 10px; left: 50%; transform: translateX(-50%);
+    z-index: 10; display: flex; gap: 6px; align-items: center;
+}
+.map-reel-dot {
+    width: 6px; height: 6px; border-radius: 50%;
+    background: rgba(255,255,255,0.35); border: none; padding: 0;
+    cursor: pointer; transition: background 0.3s, transform 0.3s; flex-shrink: 0;
+}
+.map-reel-dot.is-active { background: #DBA757; transform: scale(1.45); }
+
+/* ── Left panel city info ── */
+.city-info { display: none; }
+.city-info.is-active { display: block; }
+</style>
+
 <section class="bg-[#03292B] text-[#F8EDDD] py-16 sm:py-24 lg:py-32 border-t border-white/5">
     <div class="max-w-7xl mx-auto px-5 sm:px-6">
 
         <div class="text-center mb-10 sm:mb-14">
-            <p class="uppercase tracking-[0.35em] text-[#31D0B2] text-xs sm:text-sm mb-4">Worldwide Operations</p>
-            <h2 class="font-['TT_Livret_Display_Trl'] text-2xl sm:text-4xl md:text-5xl font-light mb-4">
-                Global Operational Network
+            <p class="uppercase tracking-[0.35em] text-[#31D0B2] text-xs sm:text-sm mb-4">{{ .Params.map_eyebrow }}</p>
+            <h2 class="font-['TT_Livret_Display_Trl'] text-2xl sm:text-4xl md:text-5xl font-light mb-2">
+                {{ .Params.map_h2 }}
             </h2>
+            <p class="text-white/40 text-sm">{{ .Params.map_hint }}</p>
         </div>
 
-        <!-- SVG map with pin markers -->
-        <div class="relative mb-12 sm:mb-16 rounded-2xl overflow-hidden"
-             style="background:linear-gradient(145deg,#062224 0%,#083335 60%,#051B1D 100%);">
-            <!-- Subtle grid overlay -->
-            <svg class="absolute inset-0 w-full h-full opacity-[0.06] pointer-events-none" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid slice">
-                <defs>
-                    <pattern id="mapGrid" width="50" height="50" patternUnits="userSpaceOnUse">
+        <div class="grid grid-cols-1 lg:grid-cols-2 gap-6 lg:gap-8 items-stretch">
+
+            <!-- ══════════════ LEFT ══════════════ -->
+            <div class="flex flex-col gap-5">
+
+                <!-- City info — one shown at a time -->
+                <div class="city-info is-active" data-city="hong-kong">
+                    <div class="flex items-center gap-2 mb-2">
+                        <span class="w-2 h-2 rounded-full bg-[#DBA757] flex-shrink-0"></span>
+                        <span class="text-[#DBA757] text-[10px] uppercase tracking-widest font-semibold">{{ .Params.map_city_hq_badge }}</span>
+                    </div>
+                    <h3 class="font-['TT_Livret_Display_Trl'] text-2xl sm:text-3xl font-light text-white mb-2">{{ .Params.map_city_hq_name }}</h3>
+                    <p class="text-white/50 text-sm leading-relaxed mb-4">{{ .Params.map_city_hq_desc }}</p>
+                    <div class="grid grid-cols-3 gap-3 text-xs">
+                        <div class="bg-white/5 rounded-lg px-3 py-3"><div class="text-white/40 uppercase tracking-widest mb-1">{{ .Params.map_city_role_label }}</div><div class="text-[#DBA757]">{{ .Params.map_city_hq_role }}</div></div>
+                        <div class="bg-white/5 rounded-lg px-3 py-3"><div class="text-white/40 uppercase tracking-widest mb-1">{{ .Params.map_city_region_label }}</div><div class="text-white/70">{{ .Params.map_city_hq_region }}</div></div>
+                        <div class="bg-white/5 rounded-lg px-3 py-3"><div class="text-white/40 uppercase tracking-widest mb-1">{{ .Params.map_city_focus_label }}</div><div class="text-white/70">{{ .Params.map_city_hq_focus }}</div></div>
+                    </div>
+                </div>
+
+                <div class="city-info" data-city="dubai">
+                    <div class="flex items-center gap-2 mb-2">
+                        <span class="w-2 h-2 rounded-full bg-[#31D0B2] flex-shrink-0"></span>
+                        <span class="text-[#31D0B2] text-[10px] uppercase tracking-widest font-semibold">{{ .Params.map_city_dubai_badge }}</span>
+                    </div>
+                    <h3 class="font-['TT_Livret_Display_Trl'] text-2xl sm:text-3xl font-light text-white mb-2">{{ .Params.map_city_dubai_name }}</h3>
+                    <p class="text-white/50 text-sm leading-relaxed mb-4">{{ .Params.map_city_dubai_desc }}</p>
+                    <div class="grid grid-cols-3 gap-3 text-xs">
+                        <div class="bg-white/5 rounded-lg px-3 py-3"><div class="text-white/40 uppercase tracking-widest mb-1">{{ .Params.map_city_role_label }}</div><div class="text-[#31D0B2]">{{ .Params.map_city_dubai_role }}</div></div>
+                        <div class="bg-white/5 rounded-lg px-3 py-3"><div class="text-white/40 uppercase tracking-widest mb-1">{{ .Params.map_city_region_label }}</div><div class="text-white/70">{{ .Params.map_city_dubai_region }}</div></div>
+                        <div class="bg-white/5 rounded-lg px-3 py-3"><div class="text-white/40 uppercase tracking-widest mb-1">{{ .Params.map_city_focus_label }}</div><div class="text-white/70">{{ .Params.map_city_dubai_focus }}</div></div>
+                    </div>
+                </div>
+
+                <div class="city-info" data-city="istanbul">
+                    <div class="flex items-center gap-2 mb-2">
+                        <span class="w-2 h-2 rounded-full bg-[#31D0B2] flex-shrink-0"></span>
+                        <span class="text-[#31D0B2] text-[10px] uppercase tracking-widest font-semibold">{{ .Params.map_city_istanbul_badge }}</span>
+                    </div>
+                    <h3 class="font-['TT_Livret_Display_Trl'] text-2xl sm:text-3xl font-light text-white mb-2">{{ .Params.map_city_istanbul_name }}</h3>
+                    <p class="text-white/50 text-sm leading-relaxed mb-4">{{ .Params.map_city_istanbul_desc }}</p>
+                    <div class="grid grid-cols-3 gap-3 text-xs">
+                        <div class="bg-white/5 rounded-lg px-3 py-3"><div class="text-white/40 uppercase tracking-widest mb-1">{{ .Params.map_city_role_label }}</div><div class="text-[#31D0B2]">{{ .Params.map_city_istanbul_role }}</div></div>
+                        <div class="bg-white/5 rounded-lg px-3 py-3"><div class="text-white/40 uppercase tracking-widest mb-1">{{ .Params.map_city_region_label }}</div><div class="text-white/70">{{ .Params.map_city_istanbul_region }}</div></div>
+                        <div class="bg-white/5 rounded-lg px-3 py-3"><div class="text-white/40 uppercase tracking-widest mb-1">{{ .Params.map_city_focus_label }}</div><div class="text-white/70">{{ .Params.map_city_istanbul_focus }}</div></div>
+                    </div>
+                </div>
+
+                <div class="city-info" data-city="bangkok">
+                    <div class="flex items-center gap-2 mb-2">
+                        <span class="w-2 h-2 rounded-full bg-[#31D0B2] flex-shrink-0"></span>
+                        <span class="text-[#31D0B2] text-[10px] uppercase tracking-widest font-semibold">{{ .Params.map_city_bangkok_badge }}</span>
+                    </div>
+                    <h3 class="font-['TT_Livret_Display_Trl'] text-2xl sm:text-3xl font-light text-white mb-2">{{ .Params.map_city_bangkok_name }}</h3>
+                    <p class="text-white/50 text-sm leading-relaxed mb-4">{{ .Params.map_city_bangkok_desc }}</p>
+                    <div class="grid grid-cols-3 gap-3 text-xs">
+                        <div class="bg-white/5 rounded-lg px-3 py-3"><div class="text-white/40 uppercase tracking-widest mb-1">{{ .Params.map_city_role_label }}</div><div class="text-[#31D0B2]">{{ .Params.map_city_bangkok_role }}</div></div>
+                        <div class="bg-white/5 rounded-lg px-3 py-3"><div class="text-white/40 uppercase tracking-widest mb-1">{{ .Params.map_city_region_label }}</div><div class="text-white/70">{{ .Params.map_city_bangkok_region }}</div></div>
+                        <div class="bg-white/5 rounded-lg px-3 py-3"><div class="text-white/40 uppercase tracking-widest mb-1">{{ .Params.map_city_focus_label }}</div><div class="text-white/70">{{ .Params.map_city_bangkok_focus }}</div></div>
+                    </div>
+                </div>
+
+                <div class="city-info" data-city="jakarta">
+                    <div class="flex items-center gap-2 mb-2">
+                        <span class="w-2 h-2 rounded-full bg-[#31D0B2] flex-shrink-0"></span>
+                        <span class="text-[#31D0B2] text-[10px] uppercase tracking-widest font-semibold">{{ .Params.map_city_jakarta_badge }}</span>
+                    </div>
+                    <h3 class="font-['TT_Livret_Display_Trl'] text-2xl sm:text-3xl font-light text-white mb-2">{{ .Params.map_city_jakarta_name }}</h3>
+                    <p class="text-white/50 text-sm leading-relaxed mb-4">{{ .Params.map_city_jakarta_desc }}</p>
+                    <div class="grid grid-cols-3 gap-3 text-xs">
+                        <div class="bg-white/5 rounded-lg px-3 py-3"><div class="text-white/40 uppercase tracking-widest mb-1">{{ .Params.map_city_role_label }}</div><div class="text-[#31D0B2]">{{ .Params.map_city_jakarta_role }}</div></div>
+                        <div class="bg-white/5 rounded-lg px-3 py-3"><div class="text-white/40 uppercase tracking-widest mb-1">{{ .Params.map_city_region_label }}</div><div class="text-white/70">{{ .Params.map_city_jakarta_region }}</div></div>
+                        <div class="bg-white/5 rounded-lg px-3 py-3"><div class="text-white/40 uppercase tracking-widest mb-1">{{ .Params.map_city_focus_label }}</div><div class="text-white/70">{{ .Params.map_city_jakarta_focus }}</div></div>
+                    </div>
+                </div>
+
+                <div class="city-info" data-city="tbilisi">
+                    <div class="flex items-center gap-2 mb-2">
+                        <span class="w-2 h-2 rounded-full bg-[#31D0B2] flex-shrink-0"></span>
+                        <span class="text-[#31D0B2] text-[10px] uppercase tracking-widest font-semibold">{{ .Params.map_city_tbilisi_badge }}</span>
+                    </div>
+                    <h3 class="font-['TT_Livret_Display_Trl'] text-2xl sm:text-3xl font-light text-white mb-2">{{ .Params.map_city_tbilisi_name }}</h3>
+                    <p class="text-white/50 text-sm leading-relaxed mb-4">{{ .Params.map_city_tbilisi_desc }}</p>
+                    <div class="grid grid-cols-3 gap-3 text-xs">
+                        <div class="bg-white/5 rounded-lg px-3 py-3"><div class="text-white/40 uppercase tracking-widest mb-1">{{ .Params.map_city_role_label }}</div><div class="text-[#31D0B2]">{{ .Params.map_city_tbilisi_role }}</div></div>
+                        <div class="bg-white/5 rounded-lg px-3 py-3"><div class="text-white/40 uppercase tracking-widest mb-1">{{ .Params.map_city_region_label }}</div><div class="text-white/70">{{ .Params.map_city_tbilisi_region }}</div></div>
+                        <div class="bg-white/5 rounded-lg px-3 py-3"><div class="text-white/40 uppercase tracking-widest mb-1">{{ .Params.map_city_focus_label }}</div><div class="text-white/70">{{ .Params.map_city_tbilisi_focus }}</div></div>
+                    </div>
+                </div>
+
+                <!-- Shared photo reel — auto-cycles, switches city on pin click -->
+                <div class="flex-1 rounded-xl overflow-hidden" style="min-height:240px;">
+                    <div class="map-reel" id="map-reel" style="height:100%;min-height:240px;" data-interval="4000">
+                        <div class="map-reel-progress" id="map-reel-bar"></div>
+
+                        <!-- Hong Kong -->
+                        <img class="map-slide" data-city="hong-kong" data-idx="0" src="/images/hong_kong.png" alt="Hong Kong"/>
+                        <div class="map-slide is-active" data-city="hong-kong" data-idx="1" style="background:linear-gradient(160deg,#0A2F32,#0D4A47,#07363A);">
+                            <div style="position:absolute;inset:0;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:8px;pointer-events:none;user-select:none;">
+                                <svg width="40" height="40" fill="none" stroke="rgba(255,255,255,0.2)" stroke-width="1" viewBox="0 0 24 24"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><path d="M21 15l-5-5L5 21"/></svg>
+                                <span style="color:rgba(255,255,255,0.25);font-size:10px;letter-spacing:0.18em;text-transform:uppercase;">Hong Kong · Photo 1</span>
+                            </div>
+                        </div>
+                        <div class="map-slide" data-city="hong-kong" data-idx="1" style="background:linear-gradient(200deg,#07363A,#0A2F32,#0D3A3A);">
+                            <div style="position:absolute;inset:0;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:8px;pointer-events:none;user-select:none;">
+                                <svg width="40" height="40" fill="none" stroke="rgba(255,255,255,0.2)" stroke-width="1" viewBox="0 0 24 24"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><path d="M21 15l-5-5L5 21"/></svg>
+                                <span style="color:rgba(255,255,255,0.25);font-size:10px;letter-spacing:0.18em;text-transform:uppercase;">Hong Kong · Photo 2</span>
+                            </div>
+                        </div>
+                        <div class="map-slide" data-city="hong-kong" data-idx="2" style="background:linear-gradient(240deg,#0D3A3A,#07363A,#0A2F32);">
+                            <div style="position:absolute;inset:0;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:8px;pointer-events:none;user-select:none;">
+                                <svg width="40" height="40" fill="none" stroke="rgba(255,255,255,0.2)" stroke-width="1" viewBox="0 0 24 24"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><path d="M21 15l-5-5L5 21"/></svg>
+                                <span style="color:rgba(255,255,255,0.25);font-size:10px;letter-spacing:0.18em;text-transform:uppercase;">Hong Kong · Photo 3</span>
+                            </div>
+                        </div>
+
+                        <!-- Dubai -->
+                        <img class="map-slide" data-city="dubai" data-idx="0" src="/images/uae.jpg" alt="Dubai"/>
+                        <div class="map-slide" data-city="dubai" data-idx="1" style="background:linear-gradient(160deg,#0A2F32,#1A3A0A,#0A2A1A);">
+                            <div style="position:absolute;inset:0;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:8px;pointer-events:none;user-select:none;">
+                                <svg width="40" height="40" fill="none" stroke="rgba(255,255,255,0.2)" stroke-width="1" viewBox="0 0 24 24"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><path d="M21 15l-5-5L5 21"/></svg>
+                                <span style="color:rgba(255,255,255,0.25);font-size:10px;letter-spacing:0.18em;text-transform:uppercase;">Dubai · Photo 2</span>
+                            </div>
+                        </div>
+                        <div class="map-slide" data-city="dubai" data-idx="2" style="background:linear-gradient(200deg,#0A2A1A,#0A2F32,#1A2A0A);">
+                            <div style="position:absolute;inset:0;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:8px;pointer-events:none;user-select:none;">
+                                <svg width="40" height="40" fill="none" stroke="rgba(255,255,255,0.2)" stroke-width="1" viewBox="0 0 24 24"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><path d="M21 15l-5-5L5 21"/></svg>
+                                <span style="color:rgba(255,255,255,0.25);font-size:10px;letter-spacing:0.18em;text-transform:uppercase;">Dubai · Photo 3</span>
+                            </div>
+                        </div>
+
+                        <!-- Istanbul -->
+                        <img class="map-slide" data-city="istanbul" data-idx="0" src="/images/turkey.jpg" alt="Istanbul"/>
+                        <div class="map-slide" data-city="istanbul" data-idx="1" style="background:linear-gradient(160deg,#2F1A0A,#3A2A0D,#1E1507);">
+                            <div style="position:absolute;inset:0;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:8px;pointer-events:none;user-select:none;">
+                                <svg width="40" height="40" fill="none" stroke="rgba(255,255,255,0.2)" stroke-width="1" viewBox="0 0 24 24"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><path d="M21 15l-5-5L5 21"/></svg>
+                                <span style="color:rgba(255,255,255,0.25);font-size:10px;letter-spacing:0.18em;text-transform:uppercase;">Istanbul · Photo 2</span>
+                            </div>
+                        </div>
+                        <div class="map-slide" data-city="istanbul" data-idx="2" style="background:linear-gradient(200deg,#1E1507,#2F1A0A,#3A1A0D);">
+                            <div style="position:absolute;inset:0;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:8px;pointer-events:none;user-select:none;">
+                                <svg width="40" height="40" fill="none" stroke="rgba(255,255,255,0.2)" stroke-width="1" viewBox="0 0 24 24"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><path d="M21 15l-5-5L5 21"/></svg>
+                                <span style="color:rgba(255,255,255,0.25);font-size:10px;letter-spacing:0.18em;text-transform:uppercase;">Istanbul · Photo 3</span>
+                            </div>
+                        </div>
+
+                        <!-- Bangkok -->
+                        <img class="map-slide" data-city="bangkok" data-idx="0" src="/images/thailand.jpg" alt="Bangkok"/>
+                        <div class="map-slide" data-city="bangkok" data-idx="1" style="background:linear-gradient(160deg,#0A3A2F,#0D4A3A,#072632);">
+                            <div style="position:absolute;inset:0;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:8px;pointer-events:none;user-select:none;">
+                                <svg width="40" height="40" fill="none" stroke="rgba(255,255,255,0.2)" stroke-width="1" viewBox="0 0 24 24"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><path d="M21 15l-5-5L5 21"/></svg>
+                                <span style="color:rgba(255,255,255,0.25);font-size:10px;letter-spacing:0.18em;text-transform:uppercase;">Bangkok · Photo 2</span>
+                            </div>
+                        </div>
+                        <div class="map-slide" data-city="bangkok" data-idx="2" style="background:linear-gradient(200deg,#072632,#0A3A2F,#0D3A1A);">
+                            <div style="position:absolute;inset:0;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:8px;pointer-events:none;user-select:none;">
+                                <svg width="40" height="40" fill="none" stroke="rgba(255,255,255,0.2)" stroke-width="1" viewBox="0 0 24 24"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><path d="M21 15l-5-5L5 21"/></svg>
+                                <span style="color:rgba(255,255,255,0.25);font-size:10px;letter-spacing:0.18em;text-transform:uppercase;">Bangkok · Photo 3</span>
+                            </div>
+                        </div>
+
+                        <!-- Jakarta -->
+                        <img class="map-slide" data-city="jakarta" data-idx="0" src="/images/indonesia.jpg" alt="Jakarta"/>
+                        <div class="map-slide" data-city="jakarta" data-idx="1" style="background:linear-gradient(160deg,#0A2A3A,#0D3A4A,#071A2A);">
+                            <div style="position:absolute;inset:0;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:8px;pointer-events:none;user-select:none;">
+                                <svg width="40" height="40" fill="none" stroke="rgba(255,255,255,0.2)" stroke-width="1" viewBox="0 0 24 24"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><path d="M21 15l-5-5L5 21"/></svg>
+                                <span style="color:rgba(255,255,255,0.25);font-size:10px;letter-spacing:0.18em;text-transform:uppercase;">Jakarta · Photo 2</span>
+                            </div>
+                        </div>
+                        <div class="map-slide" data-city="jakarta" data-idx="2" style="background:linear-gradient(200deg,#071A2A,#0A2A3A,#0D1A3A);">
+                            <div style="position:absolute;inset:0;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:8px;pointer-events:none;user-select:none;">
+                                <svg width="40" height="40" fill="none" stroke="rgba(255,255,255,0.2)" stroke-width="1" viewBox="0 0 24 24"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><path d="M21 15l-5-5L5 21"/></svg>
+                                <span style="color:rgba(255,255,255,0.25);font-size:10px;letter-spacing:0.18em;text-transform:uppercase;">Jakarta · Photo 3</span>
+                            </div>
+                        </div>
+
+                        <!-- Tbilisi -->
+                        <img class="map-slide" data-city="tbilisi" data-idx="0" src="/images/georgia.jpg" alt="Tbilisi"/>
+                        <div class="map-slide" data-city="tbilisi" data-idx="1" style="background:linear-gradient(160deg,#1A0A2F,#2A0D3A,#150726);">
+                            <div style="position:absolute;inset:0;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:8px;pointer-events:none;user-select:none;">
+                                <svg width="40" height="40" fill="none" stroke="rgba(255,255,255,0.2)" stroke-width="1" viewBox="0 0 24 24"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><path d="M21 15l-5-5L5 21"/></svg>
+                                <span style="color:rgba(255,255,255,0.25);font-size:10px;letter-spacing:0.18em;text-transform:uppercase;">Tbilisi · Photo 2</span>
+                            </div>
+                        </div>
+                        <div class="map-slide" data-city="tbilisi" data-idx="2" style="background:linear-gradient(200deg,#150726,#1A0A2F,#2A0A1A);">
+                            <div style="position:absolute;inset:0;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:8px;pointer-events:none;user-select:none;">
+                                <svg width="40" height="40" fill="none" stroke="rgba(255,255,255,0.2)" stroke-width="1" viewBox="0 0 24 24"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><path d="M21 15l-5-5L5 21"/></svg>
+                                <span style="color:rgba(255,255,255,0.25);font-size:10px;letter-spacing:0.18em;text-transform:uppercase;">Tbilisi · Photo 3</span>
+                            </div>
+                        </div>
+
+                        <div class="map-reel-dots" id="map-reel-dots"></div>
+                    </div>
+                </div>
+
+            </div><!-- /left column -->
+
+            <!-- RIGHT — full world map -->
+            <div class="relative rounded-2xl overflow-hidden flex flex-col justify-center"
+                 style="background:linear-gradient(145deg,#062224 0%,#083335 60%,#051B1D 100%);">
+
+                <div>
+                <!-- Grid overlay -->
+                <svg class="absolute inset-0 w-full h-full opacity-[0.06] pointer-events-none" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid slice">
+                    <defs><pattern id="mapGrid" width="50" height="50" patternUnits="userSpaceOnUse">
                         <path d="M 50 0 L 0 0 0 50" fill="none" stroke="#31D0B2" stroke-width="0.6"/>
-                    </pattern>
-                </defs>
-                <rect width="100%" height="100%" fill="url(#mapGrid)"/>
-            </svg>
+                    </pattern></defs>
+                    <rect width="100%" height="100%" fill="url(#mapGrid)"/>
+                </svg>
 
-            <!-- World map SVG -->
-            <div class="relative px-4 py-6 sm:px-8 sm:py-10">
-                <img src="/images/offices_map.svg" alt="Sharmony Offices Map"
-                     class="w-full relative z-10 opacity-60"
-                     style="filter:brightness(0) invert(1) opacity(0.18);">
+                <!--
+                    map-inner: position:relative, NO padding.
+                    The image defines the size; pins sit at exact % of the image.
+                    py-6 on the outer card gives breathing room top/bottom.
+                -->
+                <div class="relative w-full py-6 px-4 sm:py-8 sm:px-6">
+                    <div class="relative w-full" id="map-inner">
+                        <img src="/images/offices_map.svg" alt="Sharmony Offices Map"
+                             id="map-img"
+                             class="w-full block"
+                             style="filter:brightness(0) invert(1) opacity(0.22);">
+                        <!-- Pins are injected by JS so they sit at exact pixel offsets from the image -->
+                    </div>
+                </div>
+                </div>
 
-                <!-- Pin markers — positioned as % of container -->
-                <!-- Hong Kong: ~83% x, ~45% y -->
-                <div class="map-pin absolute z-20" style="left:83%;top:44%;" data-city="Hong Kong" data-role="HQ">
-                    <div class="relative flex flex-col items-center">
-                        <div class="w-4 h-4 sm:w-5 sm:h-5 rounded-full bg-[#DBA757] ring-2 ring-[#DBA757]/40 animate-ping absolute opacity-60"></div>
-                        <div class="w-4 h-4 sm:w-5 sm:h-5 rounded-full bg-[#DBA757] ring-2 ring-[#DBA757]/50 relative cursor-pointer"></div>
-                        <div class="mt-1.5 hidden sm:block bg-[#03292B]/90 border border-[#DBA757]/30 rounded-lg px-2.5 py-1 whitespace-nowrap shadow-lg">
-                            <span class="text-[#DBA757] text-[10px] font-semibold uppercase tracking-wider">HQ</span>
-                            <span class="text-white/60 text-[10px] ml-1">Hong Kong</span>
-                        </div>
-                    </div>
+                <!-- Legend -->
+                <div class="flex items-center justify-center gap-5 pb-4 text-xs text-white/40 pointer-events-none">
+                    <span class="flex items-center gap-1.5"><span class="w-2.5 h-2.5 rounded-full bg-[#DBA757] inline-block"></span>{{ .Params.map_legend_hq }}</span>
+                    <span class="flex items-center gap-1.5"><span class="w-2.5 h-2.5 rounded-full bg-[#31D0B2] inline-block"></span>{{ .Params.map_legend_offices }}</span>
                 </div>
-                <!-- Dubai: ~62% x, ~48% y -->
-                <div class="map-pin absolute z-20" style="left:62%;top:47%;" data-city="Dubai">
-                    <div class="relative flex flex-col items-center">
-                        <div class="w-3 h-3 sm:w-4 sm:h-4 rounded-full bg-[#31D0B2] ring-2 ring-[#31D0B2]/40 animate-ping absolute opacity-50"></div>
-                        <div class="w-3 h-3 sm:w-4 sm:h-4 rounded-full bg-[#31D0B2] relative cursor-pointer"></div>
-                        <div class="mt-1.5 hidden sm:block bg-[#03292B]/90 border border-[#31D0B2]/30 rounded-lg px-2 py-1 whitespace-nowrap shadow-lg">
-                            <span class="text-white/60 text-[10px]">Dubai</span>
-                        </div>
-                    </div>
-                </div>
-                <!-- Istanbul: ~59% x, ~39% y -->
-                <div class="map-pin absolute z-20" style="left:59%;top:38%;" data-city="Istanbul">
-                    <div class="relative flex flex-col items-center">
-                        <div class="w-3 h-3 sm:w-4 sm:h-4 rounded-full bg-[#31D0B2] ring-2 ring-[#31D0B2]/40 animate-ping absolute opacity-50"></div>
-                        <div class="w-3 h-3 sm:w-4 sm:h-4 rounded-full bg-[#31D0B2] relative cursor-pointer"></div>
-                        <div class="mt-1.5 hidden sm:block bg-[#03292B]/90 border border-[#31D0B2]/30 rounded-lg px-2 py-1 whitespace-nowrap shadow-lg">
-                            <span class="text-white/60 text-[10px]">Istanbul</span>
-                        </div>
-                    </div>
-                </div>
-                <!-- Bangkok: ~78% x, ~53% y -->
-                <div class="map-pin absolute z-20" style="left:78%;top:52%;" data-city="Bangkok">
-                    <div class="relative flex flex-col items-center">
-                        <div class="w-3 h-3 sm:w-4 sm:h-4 rounded-full bg-[#31D0B2] ring-2 ring-[#31D0B2]/40 animate-ping absolute opacity-50"></div>
-                        <div class="w-3 h-3 sm:w-4 sm:h-4 rounded-full bg-[#31D0B2] relative cursor-pointer"></div>
-                        <div class="mt-1.5 hidden sm:block bg-[#03292B]/90 border border-[#31D0B2]/30 rounded-lg px-2 py-1 whitespace-nowrap shadow-lg">
-                            <span class="text-white/60 text-[10px]">Bangkok</span>
-                        </div>
-                    </div>
-                </div>
-                <!-- Jakarta: ~80% x, ~60% y -->
-                <div class="map-pin absolute z-20" style="left:80%;top:59%;" data-city="Jakarta">
-                    <div class="relative flex flex-col items-center">
-                        <div class="w-3 h-3 sm:w-4 sm:h-4 rounded-full bg-[#31D0B2] ring-2 ring-[#31D0B2]/40 animate-ping absolute opacity-50"></div>
-                        <div class="w-3 h-3 sm:w-4 sm:h-4 rounded-full bg-[#31D0B2] relative cursor-pointer"></div>
-                        <div class="mt-1.5 hidden sm:block bg-[#03292B]/90 border border-[#31D0B2]/30 rounded-lg px-2 py-1 whitespace-nowrap shadow-lg">
-                            <span class="text-white/60 text-[10px]">Jakarta</span>
-                        </div>
-                    </div>
-                </div>
-                <!-- Tbilisi: ~62% x, ~37% y -->
-                <div class="map-pin absolute z-20" style="left:62%;top:36%;" data-city="Tbilisi">
-                    <div class="relative flex flex-col items-center">
-                        <div class="w-3 h-3 sm:w-4 sm:h-4 rounded-full bg-[#31D0B2] ring-2 ring-[#31D0B2]/40 animate-ping absolute opacity-50"></div>
-                        <div class="w-3 h-3 sm:w-4 sm:h-4 rounded-full bg-[#31D0B2] relative cursor-pointer"></div>
-                        <div class="mt-1.5 hidden sm:block bg-[#03292B]/90 border border-[#31D0B2]/30 rounded-lg px-2 py-1 whitespace-nowrap shadow-lg">
-                            <span class="text-white/60 text-[10px]">Tbilisi</span>
-                        </div>
-                    </div>
-                </div>
-            </div>
+            </div><!-- /right column -->
 
-            <!-- Legend -->
-            <div class="flex items-center justify-center gap-5 px-5 pb-5 text-xs text-white/45">
-                <span class="flex items-center gap-1.5"><span class="w-3 h-3 rounded-full bg-[#DBA757] flex-shrink-0"></span>Headquarters</span>
-                <span class="flex items-center gap-1.5"><span class="w-3 h-3 rounded-full bg-[#31D0B2] flex-shrink-0"></span>Offices</span>
-            </div>
-        </div>
-
+        </div><!-- /two-column grid -->
     </div>
 </section>
+
+<script>
+(function () {
+    /*
+       CITY DATA — lat/lon + label placement
+       labelDir: t=top, b=bottom, r=right, l=left, tr=top-right, tl=top-left
+        */
+    var cities = [
+        // Added `x` and `y` which are coordinates from the SVG viewBox (1280x640).
+        { id:'hong-kong', slug:'hong-kong', label:'Hong Kong', hq:true,
+          lat:22.3,  lon:114.2,  labelDir:'r', x:1044, y:270 },
+        { id:'dubai',     slug:'dubai',     label:'Dubai',     hq:false,
+          lat:20.2,  lon:57.2,   labelDir:'l', x:803,  y:256 },
+        { id:'istanbul',  slug:'istanbul',  label:'Istanbul',  hq:false,
+          lat:40.0,  lon:14.0,   labelDir:'tl', x:690,  y:179 },
+        { id:'bangkok',   slug:'bangkok',   label:'Bangkok',   hq:false,
+          lat:13.8,  lon:100.5,  labelDir:'b', x:998,  y:308 },
+        { id:'jakarta',   slug:'jakarta',   label:'Jakarta',   hq:false,
+          lat:-6.2,  lon:106.8,  labelDir:'r', x:1067, y:415 },
+        { id:'tbilisi',   slug:'tbilisi',   label:'Tbilisi',   hq:false,
+          lat:41.7,  lon:29.8,   labelDir:'t', x:753,  y:176 }
+    ];
+
+    var mapInner = document.getElementById('map-inner');
+    var mapImg   = document.getElementById('map-img');
+    var currentCity = 'hong-kong';
+    var currentIdx  = 0;
+    var paused      = false;
+    var startTs     = null;
+    var INTERVAL    = 4000;
+
+    var infos    = document.querySelectorAll('.city-info');
+    var reel     = document.getElementById('map-reel');
+    var bar      = document.getElementById('map-reel-bar');
+    var dotsWrap = document.getElementById('map-reel-dots');
+
+    /* ── Convert lat/lon or svg viewBox coords to pixel offset within the rendered image ── */
+    function geoToPixel(lat, lon, svgX, svgY) {
+        var imgRect   = mapImg.getBoundingClientRect();
+        var innerRect = mapInner.getBoundingClientRect();
+        // Image offset within map-inner (should be 0,0 normally)
+        var offX = imgRect.left - innerRect.left;
+        var offY = imgRect.top  - innerRect.top;
+        var w = imgRect.width;
+        var h = imgRect.height;
+        // SVG viewBox used by the source file
+        var viewW = 1280;
+        var viewH = 640;
+        // declare once
+        var xPct, yPct;
+        // If explicit SVG viewBox coords are provided, use them (recommended)
+        if (typeof svgX === 'number' && typeof svgY === 'number') {
+            xPct = svgX / viewW;
+            yPct = svgY / viewH;
+        } else {
+            // Fallback: convert geographic lat/lon to equirectangular pixel position
+            xPct = (lon + 180) / 360;
+            yPct = (90  - lat) / 180;
+        }
+        return {
+            x: offX + w * xPct,
+            y: offY + h * yPct
+        };
+    }
+
+    /* ── Create all pin elements once ── */
+    var pinEls = {};
+    cities.forEach(function(c) {
+        var el = document.createElement('div');
+        el.className = 'map-pin-btn' + (c.slug === 'hong-kong' ? ' is-active' : '');
+        el.id = 'pin-' + c.slug;
+        el.dataset.city = c.slug;
+
+        var color = c.hq ? '#DBA757' : '#31D0B2';
+
+        // Pulse ring
+        var pulse = document.createElement('div');
+        pulse.className = 'pin-pulse';
+        pulse.style.background = color;
+        el.appendChild(pulse);
+
+        // Dot
+        var dot = document.createElement('div');
+        dot.className = 'pin-dot' + (c.hq ? ' pin-dot-hq' : '');
+        dot.style.background = color;
+        el.appendChild(dot);
+
+        // Label (hidden on small screens via media query)
+        var lbl = document.createElement('div');
+        lbl.className = 'pin-label' + (c.hq ? ' pin-label-hq' : '');
+        lbl.textContent = c.hq ? 'HQ · ' + c.label : c.label;
+        lbl.addEventListener('click', (function(slug){ return function(e){ e.stopPropagation(); activateCity(slug); }; })(c.slug));
+        el.appendChild(lbl);
+
+        // Position label based on direction
+        switch (c.labelDir) {
+            case 'r':
+                lbl.style.left = '12px'; lbl.style.top = '50%';
+                lbl.style.transform = 'translateY(-50%)'; break;
+            case 'l':
+                lbl.style.right = '12px'; lbl.style.top = '50%';
+                lbl.style.transform = 'translateY(-50%)'; break;
+            case 't':
+                lbl.style.bottom = '12px'; lbl.style.left = '50%';
+                lbl.style.transform = 'translateX(-50%)'; break;
+            case 'b':
+                lbl.style.top = '12px'; lbl.style.left = '50%';
+                lbl.style.transform = 'translateX(-50%)'; break;
+            case 'tr':
+                lbl.style.left = '10px'; lbl.style.bottom = '10px'; break;
+            case 'tl':
+                lbl.style.right = '10px'; lbl.style.bottom = '10px'; break;
+            case 'br':
+                lbl.style.left = '10px'; lbl.style.top = '10px'; break;
+            case 'bl':
+                lbl.style.right = '10px'; lbl.style.top = '10px'; break;
+        }
+
+        el.addEventListener('click', function() { activateCity(c.slug); });
+        mapInner.appendChild(el);
+        pinEls[c.slug] = el;
+    });
+
+    /* ── Position all pins (call on load + resize) ── */
+    function positionPins() {
+        cities.forEach(function(c) {
+            // prefer explicit SVG coords (c.x/c.y) if present
+            var pos = geoToPixel(c.lat, c.lon, c.x, c.y);
+            var el = pinEls[c.slug];
+            el.style.left = pos.x + 'px';
+            el.style.top  = pos.y + 'px';
+            // centre the 7px dot on the point
+            el.style.marginLeft = '-3px';
+            el.style.marginTop  = '-3px';
+        });
+    }
+
+    // Position after image loads
+    if (mapImg.complete) {
+        positionPins();
+    } else {
+        mapImg.addEventListener('load', positionPins);
+    }
+    window.addEventListener('resize', positionPins);
+
+    /* ── Hide labels on very small screens via JS (< 640px) ── */
+    function updateLabelVisibility() {
+        var hide = window.innerWidth < 640;
+        Object.keys(pinEls).forEach(function(k) {
+            var lbl = pinEls[k].querySelector('.pin-label');
+            if (lbl) lbl.style.display = hide ? 'none' : '';
+        });
+    }
+    updateLabelVisibility();
+    window.addEventListener('resize', updateLabelVisibility);
+
+    /* ── Reel helpers ── */
+    function slidesFor(city) {
+        return Array.from(reel.querySelectorAll('.map-slide[data-city="' + city + '"]'));
+    }
+
+    function buildDots(city) {
+        dotsWrap.innerHTML = '';
+        slidesFor(city).forEach(function(_, i) {
+            var d = document.createElement('button');
+            d.className = 'map-reel-dot' + (i === 0 ? ' is-active' : '');
+            d.addEventListener('click', function(e) { e.stopPropagation(); showSlide(city, i); });
+            dotsWrap.appendChild(d);
+        });
+    }
+
+    function showSlide(city, idx) {
+        reel.querySelectorAll('.map-slide').forEach(function(s) { s.classList.remove('is-active'); });
+        var target = reel.querySelector('.map-slide[data-city="' + city + '"][data-idx="' + idx + '"]');
+        if (target) target.classList.add('is-active');
+        var dots = dotsWrap.querySelectorAll('.map-reel-dot');
+        dots.forEach(function(d, i) { d.classList.toggle('is-active', i === idx); });
+        currentIdx = idx;
+        startTs = null;
+        if (bar) { bar.style.transition = 'none'; bar.style.width = '0%'; }
+    }
+
+    function activateCity(city) {
+        currentCity = city;
+        Object.keys(pinEls).forEach(function(k) {
+            pinEls[k].classList.toggle('is-active', k === city);
+        });
+        infos.forEach(function(p) { p.classList.toggle('is-active', p.dataset.city === city); });
+        buildDots(city);
+        showSlide(city, 0);
+    }
+
+
+    buildDots('hong-kong');
+
+    reel.addEventListener('mouseenter', function() { paused = true; if (bar) bar.style.transition = 'none'; });
+    reel.addEventListener('mouseleave', function() { paused = false; startTs = null; });
+
+    (function tick(ts) {
+        if (!paused) {
+            if (!startTs) startTs = ts;
+            var elapsed = ts - startTs;
+            var pct = Math.min(elapsed / INTERVAL * 100, 100);
+            if (bar) { bar.style.transition = 'none'; bar.style.width = pct + '%'; }
+            if (elapsed >= INTERVAL) {
+                var slides = slidesFor(currentCity);
+                showSlide(currentCity, (currentIdx + 1) % slides.length);
+            }
+        }
+        requestAnimationFrame(tick);
+    })(0);
+})();
+</script>
 
 
 <!-- ========================= -->
@@ -532,8 +976,8 @@
     <div class="max-w-6xl mx-auto px-5 sm:px-6">
 
         <div class="text-center mb-10 sm:mb-14">
-            <p class="uppercase tracking-[0.3em] text-[#DBA757] text-xs sm:text-sm mb-3">By the Numbers</p>
-            <h2 class="font-['TT_Livret_Display_Trl'] text-2xl sm:text-4xl font-light">Sharmony at a Glance</h2>
+            <p class="uppercase tracking-[0.3em] text-[#DBA757] text-xs sm:text-sm mb-3">{{ .Params.numbers_eyebrow }}</p>
+            <h2 class="font-['TT_Livret_Display_Trl'] text-2xl sm:text-4xl font-light">{{ .Params.numbers_h2 }}</h2>
         </div>
 
         <div class="grid grid-cols-2 md:grid-cols-4 gap-6 sm:gap-10 text-center">
@@ -541,25 +985,25 @@
             <div class="about-stat bg-white rounded-xl p-5 sm:p-0 sm:bg-transparent sm:rounded-none shadow-sm sm:shadow-none">
                 <div class="font-['TT_Livret_Display_Trl'] text-[clamp(2rem,8vw,4rem)] sm:text-5xl lg:text-6xl font-light text-[#DBA757] mb-1 sm:mb-3"
                      data-target="50" data-suffix="+">0</div>
-                <p class="text-xs sm:text-base text-[#03292B]/65">Professionals</p>
+                <p class="text-xs sm:text-base text-[#03292B]/65">{{ .Params.numbers_stat_1_label }}</p>
             </div>
 
             <div class="about-stat bg-white rounded-xl p-5 sm:p-0 sm:bg-transparent sm:rounded-none shadow-sm sm:shadow-none">
                 <div class="font-['TT_Livret_Display_Trl'] text-[clamp(2rem,8vw,4rem)] sm:text-5xl lg:text-6xl font-light text-[#DBA757] mb-1 sm:mb-3"
                      data-prefix="$" data-target="100" data-suffix="M">0</div>
-                <p class="text-xs sm:text-base text-[#03292B]/65">Assets Under Management</p>
+                <p class="text-xs sm:text-base text-[#03292B]/65">{{ .Params.numbers_stat_2_label }}</p>
             </div>
 
             <div class="about-stat bg-white rounded-xl p-5 sm:p-0 sm:bg-transparent sm:rounded-none shadow-sm sm:shadow-none">
                 <div class="font-['TT_Livret_Display_Trl'] text-[clamp(2rem,8vw,4rem)] sm:text-5xl lg:text-6xl font-light text-[#DBA757] mb-1 sm:mb-3"
                      data-target="30" data-suffix="+">0</div>
-                <p class="text-xs sm:text-base text-[#03292B]/65">Countries</p>
+                <p class="text-xs sm:text-base text-[#03292B]/65">{{ .Params.numbers_stat_3_label }}</p>
             </div>
 
             <div class="about-stat bg-white rounded-xl p-5 sm:p-0 sm:bg-transparent sm:rounded-none shadow-sm sm:shadow-none">
                 <div class="font-['TT_Livret_Display_Trl'] text-[clamp(2rem,8vw,4rem)] sm:text-5xl lg:text-6xl font-light text-[#DBA757] mb-1 sm:mb-3"
                      data-target="6" data-suffix="+">0</div>
-                <p class="text-xs sm:text-base text-[#03292B]/65">Offices</p>
+                <p class="text-xs sm:text-base text-[#03292B]/65">{{ .Params.numbers_stat_4_label }}</p>
             </div>
 
         </div>
@@ -605,17 +1049,17 @@
                 <div class="text-[#DBA757] text-5xl sm:text-8xl font-serif leading-none mb-3 sm:mb-4 select-none" aria-hidden="true">&ldquo;</div>
 
                 <p class="text-base sm:text-xl md:text-2xl font-light italic text-white/80 leading-relaxed mb-5 sm:mb-8 max-w-lg">
-                    Building a future where real estate and technology seamlessly converge.
+                    {{ .Params.ceo_quote }}
                 </p>
 
                 <div class="mb-6 sm:mb-10">
-                    <p class="text-white font-light text-base sm:text-lg">Alexander Lee</p>
-                    <p class="text-white/50 text-xs sm:text-sm tracking-widest uppercase">CEO, SHARMONY PJSC</p>
+                    <p class="text-white font-light text-base sm:text-lg">{{ .Params.ceo_name }}</p>
+                    <p class="text-white/50 text-xs sm:text-sm tracking-widest uppercase">{{ .Params.ceo_title }}</p>
                 </div>
 
                 <a href="#contact"
                    class="inline-block w-full sm:w-auto text-center px-8 sm:px-10 py-4 bg-gradient-to-r from-[#FFDDA8] to-[#DBA757] text-[#03292B] font-semibold rounded-lg hover:brightness-110 transition text-sm sm:text-base">
-                    Contact Our Team
+                    {{ .Params.ceo_btn }}
                 </a>
             </div>
 
@@ -719,3 +1163,4 @@
 </script>
 
 {{ end }}
+

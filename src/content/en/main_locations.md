@@ -74,4 +74,7 @@ locations_item_5_10: Economy
 locations_item_5_11: Stable (GDP +5–6%)
 locations_item_5_12: Top Areas
 locations_item_5_13: Tbilisi, Batumi
+
+locations_aria_prev: Previous location
+locations_aria_next: Next location
 ---

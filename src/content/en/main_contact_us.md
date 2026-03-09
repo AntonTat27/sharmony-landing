@@ -29,10 +29,19 @@ contact_us_form_btn_send: SEND MESSAGE
 
 contact_us_card_item_1_1: Socials
 contact_us_card_item_1_2: STAY CONNECTED
+contact_us_card_item_1_3: LinkedIn
+contact_us_card_item_1_4: Twitter/X
 
 contact_us_card_item_2_1: Direct
 contact_us_card_item_2_2: CHATS & SUPPORT
+contact_us_card_item_2_3: Telegram
+contact_us_card_item_2_4: Discord
 
-contact_us_card_item_4_1: Digital Harmony for Creators
+contact_us_badge_1: 24/7
+contact_us_badge_1_label: Support
+contact_us_badge_2: 6
+contact_us_badge_2_label: Offices
+contact_us_badge_3: 30+
+contact_us_badge_3_label: Countries
   
 ---

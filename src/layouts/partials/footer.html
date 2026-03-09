@@ -7,8 +7,8 @@
   <div class="footer-legal">
     <div class="legal-inner">
       <div class="legal-links">
-        <span>&copy; 2026 Sharmony. All Rights Reserved.</span>
-        <a href="#">Terms & Conditions</a>
+        <span>{{ .Site.Home.Params.footer_copyright }}</span>
+        <a href="#">{{ .Site.Home.Params.footer_terms_link }}</a>
       </div>
       <div class="footer-socials">
         <a href="#"><i class="bi bi-facebook"></i></a>
@@ -19,3 +19,4 @@
     </div>
   </div>
 </footer>
+

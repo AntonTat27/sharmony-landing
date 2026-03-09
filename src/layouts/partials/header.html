@@ -1,3 +1,6 @@
+{{ $currentLang := .Site.Language.Lang }}
+{{ $indexPage := .Site.GetPage (printf "/%s/_index.md" $currentLang) }}
+
 <header class="main-header">
     <div class="header-banner">
         <div class="banner-content">
@@ -27,13 +30,12 @@
                 </picture>
             </a>
             <!-- Mobile Hamburger -->
-            <button class="nav-toggle" aria-label="Open Menu">
+            <button class="nav-toggle" aria-label="{{ $indexPage.Params.header_menu_aria }}">
                 <i class="bi bi-list"></i>
             </button>
 
             <div class="nav-menu-wrapper">
                 <ul class="nav-menu-pill">
-                    {{ $currentLang := .Site.Language.Lang }}
                     {{ $menuData := index .Site.Data $currentLang "menu" }}
 
                     {{ range .Site.Menus.main }}
@@ -58,12 +60,12 @@
             </div>
             <div class="nav-actions">
                 <div class="search-bar">
-                    <input type="text" placeholder="Search">
+                    <input type="text" placeholder="{{ .Site.Home.Params.header_search_placeholder }}">
                     <i class="bi bi-search"></i>
                 </div>
 
                 <a href="/login" class="btn-login">
-                    <span>{{ .Params.btn_login }}</span>
+                    <span>{{ .Site.Home.Params.btn_login }}</span>
                     <i class="bi bi-person-circle"></i>
                 </a>
                 <div class="lang-switcher">
