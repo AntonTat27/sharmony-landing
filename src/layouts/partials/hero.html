@@ -11,8 +11,8 @@
 
     <!-- Use a responsive two-column layout: stack on small, side-by-side on lg -->
     <div class="relative max-w-7xl mx-auto px-4 sm:px-6 flex flex-col lg:flex-row items-center justify-center h-full z-30">
-        <!-- LEFT: textual content -->
-        <div class="w-full lg:w-1/2">
+        <!-- LEFT: textual content (on mobile this will be pushed below the logo) -->
+        <div class="w-full lg:w-1/2 order-last lg:order-first mt-6 lg:mt-0">
                 <p class="uppercase tracking-[0.35em] text-[#31D0B2] text-xs sm:text-sm mb-4 sm:mb-6">
                 {{ $heroUI.subtitle }}
             </p>
@@ -75,11 +75,11 @@
             </div>
         </div>
 
-        <!-- RIGHT: Puzzle house assembling - visible only on large screens -->
-        <div class="hidden lg:flex w-full lg:w-1/2 items-center justify-center">
+        <!-- RIGHT: Puzzle house assembling - on mobile it will be centered above the text in normal flow -->
+        <div class="flex w-full lg:w-1/2 items-center justify-center mt-8 lg:mt-0 order-first lg:order-last">
             <div class="logo-assembly">
                 <div class="svg-wrap">
-                    <svg class="logo-svg" width="401" height="360" viewBox="-25 50 200 180" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" role="img" aria-hidden="true">
+                    <svg class="logo-svg" width="401" height="360" viewBox="-25 50 200 180" preserveAspectRatio="xMidYMid meet" xmlns="http://www.w3.org/2000/svg" role="img" aria-hidden="true">
                         <defs>
                             <clipPath id="clip1">
                                 <path d="M138.23 138.794C147.646 138.718 157.062 138.714 166.479 138.782C165.498 143.027 165.047 147.061 165.989 151.367C167.321 157.457 170.861 162.842 176.107 166.184C181.721 169.716 188.493 170.856 194.939 169.353C200.955 167.963 206.433 163.769 209.653 158.494C213.357 152.427 213.754 145.733 212.166 138.936C219.27 138.748 226.408 138.858 233.517 138.83L233.508 239.969L138.272 240L138.262 218.182C138.258 214.532 138.603 210.472 138.021 206.887C137.886 206.059 137.627 205.41 137.022 204.814C133.746 201.578 130.002 205.801 126.835 206.979C125.268 207.562 123.27 207.709 121.605 207.674C117.605 207.589 113.771 206.08 111.02 203.074C108.413 200.224 107.229 196.341 107.411 192.502C107.59 188.711 109.342 184.632 112.223 182.144C116.579 178.458 122.649 177.63 127.82 180.015C129.922 180.965 132.26 182.638 134.613 182.711C135.694 182.744 136.697 182.384 137.455 181.594C138.096 180.926 138.113 179.743 138.187 178.851C138.563 174.277 138.295 169.499 138.283 164.906L138.23 138.794Z"/>
@@ -95,12 +95,14 @@
                             </clipPath>
                         </defs>
 
+                        <!-- Wrap visual content so we can nudge it with CSS without altering path data -->
+                        <g class="svg-inner">
                         <!-- Piece 1 (bottom-right) — Thailand photo -->
                         <g class="piece piece-1">
-                            <image href="/images/thailand.jpg"
-                                   x="107" y="138" width="127" height="102"
-                                   preserveAspectRatio="xMidYMid slice"
-                                   clip-path="url(#clip1)"/>
+                             <image href="/images/thailand.jpg"
+                                    x="107" y="138" width="127" height="102"
+                                    preserveAspectRatio="xMidYMid slice"
+                                    clip-path="url(#clip1)"/>
                             <!-- subtle gold tint overlay -->
                             <path d="M138.23 138.794C147.646 138.718 157.062 138.714 166.479 138.782C165.498 143.027 165.047 147.061 165.989 151.367C167.321 157.457 170.861 162.842 176.107 166.184C181.721 169.716 188.493 170.856 194.939 169.353C200.955 167.963 206.433 163.769 209.653 158.494C213.357 152.427 213.754 145.733 212.166 138.936C219.27 138.748 226.408 138.858 233.517 138.83L233.508 239.969L138.272 240L138.262 218.182C138.258 214.532 138.603 210.472 138.021 206.887C137.886 206.059 137.627 205.41 137.022 204.814C133.746 201.578 130.002 205.801 126.835 206.979C125.268 207.562 123.27 207.709 121.605 207.674C117.605 207.589 113.771 206.08 111.02 203.074C108.413 200.224 107.229 196.341 107.411 192.502C107.59 188.711 109.342 184.632 112.223 182.144C116.579 178.458 122.649 177.63 127.82 180.015C129.922 180.965 132.26 182.638 134.613 182.711C135.694 182.744 136.697 182.384 137.455 181.594C138.096 180.926 138.113 179.743 138.187 178.851C138.563 174.277 138.295 169.499 138.283 164.906L138.23 138.794Z"
                                   fill="#000000" fill-opacity="0.25"/>
@@ -128,20 +130,21 @@
 
                         <!-- Piece 4 (top-left) — Indonesia photo -->
                         <g class="piece piece-4">
-                            <image href="/images/indonesia.jpg"
-                                   x="0" y="0" width="160" height="130"
-                                   preserveAspectRatio="xMidYMid slice"
-                                   clip-path="url(#clip4)"/>
-                            <path d="M128.608 0C129.103 0.854453 128.843 45.4006 128.841 50.3686C128.839 54.6128 128.356 60.1214 129.023 64.1674C129.155 64.9675 129.484 65.7531 130.071 66.3248C133.021 69.2026 137.377 63.4815 140.125 62.3539C141.567 61.7611 143.303 61.6572 144.853 61.7021C148.805 61.817 152.607 63.7033 155.306 66.5818C158.064 69.4748 159.521 73.386 159.334 77.3946C159.108 81.4678 157.177 85.4974 154.06 88.1124C150.19 91.3591 143.433 92.8087 138.822 90.2872C136.77 89.1648 135.126 86.603 132.626 86.4996C131.603 86.4575 130.559 86.8843 129.827 87.5984C129.144 88.265 128.878 89.0332 128.764 89.966C128.254 94.1729 128.658 98.8154 128.653 103.078L128.613 129.616L101.821 129.768C103.718 125.11 103.703 119.126 102.26 114.346C100.456 108.368 96.2017 103.557 90.7531 100.666C85.0876 97.6605 78.6019 96.9172 72.4694 98.8408C65.5338 101.017 60.5918 105.598 57.2667 112.011C54.515 117.716 54.3177 123.196 55.7892 129.306L0 129.42C23.2078 105.601 46.9813 82.3032 70.4271 58.7228L107.768 21.1263C114.722 14.0925 121.528 6.90675 128.608 0Z"
-                                  fill="#000000" fill-opacity="0.25"/>
+                             <image href="/images/indonesia.jpg"
+                                    x="0" y="0" width="160" height="130"
+                                    preserveAspectRatio="xMidYMid slice"
+                                    clip-path="url(#clip4)"/>
+                             <path d="M128.608 0C129.103 0.854453 128.843 45.4006 128.841 50.3686C128.839 54.6128 128.356 60.1214 129.023 64.1674C129.155 64.9675 129.484 65.7531 130.071 66.3248C133.021 69.2026 137.377 63.4815 140.125 62.3539C141.567 61.7611 143.303 61.6572 144.853 61.7021C148.805 61.817 152.607 63.7033 155.306 66.5818C158.064 69.4748 159.521 73.386 159.334 77.3946C159.108 81.4678 157.177 85.4974 154.06 88.1124C150.19 91.3591 143.433 92.8087 138.822 90.2872C136.77 89.1648 135.126 86.603 132.626 86.4996C131.603 86.4575 130.559 86.8843 129.827 87.5984C129.144 88.265 128.878 89.0332 128.764 89.966C128.254 94.1729 128.658 98.8154 128.653 103.078L128.613 129.616L101.821 129.768C103.718 125.11 103.703 119.126 102.26 114.346C100.456 108.368 96.2017 103.557 90.7531 100.666C85.0876 97.6605 78.6019 96.9172 72.4694 98.8408C65.5338 101.017 60.5918 105.598 57.2667 112.011C54.515 117.716 54.3177 123.196 55.7892 129.306L0 129.42C23.2078 105.601 46.9813 82.3032 70.4271 58.7228L107.768 21.1263C114.722 14.0925 121.528 6.90675 128.608 0Z"
+                                   fill="#000000" fill-opacity="0.25"/>
                         </g>
-                    </svg>
-                </div>
+                        </g>
+                     </svg>
+                 </div>
 
-            </div>
-        </div>
+             </div>
+         </div>
 
-    </div>
+     </div>
 
     <!-- Fade-out to next section -->
     <div class="absolute bottom-0 w-full h-32 bg-gradient-to-b from-transparent to-[#03292B] z-20 pointer-events-none"
@@ -221,7 +224,8 @@
 
     /* Give the svg-wrap some breathing room so drop-shadows aren't clipped vertically */
     .svg-wrap {
-        display:inline-block;
+        display:block; /* ensure the wrapper spans full width so centering works predictably */
+        text-align:center; /* center inline-block SVG inside */
         position:relative;
         padding-top:28px;
         padding-bottom:28px;
@@ -232,12 +236,35 @@
     .logo-svg {
         width:260px;
         height:auto;
-        display:block;
+        display:inline-block; /* center via parent text-align */
+        margin:0 auto; /* double-safety centering */
         overflow:visible;
+        /* allow a responsive visual nudge to compensate for SVG internal offsets */
+        --logo-nudge: 0%;
+    }
+
+    /* Apply the visual nudge to the inner SVG group so we shift the artwork, not the outer SVG box */
+    .logo-svg .svg-inner {
+        transform-box: fill-box;
+        transform-origin: center center;
+        transform: translateX(var(--logo-nudge));
     }
 
     @media (min-width: 1024px) {
         .logo-svg { width: 360px; }
+    }
+
+    /* Visual nudges for small screens to better center the visible artwork inside the SVG
+       These are conservative percentages; adjust if you still see misalignment. */
+    @media (max-width: 425px) {
+        /* positive nudges shift artwork right; tweak if needed */
+        .logo-svg { --logo-nudge: 8%; }
+    }
+    @media (min-width: 426px) and (max-width: 767px) {
+        .logo-svg { --logo-nudge: 6%; }
+    }
+    @media (min-width: 768px) and (max-width: 1023px) {
+        .logo-svg { --logo-nudge: 3%; }
     }
 
     /* Increase specificity so tailwind/custom CSS won't override it */
@@ -259,12 +286,25 @@
 
     /* Small-screen fallback: show assembled logo (no animation) */
     @media (max-width: 1023px) {
+        /* slightly smaller SVG on phones */
         .logo-svg { width: 160px; }
+
+        /* Keep pieces initially hidden on small screens but allow the same assemble animation
+           with slightly reduced durations for performance on low-end devices */
         .logo-assembly .piece {
-            opacity: 1 !important;
-            transform: none !important;
-            filter: none !important;
-            transition: none !important;
+            opacity: 0;
+            transform: translateY(12px) rotate(1deg);
+            filter: blur(3px);
+            transition:
+                transform 0.7s cubic-bezier(0.22, 1, 0.36, 1),
+                opacity 0.45s ease,
+                filter 0.7s ease;
+        }
+
+        .logo-assembly .piece.assemble {
+            opacity: 1;
+            transform: translateY(0) rotate(0deg);
+            filter: blur(0);
         }
     }
 
@@ -410,16 +450,19 @@
 
         // If IntersectionObserver is available, observe the container and animate when visible
         if ('IntersectionObserver' in window) {
-            const obs = new IntersectionObserver((entries, observer) => {
-                entries.forEach(entry => {
+            // Use ES5-style functions to be robust across template parsers
+            var observerCallback = function (entries, observer) {
+                entries.forEach(function (entry) {
                     if (entry.isIntersecting) {
                         runAnimation();
-                        observer.disconnect();
+                        observer.disconnect()
                     }
-                });
-            }, { threshold: 0.35 });
+                })
+            }
 
-            obs.observe(container);
+            var obs = new IntersectionObserver(observerCallback, { threshold: 0.35 })
+
+            obs.observe(container)
         } else {
             // Fallback: run on load/DOMContentLoaded
             if (document.readyState === 'complete' || document.readyState === 'interactive') {
@@ -429,5 +472,52 @@
             }
             window.addEventListener('load', runAnimation);
         }
+    })();
+
+    // Auto-center the visible SVG artwork by measuring bounding boxes and applying a pixel translate
+    (function () {
+        function centerLogoSVG() {
+            try {
+                var svg = document.querySelector('.logo-svg');
+                if (!svg) return;
+                var inner = svg.querySelector('.svg-inner');
+                if (!inner) return;
+
+                // Clear previous inline transform so measurements are accurate
+                inner.style.transform = '';
+
+                var svgRect = svg.getBoundingClientRect();
+                var innerRect = inner.getBoundingClientRect();
+
+                // compute horizontal delta (in screen pixels) needed to center inner within svg
+                var dx = (svgRect.left + svgRect.width / 2) - (innerRect.left + innerRect.width / 2);
+
+                // apply as inline CSS translate (screen px) — this is robust across scaling
+                inner.style.transform = 'translateX(' + dx + 'px)';
+            } catch (e) {
+                // silent
+            }
+        }
+
+        // debounce helper
+        function debounce(fn, wait) {
+            var t = null;
+            return function () {
+                var args = arguments;
+                clearTimeout(t);
+                t = setTimeout(function () { fn.apply(null, args); }, wait || 100);
+            };
+        }
+
+        var runCentered = debounce(centerLogoSVG, 80);
+
+        // Run on load and resize
+        if (document.readyState === 'complete' || document.readyState === 'interactive') {
+            runCentered();
+        } else {
+            document.addEventListener('DOMContentLoaded', runCentered);
+        }
+        window.addEventListener('load', runCentered);
+        window.addEventListener('resize', runCentered);
     })();
 </script>
