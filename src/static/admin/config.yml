@@ -1,11 +1,12 @@
 local_backend: false
 
 backend:
-  name: github
+  name: git-gateway
   repo: AntonTat27/sharmony-landing
   branch: dev # or main — whichever you want Decap to commit to
-  auth_type: implicit
-  base_url: https://api.github.com
+  # auth_type: implicit
+  auth_endpoint: "https://sharmony.netlify.app/.netlify/identity"
+  gateway_url: "https://sharmony.netlify.app/.netlify/git"
   app_id: Ov23lij5CmVSkQgQbaLV
 
 media_folder: "static/uploads"
