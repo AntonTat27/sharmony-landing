@@ -5,7 +5,7 @@ backend:
   repo: AntonTat27/sharmony-landing
   branch: dev
   base_url: "https://decap-cms-oauth-murex.vercel.app"
-  auth_endpoint: "/auth"
+  auth_endpoint: "auth"
 
 media_folder: "static/uploads"
 public_folder: "/uploads"
@@ -33,97 +33,105 @@ collections:
           - { label: "ID", name: "id", widget: "string" }
           - { label: "Text", name: "text", widget: "string", i18n: true }
 
-  - name: "Sharmony Header/Footer Page"
-    label: "Header/Footer"
-    folder: "content"
+  - name: "pages"
+    label: "Pages"
     i18n: true
-    create: false
-    extension: "md"
-    format: "frontmatter"
-    filter: { field: "type", value: "common" }
-    path: "{{locale}}"
-    fields:
-      - {
-          label: "Banner Text",
-          name: "banner_text",
-          widget: "string",
-          i18n: true,
-        }
-      - {
-          label: "Banner CTA",
-          name: "banner_cta",
-          widget: "string",
-          i18n: true,
-        }
+    files:
+      - label: "Header/Footer"
+        name: "common"
+        file: "content/{{locale}}/ui_strings.md"
+        fields:
+          - { label: "Banner Text", name: "banner_text", widget: "string", i18n: true }
+          - { label: "Banner CTA", name: "banner_cta", widget: "string", i18n: true }
 
-  - name: "Sharmony Main Page"
-    label: "Main Page"
-    folder: "content"
-    i18n: true
-    create: false
-    extension: "md"
-    format: "frontmatter"
-    filter: { field: "type", value: "mainpage" }
-    path: "{{locale}}"
-    fields:
-      - { label: "Title", name: "title", widget: "string", i18n: true }
-      - {
-          label: "Main Intro H1",
-          name: "main_intro_h1",
-          widget: "string",
-          i18n: true,
-        }
-      - {
-          label: "Main Intro H2",
-          name: "main_intro_h2",
-          widget: "string",
-          i18n: true,
-        }
+      - label: "Main Page"
+        name: "main_page"
+        file: "content/{{locale}}/_index.md"
+        fields:
+          - { label: "Title", name: "title", widget: "string", i18n: true }
+          - { label: "Main Intro H1", name: "main_intro_h1", widget: "string", i18n: true }
+          - { label: "Main Intro H2", name: "main_intro_h2", widget: "string", i18n: true }
 
-  - name: "Sharmony Investor"
-    label: "Investor Page"
-    folder: "content"
-    i18n: true
-    create: false
-    extension: "md"
-    format: "frontmatter"
-    filter: { field: "type", value: "investor" }
-    path: "{{locale}}"
-    fields:
-      - { label: "Title", name: "title", widget: "string", i18n: true }
+      - label: "Investor Page"
+        name: "investor"
+        file: "content/{{locale}}/investors.md"
+        fields:
+          - { label: "Title", name: "title", widget: "string", i18n: true }
 
-  - name: "Sharmony Partners"
-    label: "Partners Page"
-    folder: "content"
-    i18n: true
-    create: false
-    extension: "md"
-    format: "frontmatter"
-    filter: { field: "type", value: "partners" }
-    path: "{{locale}}"
-    fields:
-      - { label: "Title", name: "title", widget: "string", i18n: true }
+      - label: "Partners Page"
+        name: "partners"
+        file: "content/{{locale}}/partners.md"
+        fields:
+          - { label: "Title", name: "title", widget: "string", i18n: true }
 
-  - name: "Sharmony Marketplace"
-    label: "Marketplace Page"
-    folder: "content"
-    i18n: true
-    create: false
-    extension: "md"
-    format: "frontmatter"
-    filter: { field: "type", value: "marketplace" }
-    path: "{{locale}}"
-    fields:
-      - { label: "Title", name: "title", widget: "string", i18n: true }
+      - label: "Marketplace Page"
+        name: "marketplace"
+        file: "content/{{locale}}/marketplace.md"
+        fields:
+          - { label: "Title", name: "title", widget: "string", i18n: true }
 
-  - name: "Sharmony Wallet"
-    label: "Wallet Page"
-    folder: "content"
-    i18n: true
-    create: false
-    extension: "md"
-    format: "frontmatter"
-    filter: { field: "type", value: "wallet" }
-    path: "{{locale}}"
-    fields:
-      - { label: "Title", name: "title", widget: "string", i18n: true }
+      - label: "Wallet Page"
+        name: "wallet"
+        file: "content/{{locale}}/wallet.md"
+        fields:
+          - { label: "Title", name: "title", widget: "string", i18n: true }
+
+      - label: "Main Hero"
+        name: "main_hero"
+        file: "content/{{locale}}/main_hero.md"
+        fields:
+          - { label: "Title", name: "title", widget: "string", i18n: true }
+
+      - label: "Main Audience"
+        name: "main_audience"
+        file: "content/{{locale}}/main_audience.md"
+        fields:
+          - { label: "Title", name: "title", widget: "string", i18n: true }
+
+      - label: "Main Advantages"
+        name: "main_advantages"
+        file: "content/{{locale}}/main_advantages.md"
+        fields:
+          - { label: "Title", name: "title", widget: "string", i18n: true }
+
+      - label: "Main Numbers"
+        name: "main_numbers"
+        file: "content/{{locale}}/main_numbers.md"
+        fields:
+          - { label: "Title", name: "title", widget: "string", i18n: true }
+
+      - label: "Main How It Works"
+        name: "main_how_it_works"
+        file: "content/{{locale}}/main_how-it-works.md"
+        fields:
+          - { label: "Title", name: "title", widget: "string", i18n: true }
+
+      - label: "Main Locations"
+        name: "main_locations"
+        file: "content/{{locale}}/main_locations.md"
+        fields:
+          - { label: "Title", name: "title", widget: "string", i18n: true }
+
+      - label: "Main Recommendations"
+        name: "main_recommendations"
+        file: "content/{{locale}}/main_recommendations.md"
+        fields:
+          - { label: "Title", name: "title", widget: "string", i18n: true }
+
+      - label: "Main Slogan"
+        name: "main_slogan"
+        file: "content/{{locale}}/main_slogan.md"
+        fields:
+          - { label: "Title", name: "title", widget: "string", i18n: true }
+
+      - label: "Main FAQ"
+        name: "main_faq"
+        file: "content/{{locale}}/main_faq.md"
+        fields:
+          - { label: "Title", name: "title", widget: "string", i18n: true }
+
+      - label: "Main Contact Us"
+        name: "main_contact_us"
+        file: "content/{{locale}}/main_contact_us.md"
+        fields:
+          - { label: "Title", name: "title", widget: "string", i18n: true }
