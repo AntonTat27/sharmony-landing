@@ -10,222 +10,379 @@ backend:
 media_folder: "static/images/uploads"
 public_folder: "/images/uploads"
 
-i18n:
-  structure: multiple_folders
-  locales: [en, ru, de, fr, es, ar, zh]
-  default_locale: en
-
 collections:
-  - name: "menu_translations"
-    label: "Menu Translations"
-    folder: "data"
-    i18n: true
-    extension: "toml"
-    format: "toml"
-    identifier_field: "id"
-    path: "{{locale}}/menu"
-    fields:
-      - label: "Items"
-        name: "items"
-        widget: "list"
-        i18n: true
+  - name: "english"
+    label: "English"
+    files:
+      - name: "home_common"
+        label: "_index (common)"
+        file: "src/content/en/_index.md"
+        format: "frontmatter"
         fields:
-          - { label: "ID", name: "id", widget: "string" }
-          - { label: "Text", name: "text", widget: "string", i18n: true }
+          - { label: "Type", name: "type", widget: "string" }
+          - { label: "Title", name: "title", widget: "string" }
+          - { label: "Banner text", name: "banner_text", widget: "string" }
+          - { label: "Banner CTA", name: "banner_cta", widget: "string" }
+          - { label: "Login button", name: "btn_login", widget: "string" }
+          - { label: "Header menu aria", name: "header_menu_aria", widget: "string" }
+          - { label: "Header search placeholder", name: "header_search_placeholder", widget: "string" }
+          - { label: "Footer copyright", name: "footer_copyright", widget: "string" }
+          - { label: "Footer terms link", name: "footer_terms_link", widget: "string" }
+          - { label: "Body", name: "body", widget: "markdown", required: false }
 
-  # Decap does not support i18n: multiple_folders with files collections.
-  # Use folder collections per page type, and keep one fixed file per locale via create: false.
-  - name: "ui_strings"
-    label: "Header/Footer"
-    folder: "content"
-    i18n: true
-    create: false
-    extension: "md"
-    format: "frontmatter"
-    path: "{{locale}}/ui_strings"
-    slug: "ui_strings"
-    fields:
-      - { label: "Banner Text", name: "banner_text", widget: "string", i18n: true }
-      - { label: "Banner CTA", name: "banner_cta", widget: "string", i18n: true }
+      - name: "main_hero"
+        label: "main_hero"
+        file: "src/content/en/main_hero.md"
+        format: "frontmatter"
+        fields:
+          - { label: "Type", name: "type", widget: "string" }
+          - { label: "Title", name: "title", widget: "string" }
+          - { label: "Hero subtitle", name: "hero_subtitle", widget: "string" }
+          - { label: "Learn button", name: "btn_learn", widget: "string" }
+          - { label: "Explore button", name: "btn_explore", widget: "string" }
+          - { label: "Intro H1", name: "main_intro_h1", widget: "string" }
+          - { label: "Intro H2", name: "main_intro_h2", widget: "string" }
+          - { label: "Intro text", name: "main_intro_text", widget: "text" }
+          - { label: "Badge: licensed", name: "hero_badge_licensed", widget: "string" }
+          - { label: "Badge: investment", name: "hero_badge_investment", widget: "string" }
+          - { label: "Badge: blockchain", name: "hero_badge_blockchain", widget: "string" }
+          - { label: "Slider 1", name: "main_intro_slider1", widget: "string" }
+          - { label: "Slider 2", name: "main_intro_slider2", widget: "string" }
+          - { label: "Body", name: "body", widget: "markdown", required: false }
 
-  - name: "main_page"
-    label: "Main Page"
-    folder: "content"
-    i18n: true
-    create: false
-    extension: "md"
-    format: "frontmatter"
-    path: "{{locale}}/_index"
-    slug: "_index"
-    fields:
-      - { label: "Title", name: "title", widget: "string", i18n: true }
-      - { label: "Main Intro H1", name: "main_intro_h1", widget: "string", i18n: true }
-      - { label: "Main Intro H2", name: "main_intro_h2", widget: "string", i18n: true }
+      - name: "main_advantages"
+        label: "main_advantages"
+        file: "src/content/en/main_advantages.md"
+        format: "frontmatter"
+        fields:
+          - { label: "Type", name: "type", widget: "string" }
+          - { label: "Heading", name: "advantages_h1", widget: "string" }
+          - { label: "Subheading", name: "advantages_h2", widget: "text" }
+          - { label: "Item 1 title", name: "advantages_item_1_1", widget: "string" }
+          - { label: "Item 1 line 1", name: "advantages_item_1_2", widget: "string" }
+          - { label: "Item 1 line 2", name: "advantages_item_1_3", widget: "string" }
+          - { label: "Item 1 line 3", name: "advantages_item_1_4", widget: "string" }
+          - { label: "Item 2 title", name: "advantages_item_2_1", widget: "string" }
+          - { label: "Item 2 line 1", name: "advantages_item_2_2", widget: "string" }
+          - { label: "Item 2 line 2", name: "advantages_item_2_3", widget: "string" }
+          - { label: "Item 2 line 3", name: "advantages_item_2_4", widget: "string" }
+          - { label: "Item 3 title", name: "advantages_item_3_1", widget: "string" }
+          - { label: "Item 3 line 1", name: "advantages_item_3_2", widget: "string" }
+          - { label: "Item 3 line 2", name: "advantages_item_3_3", widget: "string" }
+          - { label: "Item 3 line 3", name: "advantages_item_3_4", widget: "string" }
+          - { label: "Item 4 title", name: "advantages_item_4_1", widget: "string" }
+          - { label: "Item 4 line 1", name: "advantages_item_4_2", widget: "string" }
+          - { label: "Item 4 line 2", name: "advantages_item_4_3", widget: "string" }
+          - { label: "Item 4 line 3", name: "advantages_item_4_4", widget: "string" }
+          - { label: "Item 5 title", name: "advantages_item_5_1", widget: "string" }
+          - { label: "Item 5 line 1", name: "advantages_item_5_2", widget: "string" }
+          - { label: "Item 5 line 2", name: "advantages_item_5_3", widget: "string" }
+          - { label: "Item 5 line 3", name: "advantages_item_5_4", widget: "string" }
+          - { label: "Item 6 title", name: "advantages_item_6_1", widget: "string" }
+          - { label: "Item 6 line 1", name: "advantages_item_6_2", widget: "string" }
+          - { label: "Item 6 line 2", name: "advantages_item_6_3", widget: "string" }
+          - { label: "Item 6 line 3", name: "advantages_item_6_4", widget: "string" }
+          - { label: "Item 7 title", name: "advantages_item_7_1", widget: "string" }
+          - { label: "Item 7 line 1", name: "advantages_item_7_2", widget: "string" }
+          - { label: "Item 7 line 2", name: "advantages_item_7_3", widget: "string" }
+          - { label: "Item 7 line 3", name: "advantages_item_7_4", widget: "string" }
+          - { label: "Body", name: "body", widget: "markdown", required: false }
 
-  - name: "investor"
-    label: "Investor Page"
-    folder: "content"
-    i18n: true
-    create: false
-    extension: "md"
-    format: "frontmatter"
-    path: "{{locale}}/investors"
-    slug: "investors"
-    fields:
-      - { label: "Title", name: "title", widget: "string", i18n: true }
+      - name: "main_how_it_works"
+        label: "main_how-it-works"
+        file: "src/content/en/main_how-it-works.md"
+        format: "frontmatter"
+        fields:
+          - { label: "Type", name: "type", widget: "string" }
+          - { label: "Heading", name: "how_it_works_h1", widget: "string" }
+          - { label: "Subheading", name: "how_it_works_h2", widget: "text" }
+          - { label: "Body", name: "body", widget: "markdown", required: false }
 
-  - name: "partners.md"
-    label: "Partners Page"
-    folder: "content"
-    i18n: true
-    create: false
-    extension: "md"
-    format: "frontmatter"
-    path: "{{locale}}/partners.md"
-    slug: "partners"
-    fields:
-      - { label: "Title", name: "title", widget: "string", i18n: true }
+      - name: "main_numbers"
+        label: "main_numbers"
+        file: "src/content/en/main_numbers.md"
+        format: "frontmatter"
+        fields:
+          - { label: "Type", name: "type", widget: "string", required: false }
+          - { label: "Title", name: "title", widget: "string", required: false }
+          - label: "Other frontmatter fields"
+            name: "extra"
+            widget: "map"
+            required: false
+            allow_add: true
+            collapsed: false
+            value_type: "string"
+          - { label: "Body", name: "body", widget: "markdown", required: false }
 
-  - name: "marketplace"
-    label: "Marketplace Page"
-    folder: "content"
-    i18n: true
-    create: false
-    extension: "md"
-    format: "frontmatter"
-    path: "{{locale}}/marketplace"
-    slug: "marketplace"
-    fields:
-      - { label: "Title", name: "title", widget: "string", i18n: true }
+      - name: "main_locations"
+        label: "main_locations"
+        file: "src/content/en/main_locations.md"
+        format: "frontmatter"
+        fields:
+          - { label: "Type", name: "type", widget: "string", required: false }
+          - { label: "Title", name: "title", widget: "string", required: false }
+          - label: "Other frontmatter fields"
+            name: "extra"
+            widget: "map"
+            required: false
+            allow_add: true
+            collapsed: false
+            value_type: "string"
+          - { label: "Body", name: "body", widget: "markdown", required: false }
 
-  - name: "wallet"
-    label: "Wallet Page"
-    folder: "content"
-    i18n: true
-    create: false
-    extension: "md"
-    format: "frontmatter"
-    path: "{{locale}}/wallet"
-    slug: "wallet"
-    fields:
-      - { label: "Title", name: "title", widget: "string", i18n: true }
+      - name: "main_recommendations"
+        label: "main_recommendations"
+        file: "src/content/en/main_recommendations.md"
+        format: "frontmatter"
+        fields:
+          - { label: "Type", name: "type", widget: "string", required: false }
+          - { label: "Title", name: "title", widget: "string", required: false }
+          - label: "Other frontmatter fields"
+            name: "extra"
+            widget: "map"
+            required: false
+            allow_add: true
+            collapsed: false
+            value_type: "string"
+          - { label: "Body", name: "body", widget: "markdown", required: false }
 
-  - name: "main_hero"
-    label: "Main Hero"
-    folder: "content"
-    i18n: true
-    create: false
-    extension: "md"
-    format: "frontmatter"
-    path: "{{locale}}/main_hero"
-    slug: "main_hero"
-    fields:
-      - { label: "Title", name: "title", widget: "string", i18n: true }
+      - name: "main_slogan"
+        label: "main_slogan"
+        file: "src/content/en/main_slogan.md"
+        format: "frontmatter"
+        fields:
+          - { label: "Type", name: "type", widget: "string", required: false }
+          - { label: "Title", name: "title", widget: "string", required: false }
+          - label: "Other frontmatter fields"
+            name: "extra"
+            widget: "map"
+            required: false
+            allow_add: true
+            collapsed: false
+            value_type: "string"
+          - { label: "Body", name: "body", widget: "markdown", required: false }
 
-  - name: "main_audience"
-    label: "Main Audience"
-    folder: "content"
-    i18n: true
-    create: false
-    extension: "md"
-    format: "frontmatter"
-    path: "{{locale}}/main_audience"
-    slug: "main_audience"
-    fields:
-      - { label: "Title", name: "title", widget: "string", i18n: true }
+      - name: "main_contact_us"
+        label: "main_contact_us"
+        file: "src/content/en/main_contact_us.md"
+        format: "frontmatter"
+        fields:
+          - { label: "Type", name: "type", widget: "string" }
+          - { label: "Heading", name: "contact_us_h1", widget: "string" }
+          - { label: "Subheading", name: "contact_us_h2", widget: "string" }
+          - { label: "Form item 1 label", name: "contact_us_form_item_1_1", widget: "string" }
+          - { label: "Form item 1 option 1", name: "contact_us_form_item_1_2", widget: "string" }
+          - { label: "Form item 1 option 2", name: "contact_us_form_item_1_3", widget: "string" }
+          - { label: "Form item 2 label", name: "contact_us_form_item_2_1", widget: "string" }
+          - { label: "Form item 2 placeholder", name: "contact_us_form_item_2_2", widget: "string" }
+          - { label: "Form item 3 label", name: "contact_us_form_item_3_1", widget: "string" }
+          - { label: "Form item 3 placeholder", name: "contact_us_form_item_3_2", widget: "string" }
+          - { label: "Form item 4 label", name: "contact_us_form_item_4_1", widget: "string" }
+          - { label: "Form item 4 placeholder", name: "contact_us_form_item_4_2", widget: "string" }
+          - { label: "Form item 5 label", name: "contact_us_form_item_5_1", widget: "string" }
+          - { label: "Form item 5 placeholder", name: "contact_us_form_item_5_2", widget: "string" }
+          - { label: "Form item 5 helper", name: "contact_us_form_item_5_3", widget: "string" }
+          - { label: "Form item 6 label", name: "contact_us_form_item_6_1", widget: "string" }
+          - { label: "Form item 6 placeholder", name: "contact_us_form_item_6_2", widget: "string" }
+          - { label: "Send button", name: "contact_us_form_btn_send", widget: "string" }
+          - { label: "Card 1 label", name: "contact_us_card_item_1_1", widget: "string" }
+          - { label: "Card 1 title", name: "contact_us_card_item_1_2", widget: "string" }
+          - { label: "Card 1 link 1", name: "contact_us_card_item_1_3", widget: "string" }
+          - { label: "Card 1 link 2", name: "contact_us_card_item_1_4", widget: "string" }
+          - { label: "Card 2 label", name: "contact_us_card_item_2_1", widget: "string" }
+          - { label: "Card 2 title", name: "contact_us_card_item_2_2", widget: "string" }
+          - { label: "Card 2 link 1", name: "contact_us_card_item_2_3", widget: "string" }
+          - { label: "Card 2 link 2", name: "contact_us_card_item_2_4", widget: "string" }
+          - { label: "Badge 1", name: "contact_us_badge_1", widget: "string" }
+          - { label: "Badge 1 label", name: "contact_us_badge_1_label", widget: "string" }
+          - { label: "Badge 2", name: "contact_us_badge_2", widget: "string" }
+          - { label: "Badge 2 label", name: "contact_us_badge_2_label", widget: "string" }
+          - { label: "Badge 3", name: "contact_us_badge_3", widget: "string" }
+          - { label: "Badge 3 label", name: "contact_us_badge_3_label", widget: "string" }
+          - { label: "Body", name: "body", widget: "markdown", required: false }
 
-  - name: "main_advantages"
-    label: "Main Advantages"
-    folder: "content"
-    i18n: true
-    create: false
-    extension: "md"
-    format: "frontmatter"
-    path: "{{locale}}/main_advantages"
-    slug: "main_advantages"
-    fields:
-      - { label: "Title", name: "title", widget: "string", i18n: true }
+  - name: "russian"
+    label: "Russian"
+    files:
+      - name: "home_common"
+        label: "_index (common)"
+        file: "src/content/ru/_index.md"
+        format: "frontmatter"
+        fields:
+          - { label: "Type", name: "type", widget: "string" }
+          - { label: "Title", name: "title", widget: "string" }
+          # Note: keep keys aligned with ru/_index.md; rest will be filled out in the next pass
+          - { label: "Body", name: "body", widget: "markdown", required: false }
 
-  - name: "main_numbers"
-    label: "Main Numbers"
-    folder: "content"
-    i18n: true
-    create: false
-    extension: "md"
-    format: "frontmatter"
-    path: "{{locale}}/main_numbers"
-    slug: "main_numbers"
-    fields:
-      - { label: "Title", name: "title", widget: "string", i18n: true }
+      - name: "main_hero"
+        label: "main_hero"
+        file: "src/content/ru/main_hero.md"
+        format: "frontmatter"
+        fields:
+          - { label: "Type", name: "type", widget: "string" }
+          - { label: "Title", name: "title", widget: "string" }
+          - { label: "Hero subtitle", name: "hero_subtitle", widget: "string" }
+          - { label: "Learn button", name: "btn_learn", widget: "string" }
+          - { label: "Explore button", name: "btn_explore", widget: "string" }
+          - { label: "Intro H1", name: "main_intro_h1", widget: "string" }
+          - { label: "Intro H2", name: "main_intro_h2", widget: "string" }
+          - { label: "Intro text", name: "main_intro_text", widget: "text" }
+          - { label: "Badge: licensed", name: "hero_badge_licensed", widget: "string" }
+          - { label: "Badge: investment", name: "hero_badge_investment", widget: "string" }
+          - { label: "Badge: blockchain", name: "hero_badge_blockchain", widget: "string" }
+          - { label: "Slider 1", name: "main_intro_slider1", widget: "string" }
+          - { label: "Slider 2", name: "main_intro_slider2", widget: "string" }
+          - { label: "Body", name: "body", widget: "markdown", required: false }
 
-  - name: "main_how_it_works"
-    label: "Main How It Works"
-    folder: "content"
-    i18n: true
-    create: false
-    extension: "md"
-    format: "frontmatter"
-    path: "{{locale}}/main_how-it-works"
-    slug: "main_how-it-works"
-    fields:
-      - { label: "Title", name: "title", widget: "string", i18n: true }
+      - name: "main_advantages"
+        label: "main_advantages"
+        file: "src/content/ru/main_advantages.md"
+        format: "frontmatter"
+        fields:
+          - { label: "Type", name: "type", widget: "string" }
+          - { label: "Heading", name: "advantages_h1", widget: "string" }
+          - { label: "Subheading", name: "advantages_h2", widget: "text" }
+          - { label: "Item 1 title", name: "advantages_item_1_1", widget: "string" }
+          - { label: "Item 1 line 1", name: "advantages_item_1_2", widget: "string" }
+          - { label: "Item 1 line 2", name: "advantages_item_1_3", widget: "string" }
+          - { label: "Item 1 line 3", name: "advantages_item_1_4", widget: "string" }
+          - { label: "Item 2 title", name: "advantages_item_2_1", widget: "string" }
+          - { label: "Item 2 line 1", name: "advantages_item_2_2", widget: "string" }
+          - { label: "Item 2 line 2", name: "advantages_item_2_3", widget: "string" }
+          - { label: "Item 2 line 3", name: "advantages_item_2_4", widget: "string" }
+          - { label: "Item 3 title", name: "advantages_item_3_1", widget: "string" }
+          - { label: "Item 3 line 1", name: "advantages_item_3_2", widget: "string" }
+          - { label: "Item 3 line 2", name: "advantages_item_3_3", widget: "string" }
+          - { label: "Item 3 line 3", name: "advantages_item_3_4", widget: "string" }
+          - { label: "Item 4 title", name: "advantages_item_4_1", widget: "string" }
+          - { label: "Item 4 line 1", name: "advantages_item_4_2", widget: "string" }
+          - { label: "Item 4 line 2", name: "advantages_item_4_3", widget: "string" }
+          - { label: "Item 4 line 3", name: "advantages_item_4_4", widget: "string" }
+          - { label: "Item 5 title", name: "advantages_item_5_1", widget: "string" }
+          - { label: "Item 5 line 1", name: "advantages_item_5_2", widget: "string" }
+          - { label: "Item 5 line 2", name: "advantages_item_5_3", widget: "string" }
+          - { label: "Item 5 line 3", name: "advantages_item_5_4", widget: "string" }
+          - { label: "Item 6 title", name: "advantages_item_6_1", widget: "string" }
+          - { label: "Item 6 line 1", name: "advantages_item_6_2", widget: "string" }
+          - { label: "Item 6 line 2", name: "advantages_item_6_3", widget: "string" }
+          - { label: "Item 6 line 3", name: "advantages_item_6_4", widget: "string" }
+          - { label: "Item 7 title", name: "advantages_item_7_1", widget: "string" }
+          - { label: "Item 7 line 1", name: "advantages_item_7_2", widget: "string" }
+          - { label: "Item 7 line 2", name: "advantages_item_7_3", widget: "string" }
+          - { label: "Item 7 line 3", name: "advantages_item_7_4", widget: "string" }
+          - { label: "Body", name: "body", widget: "markdown", required: false }
 
-  - name: "main_locations"
-    label: "Main Locations"
-    folder: "content"
-    i18n: true
-    create: false
-    extension: "md"
-    format: "frontmatter"
-    path: "{{locale}}/main_locations"
-    slug: "main_locations"
-    fields:
-      - { label: "Title", name: "title", widget: "string", i18n: true }
+      - name: "main_how_it_works"
+        label: "main_how-it-works"
+        file: "src/content/ru/main_how-it-works.md"
+        format: "frontmatter"
+        fields:
+          - { label: "Type", name: "type", widget: "string" }
+          - { label: "Heading", name: "how_it_works_h1", widget: "string" }
+          - { label: "Subheading", name: "how_it_works_h2", widget: "text" }
+          - { label: "Body", name: "body", widget: "markdown", required: false }
 
-  - name: "main_recommendations"
-    label: "Main Recommendations"
-    folder: "content"
-    i18n: true
-    create: false
-    extension: "md"
-    format: "frontmatter"
-    path: "{{locale}}/main_recommendations"
-    slug: "main_recommendations"
-    fields:
-      - { label: "Title", name: "title", widget: "string", i18n: true }
+      - name: "main_numbers"
+        label: "main_numbers"
+        file: "src/content/ru/main_numbers.md"
+        format: "frontmatter"
+        fields:
+          - { label: "Type", name: "type", widget: "string", required: false }
+          - { label: "Title", name: "title", widget: "string", required: false }
+          - label: "Other frontmatter fields"
+            name: "extra"
+            widget: "map"
+            required: false
+            allow_add: true
+            collapsed: false
+            value_type: "string"
+          - { label: "Body", name: "body", widget: "markdown", required: false }
 
-  - name: "main_slogan"
-    label: "Main Slogan"
-    folder: "content"
-    i18n: true
-    create: false
-    extension: "md"
-    format: "frontmatter"
-    path: "{{locale}}/main_slogan"
-    slug: "main_slogan"
-    fields:
-      - { label: "Title", name: "title", widget: "string", i18n: true }
+      - name: "main_locations"
+        label: "main_locations"
+        file: "src/content/ru/main_locations.md"
+        format: "frontmatter"
+        fields:
+          - { label: "Type", name: "type", widget: "string", required: false }
+          - { label: "Title", name: "title", widget: "string", required: false }
+          - label: "Other frontmatter fields"
+            name: "extra"
+            widget: "map"
+            required: false
+            allow_add: true
+            collapsed: false
+            value_type: "string"
+          - { label: "Body", name: "body", widget: "markdown", required: false }
 
-  - name: "main_faq"
-    label: "Main FAQ"
-    folder: "content"
-    i18n: true
-    create: false
-    extension: "md"
-    format: "frontmatter"
-    path: "{{locale}}/main_faq"
-    slug: "main_faq"
-    fields:
-      - { label: "Title", name: "title", widget: "string", i18n: true }
+      - name: "main_recommendations"
+        label: "main_recommendations"
+        file: "src/content/ru/main_recommendations.md"
+        format: "frontmatter"
+        fields:
+          - { label: "Type", name: "type", widget: "string", required: false }
+          - { label: "Title", name: "title", widget: "string", required: false }
+          - label: "Other frontmatter fields"
+            name: "extra"
+            widget: "map"
+            required: false
+            allow_add: true
+            collapsed: false
+            value_type: "string"
+          - { label: "Body", name: "body", widget: "markdown", required: false }
 
-  - name: "main_contact_us"
-    label: "Main Contact Us"
-    folder: "content"
-    i18n: true
-    create: false
-    extension: "md"
-    format: "frontmatter"
-    path: "{{locale}}/main_contact_us"
-    slug: "main_contact_us"
-    fields:
-      - { label: "Title", name: "title", widget: "string", i18n: true }
+      - name: "main_slogan"
+        label: "main_slogan"
+        file: "src/content/ru/main_slogan.md"
+        format: "frontmatter"
+        fields:
+          - { label: "Type", name: "type", widget: "string", required: false }
+          - { label: "Title", name: "title", widget: "string", required: false }
+          - label: "Other frontmatter fields"
+            name: "extra"
+            widget: "map"
+            required: false
+            allow_add: true
+            collapsed: false
+            value_type: "string"
+          - { label: "Body", name: "body", widget: "markdown", required: false }
+
+      - name: "main_contact_us"
+        label: "main_contact_us"
+        file: "src/content/ru/main_contact_us.md"
+        format: "frontmatter"
+        fields:
+          - { label: "Type", name: "type", widget: "string" }
+          - { label: "Heading", name: "contact_us_h1", widget: "string" }
+          - { label: "Subheading", name: "contact_us_h2", widget: "string" }
+          - { label: "Form item 1 label", name: "contact_us_form_item_1_1", widget: "string" }
+          - { label: "Form item 1 option 1", name: "contact_us_form_item_1_2", widget: "string" }
+          - { label: "Form item 1 option 2", name: "contact_us_form_item_1_3", widget: "string" }
+          - { label: "Form item 2 label", name: "contact_us_form_item_2_1", widget: "string" }
+          - { label: "Form item 2 placeholder", name: "contact_us_form_item_2_2", widget: "string" }
+          - { label: "Form item 3 label", name: "contact_us_form_item_3_1", widget: "string" }
+          - { label: "Form item 3 placeholder", name: "contact_us_form_item_3_2", widget: "string" }
+          - { label: "Form item 4 label", name: "contact_us_form_item_4_1", widget: "string" }
+          - { label: "Form item 4 placeholder", name: "contact_us_form_item_4_2", widget: "string" }
+          - { label: "Form item 5 label", name: "contact_us_form_item_5_1", widget: "string" }
+          - { label: "Form item 5 placeholder", name: "contact_us_form_item_5_2", widget: "string" }
+          - { label: "Form item 5 helper", name: "contact_us_form_item_5_3", widget: "string" }
+          - { label: "Form item 6 label", name: "contact_us_form_item_6_1", widget: "string" }
+          - { label: "Form item 6 placeholder", name: "contact_us_form_item_6_2", widget: "string" }
+          - { label: "Send button", name: "contact_us_form_btn_send", widget: "string" }
+          - { label: "Card 1 label", name: "contact_us_card_item_1_1", widget: "string" }
+          - { label: "Card 1 title", name: "contact_us_card_item_1_2", widget: "string" }
+          - { label: "Card 1 link 1", name: "contact_us_card_item_1_3", widget: "string" }
+          - { label: "Card 1 link 2", name: "contact_us_card_item_1_4", widget: "string" }
+          - { label: "Card 2 label", name: "contact_us_card_item_2_1", widget: "string" }
+          - { label: "Card 2 title", name: "contact_us_card_item_2_2", widget: "string" }
+          - { label: "Card 2 link 1", name: "contact_us_card_item_2_3", widget: "string" }
+          - { label: "Card 2 link 2", name: "contact_us_card_item_2_4", widget: "string" }
+          - { label: "Badge 1", name: "contact_us_badge_1", widget: "string" }
+          - { label: "Badge 1 label", name: "contact_us_badge_1_label", widget: "string" }
+          - { label: "Badge 2", name: "contact_us_badge_2", widget: "string" }
+          - { label: "Badge 2 label", name: "contact_us_badge_2_label", widget: "string" }
+          - { label: "Badge 3", name: "contact_us_badge_3", widget: "string" }
+          - { label: "Badge 3 label", name: "contact_us_badge_3_label", widget: "string" }
+          - { label: "Body", name: "body", widget: "markdown", required: false }
+
+
