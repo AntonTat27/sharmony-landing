@@ -1,4 +1,4 @@
-local_backend: false
+local_backend: true
 
 backend:
   name: github
@@ -7,8 +7,8 @@ backend:
   base_url: "https://decap-cms-oauth-murex.vercel.app"
   auth_endpoint: "auth"
 
-media_folder: "static/uploads"
-public_folder: "/uploads"
+media_folder: "static/images/uploads"
+public_folder: "/images/uploads"
 
 i18n:
   structure: multiple_folders
@@ -33,105 +33,199 @@ collections:
           - { label: "ID", name: "id", widget: "string" }
           - { label: "Text", name: "text", widget: "string", i18n: true }
 
-  - name: "pages"
-    label: "Pages"
+  # Decap does not support i18n: multiple_folders with files collections.
+  # Use folder collections per page type, and keep one fixed file per locale via create: false.
+  - name: "ui_strings"
+    label: "Header/Footer"
+    folder: "content"
     i18n: true
-    files:
-      - label: "Header/Footer"
-        name: "common"
-        file: "content/{{locale}}/ui_strings.md"
-        fields:
-          - { label: "Banner Text", name: "banner_text", widget: "string", i18n: true }
-          - { label: "Banner CTA", name: "banner_cta", widget: "string", i18n: true }
+    create: false
+    extension: "md"
+    format: "frontmatter"
+    path: "{{locale}}/ui_strings"
+    slug: "ui_strings"
+    fields:
+      - { label: "Banner Text", name: "banner_text", widget: "string", i18n: true }
+      - { label: "Banner CTA", name: "banner_cta", widget: "string", i18n: true }
 
-      - label: "Main Page"
-        name: "main_page"
-        file: "content/{{locale}}/_index.md"
-        fields:
-          - { label: "Title", name: "title", widget: "string", i18n: true }
-          - { label: "Main Intro H1", name: "main_intro_h1", widget: "string", i18n: true }
-          - { label: "Main Intro H2", name: "main_intro_h2", widget: "string", i18n: true }
+  - name: "main_page"
+    label: "Main Page"
+    folder: "content"
+    i18n: true
+    create: false
+    extension: "md"
+    format: "frontmatter"
+    path: "{{locale}}/_index"
+    slug: "_index"
+    fields:
+      - { label: "Title", name: "title", widget: "string", i18n: true }
+      - { label: "Main Intro H1", name: "main_intro_h1", widget: "string", i18n: true }
+      - { label: "Main Intro H2", name: "main_intro_h2", widget: "string", i18n: true }
 
-      - label: "Investor Page"
-        name: "investor"
-        file: "content/{{locale}}/investors.md"
-        fields:
-          - { label: "Title", name: "title", widget: "string", i18n: true }
+  - name: "investor"
+    label: "Investor Page"
+    folder: "content"
+    i18n: true
+    create: false
+    extension: "md"
+    format: "frontmatter"
+    path: "{{locale}}/investors"
+    slug: "investors"
+    fields:
+      - { label: "Title", name: "title", widget: "string", i18n: true }
 
-      - label: "Partners Page"
-        name: "partners"
-        file: "content/{{locale}}/partners.md"
-        fields:
-          - { label: "Title", name: "title", widget: "string", i18n: true }
+  - name: "partners.md"
+    label: "Partners Page"
+    folder: "content"
+    i18n: true
+    create: false
+    extension: "md"
+    format: "frontmatter"
+    path: "{{locale}}/partners.md"
+    slug: "partners"
+    fields:
+      - { label: "Title", name: "title", widget: "string", i18n: true }
 
-      - label: "Marketplace Page"
-        name: "marketplace"
-        file: "content/{{locale}}/marketplace.md"
-        fields:
-          - { label: "Title", name: "title", widget: "string", i18n: true }
+  - name: "marketplace"
+    label: "Marketplace Page"
+    folder: "content"
+    i18n: true
+    create: false
+    extension: "md"
+    format: "frontmatter"
+    path: "{{locale}}/marketplace"
+    slug: "marketplace"
+    fields:
+      - { label: "Title", name: "title", widget: "string", i18n: true }
 
-      - label: "Wallet Page"
-        name: "wallet"
-        file: "content/{{locale}}/wallet.md"
-        fields:
-          - { label: "Title", name: "title", widget: "string", i18n: true }
+  - name: "wallet"
+    label: "Wallet Page"
+    folder: "content"
+    i18n: true
+    create: false
+    extension: "md"
+    format: "frontmatter"
+    path: "{{locale}}/wallet"
+    slug: "wallet"
+    fields:
+      - { label: "Title", name: "title", widget: "string", i18n: true }
 
-      - label: "Main Hero"
-        name: "main_hero"
-        file: "content/{{locale}}/main_hero.md"
-        fields:
-          - { label: "Title", name: "title", widget: "string", i18n: true }
+  - name: "main_hero"
+    label: "Main Hero"
+    folder: "content"
+    i18n: true
+    create: false
+    extension: "md"
+    format: "frontmatter"
+    path: "{{locale}}/main_hero"
+    slug: "main_hero"
+    fields:
+      - { label: "Title", name: "title", widget: "string", i18n: true }
 
-      - label: "Main Audience"
-        name: "main_audience"
-        file: "content/{{locale}}/main_audience.md"
-        fields:
-          - { label: "Title", name: "title", widget: "string", i18n: true }
+  - name: "main_audience"
+    label: "Main Audience"
+    folder: "content"
+    i18n: true
+    create: false
+    extension: "md"
+    format: "frontmatter"
+    path: "{{locale}}/main_audience"
+    slug: "main_audience"
+    fields:
+      - { label: "Title", name: "title", widget: "string", i18n: true }
 
-      - label: "Main Advantages"
-        name: "main_advantages"
-        file: "content/{{locale}}/main_advantages.md"
-        fields:
-          - { label: "Title", name: "title", widget: "string", i18n: true }
+  - name: "main_advantages"
+    label: "Main Advantages"
+    folder: "content"
+    i18n: true
+    create: false
+    extension: "md"
+    format: "frontmatter"
+    path: "{{locale}}/main_advantages"
+    slug: "main_advantages"
+    fields:
+      - { label: "Title", name: "title", widget: "string", i18n: true }
 
-      - label: "Main Numbers"
-        name: "main_numbers"
-        file: "content/{{locale}}/main_numbers.md"
-        fields:
-          - { label: "Title", name: "title", widget: "string", i18n: true }
+  - name: "main_numbers"
+    label: "Main Numbers"
+    folder: "content"
+    i18n: true
+    create: false
+    extension: "md"
+    format: "frontmatter"
+    path: "{{locale}}/main_numbers"
+    slug: "main_numbers"
+    fields:
+      - { label: "Title", name: "title", widget: "string", i18n: true }
 
-      - label: "Main How It Works"
-        name: "main_how_it_works"
-        file: "content/{{locale}}/main_how-it-works.md"
-        fields:
-          - { label: "Title", name: "title", widget: "string", i18n: true }
+  - name: "main_how_it_works"
+    label: "Main How It Works"
+    folder: "content"
+    i18n: true
+    create: false
+    extension: "md"
+    format: "frontmatter"
+    path: "{{locale}}/main_how-it-works"
+    slug: "main_how-it-works"
+    fields:
+      - { label: "Title", name: "title", widget: "string", i18n: true }
 
-      - label: "Main Locations"
-        name: "main_locations"
-        file: "content/{{locale}}/main_locations.md"
-        fields:
-          - { label: "Title", name: "title", widget: "string", i18n: true }
+  - name: "main_locations"
+    label: "Main Locations"
+    folder: "content"
+    i18n: true
+    create: false
+    extension: "md"
+    format: "frontmatter"
+    path: "{{locale}}/main_locations"
+    slug: "main_locations"
+    fields:
+      - { label: "Title", name: "title", widget: "string", i18n: true }
 
-      - label: "Main Recommendations"
-        name: "main_recommendations"
-        file: "content/{{locale}}/main_recommendations.md"
-        fields:
-          - { label: "Title", name: "title", widget: "string", i18n: true }
+  - name: "main_recommendations"
+    label: "Main Recommendations"
+    folder: "content"
+    i18n: true
+    create: false
+    extension: "md"
+    format: "frontmatter"
+    path: "{{locale}}/main_recommendations"
+    slug: "main_recommendations"
+    fields:
+      - { label: "Title", name: "title", widget: "string", i18n: true }
 
-      - label: "Main Slogan"
-        name: "main_slogan"
-        file: "content/{{locale}}/main_slogan.md"
-        fields:
-          - { label: "Title", name: "title", widget: "string", i18n: true }
+  - name: "main_slogan"
+    label: "Main Slogan"
+    folder: "content"
+    i18n: true
+    create: false
+    extension: "md"
+    format: "frontmatter"
+    path: "{{locale}}/main_slogan"
+    slug: "main_slogan"
+    fields:
+      - { label: "Title", name: "title", widget: "string", i18n: true }
 
-      - label: "Main FAQ"
-        name: "main_faq"
-        file: "content/{{locale}}/main_faq.md"
-        fields:
-          - { label: "Title", name: "title", widget: "string", i18n: true }
+  - name: "main_faq"
+    label: "Main FAQ"
+    folder: "content"
+    i18n: true
+    create: false
+    extension: "md"
+    format: "frontmatter"
+    path: "{{locale}}/main_faq"
+    slug: "main_faq"
+    fields:
+      - { label: "Title", name: "title", widget: "string", i18n: true }
 
-      - label: "Main Contact Us"
-        name: "main_contact_us"
-        file: "content/{{locale}}/main_contact_us.md"
-        fields:
-          - { label: "Title", name: "title", widget: "string", i18n: true }
+  - name: "main_contact_us"
+    label: "Main Contact Us"
+    folder: "content"
+    i18n: true
+    create: false
+    extension: "md"
+    format: "frontmatter"
+    path: "{{locale}}/main_contact_us"
+    slug: "main_contact_us"
+    fields:
+      - { label: "Title", name: "title", widget: "string", i18n: true }
