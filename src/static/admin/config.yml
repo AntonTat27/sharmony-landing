@@ -1,31 +1,27 @@
 local_backend: false
 
 backend:
-  name: git-gateway
+  name: github
   repo: AntonTat27/sharmony-landing
-  branch: dev # or main — whichever you want Decap to commit to
-  # auth_type: implicit
-  auth_endpoint: "https://sharmony.netlify.app/.netlify/identity"
-  gateway_url: "https://sharmony.netlify.app/.netlify/git"
-  app_id: Ov23lij5CmVSkQgQbaLV
+  branch: dev
+  auth_endpoint: "https://decap-cms-oauth-murex.vercel.app/callback"
 
 media_folder: "static/uploads"
 public_folder: "/uploads"
 
 i18n:
   structure: multiple_folders
-  locales: [en, ru, de, fr, es, ar, zh] # all languages
+  locales: [en, ru, de, fr, es, ar, zh]
   default_locale: en
 
 collections:
   - name: "menu_translations"
     label: "Menu Translations"
-    folder: "data" # Root folder
-    i18n: true # Enable the language switcher
+    folder: "data"
+    i18n: true
     extension: "toml"
     format: "toml"
     identifier_field: "id"
-    # This matches your working content structure: data/en/menu.toml
     path: "{{locale}}/menu"
     fields:
       - label: "Items"
@@ -38,9 +34,9 @@ collections:
 
   - name: "Sharmony Header/Footer Page"
     label: "Header/Footer"
-    folder: "content" # The root folder
-    i18n: true # Enable the i18n switcher
-    create: false # Important: Stops users from making random files
+    folder: "content"
+    i18n: true
+    create: false
     extension: "md"
     format: "frontmatter"
     filter: { field: "type", value: "common" }
@@ -61,9 +57,9 @@ collections:
 
   - name: "Sharmony Main Page"
     label: "Main Page"
-    folder: "content" # The root folder
-    i18n: true # Enable the i18n switcher
-    create: false # Important: Stops users from making random files
+    folder: "content"
+    i18n: true
+    create: false
     extension: "md"
     format: "frontmatter"
     filter: { field: "type", value: "mainpage" }
@@ -85,9 +81,9 @@ collections:
 
   - name: "Sharmony Investor"
     label: "Investor Page"
-    folder: "content" # The root folder
-    i18n: true # Enable the i18n switcher
-    create: false # Important: Stops users from making random files
+    folder: "content"
+    i18n: true
+    create: false
     extension: "md"
     format: "frontmatter"
     filter: { field: "type", value: "investor" }
@@ -97,9 +93,9 @@ collections:
 
   - name: "Sharmony Partners"
     label: "Partners Page"
-    folder: "content" # The root folder
-    i18n: true # Enable the i18n switcher
-    create: false # Important: Stops users from making random files
+    folder: "content"
+    i18n: true
+    create: false
     extension: "md"
     format: "frontmatter"
     filter: { field: "type", value: "partners" }
@@ -109,9 +105,9 @@ collections:
 
   - name: "Sharmony Marketplace"
     label: "Marketplace Page"
-    folder: "content" # The root folder
-    i18n: true # Enable the i18n switcher
-    create: false # Important: Stops users from making random files
+    folder: "content"
+    i18n: true
+    create: false
     extension: "md"
     format: "frontmatter"
     filter: { field: "type", value: "marketplace" }
@@ -121,9 +117,9 @@ collections:
 
   - name: "Sharmony Wallet"
     label: "Wallet Page"
-    folder: "content" # The root folder
-    i18n: true # Enable the i18n switcher
-    create: false # Important: Stops users from making random files
+    folder: "content"
+    i18n: true
+    create: false
     extension: "md"
     format: "frontmatter"
     filter: { field: "type", value: "wallet" }
