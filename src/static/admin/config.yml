@@ -4,7 +4,8 @@ backend:
   name: github
   repo: AntonTat27/sharmony-landing
   branch: dev
-  auth_endpoint: "https://decap-cms-oauth-murex.vercel.app/callback"
+  base_url: "https://decap-cms-oauth-murex.vercel.app"
+  auth_endpoint: "/callback"
 
 media_folder: "static/uploads"
 public_folder: "/uploads"
