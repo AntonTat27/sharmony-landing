@@ -6,6 +6,8 @@ backend:
   branch: dev
   base_url: "https://decap-cms-oauth-murex.vercel.app"
 
+site_url: "https://sharmony.world"
+
 media_folder: "static/images/uploads"
 public_folder: "/images/uploads"
 
