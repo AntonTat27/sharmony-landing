@@ -1,4 +1,4 @@
-local_backend: true
+local_backend: false
 
 backend:
   name: github
@@ -28,7 +28,6 @@ collections:
           - { label: "Header search placeholder", name: "header_search_placeholder", widget: "string" }
           - { label: "Footer copyright", name: "footer_copyright", widget: "string" }
           - { label: "Footer terms link", name: "footer_terms_link", widget: "string" }
-          - { label: "Body", name: "body", widget: "markdown", required: false }
 
       - name: "main_hero"
         label: "main_hero"
@@ -48,7 +47,6 @@ collections:
           - { label: "Badge: blockchain", name: "hero_badge_blockchain", widget: "string" }
           - { label: "Slider 1", name: "main_intro_slider1", widget: "string" }
           - { label: "Slider 2", name: "main_intro_slider2", widget: "string" }
-          - { label: "Body", name: "body", widget: "markdown", required: false }
 
       - name: "main_advantages"
         label: "main_advantages"
@@ -86,7 +84,29 @@ collections:
           - { label: "Item 7 line 1", name: "advantages_item_7_2", widget: "string" }
           - { label: "Item 7 line 2", name: "advantages_item_7_3", widget: "string" }
           - { label: "Item 7 line 3", name: "advantages_item_7_4", widget: "string" }
-          - { label: "Body", name: "body", widget: "markdown", required: false }
+
+      - name: "main_audience"
+        label: "main_audience"
+        file: "src/content/en/main_audience.md"
+        format: "frontmatter"
+        fields:
+          - { label: "Type", name: "type", widget: "string" }
+          - { label: "Heading 1", name: "audience_h1", widget: "string" }
+          - { label: "Heading 2", name: "audience_h2", widget: "string" }
+          - { label: "Heading 3", name: "audience_h3", widget: "text" }
+          - { label: "Heading 4", name: "audience_h4", widget: "string" }
+          - { label: "Item 1 title", name: "audience_item_1_1", widget: "string" }
+          - { label: "Item 1 text", name: "audience_item_1_2", widget: "text" }
+          - { label: "Item 2 title", name: "audience_item_2_1", widget: "string" }
+          - { label: "Item 2 text", name: "audience_item_2_2", widget: "text" }
+          - { label: "Item 3 title", name: "audience_item_3_1", widget: "string" }
+          - { label: "Item 3 text", name: "audience_item_3_2", widget: "text" }
+          - { label: "Item 4 title", name: "audience_item_4_1", widget: "string" }
+          - { label: "Item 4 text", name: "audience_item_4_2", widget: "text" }
+          - { label: "Item 5 title", name: "audience_item_5_1", widget: "string" }
+          - { label: "Item 5 text", name: "audience_item_5_2", widget: "text" }
+          - { label: "Item 6 title", name: "audience_item_6_1", widget: "string" }
+          - { label: "Item 6 text", name: "audience_item_6_2", widget: "text" }
 
       - name: "main_how_it_works"
         label: "main_how-it-works"
@@ -96,71 +116,202 @@ collections:
           - { label: "Type", name: "type", widget: "string" }
           - { label: "Heading", name: "how_it_works_h1", widget: "string" }
           - { label: "Subheading", name: "how_it_works_h2", widget: "text" }
-          - { label: "Body", name: "body", widget: "markdown", required: false }
+          - { label: "Step 1 number", name: "how_it_works_item_1_1", widget: "string" }
+          - { label: "Step 1 title", name: "how_it_works_item_1_2", widget: "string" }
+          - { label: "Step 1 A title", name: "how_it_works_item_1_1_1", widget: "string" }
+          - { label: "Step 1 A text", name: "how_it_works_item_1_1_2", widget: "text" }
+          - { label: "Step 1 B title", name: "how_it_works_item_1_2_1", widget: "string" }
+          - { label: "Step 1 B text", name: "how_it_works_item_1_2_2", widget: "text" }
+          - { label: "Step 1 C title", name: "how_it_works_item_1_3_1", widget: "string" }
+          - { label: "Step 1 C text", name: "how_it_works_item_1_3_2", widget: "text" }
+          - { label: "Step 1 D title", name: "how_it_works_item_1_4_1", widget: "string" }
+          - { label: "Step 1 D text", name: "how_it_works_item_1_4_2", widget: "text" }
+          - { label: "Step 1 E title", name: "how_it_works_item_1_5_1", widget: "string" }
+          - { label: "Step 1 E text", name: "how_it_works_item_1_5_2", widget: "text" }
+          - { label: "Step 2 number", name: "how_it_works_item_2_1", widget: "string" }
+          - { label: "Step 2 title", name: "how_it_works_item_2_2", widget: "string" }
+          - { label: "Step 2 A title", name: "how_it_works_item_2_1_1", widget: "string" }
+          - { label: "Step 2 A text", name: "how_it_works_item_2_1_2", widget: "text" }
+          - { label: "Step 2 B title", name: "how_it_works_item_2_2_1", widget: "string" }
+          - { label: "Step 2 B text", name: "how_it_works_item_2_2_2", widget: "text" }
+          - { label: "Step 2 C title", name: "how_it_works_item_2_3_1", widget: "string" }
+          - { label: "Step 2 C text", name: "how_it_works_item_2_3_2", widget: "text" }
+          - { label: "Step 2 D title", name: "how_it_works_item_2_4_1", widget: "string" }
+          - { label: "Step 2 D text", name: "how_it_works_item_2_4_2", widget: "text" }
+          - { label: "Step 2 E title", name: "how_it_works_item_2_5_1", widget: "string" }
+          - { label: "Step 2 E text", name: "how_it_works_item_2_5_2", widget: "text" }
+          - { label: "Step 3 number", name: "how_it_works_item_3_1", widget: "string" }
+          - { label: "Step 3 title", name: "how_it_works_item_3_2", widget: "string" }
+          - { label: "Step 3 A title", name: "how_it_works_item_3_1_1", widget: "string" }
+          - { label: "Step 3 A text", name: "how_it_works_item_3_1_2", widget: "text" }
+          - { label: "Step 3 B title", name: "how_it_works_item_3_2_1", widget: "string" }
+          - { label: "Step 3 B text", name: "how_it_works_item_3_2_2", widget: "text" }
+          - { label: "Step 4 number", name: "how_it_works_item_4_1", widget: "string" }
+          - { label: "Step 4 title", name: "how_it_works_item_4_2", widget: "string" }
+          - { label: "Step 4 A title", name: "how_it_works_item_4_1_1", widget: "string" }
+          - { label: "Step 4 A text", name: "how_it_works_item_4_1_2", widget: "text" }
+          - { label: "Step 4 B title", name: "how_it_works_item_4_2_1", widget: "string" }
+          - { label: "Step 4 B text", name: "how_it_works_item_4_2_2", widget: "text" }
+          - { label: "Step 5 number", name: "how_it_works_item_5_1", widget: "string" }
+          - { label: "Step 5 title", name: "how_it_works_item_5_2", widget: "string" }
+          - { label: "Step 5 A title", name: "how_it_works_item_5_1_1", widget: "string" }
+          - { label: "Step 5 A text", name: "how_it_works_item_5_1_2", widget: "text" }
+          - { label: "Step 5 B title", name: "how_it_works_item_5_2_1", widget: "string" }
+          - { label: "Step 5 B text", name: "how_it_works_item_5_2_2", widget: "text" }
+          - { label: "Step 5 C title", name: "how_it_works_item_5_3_1", widget: "string" }
+          - { label: "Step 5 C text", name: "how_it_works_item_5_3_2", widget: "text" }
 
       - name: "main_numbers"
         label: "main_numbers"
         file: "src/content/en/main_numbers.md"
         format: "frontmatter"
         fields:
-          - { label: "Type", name: "type", widget: "string", required: false }
-          - { label: "Title", name: "title", widget: "string", required: false }
-          - label: "Other frontmatter fields"
-            name: "extra"
-            widget: "map"
-            required: false
-            allow_add: true
-            collapsed: false
-            value_type: "string"
-          - { label: "Body", name: "body", widget: "markdown", required: false }
+          - { label: "Type", name: "type", widget: "string" }
+          - { label: "Heading", name: "numbers_h1", widget: "string" }
+          - { label: "Item 1 value", name: "numbers_item_1_1", widget: "string" }
+          - { label: "Item 1 label", name: "numbers_item_1_2", widget: "string" }
+          - { label: "Item 2 value", name: "numbers_item_2_1", widget: "string" }
+          - { label: "Item 2 label", name: "numbers_item_2_2", widget: "string" }
+          - { label: "Item 3 value", name: "numbers_item_3_1", widget: "string" }
+          - { label: "Item 3 label", name: "numbers_item_3_2", widget: "string" }
+          - { label: "Item 4 value", name: "numbers_item_4_1", widget: "string" }
+          - { label: "Item 4 label", name: "numbers_item_4_2", widget: "string" }
+          - { label: "Item 5 value", name: "numbers_item_5_1", widget: "string" }
+          - { label: "Item 5 label", name: "numbers_item_5_2", widget: "string" }
+          - { label: "Item 6 value", name: "numbers_item_6_1", widget: "string" }
+          - { label: "Item 6 label", name: "numbers_item_6_2", widget: "string" }
+          - { label: "Item 7 value", name: "numbers_item_7_1", widget: "string" }
+          - { label: "Item 7 label", name: "numbers_item_7_2", widget: "string" }
+          - { label: "Item 8 value", name: "numbers_item_8_1", widget: "string" }
+          - { label: "Item 8 label", name: "numbers_item_8_2", widget: "string" }
 
       - name: "main_locations"
         label: "main_locations"
         file: "src/content/en/main_locations.md"
         format: "frontmatter"
         fields:
-          - { label: "Type", name: "type", widget: "string", required: false }
-          - { label: "Title", name: "title", widget: "string", required: false }
-          - label: "Other frontmatter fields"
-            name: "extra"
-            widget: "map"
-            required: false
-            allow_add: true
-            collapsed: false
-            value_type: "string"
-          - { label: "Body", name: "body", widget: "markdown", required: false }
+          - { label: "Type", name: "type", widget: "string" }
+          - { label: "Heading", name: "locations_h1", widget: "string" }
+          - { label: "Subheading", name: "locations_h2", widget: "string" }
+          - { label: "Description", name: "locations_h3", widget: "text" }
+          - { label: "Item 1 country", name: "locations_item_1_1", widget: "string" }
+          - { label: "Item 1 label 1", name: "locations_item_1_2", widget: "string" }
+          - { label: "Item 1 value 1", name: "locations_item_1_3", widget: "string" }
+          - { label: "Item 1 label 2", name: "locations_item_1_4", widget: "string" }
+          - { label: "Item 1 value 2", name: "locations_item_1_5", widget: "string" }
+          - { label: "Item 1 label 3", name: "locations_item_1_6", widget: "string" }
+          - { label: "Item 1 value 3", name: "locations_item_1_7", widget: "string" }
+          - { label: "Item 1 label 4", name: "locations_item_1_8", widget: "string" }
+          - { label: "Item 1 value 4", name: "locations_item_1_9", widget: "string" }
+          - { label: "Item 1 label 5", name: "locations_item_1_10", widget: "string" }
+          - { label: "Item 1 value 5", name: "locations_item_1_11", widget: "string" }
+          - { label: "Item 1 label 6", name: "locations_item_1_12", widget: "string" }
+          - { label: "Item 1 value 6", name: "locations_item_1_13", widget: "string" }
+          - { label: "Item 2 country", name: "locations_item_2_1", widget: "string" }
+          - { label: "Item 2 label 1", name: "locations_item_2_2", widget: "string" }
+          - { label: "Item 2 value 1", name: "locations_item_2_3", widget: "string" }
+          - { label: "Item 2 label 2", name: "locations_item_2_4", widget: "string" }
+          - { label: "Item 2 value 2", name: "locations_item_2_5", widget: "string" }
+          - { label: "Item 2 label 3", name: "locations_item_2_6", widget: "string" }
+          - { label: "Item 2 value 3", name: "locations_item_2_7", widget: "string" }
+          - { label: "Item 2 label 4", name: "locations_item_2_8", widget: "string" }
+          - { label: "Item 2 value 4", name: "locations_item_2_9", widget: "string" }
+          - { label: "Item 2 label 5", name: "locations_item_2_10", widget: "string" }
+          - { label: "Item 2 value 5", name: "locations_item_2_11", widget: "string" }
+          - { label: "Item 2 label 6", name: "locations_item_2_12", widget: "string" }
+          - { label: "Item 2 value 6", name: "locations_item_2_13", widget: "string" }
+          - { label: "Item 3 country", name: "locations_item_3_1", widget: "string" }
+          - { label: "Item 3 label 1", name: "locations_item_3_2", widget: "string" }
+          - { label: "Item 3 value 1", name: "locations_item_3_3", widget: "string" }
+          - { label: "Item 3 label 2", name: "locations_item_3_4", widget: "string" }
+          - { label: "Item 3 value 2", name: "locations_item_3_5", widget: "string" }
+          - { label: "Item 3 label 3", name: "locations_item_3_6", widget: "string" }
+          - { label: "Item 3 value 3", name: "locations_item_3_7", widget: "string" }
+          - { label: "Item 3 label 4", name: "locations_item_3_8", widget: "string" }
+          - { label: "Item 3 value 4", name: "locations_item_3_9", widget: "string" }
+          - { label: "Item 3 label 5", name: "locations_item_3_10", widget: "string" }
+          - { label: "Item 3 value 5", name: "locations_item_3_11", widget: "string" }
+          - { label: "Item 3 label 6", name: "locations_item_3_12", widget: "string" }
+          - { label: "Item 3 value 6", name: "locations_item_3_13", widget: "string" }
+          - { label: "Item 4 country", name: "locations_item_4_1", widget: "string" }
+          - { label: "Item 4 label 1", name: "locations_item_4_2", widget: "string" }
+          - { label: "Item 4 value 1", name: "locations_item_4_3", widget: "string" }
+          - { label: "Item 4 label 2", name: "locations_item_4_4", widget: "string" }
+          - { label: "Item 4 value 2", name: "locations_item_4_5", widget: "string" }
+          - { label: "Item 4 label 3", name: "locations_item_4_6", widget: "string" }
+          - { label: "Item 4 value 3", name: "locations_item_4_7", widget: "string" }
+          - { label: "Item 4 label 4", name: "locations_item_4_8", widget: "string" }
+          - { label: "Item 4 value 4", name: "locations_item_4_9", widget: "string" }
+          - { label: "Item 4 label 5", name: "locations_item_4_10", widget: "string" }
+          - { label: "Item 4 value 5", name: "locations_item_4_11", widget: "string" }
+          - { label: "Item 4 label 6", name: "locations_item_4_12", widget: "string" }
+          - { label: "Item 4 value 6", name: "locations_item_4_13", widget: "string" }
+          - { label: "Item 5 country", name: "locations_item_5_1", widget: "string" }
+          - { label: "Item 5 label 1", name: "locations_item_5_2", widget: "string" }
+          - { label: "Item 5 value 1", name: "locations_item_5_3", widget: "string" }
+          - { label: "Item 5 label 2", name: "locations_item_5_4", widget: "string" }
+          - { label: "Item 5 value 2", name: "locations_item_5_5", widget: "string" }
+          - { label: "Item 5 label 3", name: "locations_item_5_6", widget: "string" }
+          - { label: "Item 5 value 3", name: "locations_item_5_7", widget: "string" }
+          - { label: "Item 5 label 4", name: "locations_item_5_8", widget: "string" }
+          - { label: "Item 5 value 4", name: "locations_item_5_9", widget: "string" }
+          - { label: "Item 5 label 5", name: "locations_item_5_10", widget: "string" }
+          - { label: "Item 5 value 5", name: "locations_item_5_11", widget: "string" }
+          - { label: "Item 5 label 6", name: "locations_item_5_12", widget: "string" }
+          - { label: "Item 5 value 6", name: "locations_item_5_13", widget: "string" }
+          - { label: "ARIA previous", name: "locations_aria_prev", widget: "string" }
+          - { label: "ARIA next", name: "locations_aria_next", widget: "string" }
 
       - name: "main_recommendations"
         label: "main_recommendations"
         file: "src/content/en/main_recommendations.md"
         format: "frontmatter"
         fields:
-          - { label: "Type", name: "type", widget: "string", required: false }
-          - { label: "Title", name: "title", widget: "string", required: false }
-          - label: "Other frontmatter fields"
-            name: "extra"
-            widget: "map"
-            required: false
-            allow_add: true
-            collapsed: false
-            value_type: "string"
-          - { label: "Body", name: "body", widget: "markdown", required: false }
+          - { label: "Type", name: "type", widget: "string" }
+          - { label: "Heading", name: "recommendations_h1", widget: "string" }
+          - { label: "Item 1 name", name: "recommendations_item_1_1", widget: "string" }
+          - { label: "Item 1 role", name: "recommendations_item_1_2", widget: "string" }
+          - { label: "Item 1 link", name: "recommendations_item_1_3", widget: "string" }
+          - { label: "Item 2 name", name: "recommendations_item_2_1", widget: "string" }
+          - { label: "Item 2 role", name: "recommendations_item_2_2", widget: "string" }
+          - { label: "Item 2 link", name: "recommendations_item_2_3", widget: "string" }
+          - { label: "Item 3 name", name: "recommendations_item_3_1", widget: "string" }
+          - { label: "Item 3 role", name: "recommendations_item_3_2", widget: "string" }
+          - { label: "Item 3 link", name: "recommendations_item_3_3", widget: "string" }
+          - { label: "Item 4 name", name: "recommendations_item_4_1", widget: "string" }
+          - { label: "Item 4 role", name: "recommendations_item_4_2", widget: "string" }
+          - { label: "Item 4 link", name: "recommendations_item_4_3", widget: "string" }
+          - { label: "ARIA previous", name: "recommendations_aria_prev", widget: "string" }
+          - { label: "ARIA next", name: "recommendations_aria_next", widget: "string" }
 
       - name: "main_slogan"
         label: "main_slogan"
         file: "src/content/en/main_slogan.md"
         format: "frontmatter"
         fields:
-          - { label: "Type", name: "type", widget: "string", required: false }
-          - { label: "Title", name: "title", widget: "string", required: false }
-          - label: "Other frontmatter fields"
-            name: "extra"
-            widget: "map"
-            required: false
-            allow_add: true
-            collapsed: false
-            value_type: "string"
-          - { label: "Body", name: "body", widget: "markdown", required: false }
+          - { label: "Type", name: "type", widget: "string" }
+          - { label: "Heading", name: "slogan_h1", widget: "string" }
+          - { label: "Subheading", name: "slogan_h2", widget: "text" }
+
+      - name: "main_faq"
+        label: "main_faq"
+        file: "src/content/en/main_faq.md"
+        format: "frontmatter"
+        fields:
+          - { label: "Type", name: "type", widget: "string" }
+          - { label: "Heading", name: "faq_h1", widget: "string" }
+          - { label: "Question 1", name: "faq_item_1_1", widget: "string" }
+          - { label: "Answer 1", name: "faq_item_1_2", widget: "text" }
+          - { label: "Question 2", name: "faq_item_2_1", widget: "string" }
+          - { label: "Answer 2", name: "faq_item_2_2", widget: "text" }
+          - { label: "Question 3", name: "faq_item_3_1", widget: "string" }
+          - { label: "Answer 3", name: "faq_item_3_2", widget: "text" }
+          - { label: "Question 4", name: "faq_item_4_1", widget: "string" }
+          - { label: "Answer 4", name: "faq_item_4_2", widget: "text" }
+          - { label: "Question 5", name: "faq_item_5_1", widget: "string" }
+          - { label: "Answer 5", name: "faq_item_5_2", widget: "text" }
+          - { label: "Question 6", name: "faq_item_6_1", widget: "string" }
+          - { label: "Answer 6", name: "faq_item_6_2", widget: "text" }
 
       - name: "main_contact_us"
         label: "main_contact_us"
@@ -199,7 +350,328 @@ collections:
           - { label: "Badge 2 label", name: "contact_us_badge_2_label", widget: "string" }
           - { label: "Badge 3", name: "contact_us_badge_3", widget: "string" }
           - { label: "Badge 3 label", name: "contact_us_badge_3_label", widget: "string" }
-          - { label: "Body", name: "body", widget: "markdown", required: false }
+          - { label: "Card item 4 title", name: "contact_us_card_item_4_1", widget: "string", required: false }
+
+      - name: "marketplace"
+        label: "marketplace"
+        file: "src/content/en/marketplace.md"
+        format: "frontmatter"
+        fields:
+          - { label: "Type", name: "type", widget: "string" }
+          - { label: "Title", name: "title", widget: "string" }
+
+      - name: "wallet"
+        label: "wallet"
+        file: "src/content/en/wallet.md"
+        format: "frontmatter"
+        fields:
+          - { label: "Type", name: "type", widget: "string" }
+          - { label: "Title", name: "title", widget: "string" }
+
+      - name: "partners"
+        label: "partners"
+        file: "src/content/en/partners.md"
+        format: "frontmatter"
+        fields:
+          - { label: "Type", name: "type", widget: "string" }
+          - { label: "Title", name: "title", widget: "string" }
+          - { label: "Hero eyebrow", name: "hero_eyebrow", widget: "string" }
+          - { label: "Hero H1", name: "hero_h1", widget: "string" }
+          - { label: "Hero H1 accent", name: "hero_h1_accent", widget: "string" }
+          - { label: "Hero description", name: "hero_desc", widget: "text" }
+          - { label: "Hero button", name: "hero_btn", widget: "string" }
+          - { label: "Benefits eyebrow", name: "benefits_eyebrow", widget: "string" }
+          - { label: "Benefits H2", name: "benefits_h2", widget: "string" }
+          - { label: "Benefit 1 title", name: "benefits_1_title", widget: "string" }
+          - { label: "Benefit 1 description", name: "benefits_1_desc", widget: "text" }
+          - { label: "Benefit 2 title", name: "benefits_2_title", widget: "string" }
+          - { label: "Benefit 2 description", name: "benefits_2_desc", widget: "text" }
+          - { label: "Benefit 3 title", name: "benefits_3_title", widget: "string" }
+          - { label: "Benefit 3 description", name: "benefits_3_desc", widget: "text" }
+          - { label: "Benefit 4 title", name: "benefits_4_title", widget: "string" }
+          - { label: "Benefit 4 description", name: "benefits_4_desc", widget: "text" }
+          - { label: "Benefit 5 title", name: "benefits_5_title", widget: "string" }
+          - { label: "Benefit 5 description", name: "benefits_5_desc", widget: "text" }
+          - { label: "Types eyebrow", name: "types_eyebrow", widget: "string" }
+          - { label: "Types H2", name: "types_h2", widget: "string" }
+          - { label: "Types description", name: "types_desc", widget: "text" }
+          - { label: "Type 1 badge", name: "types_1_badge", widget: "string" }
+          - { label: "Type 1 title", name: "types_1_title", widget: "string" }
+          - { label: "Type 1 description", name: "types_1_desc", widget: "text" }
+          - { label: "Type 2 badge", name: "types_2_badge", widget: "string" }
+          - { label: "Type 2 title", name: "types_2_title", widget: "string" }
+          - { label: "Type 2 description", name: "types_2_desc", widget: "text" }
+          - { label: "Type 3 badge", name: "types_3_badge", widget: "string" }
+          - { label: "Type 3 title", name: "types_3_title", widget: "string" }
+          - { label: "Type 3 description", name: "types_3_desc", widget: "text" }
+          - { label: "Type 4 badge", name: "types_4_badge", widget: "string" }
+          - { label: "Type 4 title", name: "types_4_title", widget: "string" }
+          - { label: "Type 4 description", name: "types_4_desc", widget: "text" }
+          - { label: "Type 5 badge", name: "types_5_badge", widget: "string" }
+          - { label: "Type 5 title", name: "types_5_title", widget: "string" }
+          - { label: "Type 5 description", name: "types_5_desc", widget: "text" }
+          - { label: "Type 6 badge", name: "types_6_badge", widget: "string" }
+          - { label: "Type 6 title", name: "types_6_title", widget: "string" }
+          - { label: "Type 6 description", name: "types_6_desc", widget: "text" }
+          - { label: "Steps eyebrow", name: "steps_eyebrow", widget: "string" }
+          - { label: "Steps H2", name: "steps_h2", widget: "string" }
+          - { label: "Step 1 eyebrow", name: "steps_1_eyebrow", widget: "string" }
+          - { label: "Step 1 title", name: "steps_1_title", widget: "string" }
+          - { label: "Step 1 description", name: "steps_1_desc", widget: "text" }
+          - { label: "Step 2 eyebrow", name: "steps_2_eyebrow", widget: "string" }
+          - { label: "Step 2 title", name: "steps_2_title", widget: "string" }
+          - { label: "Step 2 description", name: "steps_2_desc", widget: "text" }
+          - { label: "Step 3 eyebrow", name: "steps_3_eyebrow", widget: "string" }
+          - { label: "Step 3 title", name: "steps_3_title", widget: "string" }
+          - { label: "Step 3 description", name: "steps_3_desc", widget: "text" }
+          - { label: "CTA eyebrow", name: "cta_eyebrow", widget: "string" }
+          - { label: "CTA H2", name: "cta_h2", widget: "string" }
+          - { label: "CTA description", name: "cta_desc", widget: "text" }
+          - { label: "CTA button", name: "cta_btn", widget: "string" }
+          - { label: "Downloads eyebrow", name: "downloads_eyebrow", widget: "string" }
+          - { label: "Downloads H2", name: "downloads_h2", widget: "string" }
+          - { label: "Downloads download label", name: "downloads_dl_label", widget: "string" }
+          - { label: "Downloads 1 title", name: "downloads_1_title", widget: "string" }
+          - { label: "Downloads 2 title", name: "downloads_2_title", widget: "string" }
+          - { label: "Downloads 3 title", name: "downloads_3_title", widget: "string" }
+          - { label: "Downloads 4 title", name: "downloads_4_title", widget: "string" }
+          - { label: "Downloads 5 title", name: "downloads_5_title", widget: "string" }
+          - { label: "Downloads 6 title", name: "downloads_6_title", widget: "string" }
+
+      - name: "investors"
+        label: "investors"
+        file: "src/content/en/investors.md"
+        format: "frontmatter"
+        fields:
+          - { label: "Type", name: "type", widget: "string" }
+          - { label: "Title", name: "title", widget: "string" }
+          - { label: "Hero H1", name: "hero_h1", widget: "string" }
+          - { label: "Hero H1 accent", name: "hero_h1_accent", widget: "string" }
+          - { label: "Hero button allocation", name: "hero_btn_allocation", widget: "string" }
+          - { label: "Hero button legal", name: "hero_btn_legal", widget: "string" }
+          - { label: "SHARM eyebrow", name: "sharm_eyebrow", widget: "string" }
+          - { label: "SHARM H2", name: "sharm_h2", widget: "string" }
+          - { label: "SHARM description", name: "sharm_desc", widget: "text" }
+          - { label: "SHARM item 1 title", name: "sharm_item_1_title", widget: "string" }
+          - { label: "SHARM item 1 description", name: "sharm_item_1_desc", widget: "text" }
+          - { label: "SHARM item 2 title", name: "sharm_item_2_title", widget: "string" }
+          - { label: "SHARM item 2 description", name: "sharm_item_2_desc", widget: "text" }
+          - { label: "SHARM item 3 title", name: "sharm_item_3_title", widget: "string" }
+          - { label: "SHARM item 3 description", name: "sharm_item_3_desc", widget: "text" }
+          - { label: "SHARM asset label", name: "sharm_asset_label", widget: "string" }
+          - { label: "SHARM stock label", name: "sharm_stock_label", widget: "string" }
+          - { label: "Fractional eyebrow", name: "fractional_eyebrow", widget: "string" }
+          - { label: "Fractional H2", name: "fractional_h2", widget: "string" }
+          - { label: "Fractional description", name: "fractional_desc", widget: "text" }
+          - { label: "Fractional item 1 title", name: "fractional_item_1_title", widget: "string" }
+          - { label: "Fractional item 1 description", name: "fractional_item_1_desc", widget: "text" }
+          - { label: "Fractional item 2 title", name: "fractional_item_2_title", widget: "string" }
+          - { label: "Fractional item 2 description", name: "fractional_item_2_desc", widget: "text" }
+          - { label: "Fractional item 3 title", name: "fractional_item_3_title", widget: "string" }
+          - { label: "Fractional item 3 description", name: "fractional_item_3_desc", widget: "text" }
+          - { label: "Fractional puzzle label", name: "fractional_puzzle_label", widget: "string" }
+          - { label: "Fractional puzzle line2", name: "fractional_puzzle_line2", widget: "string" }
+          - { label: "Fractional puzzle line3", name: "fractional_puzzle_line3", widget: "string" }
+          - { label: "Roadmap eyebrow", name: "roadmap_eyebrow", widget: "string" }
+          - { label: "Roadmap H2", name: "roadmap_h2", widget: "string" }
+          - { label: "Roadmap hint", name: "roadmap_hint", widget: "text" }
+          - { label: "Roadmap phase 1 label", name: "roadmap_phase_1_label", widget: "string" }
+          - { label: "Roadmap phase 1 title", name: "roadmap_phase_1_title", widget: "string" }
+          - { label: "Roadmap phase 1 description", name: "roadmap_phase_1_desc", widget: "text" }
+          - { label: "Roadmap phase 1 li 1", name: "roadmap_phase_1_li_1", widget: "string" }
+          - { label: "Roadmap phase 1 li 2", name: "roadmap_phase_1_li_2", widget: "string" }
+          - { label: "Roadmap phase 1 li 3", name: "roadmap_phase_1_li_3", widget: "string" }
+          - { label: "Roadmap phase 1 li 4", name: "roadmap_phase_1_li_4", widget: "string" }
+          - { label: "Roadmap phase 2 label", name: "roadmap_phase_2_label", widget: "string" }
+          - { label: "Roadmap phase 2 title", name: "roadmap_phase_2_title", widget: "string" }
+          - { label: "Roadmap phase 2 description", name: "roadmap_phase_2_desc", widget: "text" }
+          - { label: "Roadmap phase 2 li 1", name: "roadmap_phase_2_li_1", widget: "string" }
+          - { label: "Roadmap phase 2 li 2", name: "roadmap_phase_2_li_2", widget: "string" }
+          - { label: "Roadmap phase 2 li 3", name: "roadmap_phase_2_li_3", widget: "string" }
+          - { label: "Roadmap phase 2 li 4", name: "roadmap_phase_2_li_4", widget: "string" }
+          - { label: "Roadmap phase 3 label", name: "roadmap_phase_3_label", widget: "string" }
+          - { label: "Roadmap phase 3 title", name: "roadmap_phase_3_title", widget: "string" }
+          - { label: "Roadmap phase 3 description", name: "roadmap_phase_3_desc", widget: "text" }
+          - { label: "Roadmap phase 3 li 1", name: "roadmap_phase_3_li_1", widget: "string" }
+          - { label: "Roadmap phase 3 li 2", name: "roadmap_phase_3_li_2", widget: "string" }
+          - { label: "Roadmap phase 3 li 3", name: "roadmap_phase_3_li_3", widget: "string" }
+          - { label: "Roadmap phase 3 li 4", name: "roadmap_phase_3_li_4", widget: "string" }
+          - { label: "Roadmap phase 4 label", name: "roadmap_phase_4_label", widget: "string" }
+          - { label: "Roadmap phase 4 title", name: "roadmap_phase_4_title", widget: "string" }
+          - { label: "Roadmap phase 4 description", name: "roadmap_phase_4_desc", widget: "text" }
+          - { label: "Roadmap phase 4 li 1", name: "roadmap_phase_4_li_1", widget: "string" }
+          - { label: "Roadmap phase 4 li 2", name: "roadmap_phase_4_li_2", widget: "string" }
+          - { label: "Roadmap phase 4 li 3", name: "roadmap_phase_4_li_3", widget: "string" }
+          - { label: "Roadmap phase 4 li 4", name: "roadmap_phase_4_li_4", widget: "string" }
+          - { label: "Roadmap phase 5 label", name: "roadmap_phase_5_label", widget: "string" }
+          - { label: "Roadmap phase 5 title", name: "roadmap_phase_5_title", widget: "string" }
+          - { label: "Roadmap phase 5 description", name: "roadmap_phase_5_desc", widget: "text" }
+          - { label: "Roadmap phase 5 li 1", name: "roadmap_phase_5_li_1", widget: "string" }
+          - { label: "Roadmap phase 5 li 2", name: "roadmap_phase_5_li_2", widget: "string" }
+          - { label: "Roadmap phase 5 li 3", name: "roadmap_phase_5_li_3", widget: "string" }
+          - { label: "Privileges eyebrow", name: "privileges_eyebrow", widget: "string" }
+          - { label: "Privileges H2", name: "privileges_h2", widget: "string" }
+          - { label: "Privileges description", name: "privileges_desc", widget: "text" }
+          - { label: "Privileges label", name: "privileges_label", widget: "string" }
+          - { label: "Privilege 1 title", name: "privileges_1_title", widget: "string" }
+          - { label: "Privilege 1 text", name: "privileges_1_text", widget: "text" }
+          - { label: "Privilege 2 title", name: "privileges_2_title", widget: "string" }
+          - { label: "Privilege 2 text", name: "privileges_2_text", widget: "text" }
+          - { label: "Privilege 3 title", name: "privileges_3_title", widget: "string" }
+          - { label: "Privilege 3 text", name: "privileges_3_text", widget: "text" }
+          - { label: "Privilege 4 title", name: "privileges_4_title", widget: "string" }
+          - { label: "Privilege 4 text", name: "privileges_4_text", widget: "text" }
+          - { label: "Privileges aria prev", name: "privileges_aria_prev", widget: "string" }
+          - { label: "Privileges aria next", name: "privileges_aria_next", widget: "string" }
+          - { label: "Token eyebrow", name: "token_eyebrow", widget: "string" }
+          - { label: "Token H2", name: "token_h2", widget: "string" }
+          - { label: "Token total supply label", name: "token_total_supply_label", widget: "string" }
+          - { label: "Token total supply value", name: "token_total_supply_value", widget: "string" }
+          - { label: "Token investment label", name: "token_investment_label", widget: "string" }
+          - { label: "Token investment value", name: "token_investment_value", widget: "string" }
+          - { label: "Token presale label", name: "token_presale_label", widget: "string" }
+          - { label: "Token presale value", name: "token_presale_value", widget: "string" }
+          - { label: "Token format label", name: "token_format_label", widget: "string" }
+          - { label: "Token format value", name: "token_format_value", widget: "string" }
+          - { label: "Token price label", name: "token_price_label", widget: "string" }
+          - { label: "Token price value", name: "token_price_value", widget: "string" }
+          - { label: "Token closes", name: "token_closes", widget: "string" }
+          - { label: "Token distribution label", name: "token_distribution_label", widget: "string" }
+          - { label: "Token dist 1", name: "token_dist_1", widget: "string" }
+          - { label: "Token dist 2", name: "token_dist_2", widget: "string" }
+          - { label: "Token dist 3", name: "token_dist_3", widget: "string" }
+          - { label: "Token CTA", name: "token_cta", widget: "string" }
+          - { label: "Final H2", name: "final_h2", widget: "string" }
+          - { label: "Final description", name: "final_desc", widget: "text" }
+          - { label: "Final button whitepaper", name: "final_btn_whitepaper", widget: "string" }
+          - { label: "Final button presentation", name: "final_btn_presentation", widget: "string" }
+
+      - name: "about_us"
+        label: "about_us"
+        file: "src/content/en/about_us/_index.md"
+        format: "frontmatter"
+        preview_path: "/about_us/"
+        fields:
+          - { label: "Title", name: "title", widget: "string" }
+          - { label: "Date", name: "date", widget: "datetime", required: false }
+          - { label: "Draft", name: "draft", widget: "boolean", required: false }
+
+          - { label: "Hero eyebrow", name: "hero_eyebrow", widget: "string" }
+          - { label: "Hero H1 line 1", name: "hero_h1_line1", widget: "string" }
+          - { label: "Hero H1 line 2", name: "hero_h1_line2", widget: "string" }
+          - { label: "Hero H1 accent", name: "hero_h1_accent", widget: "string" }
+          - { label: "Hero description", name: "hero_description", widget: "text" }
+          - { label: "Hero button (team)", name: "hero_btn_team", widget: "string" }
+          - { label: "Hero button (contact)", name: "hero_btn_contact", widget: "string" }
+          - { label: "Hero stat 1 value", name: "hero_stat_1_value", widget: "string" }
+          - { label: "Hero stat 1 label", name: "hero_stat_1_label", widget: "string" }
+          - { label: "Hero stat 2 value", name: "hero_stat_2_value", widget: "string" }
+          - { label: "Hero stat 2 label", name: "hero_stat_2_label", widget: "string" }
+          - { label: "Hero stat 3 value", name: "hero_stat_3_value", widget: "string" }
+          - { label: "Hero stat 3 label", name: "hero_stat_3_label", widget: "string" }
+          - { label: "Hero stat 4 value", name: "hero_stat_4_value", widget: "string" }
+          - { label: "Hero stat 4 label", name: "hero_stat_4_label", widget: "string" }
+
+          - { label: "Team eyebrow", name: "team_eyebrow", widget: "string" }
+          - { label: "Team H2", name: "team_h2", widget: "string" }
+          - { label: "Team swipe hint", name: "team_swipe_hint", widget: "string" }
+          - { label: "Team dept 1 title", name: "team_dept_1_title", widget: "string" }
+          - { label: "Team dept 1 desc", name: "team_dept_1_desc", widget: "text" }
+          - { label: "Team dept 2 title", name: "team_dept_2_title", widget: "string" }
+          - { label: "Team dept 2 desc", name: "team_dept_2_desc", widget: "text" }
+          - { label: "Team dept 3 title", name: "team_dept_3_title", widget: "string" }
+          - { label: "Team dept 3 desc", name: "team_dept_3_desc", widget: "text" }
+          - { label: "Team dept 4 title", name: "team_dept_4_title", widget: "string" }
+          - { label: "Team dept 4 desc", name: "team_dept_4_desc", widget: "text" }
+
+          - { label: "Principles eyebrow", name: "principles_eyebrow", widget: "string" }
+          - { label: "Principles H2", name: "principles_h2", widget: "string" }
+          - { label: "Principles 1 title", name: "principles_1_title", widget: "string" }
+          - { label: "Principles 1 desc", name: "principles_1_desc", widget: "text" }
+          - { label: "Principles 2 title", name: "principles_2_title", widget: "string" }
+          - { label: "Principles 2 desc", name: "principles_2_desc", widget: "text" }
+          - { label: "Principles 3 title", name: "principles_3_title", widget: "string" }
+          - { label: "Principles 3 desc", name: "principles_3_desc", widget: "text" }
+          - { label: "Principles 4 title", name: "principles_4_title", widget: "string" }
+          - { label: "Principles 4 desc", name: "principles_4_desc", widget: "text" }
+
+          - { label: "Facts eyebrow", name: "facts_eyebrow", widget: "string" }
+          - { label: "Facts H2", name: "facts_h2", widget: "string" }
+          - { label: "Facts founded label", name: "facts_founded_label", widget: "string" }
+          - { label: "Facts founded value", name: "facts_founded_value", widget: "string" }
+          - { label: "Facts legal label", name: "facts_legal_label", widget: "string" }
+          - { label: "Facts legal value 1", name: "facts_legal_value_1", widget: "string" }
+          - { label: "Facts legal value 2", name: "facts_legal_value_2", widget: "string" }
+          - { label: "Facts legal value 3", name: "facts_legal_value_3", widget: "string" }
+          - { label: "Facts partners label", name: "facts_partners_label", widget: "string" }
+          - { label: "Facts partners value", name: "facts_partners_value", widget: "text" }
+          - { label: "Facts founder label", name: "facts_founder_label", widget: "string" }
+          - { label: "Facts founder link", name: "facts_founder_link", widget: "string" }
+
+          - { label: "Map eyebrow", name: "map_eyebrow", widget: "string" }
+          - { label: "Map H2", name: "map_h2", widget: "string" }
+          - { label: "Map hint", name: "map_hint", widget: "string" }
+          - { label: "Map legend HQ", name: "map_legend_hq", widget: "string" }
+          - { label: "Map legend offices", name: "map_legend_offices", widget: "string" }
+          - { label: "Map placeholder", name: "map_placeholder", widget: "string" }
+          - { label: "Map city role label", name: "map_city_role_label", widget: "string" }
+          - { label: "Map city region label", name: "map_city_region_label", widget: "string" }
+          - { label: "Map city focus label", name: "map_city_focus_label", widget: "string" }
+
+          - { label: "HQ badge", name: "map_city_hq_badge", widget: "string" }
+          - { label: "HQ name", name: "map_city_hq_name", widget: "string" }
+          - { label: "HQ desc", name: "map_city_hq_desc", widget: "text" }
+          - { label: "HQ role", name: "map_city_hq_role", widget: "string" }
+          - { label: "HQ region", name: "map_city_hq_region", widget: "string" }
+          - { label: "HQ focus", name: "map_city_hq_focus", widget: "string" }
+
+          - { label: "Dubai badge", name: "map_city_dubai_badge", widget: "string" }
+          - { label: "Dubai name", name: "map_city_dubai_name", widget: "string" }
+          - { label: "Dubai desc", name: "map_city_dubai_desc", widget: "text" }
+          - { label: "Dubai role", name: "map_city_dubai_role", widget: "string" }
+          - { label: "Dubai region", name: "map_city_dubai_region", widget: "string" }
+          - { label: "Dubai focus", name: "map_city_dubai_focus", widget: "string" }
+
+          - { label: "Istanbul badge", name: "map_city_istanbul_badge", widget: "string" }
+          - { label: "Istanbul name", name: "map_city_istanbul_name", widget: "string" }
+          - { label: "Istanbul desc", name: "map_city_istanbul_desc", widget: "text" }
+          - { label: "Istanbul role", name: "map_city_istanbul_role", widget: "string" }
+          - { label: "Istanbul region", name: "map_city_istanbul_region", widget: "string" }
+          - { label: "Istanbul focus", name: "map_city_istanbul_focus", widget: "string" }
+
+          - { label: "Bangkok badge", name: "map_city_bangkok_badge", widget: "string" }
+          - { label: "Bangkok name", name: "map_city_bangkok_name", widget: "string" }
+          - { label: "Bangkok desc", name: "map_city_bangkok_desc", widget: "text" }
+          - { label: "Bangkok role", name: "map_city_bangkok_role", widget: "string" }
+          - { label: "Bangkok region", name: "map_city_bangkok_region", widget: "string" }
+          - { label: "Bangkok focus", name: "map_city_bangkok_focus", widget: "string" }
+
+          - { label: "Jakarta badge", name: "map_city_jakarta_badge", widget: "string" }
+          - { label: "Jakarta name", name: "map_city_jakarta_name", widget: "string" }
+          - { label: "Jakarta desc", name: "map_city_jakarta_desc", widget: "text" }
+          - { label: "Jakarta role", name: "map_city_jakarta_role", widget: "string" }
+          - { label: "Jakarta region", name: "map_city_jakarta_region", widget: "string" }
+          - { label: "Jakarta focus", name: "map_city_jakarta_focus", widget: "string" }
+
+          - { label: "Tbilisi badge", name: "map_city_tbilisi_badge", widget: "string" }
+          - { label: "Tbilisi name", name: "map_city_tbilisi_name", widget: "string" }
+          - { label: "Tbilisi desc", name: "map_city_tbilisi_desc", widget: "text" }
+          - { label: "Tbilisi role", name: "map_city_tbilisi_role", widget: "string" }
+          - { label: "Tbilisi region", name: "map_city_tbilisi_region", widget: "string" }
+          - { label: "Tbilisi focus", name: "map_city_tbilisi_focus", widget: "string" }
+
+          - { label: "Numbers eyebrow", name: "numbers_eyebrow", widget: "string" }
+          - { label: "Numbers H2", name: "numbers_h2", widget: "string" }
+          - { label: "Numbers stat 1 label", name: "numbers_stat_1_label", widget: "string" }
+          - { label: "Numbers stat 2 label", name: "numbers_stat_2_label", widget: "string" }
+          - { label: "Numbers stat 3 label", name: "numbers_stat_3_label", widget: "string" }
+          - { label: "Numbers stat 4 label", name: "numbers_stat_4_label", widget: "string" }
+
+          - { label: "CEO quote", name: "ceo_quote", widget: "string" }
+          - { label: "CEO name", name: "ceo_name", widget: "string" }
+          - { label: "CEO title", name: "ceo_title", widget: "string" }
+          - { label: "CEO button", name: "ceo_btn", widget: "string" }
+          - { label: "CEO placeholder", name: "ceo_placeholder", widget: "string" }
 
   - name: "russian"
     label: "Russian"
@@ -211,8 +683,13 @@ collections:
         fields:
           - { label: "Type", name: "type", widget: "string" }
           - { label: "Title", name: "title", widget: "string" }
-          # Note: keep keys aligned with ru/_index.md; rest will be filled out in the next pass
-          - { label: "Body", name: "body", widget: "markdown", required: false }
+          - { label: "Banner text", name: "banner_text", widget: "string" }
+          - { label: "Banner CTA", name: "banner_cta", widget: "string" }
+          - { label: "Login button", name: "btn_login", widget: "string" }
+          - { label: "Header menu aria", name: "header_menu_aria", widget: "string" }
+          - { label: "Header search placeholder", name: "header_search_placeholder", widget: "string" }
+          - { label: "Footer copyright", name: "footer_copyright", widget: "string" }
+          - { label: "Footer terms link", name: "footer_terms_link", widget: "string" }
 
       - name: "main_hero"
         label: "main_hero"
@@ -232,7 +709,6 @@ collections:
           - { label: "Badge: blockchain", name: "hero_badge_blockchain", widget: "string" }
           - { label: "Slider 1", name: "main_intro_slider1", widget: "string" }
           - { label: "Slider 2", name: "main_intro_slider2", widget: "string" }
-          - { label: "Body", name: "body", widget: "markdown", required: false }
 
       - name: "main_advantages"
         label: "main_advantages"
@@ -270,7 +746,29 @@ collections:
           - { label: "Item 7 line 1", name: "advantages_item_7_2", widget: "string" }
           - { label: "Item 7 line 2", name: "advantages_item_7_3", widget: "string" }
           - { label: "Item 7 line 3", name: "advantages_item_7_4", widget: "string" }
-          - { label: "Body", name: "body", widget: "markdown", required: false }
+
+      - name: "main_audience"
+        label: "main_audience"
+        file: "src/content/ru/main_audience.md"
+        format: "frontmatter"
+        fields:
+          - { label: "Type", name: "type", widget: "string" }
+          - { label: "Heading 1", name: "audience_h1", widget: "string" }
+          - { label: "Heading 2", name: "audience_h2", widget: "string" }
+          - { label: "Heading 3", name: "audience_h3", widget: "text" }
+          - { label: "Heading 4", name: "audience_h4", widget: "string" }
+          - { label: "Item 1 title", name: "audience_item_1_1", widget: "string" }
+          - { label: "Item 1 text", name: "audience_item_1_2", widget: "text" }
+          - { label: "Item 2 title", name: "audience_item_2_1", widget: "string" }
+          - { label: "Item 2 text", name: "audience_item_2_2", widget: "text" }
+          - { label: "Item 3 title", name: "audience_item_3_1", widget: "string" }
+          - { label: "Item 3 text", name: "audience_item_3_2", widget: "text" }
+          - { label: "Item 4 title", name: "audience_item_4_1", widget: "string" }
+          - { label: "Item 4 text", name: "audience_item_4_2", widget: "text" }
+          - { label: "Item 5 title", name: "audience_item_5_1", widget: "string" }
+          - { label: "Item 5 text", name: "audience_item_5_2", widget: "text" }
+          - { label: "Item 6 title", name: "audience_item_6_1", widget: "string" }
+          - { label: "Item 6 text", name: "audience_item_6_2", widget: "text" }
 
       - name: "main_how_it_works"
         label: "main_how-it-works"
@@ -280,71 +778,202 @@ collections:
           - { label: "Type", name: "type", widget: "string" }
           - { label: "Heading", name: "how_it_works_h1", widget: "string" }
           - { label: "Subheading", name: "how_it_works_h2", widget: "text" }
-          - { label: "Body", name: "body", widget: "markdown", required: false }
+          - { label: "Step 1 number", name: "how_it_works_item_1_1", widget: "string" }
+          - { label: "Step 1 title", name: "how_it_works_item_1_2", widget: "string" }
+          - { label: "Step 1 A title", name: "how_it_works_item_1_1_1", widget: "string" }
+          - { label: "Step 1 A text", name: "how_it_works_item_1_1_2", widget: "text" }
+          - { label: "Step 1 B title", name: "how_it_works_item_1_2_1", widget: "string" }
+          - { label: "Step 1 B text", name: "how_it_works_item_1_2_2", widget: "text" }
+          - { label: "Step 1 C title", name: "how_it_works_item_1_3_1", widget: "string" }
+          - { label: "Step 1 C text", name: "how_it_works_item_1_3_2", widget: "text" }
+          - { label: "Step 1 D title", name: "how_it_works_item_1_4_1", widget: "string" }
+          - { label: "Step 1 D text", name: "how_it_works_item_1_4_2", widget: "text" }
+          - { label: "Step 1 E title", name: "how_it_works_item_1_5_1", widget: "string" }
+          - { label: "Step 1 E text", name: "how_it_works_item_1_5_2", widget: "text" }
+          - { label: "Step 2 number", name: "how_it_works_item_2_1", widget: "string" }
+          - { label: "Step 2 title", name: "how_it_works_item_2_2", widget: "string" }
+          - { label: "Step 2 A title", name: "how_it_works_item_2_1_1", widget: "string" }
+          - { label: "Step 2 A text", name: "how_it_works_item_2_1_2", widget: "text" }
+          - { label: "Step 2 B title", name: "how_it_works_item_2_2_1", widget: "string" }
+          - { label: "Step 2 B text", name: "how_it_works_item_2_2_2", widget: "text" }
+          - { label: "Step 2 C title", name: "how_it_works_item_2_3_1", widget: "string" }
+          - { label: "Step 2 C text", name: "how_it_works_item_2_3_2", widget: "text" }
+          - { label: "Step 2 D title", name: "how_it_works_item_2_4_1", widget: "string" }
+          - { label: "Step 2 D text", name: "how_it_works_item_2_4_2", widget: "text" }
+          - { label: "Step 2 E title", name: "how_it_works_item_2_5_1", widget: "string" }
+          - { label: "Step 2 E text", name: "how_it_works_item_2_5_2", widget: "text" }
+          - { label: "Step 3 number", name: "how_it_works_item_3_1", widget: "string" }
+          - { label: "Step 3 title", name: "how_it_works_item_3_2", widget: "string" }
+          - { label: "Step 3 A title", name: "how_it_works_item_3_1_1", widget: "string" }
+          - { label: "Step 3 A text", name: "how_it_works_item_3_1_2", widget: "text" }
+          - { label: "Step 3 B title", name: "how_it_works_item_3_2_1", widget: "string" }
+          - { label: "Step 3 B text", name: "how_it_works_item_3_2_2", widget: "text" }
+          - { label: "Step 4 number", name: "how_it_works_item_4_1", widget: "string" }
+          - { label: "Step 4 title", name: "how_it_works_item_4_2", widget: "string" }
+          - { label: "Step 4 A title", name: "how_it_works_item_4_1_1", widget: "string" }
+          - { label: "Step 4 A text", name: "how_it_works_item_4_1_2", widget: "text" }
+          - { label: "Step 4 B title", name: "how_it_works_item_4_2_1", widget: "string" }
+          - { label: "Step 4 B text", name: "how_it_works_item_4_2_2", widget: "text" }
+          - { label: "Step 5 number", name: "how_it_works_item_5_1", widget: "string" }
+          - { label: "Step 5 title", name: "how_it_works_item_5_2", widget: "string" }
+          - { label: "Step 5 A title", name: "how_it_works_item_5_1_1", widget: "string" }
+          - { label: "Step 5 A text", name: "how_it_works_item_5_1_2", widget: "text" }
+          - { label: "Step 5 B title", name: "how_it_works_item_5_2_1", widget: "string" }
+          - { label: "Step 5 B text", name: "how_it_works_item_5_2_2", widget: "text" }
+          - { label: "Step 5 C title", name: "how_it_works_item_5_3_1", widget: "string" }
+          - { label: "Step 5 C text", name: "how_it_works_item_5_3_2", widget: "text" }
 
       - name: "main_numbers"
         label: "main_numbers"
         file: "src/content/ru/main_numbers.md"
         format: "frontmatter"
         fields:
-          - { label: "Type", name: "type", widget: "string", required: false }
-          - { label: "Title", name: "title", widget: "string", required: false }
-          - label: "Other frontmatter fields"
-            name: "extra"
-            widget: "map"
-            required: false
-            allow_add: true
-            collapsed: false
-            value_type: "string"
-          - { label: "Body", name: "body", widget: "markdown", required: false }
+          - { label: "Type", name: "type", widget: "string" }
+          - { label: "Heading", name: "numbers_h1", widget: "string" }
+          - { label: "Item 1 value", name: "numbers_item_1_1", widget: "string" }
+          - { label: "Item 1 label", name: "numbers_item_1_2", widget: "string" }
+          - { label: "Item 2 value", name: "numbers_item_2_1", widget: "string" }
+          - { label: "Item 2 label", name: "numbers_item_2_2", widget: "string" }
+          - { label: "Item 3 value", name: "numbers_item_3_1", widget: "string" }
+          - { label: "Item 3 label", name: "numbers_item_3_2", widget: "string" }
+          - { label: "Item 4 value", name: "numbers_item_4_1", widget: "string" }
+          - { label: "Item 4 label", name: "numbers_item_4_2", widget: "string" }
+          - { label: "Item 5 value", name: "numbers_item_5_1", widget: "string" }
+          - { label: "Item 5 label", name: "numbers_item_5_2", widget: "string" }
+          - { label: "Item 6 value", name: "numbers_item_6_1", widget: "string" }
+          - { label: "Item 6 label", name: "numbers_item_6_2", widget: "string" }
+          - { label: "Item 7 value", name: "numbers_item_7_1", widget: "string" }
+          - { label: "Item 7 label", name: "numbers_item_7_2", widget: "string" }
+          - { label: "Item 8 value", name: "numbers_item_8_1", widget: "string" }
+          - { label: "Item 8 label", name: "numbers_item_8_2", widget: "string" }
 
       - name: "main_locations"
         label: "main_locations"
         file: "src/content/ru/main_locations.md"
         format: "frontmatter"
         fields:
-          - { label: "Type", name: "type", widget: "string", required: false }
-          - { label: "Title", name: "title", widget: "string", required: false }
-          - label: "Other frontmatter fields"
-            name: "extra"
-            widget: "map"
-            required: false
-            allow_add: true
-            collapsed: false
-            value_type: "string"
-          - { label: "Body", name: "body", widget: "markdown", required: false }
+          - { label: "Type", name: "type", widget: "string" }
+          - { label: "Heading", name: "locations_h1", widget: "string" }
+          - { label: "Subheading", name: "locations_h2", widget: "string" }
+          - { label: "Description", name: "locations_h3", widget: "text" }
+          - { label: "Item 1 country", name: "locations_item_1_1", widget: "string" }
+          - { label: "Item 1 label 1", name: "locations_item_1_2", widget: "string" }
+          - { label: "Item 1 value 1", name: "locations_item_1_3", widget: "string" }
+          - { label: "Item 1 label 2", name: "locations_item_1_4", widget: "string" }
+          - { label: "Item 1 value 2", name: "locations_item_1_5", widget: "string" }
+          - { label: "Item 1 label 3", name: "locations_item_1_6", widget: "string" }
+          - { label: "Item 1 value 3", name: "locations_item_1_7", widget: "string" }
+          - { label: "Item 1 label 4", name: "locations_item_1_8", widget: "string" }
+          - { label: "Item 1 value 4", name: "locations_item_1_9", widget: "string" }
+          - { label: "Item 1 label 5", name: "locations_item_1_10", widget: "string" }
+          - { label: "Item 1 value 5", name: "locations_item_1_11", widget: "string" }
+          - { label: "Item 1 label 6", name: "locations_item_1_12", widget: "string" }
+          - { label: "Item 1 value 6", name: "locations_item_1_13", widget: "string" }
+          - { label: "Item 2 country", name: "locations_item_2_1", widget: "string" }
+          - { label: "Item 2 label 1", name: "locations_item_2_2", widget: "string" }
+          - { label: "Item 2 value 1", name: "locations_item_2_3", widget: "string" }
+          - { label: "Item 2 label 2", name: "locations_item_2_4", widget: "string" }
+          - { label: "Item 2 value 2", name: "locations_item_2_5", widget: "string" }
+          - { label: "Item 2 label 3", name: "locations_item_2_6", widget: "string" }
+          - { label: "Item 2 value 3", name: "locations_item_2_7", widget: "string" }
+          - { label: "Item 2 label 4", name: "locations_item_2_8", widget: "string" }
+          - { label: "Item 2 value 4", name: "locations_item_2_9", widget: "string" }
+          - { label: "Item 2 label 5", name: "locations_item_2_10", widget: "string" }
+          - { label: "Item 2 value 5", name: "locations_item_2_11", widget: "string" }
+          - { label: "Item 2 label 6", name: "locations_item_2_12", widget: "string" }
+          - { label: "Item 2 value 6", name: "locations_item_2_13", widget: "string" }
+          - { label: "Item 3 country", name: "locations_item_3_1", widget: "string" }
+          - { label: "Item 3 label 1", name: "locations_item_3_2", widget: "string" }
+          - { label: "Item 3 value 1", name: "locations_item_3_3", widget: "string" }
+          - { label: "Item 3 label 2", name: "locations_item_3_4", widget: "string" }
+          - { label: "Item 3 value 2", name: "locations_item_3_5", widget: "string" }
+          - { label: "Item 3 label 3", name: "locations_item_3_6", widget: "string" }
+          - { label: "Item 3 value 3", name: "locations_item_3_7", widget: "string" }
+          - { label: "Item 3 label 4", name: "locations_item_3_8", widget: "string" }
+          - { label: "Item 3 value 4", name: "locations_item_3_9", widget: "string" }
+          - { label: "Item 3 label 5", name: "locations_item_3_10", widget: "string" }
+          - { label: "Item 3 value 5", name: "locations_item_3_11", widget: "string" }
+          - { label: "Item 3 label 6", name: "locations_item_3_12", widget: "string" }
+          - { label: "Item 3 value 6", name: "locations_item_3_13", widget: "string" }
+          - { label: "Item 4 country", name: "locations_item_4_1", widget: "string" }
+          - { label: "Item 4 label 1", name: "locations_item_4_2", widget: "string" }
+          - { label: "Item 4 value 1", name: "locations_item_4_3", widget: "string" }
+          - { label: "Item 4 label 2", name: "locations_item_4_4", widget: "string" }
+          - { label: "Item 4 value 2", name: "locations_item_4_5", widget: "string" }
+          - { label: "Item 4 label 3", name: "locations_item_4_6", widget: "string" }
+          - { label: "Item 4 value 3", name: "locations_item_4_7", widget: "string" }
+          - { label: "Item 4 label 4", name: "locations_item_4_8", widget: "string" }
+          - { label: "Item 4 value 4", name: "locations_item_4_9", widget: "string" }
+          - { label: "Item 4 label 5", name: "locations_item_4_10", widget: "string" }
+          - { label: "Item 4 value 5", name: "locations_item_4_11", widget: "string" }
+          - { label: "Item 4 label 6", name: "locations_item_4_12", widget: "string" }
+          - { label: "Item 4 value 6", name: "locations_item_4_13", widget: "string" }
+          - { label: "Item 5 country", name: "locations_item_5_1", widget: "string" }
+          - { label: "Item 5 label 1", name: "locations_item_5_2", widget: "string" }
+          - { label: "Item 5 value 1", name: "locations_item_5_3", widget: "string" }
+          - { label: "Item 5 label 2", name: "locations_item_5_4", widget: "string" }
+          - { label: "Item 5 value 2", name: "locations_item_5_5", widget: "string" }
+          - { label: "Item 5 label 3", name: "locations_item_5_6", widget: "string" }
+          - { label: "Item 5 value 3", name: "locations_item_5_7", widget: "string" }
+          - { label: "Item 5 label 4", name: "locations_item_5_8", widget: "string" }
+          - { label: "Item 5 value 4", name: "locations_item_5_9", widget: "string" }
+          - { label: "Item 5 label 5", name: "locations_item_5_10", widget: "string" }
+          - { label: "Item 5 value 5", name: "locations_item_5_11", widget: "string" }
+          - { label: "Item 5 label 6", name: "locations_item_5_12", widget: "string" }
+          - { label: "Item 5 value 6", name: "locations_item_5_13", widget: "string" }
+          - { label: "ARIA previous", name: "locations_aria_prev", widget: "string" }
+          - { label: "ARIA next", name: "locations_aria_next", widget: "string" }
 
       - name: "main_recommendations"
         label: "main_recommendations"
         file: "src/content/ru/main_recommendations.md"
         format: "frontmatter"
         fields:
-          - { label: "Type", name: "type", widget: "string", required: false }
-          - { label: "Title", name: "title", widget: "string", required: false }
-          - label: "Other frontmatter fields"
-            name: "extra"
-            widget: "map"
-            required: false
-            allow_add: true
-            collapsed: false
-            value_type: "string"
-          - { label: "Body", name: "body", widget: "markdown", required: false }
+          - { label: "Type", name: "type", widget: "string" }
+          - { label: "Heading", name: "recommendations_h1", widget: "string" }
+          - { label: "Item 1 name", name: "recommendations_item_1_1", widget: "string" }
+          - { label: "Item 1 role", name: "recommendations_item_1_2", widget: "string" }
+          - { label: "Item 1 link", name: "recommendations_item_1_3", widget: "string" }
+          - { label: "Item 2 name", name: "recommendations_item_2_1", widget: "string" }
+          - { label: "Item 2 role", name: "recommendations_item_2_2", widget: "string" }
+          - { label: "Item 2 link", name: "recommendations_item_2_3", widget: "string" }
+          - { label: "Item 3 name", name: "recommendations_item_3_1", widget: "string" }
+          - { label: "Item 3 role", name: "recommendations_item_3_2", widget: "string" }
+          - { label: "Item 3 link", name: "recommendations_item_3_3", widget: "string" }
+          - { label: "Item 4 name", name: "recommendations_item_4_1", widget: "string" }
+          - { label: "Item 4 role", name: "recommendations_item_4_2", widget: "string" }
+          - { label: "Item 4 link", name: "recommendations_item_4_3", widget: "string" }
+          - { label: "ARIA previous", name: "recommendations_aria_prev", widget: "string" }
+          - { label: "ARIA next", name: "recommendations_aria_next", widget: "string" }
 
       - name: "main_slogan"
         label: "main_slogan"
         file: "src/content/ru/main_slogan.md"
         format: "frontmatter"
         fields:
-          - { label: "Type", name: "type", widget: "string", required: false }
-          - { label: "Title", name: "title", widget: "string", required: false }
-          - label: "Other frontmatter fields"
-            name: "extra"
-            widget: "map"
-            required: false
-            allow_add: true
-            collapsed: false
-            value_type: "string"
-          - { label: "Body", name: "body", widget: "markdown", required: false }
+          - { label: "Type", name: "type", widget: "string" }
+          - { label: "Heading", name: "slogan_h1", widget: "string" }
+          - { label: "Subheading", name: "slogan_h2", widget: "text" }
+
+      - name: "main_faq"
+        label: "main_faq"
+        file: "src/content/ru/main_faq.md"
+        format: "frontmatter"
+        fields:
+          - { label: "Type", name: "type", widget: "string" }
+          - { label: "Heading", name: "faq_h1", widget: "string" }
+          - { label: "Question 1", name: "faq_item_1_1", widget: "string" }
+          - { label: "Answer 1", name: "faq_item_1_2", widget: "text" }
+          - { label: "Question 2", name: "faq_item_2_1", widget: "string" }
+          - { label: "Answer 2", name: "faq_item_2_2", widget: "text" }
+          - { label: "Question 3", name: "faq_item_3_1", widget: "string" }
+          - { label: "Answer 3", name: "faq_item_3_2", widget: "text" }
+          - { label: "Question 4", name: "faq_item_4_1", widget: "string" }
+          - { label: "Answer 4", name: "faq_item_4_2", widget: "text" }
+          - { label: "Question 5", name: "faq_item_5_1", widget: "string" }
+          - { label: "Answer 5", name: "faq_item_5_2", widget: "text" }
+          - { label: "Question 6", name: "faq_item_6_1", widget: "string" }
+          - { label: "Answer 6", name: "faq_item_6_2", widget: "text" }
 
       - name: "main_contact_us"
         label: "main_contact_us"
@@ -383,6 +1012,325 @@ collections:
           - { label: "Badge 2 label", name: "contact_us_badge_2_label", widget: "string" }
           - { label: "Badge 3", name: "contact_us_badge_3", widget: "string" }
           - { label: "Badge 3 label", name: "contact_us_badge_3_label", widget: "string" }
-          - { label: "Body", name: "body", widget: "markdown", required: false }
+          - { label: "Card item 4 title", name: "contact_us_card_item_4_1", widget: "string", required: false }
 
+      - name: "marketplace"
+        label: "marketplace"
+        file: "src/content/ru/marketplace.md"
+        format: "frontmatter"
+        fields:
+          - { label: "Type", name: "type", widget: "string" }
+          - { label: "Title", name: "title", widget: "string" }
 
+      - name: "wallet"
+        label: "wallet"
+        file: "src/content/ru/wallet.md"
+        format: "frontmatter"
+        fields:
+          - { label: "Type", name: "type", widget: "string" }
+          - { label: "Title", name: "title", widget: "string" }
+
+      - name: "partners"
+        label: "partners"
+        file: "src/content/ru/partners.md"
+        format: "frontmatter"
+        fields:
+          - { label: "Type", name: "type", widget: "string" }
+          - { label: "Title", name: "title", widget: "string" }
+          - { label: "Hero eyebrow", name: "hero_eyebrow", widget: "string" }
+          - { label: "Hero H1", name: "hero_h1", widget: "string" }
+          - { label: "Hero H1 accent", name: "hero_h1_accent", widget: "string" }
+          - { label: "Hero description", name: "hero_desc", widget: "text" }
+          - { label: "Hero button", name: "hero_btn", widget: "string" }
+          - { label: "Benefits eyebrow", name: "benefits_eyebrow", widget: "string" }
+          - { label: "Benefits H2", name: "benefits_h2", widget: "string" }
+          - { label: "Benefit 1 title", name: "benefits_1_title", widget: "string" }
+          - { label: "Benefit 1 description", name: "benefits_1_desc", widget: "text" }
+          - { label: "Benefit 2 title", name: "benefits_2_title", widget: "string" }
+          - { label: "Benefit 2 description", name: "benefits_2_desc", widget: "text" }
+          - { label: "Benefit 3 title", name: "benefits_3_title", widget: "string" }
+          - { label: "Benefit 3 description", name: "benefits_3_desc", widget: "text" }
+          - { label: "Benefit 4 title", name: "benefits_4_title", widget: "string" }
+          - { label: "Benefit 4 description", name: "benefits_4_desc", widget: "text" }
+          - { label: "Benefit 5 title", name: "benefits_5_title", widget: "string" }
+          - { label: "Benefit 5 description", name: "benefits_5_desc", widget: "text" }
+          - { label: "Types eyebrow", name: "types_eyebrow", widget: "string" }
+          - { label: "Types H2", name: "types_h2", widget: "string" }
+          - { label: "Types description", name: "types_desc", widget: "text" }
+          - { label: "Type 1 badge", name: "types_1_badge", widget: "string" }
+          - { label: "Type 1 title", name: "types_1_title", widget: "string" }
+          - { label: "Type 1 description", name: "types_1_desc", widget: "text" }
+          - { label: "Type 2 badge", name: "types_2_badge", widget: "string" }
+          - { label: "Type 2 title", name: "types_2_title", widget: "string" }
+          - { label: "Type 2 description", name: "types_2_desc", widget: "text" }
+          - { label: "Type 3 badge", name: "types_3_badge", widget: "string" }
+          - { label: "Type 3 title", name: "types_3_title", widget: "string" }
+          - { label: "Type 3 description", name: "types_3_desc", widget: "text" }
+          - { label: "Type 4 badge", name: "types_4_badge", widget: "string" }
+          - { label: "Type 4 title", name: "types_4_title", widget: "string" }
+          - { label: "Type 4 description", name: "types_4_desc", widget: "text" }
+          - { label: "Type 5 badge", name: "types_5_badge", widget: "string" }
+          - { label: "Type 5 title", name: "types_5_title", widget: "string" }
+          - { label: "Type 5 description", name: "types_5_desc", widget: "text" }
+          - { label: "Type 6 badge", name: "types_6_badge", widget: "string" }
+          - { label: "Type 6 title", name: "types_6_title", widget: "string" }
+          - { label: "Type 6 description", name: "types_6_desc", widget: "text" }
+          - { label: "Steps eyebrow", name: "steps_eyebrow", widget: "string" }
+          - { label: "Steps H2", name: "steps_h2", widget: "string" }
+          - { label: "Step 1 eyebrow", name: "steps_1_eyebrow", widget: "string" }
+          - { label: "Step 1 title", name: "steps_1_title", widget: "string" }
+          - { label: "Step 1 description", name: "steps_1_desc", widget: "text" }
+          - { label: "Step 2 eyebrow", name: "steps_2_eyebrow", widget: "string" }
+          - { label: "Step 2 title", name: "steps_2_title", widget: "string" }
+          - { label: "Step 2 description", name: "steps_2_desc", widget: "text" }
+          - { label: "Step 3 eyebrow", name: "steps_3_eyebrow", widget: "string" }
+          - { label: "Step 3 title", name: "steps_3_title", widget: "string" }
+          - { label: "Step 3 description", name: "steps_3_desc", widget: "text" }
+          - { label: "CTA eyebrow", name: "cta_eyebrow", widget: "string" }
+          - { label: "CTA H2", name: "cta_h2", widget: "string" }
+          - { label: "CTA description", name: "cta_desc", widget: "text" }
+          - { label: "CTA button", name: "cta_btn", widget: "string" }
+          - { label: "Downloads eyebrow", name: "downloads_eyebrow", widget: "string" }
+          - { label: "Downloads H2", name: "downloads_h2", widget: "string" }
+          - { label: "Downloads download label", name: "downloads_dl_label", widget: "string" }
+          - { label: "Downloads 1 title", name: "downloads_1_title", widget: "string" }
+          - { label: "Downloads 2 title", name: "downloads_2_title", widget: "string" }
+          - { label: "Downloads 3 title", name: "downloads_3_title", widget: "string" }
+          - { label: "Downloads 4 title", name: "downloads_4_title", widget: "string" }
+          - { label: "Downloads 5 title", name: "downloads_5_title", widget: "string" }
+          - { label: "Downloads 6 title", name: "downloads_6_title", widget: "string" }
+
+      - name: "investors"
+        label: "investors"
+        file: "src/content/ru/investors.md"
+        format: "frontmatter"
+        fields:
+          - { label: "Type", name: "type", widget: "string" }
+          - { label: "Title", name: "title", widget: "string" }
+          - { label: "Hero H1", name: "hero_h1", widget: "string" }
+          - { label: "Hero H1 accent", name: "hero_h1_accent", widget: "string" }
+          - { label: "Hero button allocation", name: "hero_btn_allocation", widget: "string" }
+          - { label: "Hero button legal", name: "hero_btn_legal", widget: "string" }
+          - { label: "SHARM eyebrow", name: "sharm_eyebrow", widget: "string" }
+          - { label: "SHARM H2", name: "sharm_h2", widget: "string" }
+          - { label: "SHARM description", name: "sharm_desc", widget: "text" }
+          - { label: "SHARM item 1 title", name: "sharm_item_1_title", widget: "string" }
+          - { label: "SHARM item 1 description", name: "sharm_item_1_desc", widget: "text" }
+          - { label: "SHARM item 2 title", name: "sharm_item_2_title", widget: "string" }
+          - { label: "SHARM item 2 description", name: "sharm_item_2_desc", widget: "text" }
+          - { label: "SHARM item 3 title", name: "sharm_item_3_title", widget: "string" }
+          - { label: "SHARM item 3 description", name: "sharm_item_3_desc", widget: "text" }
+          - { label: "SHARM asset label", name: "sharm_asset_label", widget: "string" }
+          - { label: "SHARM stock label", name: "sharm_stock_label", widget: "string" }
+          - { label: "Fractional eyebrow", name: "fractional_eyebrow", widget: "string" }
+          - { label: "Fractional H2", name: "fractional_h2", widget: "string" }
+          - { label: "Fractional description", name: "fractional_desc", widget: "text" }
+          - { label: "Fractional item 1 title", name: "fractional_item_1_title", widget: "string" }
+          - { label: "Fractional item 1 description", name: "fractional_item_1_desc", widget: "text" }
+          - { label: "Fractional item 2 title", name: "fractional_item_2_title", widget: "string" }
+          - { label: "Fractional item 2 description", name: "fractional_item_2_desc", widget: "text" }
+          - { label: "Fractional item 3 title", name: "fractional_item_3_title", widget: "string" }
+          - { label: "Fractional item 3 description", name: "fractional_item_3_desc", widget: "text" }
+          - { label: "Fractional puzzle label", name: "fractional_puzzle_label", widget: "string" }
+          - { label: "Fractional puzzle line2", name: "fractional_puzzle_line2", widget: "string" }
+          - { label: "Fractional puzzle line3", name: "fractional_puzzle_line3", widget: "string" }
+          - { label: "Roadmap eyebrow", name: "roadmap_eyebrow", widget: "string" }
+          - { label: "Roadmap H2", name: "roadmap_h2", widget: "string" }
+          - { label: "Roadmap hint", name: "roadmap_hint", widget: "text" }
+          - { label: "Roadmap phase 1 label", name: "roadmap_phase_1_label", widget: "string" }
+          - { label: "Roadmap phase 1 title", name: "roadmap_phase_1_title", widget: "string" }
+          - { label: "Roadmap phase 1 description", name: "roadmap_phase_1_desc", widget: "text" }
+          - { label: "Roadmap phase 1 li 1", name: "roadmap_phase_1_li_1", widget: "string" }
+          - { label: "Roadmap phase 1 li 2", name: "roadmap_phase_1_li_2", widget: "string" }
+          - { label: "Roadmap phase 1 li 3", name: "roadmap_phase_1_li_3", widget: "string" }
+          - { label: "Roadmap phase 1 li 4", name: "roadmap_phase_1_li_4", widget: "string" }
+          - { label: "Roadmap phase 2 label", name: "roadmap_phase_2_label", widget: "string" }
+          - { label: "Roadmap phase 2 title", name: "roadmap_phase_2_title", widget: "string" }
+          - { label: "Roadmap phase 2 description", name: "roadmap_phase_2_desc", widget: "text" }
+          - { label: "Roadmap phase 2 li 1", name: "roadmap_phase_2_li_1", widget: "string" }
+          - { label: "Roadmap phase 2 li 2", name: "roadmap_phase_2_li_2", widget: "string" }
+          - { label: "Roadmap phase 2 li 3", name: "roadmap_phase_2_li_3", widget: "string" }
+          - { label: "Roadmap phase 2 li 4", name: "roadmap_phase_2_li_4", widget: "string" }
+          - { label: "Roadmap phase 3 label", name: "roadmap_phase_3_label", widget: "string" }
+          - { label: "Roadmap phase 3 title", name: "roadmap_phase_3_title", widget: "string" }
+          - { label: "Roadmap phase 3 description", name: "roadmap_phase_3_desc", widget: "text" }
+          - { label: "Roadmap phase 3 li 1", name: "roadmap_phase_3_li_1", widget: "string" }
+          - { label: "Roadmap phase 3 li 2", name: "roadmap_phase_3_li_2", widget: "string" }
+          - { label: "Roadmap phase 3 li 3", name: "roadmap_phase_3_li_3", widget: "string" }
+          - { label: "Roadmap phase 3 li 4", name: "roadmap_phase_3_li_4", widget: "string" }
+          - { label: "Roadmap phase 4 label", name: "roadmap_phase_4_label", widget: "string" }
+          - { label: "Roadmap phase 4 title", name: "roadmap_phase_4_title", widget: "string" }
+          - { label: "Roadmap phase 4 description", name: "roadmap_phase_4_desc", widget: "text" }
+          - { label: "Roadmap phase 4 li 1", name: "roadmap_phase_4_li_1", widget: "string" }
+          - { label: "Roadmap phase 4 li 2", name: "roadmap_phase_4_li_2", widget: "string" }
+          - { label: "Roadmap phase 4 li 3", name: "roadmap_phase_4_li_3", widget: "string" }
+          - { label: "Roadmap phase 4 li 4", name: "roadmap_phase_4_li_4", widget: "string" }
+          - { label: "Roadmap phase 5 label", name: "roadmap_phase_5_label", widget: "string" }
+          - { label: "Roadmap phase 5 title", name: "roadmap_phase_5_title", widget: "string" }
+          - { label: "Roadmap phase 5 description", name: "roadmap_phase_5_desc", widget: "text" }
+          - { label: "Roadmap phase 5 li 1", name: "roadmap_phase_5_li_1", widget: "string" }
+          - { label: "Roadmap phase 5 li 2", name: "roadmap_phase_5_li_2", widget: "string" }
+          - { label: "Roadmap phase 5 li 3", name: "roadmap_phase_5_li_3", widget: "string" }
+          - { label: "Privileges eyebrow", name: "privileges_eyebrow", widget: "string" }
+          - { label: "Privileges H2", name: "privileges_h2", widget: "string" }
+          - { label: "Privileges description", name: "privileges_desc", widget: "text" }
+          - { label: "Privileges label", name: "privileges_label", widget: "string" }
+          - { label: "Privilege 1 title", name: "privileges_1_title", widget: "string" }
+          - { label: "Privilege 1 text", name: "privileges_1_text", widget: "text" }
+          - { label: "Privilege 2 title", name: "privileges_2_title", widget: "string" }
+          - { label: "Privilege 2 text", name: "privileges_2_text", widget: "text" }
+          - { label: "Privilege 3 title", name: "privileges_3_title", widget: "string" }
+          - { label: "Privilege 3 text", name: "privileges_3_text", widget: "text" }
+          - { label: "Privilege 4 title", name: "privileges_4_title", widget: "string" }
+          - { label: "Privilege 4 text", name: "privileges_4_text", widget: "text" }
+          - { label: "Privileges aria prev", name: "privileges_aria_prev", widget: "string" }
+          - { label: "Privileges aria next", name: "privileges_aria_next", widget: "string" }
+          - { label: "Token eyebrow", name: "token_eyebrow", widget: "string" }
+          - { label: "Token H2", name: "token_h2", widget: "string" }
+          - { label: "Token total supply label", name: "token_total_supply_label", widget: "string" }
+          - { label: "Token total supply value", name: "token_total_supply_value", widget: "string" }
+          - { label: "Token investment label", name: "token_investment_label", widget: "string" }
+          - { label: "Token investment value", name: "token_investment_value", widget: "string" }
+          - { label: "Token presale label", name: "token_presale_label", widget: "string" }
+          - { label: "Token presale value", name: "token_presale_value", widget: "string" }
+          - { label: "Token format label", name: "token_format_label", widget: "string" }
+          - { label: "Token format value", name: "token_format_value", widget: "string" }
+          - { label: "Token price label", name: "token_price_label", widget: "string" }
+          - { label: "Token price value", name: "token_price_value", widget: "string" }
+          - { label: "Token closes", name: "token_closes", widget: "string" }
+          - { label: "Token distribution label", name: "token_distribution_label", widget: "string" }
+          - { label: "Token dist 1", name: "token_dist_1", widget: "string" }
+          - { label: "Token dist 2", name: "token_dist_2", widget: "string" }
+          - { label: "Token dist 3", name: "token_dist_3", widget: "string" }
+          - { label: "Token CTA", name: "token_cta", widget: "string" }
+          - { label: "Final H2", name: "final_h2", widget: "string" }
+          - { label: "Final description", name: "final_desc", widget: "text" }
+          - { label: "Final button whitepaper", name: "final_btn_whitepaper", widget: "string" }
+          - { label: "Final button presentation", name: "final_btn_presentation", widget: "string" }
+
+      - name: "about_us"
+        label: "about_us"
+        file: "src/content/ru/about_us/_index.md"
+        format: "frontmatter"
+        preview_path: "/about_us/"
+        fields:
+          - { label: "Title", name: "title", widget: "string" }
+          - { label: "Date", name: "date", widget: "datetime", required: false }
+          - { label: "Draft", name: "draft", widget: "boolean", required: false }
+
+          - { label: "Hero eyebrow", name: "hero_eyebrow", widget: "string" }
+          - { label: "Hero H1 line 1", name: "hero_h1_line1", widget: "string" }
+          - { label: "Hero H1 line 2", name: "hero_h1_line2", widget: "string" }
+          - { label: "Hero H1 accent", name: "hero_h1_accent", widget: "string" }
+          - { label: "Hero description", name: "hero_description", widget: "text" }
+          - { label: "Hero button (team)", name: "hero_btn_team", widget: "string" }
+          - { label: "Hero button (contact)", name: "hero_btn_contact", widget: "string" }
+          - { label: "Hero stat 1 value", name: "hero_stat_1_value", widget: "string" }
+          - { label: "Hero stat 1 label", name: "hero_stat_1_label", widget: "string" }
+          - { label: "Hero stat 2 value", name: "hero_stat_2_value", widget: "string" }
+          - { label: "Hero stat 2 label", name: "hero_stat_2_label", widget: "string" }
+          - { label: "Hero stat 3 value", name: "hero_stat_3_value", widget: "string" }
+          - { label: "Hero stat 3 label", name: "hero_stat_3_label", widget: "string" }
+          - { label: "Hero stat 4 value", name: "hero_stat_4_value", widget: "string" }
+          - { label: "Hero stat 4 label", name: "hero_stat_4_label", widget: "string" }
+
+          - { label: "Team eyebrow", name: "team_eyebrow", widget: "string" }
+          - { label: "Team H2", name: "team_h2", widget: "string" }
+          - { label: "Team swipe hint", name: "team_swipe_hint", widget: "string" }
+          - { label: "Team dept 1 title", name: "team_dept_1_title", widget: "string" }
+          - { label: "Team dept 1 desc", name: "team_dept_1_desc", widget: "text" }
+          - { label: "Team dept 2 title", name: "team_dept_2_title", widget: "string" }
+          - { label: "Team dept 2 desc", name: "team_dept_2_desc", widget: "text" }
+          - { label: "Team dept 3 title", name: "team_dept_3_title", widget: "string" }
+          - { label: "Team dept 3 desc", name: "team_dept_3_desc", widget: "text" }
+          - { label: "Team dept 4 title", name: "team_dept_4_title", widget: "string" }
+          - { label: "Team dept 4 desc", name: "team_dept_4_desc", widget: "text" }
+
+          - { label: "Principles eyebrow", name: "principles_eyebrow", widget: "string" }
+          - { label: "Principles H2", name: "principles_h2", widget: "string" }
+          - { label: "Principles 1 title", name: "principles_1_title", widget: "string" }
+          - { label: "Principles 1 desc", name: "principles_1_desc", widget: "text" }
+          - { label: "Principles 2 title", name: "principles_2_title", widget: "string" }
+          - { label: "Principles 2 desc", name: "principles_2_desc", widget: "text" }
+          - { label: "Principles 3 title", name: "principles_3_title", widget: "string" }
+          - { label: "Principles 3 desc", name: "principles_3_desc", widget: "text" }
+          - { label: "Principles 4 title", name: "principles_4_title", widget: "string" }
+          - { label: "Principles 4 desc", name: "principles_4_desc", widget: "text" }
+
+          - { label: "Facts eyebrow", name: "facts_eyebrow", widget: "string" }
+          - { label: "Facts H2", name: "facts_h2", widget: "string" }
+          - { label: "Facts founded label", name: "facts_founded_label", widget: "string" }
+          - { label: "Facts founded value", name: "facts_founded_value", widget: "string" }
+          - { label: "Facts legal label", name: "facts_legal_label", widget: "string" }
+          - { label: "Facts legal value 1", name: "facts_legal_value_1", widget: "string" }
+          - { label: "Facts legal value 2", name: "facts_legal_value_2", widget: "string" }
+          - { label: "Facts legal value 3", name: "facts_legal_value_3", widget: "string" }
+          - { label: "Facts partners label", name: "facts_partners_label", widget: "string" }
+          - { label: "Facts partners value", name: "facts_partners_value", widget: "text" }
+          - { label: "Facts founder label", name: "facts_founder_label", widget: "string" }
+          - { label: "Facts founder link", name: "facts_founder_link", widget: "string" }
+
+          - { label: "Map eyebrow", name: "map_eyebrow", widget: "string" }
+          - { label: "Map H2", name: "map_h2", widget: "string" }
+          - { label: "Map hint", name: "map_hint", widget: "string" }
+          - { label: "Map legend HQ", name: "map_legend_hq", widget: "string" }
+          - { label: "Map legend offices", name: "map_legend_offices", widget: "string" }
+          - { label: "Map placeholder", name: "map_placeholder", widget: "string" }
+          - { label: "Map city role label", name: "map_city_role_label", widget: "string" }
+          - { label: "Map city region label", name: "map_city_region_label", widget: "string" }
+          - { label: "Map city focus label", name: "map_city_focus_label", widget: "string" }
+
+          - { label: "HQ badge", name: "map_city_hq_badge", widget: "string" }
+          - { label: "HQ name", name: "map_city_hq_name", widget: "string" }
+          - { label: "HQ desc", name: "map_city_hq_desc", widget: "text" }
+          - { label: "HQ role", name: "map_city_hq_role", widget: "string" }
+          - { label: "HQ region", name: "map_city_hq_region", widget: "string" }
+          - { label: "HQ focus", name: "map_city_hq_focus", widget: "string" }
+
+          - { label: "Dubai badge", name: "map_city_dubai_badge", widget: "string" }
+          - { label: "Dubai name", name: "map_city_dubai_name", widget: "string" }
+          - { label: "Dubai desc", name: "map_city_dubai_desc", widget: "text" }
+          - { label: "Dubai role", name: "map_city_dubai_role", widget: "string" }
+          - { label: "Dubai region", name: "map_city_dubai_region", widget: "string" }
+          - { label: "Dubai focus", name: "map_city_dubai_focus", widget: "string" }
+
+          - { label: "Istanbul badge", name: "map_city_istanbul_badge", widget: "string" }
+          - { label: "Istanbul name", name: "map_city_istanbul_name", widget: "string" }
+          - { label: "Istanbul desc", name: "map_city_istanbul_desc", widget: "text" }
+          - { label: "Istanbul role", name: "map_city_istanbul_role", widget: "string" }
+          - { label: "Istanbul region", name: "map_city_istanbul_region", widget: "string" }
+          - { label: "Istanbul focus", name: "map_city_istanbul_focus", widget: "string" }
+
+          - { label: "Bangkok badge", name: "map_city_bangkok_badge", widget: "string" }
+          - { label: "Bangkok name", name: "map_city_bangkok_name", widget: "string" }
+          - { label: "Bangkok desc", name: "map_city_bangkok_desc", widget: "text" }
+          - { label: "Bangkok role", name: "map_city_bangkok_role", widget: "string" }
+          - { label: "Bangkok region", name: "map_city_bangkok_region", widget: "string" }
+          - { label: "Bangkok focus", name: "map_city_bangkok_focus", widget: "string" }
+
+          - { label: "Jakarta badge", name: "map_city_jakarta_badge", widget: "string" }
+          - { label: "Jakarta name", name: "map_city_jakarta_name", widget: "string" }
+          - { label: "Jakarta desc", name: "map_city_jakarta_desc", widget: "text" }
+          - { label: "Jakarta role", name: "map_city_jakarta_role", widget: "string" }
+          - { label: "Jakarta region", name: "map_city_jakarta_region", widget: "string" }
+          - { label: "Jakarta focus", name: "map_city_jakarta_focus", widget: "string" }
+
+          - { label: "Tbilisi badge", name: "map_city_tbilisi_badge", widget: "string" }
+          - { label: "Tbilisi name", name: "map_city_tbilisi_name", widget: "string" }
+          - { label: "Tbilisi desc", name: "map_city_tbilisi_desc", widget: "text" }
+          - { label: "Tbilisi role", name: "map_city_tbilisi_role", widget: "string" }
+          - { label: "Tbilisi region", name: "map_city_tbilisi_region", widget: "string" }
+          - { label: "Tbilisi focus", name: "map_city_tbilisi_focus", widget: "string" }
+
+          - { label: "Numbers eyebrow", name: "numbers_eyebrow", widget: "string" }
+          - { label: "Numbers H2", name: "numbers_h2", widget: "string" }
+          - { label: "Numbers stat 1 label", name: "numbers_stat_1_label", widget: "string" }
+          - { label: "Numbers stat 2 label", name: "numbers_stat_2_label", widget: "string" }
+          - { label: "Numbers stat 3 label", name: "numbers_stat_3_label", widget: "string" }
+          - { label: "Numbers stat 4 label", name: "numbers_stat_4_label", widget: "string" }
+
+          - { label: "CEO quote", name: "ceo_quote", widget: "string" }
+          - { label: "CEO name", name: "ceo_name", widget: "string" }
+          - { label: "CEO title", name: "ceo_title", widget: "string" }
+          - { label: "CEO button", name: "ceo_btn", widget: "string" }
+          - { label: "CEO placeholder", name: "ceo_placeholder", widget: "string" }
