@@ -1,0 +1,230 @@
+{{ define "main" }}
+<section class="min-h-[calc(100vh-120px)] bg-[#03292B] text-white flex items-center py-16 sm:py-24">
+    <div class="max-w-5xl mx-auto px-4 sm:px-6 w-full">
+        <div class="grid lg:grid-cols-2 gap-8 sm:gap-10 items-stretch">
+            <div class="rounded-2xl border border-white/10 p-8 sm:p-10 bg-gradient-to-br from-[#0A3B3D] to-[#03292B]">
+                <p class="uppercase tracking-[0.3em] text-[#31D0B2] text-xs mb-4">{{ .Params.hero_eyebrow | default "Member access" }}</p>
+                <h1 class="font-['TT_Livret_Display_Trl'] text-3xl sm:text-5xl font-light leading-tight mb-5">{{ .Title }}</h1>
+                <p class="text-white/70 text-sm sm:text-base leading-relaxed mb-8">{{ .Params.hero_description | default "Sign in to access your personal account, manage listings, and post properties to the marketplace." }}</p>
+                <div class="space-y-4">
+                    <div class="border border-white/10 rounded-lg p-4 bg-white/5">
+                        <p class="text-[#DBA757] text-xs uppercase tracking-[0.2em] mb-1">Placeholder API</p>
+                        <p class="text-white/70 text-sm">GET <code class="text-[#31D0B2]">/api/v1/auth/login.json</code></p>
+                    </div>
+                    <div class="border border-white/10 rounded-lg p-4 bg-white/5">
+                        <p class="text-[#DBA757] text-xs uppercase tracking-[0.2em] mb-1">Demo credentials</p>
+                        <p class="text-white/70 text-sm">Use any valid email format and a password with at least 6 characters.</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="rounded-2xl border border-white/10 p-6 sm:p-8 bg-[#021B1C]">
+                <form id="login-form" class="space-y-5" novalidate>
+                    <div>
+                        <label for="login-email" class="block text-xs uppercase tracking-[0.2em] text-white/50 mb-2">Email</label>
+                        <input id="login-email" name="email" type="email" required class="w-full rounded-lg border border-white/15 bg-white/5 px-4 py-3 text-sm text-white placeholder-white/30 focus:outline-none focus:border-[#DBA757]" placeholder="name@example.com">
+                    </div>
+                    <div>
+                        <label for="login-password" class="block text-xs uppercase tracking-[0.2em] text-white/50 mb-2">Password</label>
+                        <input id="login-password" name="password" type="password" required minlength="6" class="w-full rounded-lg border border-white/15 bg-white/5 px-4 py-3 text-sm text-white placeholder-white/30 focus:outline-none focus:border-[#DBA757]" placeholder="Enter password">
+                    </div>
+
+                    <button id="login-submit" type="submit" class="w-full px-6 py-3 rounded-lg bg-gradient-to-r from-[#FFDDA8] to-[#DBA757] text-[#03292B] font-semibold hover:brightness-110 transition">{{ .Params.login_cta | default "Sign in" }}</button>
+
+                            <div class="pt-2">
+                                <div id="google-button-container" class="w-full"></div>
+                            </div>
+
+                            <p id="login-status" class="text-sm text-white/70"></p>
+                </form>
+            </div>
+        </div>
+    </div>
+</section>
+
+        <!-- Google Identity Services -->
+        <script src="https://accounts.google.com/gsi/client" async defer></script>
+
+<script>
+(function () {
+    const storageKey = 'sharmonyAuthToken';
+    const accountUrl = '{{ "/account/" | relLangURL }}';
+    const form = document.getElementById('login-form');
+    const submitBtn = document.getElementById('login-submit');
+    const statusEl = document.getElementById('login-status');
+
+    if (localStorage.getItem(storageKey)) {
+        window.location.replace(accountUrl);
+        return;
+    }
+
+    function setStatus(text, isError) {
+        statusEl.textContent = text;
+        statusEl.className = isError ? 'text-sm text-red-300' : 'text-sm text-white/70';
+    }
+
+    form.addEventListener('submit', function (event) {
+        event.preventDefault();
+
+        const email = form.email.value.trim();
+        const password = form.password.value;
+
+        if (!email || !email.includes('@')) {
+            setStatus('Enter a valid email address.', true);
+            return;
+        }
+
+        if (!password || password.length < 6) {
+            setStatus('Password must be at least 6 characters.', true);
+            return;
+        }
+
+        submitBtn.disabled = true;
+        submitBtn.classList.add('opacity-60', 'cursor-not-allowed');
+        setStatus('Signing in...', false);
+
+        fetch((window.SHARMONY_BACKEND_URL || '') + '/v1/auth/login', {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify({ email: email, password: password })
+        })
+            .then(function (response) {
+                if (!response.ok) throw new Error('Authentication failed');
+                return response.json();
+            })
+            .then(function (payload) {
+                // Support multiple backend shapes. Prefer sessionToken / SessionToken / token
+                const token = payload.sessionToken || payload.SessionToken || payload.token || payload.Token || 'placeholder-session-token';
+                // backend may return user id/address as userId / UserID / address
+                const address = payload.userId || payload.UserID || payload.address || payload.owner || null;
+                localStorage.setItem(storageKey, token);
+                if (address) localStorage.setItem('sharmonyAccountAddress', address);
+                localStorage.setItem('sharmonyAccountEmail', payload.email || payload.Email || email);
+                setStatus('Success. Redirecting to your account...', false);
+                window.setTimeout(function () {
+                    window.location.replace(accountUrl);
+                }, 500);
+            })
+            .catch(function () {
+                setStatus('Login endpoint is unavailable or rejected the credentials. Please try again.', true);
+            })
+            .finally(function () {
+                submitBtn.disabled = false;
+                submitBtn.classList.remove('opacity-60', 'cursor-not-allowed');
+            });
+    });
+
+    // --- Google Sign-in support ---
+    // Replace CLIENT_ID with your Google OAuth Client ID. If not provided, the button will not render.
+    const GOOGLE_CLIENT_ID = window.SHARMONY_GOOGLE_CLIENT_ID || '<REPLACE_WITH_GOOGLE_CLIENT_ID>'; // replace or inject via server-side if available
+
+    function setCookie(name, value, maxAgeSec) {
+        let cookie = encodeURIComponent(name) + '=' + encodeURIComponent(value) + '; path=/';
+        if (maxAgeSec) cookie += '; max-age=' + String(maxAgeSec);
+        // Note: cannot set HttpOnly from JS; backend should set secure cookies in production
+        document.cookie = cookie;
+    }
+
+    function decodeJwtPayload(token) {
+        try {
+            const parts = token.split('.');
+            if (parts.length < 2) return null;
+            const payload = parts[1].replace(/-/g, '+').replace(/_/g, '/');
+            const json = decodeURIComponent(atob(payload).split('').map(function(c){ return '%' + ('00' + c.charCodeAt(0).toString(16)).slice(-2); }).join(''));
+            return JSON.parse(json);
+        } catch (e) { return null; }
+    }
+
+    function handleGoogleCredentialResponse(response) {
+        // response.credential is the ID token (JWT)
+        if (!response || !response.credential) {
+            setStatus('Google sign-in failed to return a credential.', true);
+            return;
+        }
+
+        const idToken = response.credential;
+        // store id token in cookie so backend can verify it from cookies
+        setCookie('google_id_token', idToken, 60 * 60); // 1 hour
+
+        const payload = decodeJwtPayload(idToken) || {};
+        const userId = payload.sub || payload.email || '';
+
+        submitBtn.disabled = true;
+        submitBtn.classList.add('opacity-60', 'cursor-not-allowed');
+        setStatus('Signing in with Google...', false);
+
+        // Call backend login endpoint with method=google
+        // Include the Google ID token in the request body so backend can verify it (safer in cross-origin flows).
+        fetch((window.SHARMONY_BACKEND_URL || '') + '/v1/auth/register', {
+            method: 'POST',
+            credentials: 'include', // REQUIRED for cookie set/send across origins
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify({
+                region: 'europe',
+                method: 'google',
+                userId: userId,
+                payload: {
+                    idToken: idToken,
+                    // include user's name and email extracted from the ID token payload
+                    name: payload.name || payload.given_name || '',
+                    email: payload.email || ''
+                }
+            })
+        })
+            .then(function (res) {
+                if (!res.ok) throw new Error('Authentication failed');
+                return res.json();
+            })
+            .then(function (payload) {
+                const token = payload.sessionToken || payload.SessionToken || payload.token || payload.Token || 'placeholder-session-token';
+                const address = payload.userId || payload.UserID || payload.address || payload.owner || userId || null;
+                localStorage.setItem(storageKey, token);
+                if (address) localStorage.setItem('sharmonyAccountAddress', address);
+                localStorage.setItem('sharmonyAccountEmail', payload.email || payload.Email || payload.emailAddress || payload.email_address || payload.userId || '');
+                setStatus('Success. Redirecting to your account...', false);
+                window.setTimeout(function () { window.location.replace(accountUrl); }, 500);
+            })
+            .catch(function () {
+                setStatus('Backend login with Google failed. Please try again.', true);
+            })
+            .finally(function () {
+                submitBtn.disabled = false;
+                submitBtn.classList.remove('opacity-60', 'cursor-not-allowed');
+            });
+    }
+
+    function initGoogleButton() {
+        // Wait for google accounts script to be available
+        if (typeof window.google === 'undefined' || !window.google.accounts || !window.google.accounts.id) {
+            // try again later
+            setTimeout(initGoogleButton, 300);
+            return;
+        }
+
+        if (!GOOGLE_CLIENT_ID || GOOGLE_CLIENT_ID.indexOf('<REPLACE') === 0) {
+            // No client id configured — render a passive info message
+            const container = document.getElementById('google-button-container');
+            if (container) container.innerHTML = '<div class="text-xs text-white/60">Google Sign-in is not configured. Set a CLIENT_ID to enable.</div>';
+            return;
+        }
+
+        window.google.accounts.id.initialize({
+            client_id: GOOGLE_CLIENT_ID,
+            callback: handleGoogleCredentialResponse
+        });
+
+        // Render the Google Sign-In button
+        window.google.accounts.id.renderButton(
+            document.getElementById('google-button-container'),
+            { theme: 'filled_black', size: 'large', width: '100%' }
+        );
+
+        // Optionally prompt the One Tap UI
+        // window.google.accounts.id.prompt();
+    }
+
+    // Start initialization (will wait for the external script if needed)
+    initGoogleButton();
+})();
+</script>
+{{ end }}

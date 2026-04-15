@@ -1,0 +1,382 @@
+{{ define "main" }}
+<section class="bg-[#03292B] text-white py-16 sm:py-20 border-b border-white/10">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6">
+        <p class="uppercase tracking-[0.32em] text-[#31D0B2] text-xs sm:text-sm mb-4">{{ .Params.hero_eyebrow | default "Marketplace" }}</p>
+        <div class="flex flex-col md:flex-row md:items-end md:justify-between gap-6">
+            <div>
+                <h1 class="font-['TT_Livret_Display_Trl'] text-3xl sm:text-5xl md:text-6xl font-light leading-tight">
+                    {{ .Title }}
+                </h1>
+                <p class="text-white/60 text-sm sm:text-base mt-4 max-w-2xl">{{ .Params.hero_subtitle | default "Browse global real estate listings, apply detailed filters, and publish your own listing." }}</p>
+            </div>
+            <a href='{{ "/marketplace/submit/" | relLangURL }}' class="inline-flex items-center justify-center px-6 py-3 rounded-lg bg-gradient-to-r from-[#FFDDA8] to-[#DBA757] text-[#03292B] font-semibold hover:brightness-110 transition">
+                {{ .Params.post_listing_cta | default "Post Your Listing" }}
+            </a>
+        </div>
+    </div>
+</section>
+
+<section class="bg-[#F8EDDD] py-10 sm:py-14">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6">
+        <div class="lg:flex lg:items-start lg:gap-8">
+
+            <!-- LEFT: Filters Sidebar -->
+            <aside class="hidden lg:block lg:w-72 shrink-0 bg-gradient-to-b from-[#031E20] to-[#072927] border border-[#03292B]/10 rounded-xl p-5 text-white">
+                <div class="mb-4">
+                    <h3 class="text-xs uppercase tracking-[0.25em] text-[#DBA757]">Filters</h3>
+                    <p class="text-white/60 text-sm mt-2">Refine results by location, type and bedrooms.</p>
+                </div>
+
+                <div class="space-y-4">
+                    <div>
+                        <label class="text-xs uppercase text-white/60 mb-2 block">Country</label>
+                        <select id="mp-country" class="w-full bg-[#021B1C] border border-[#03292B]/15 rounded-lg px-3 py-2 text-sm"></select>
+                    </div>
+
+                    <div>
+                        <label class="text-xs uppercase text-white/60 mb-2 block">Property type</label>
+                        <select id="mp-type" class="w-full bg-[#021B1C] border border-[#03292B]/15 rounded-lg px-3 py-2 text-sm"></select>
+                    </div>
+
+                    <div>
+                        <label class="text-xs uppercase text-white/60 mb-2 block">Bedrooms</label>
+                        <select id="mp-bedrooms" class="w-full bg-[#021B1C] border border-[#03292B]/15 rounded-lg px-3 py-2 text-sm"></select>
+                    </div>
+
+                    <div>
+                        <label class="text-xs uppercase text-white/60 mb-2 block">Price range</label>
+                        <div class="bg-white/5 rounded-lg p-3">
+                            <div class="flex items-center justify-between mb-2">
+                                <small class="text-white/70 text-xs">Min</small>
+                                <small class="text-white/70 text-xs">Max</small>
+                            </div>
+                            <div class="space-y-2">
+                                <div class="flex gap-3 items-center">
+                                    <input id="mp-price-min" type="range" min="0" max="1000" value="0" class="range-input w-full">
+                                </div>
+                                <div class="flex gap-3 items-center">
+                                    <input id="mp-price-max" type="range" min="0" max="1000" value="1000" class="range-input w-full">
+                                </div>
+                                <div class="flex items-center justify-between mt-1 text-xs text-white/60">
+                                    <div id="mp-price-display-min">$0</div>
+                                    <div id="mp-price-display-max">$0</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="pt-2">
+                        <button id="mp-reset" type="button" class="w-full inline-flex items-center justify-center px-3 py-2 rounded-lg bg-[#031E20] border border-[#03292B]/20 text-[#31D0B2] hover:bg-[#072927] transition">Reset filters</button>
+                    </div>
+                </div>
+            </aside>
+
+            <!-- MAIN: Results + Top search (centered) -->
+            <main class="flex-1">
+                <div class="mb-6">
+                    <div class="max-w-3xl mx-auto">
+                        <div class="relative">
+                            <input id="mp-search" type="text" placeholder="Search by city, title, or keyword" class="w-full rounded-xl border border-[#03292B]/10 px-4 py-3 text-sm shadow-sm focus:outline-none focus:ring-2 focus:ring-[#31D0B2]">
+                            <button id="mp-search-btn" class="absolute right-2 top-1/2 -translate-y-1/2 inline-flex items-center gap-2 px-3 py-2 rounded-lg bg-[#31D0B2] text-[#03292B] font-semibold">Search</button>
+                        </div>
+                    </div>
+                </div>
+
+                <div id="mp-state" class="text-[#03292B]/70 text-sm mb-6 text-center">Loading marketplace data...</div>
+
+                <div id="mp-grid" class="grid sm:grid-cols-2 lg:grid-cols-3 gap-5"></div>
+            </main>
+        </div>
+
+        <!-- Mobile filters (collapsible) -->
+        <div class="lg:hidden mt-6">
+            <details class="bg-white border border-[#03292B]/10 rounded-xl p-4">
+                <summary class="flex items-center justify-between cursor-pointer">
+                    <span class="font-medium">Filters</span>
+                    <span class="text-sm text-[#03292B]/60">Tap to open</span>
+                </summary>
+                <div class="mt-3 space-y-3">
+                    <select id="mp-country-mobile" class="w-full bg-white border border-[#03292B]/15 rounded-lg px-3 py-2 text-sm"></select>
+                    <select id="mp-type-mobile" class="w-full bg-white border border-[#03292B]/15 rounded-lg px-3 py-2 text-sm"></select>
+                    <select id="mp-bedrooms-mobile" class="w-full bg-white border border-[#03292B]/15 rounded-lg px-3 py-2 text-sm"></select>
+                    <div>
+                        <label class="text-xs uppercase text-[#03292B]/60">Price range</label>
+                        <input id="mp-price-min-mobile" type="range" min="0" max="1000" value="0" class="w-full">
+                        <input id="mp-price-max-mobile" type="range" min="0" max="1000" value="1000" class="w-full mt-2">
+                        <div class="flex items-center justify-between text-xs text-[#03292B]/60 mt-1"><div id="mp-price-display-min-mobile">$0</div><div id="mp-price-display-max-mobile">$0</div></div>
+                    </div>
+                    <button id="mp-reset-mobile" class="w-full inline-flex items-center justify-center px-3 py-2 rounded-lg bg-[#03292B] text-white">Reset filters</button>
+                </div>
+            </details>
+        </div>
+
+    </div>
+</section>
+
+<style>
+.range-input::-webkit-slider-runnable-track { height: 8px; background: linear-gradient(90deg,#31D0B2, #DBA757); border-radius: 999px; }
+.range-input::-webkit-slider-thumb { -webkit-appearance: none; width: 18px; height: 18px; background: #FFF; border-radius: 50%; box-shadow: 0 2px 6px rgba(0,0,0,0.4); margin-top: -5px; }
+.range-input { accent-color: #31D0B2; }
+</style>
+
+<script>
+(function () {
+    const stateEl = document.getElementById('mp-state');
+    const gridEl = document.getElementById('mp-grid');
+    const countEl = document.getElementById('mp-count'); // left-over if needed
+
+    // Filters (desktop)
+    const filters = {
+        search: document.getElementById('mp-search'),
+        country: document.getElementById('mp-country'),
+        type: document.getElementById('mp-type'),
+        bedrooms: document.getElementById('mp-bedrooms'),
+        priceMin: document.getElementById('mp-price-min'),
+        priceMax: document.getElementById('mp-price-max'),
+        priceDisplayMin: document.getElementById('mp-price-display-min'),
+        priceDisplayMax: document.getElementById('mp-price-display-max')
+    };
+
+    // Mobile elements
+    const filtersMobile = {
+        country: document.getElementById('mp-country-mobile'),
+        type: document.getElementById('mp-type-mobile'),
+        bedrooms: document.getElementById('mp-bedrooms-mobile'),
+        priceMin: document.getElementById('mp-price-min-mobile'),
+        priceMax: document.getElementById('mp-price-max-mobile'),
+        priceDisplayMin: document.getElementById('mp-price-display-min-mobile'),
+        priceDisplayMax: document.getElementById('mp-price-display-max-mobile')
+    };
+
+    const searchBtn = document.getElementById('mp-search-btn');
+    const resetBtn = document.getElementById('mp-reset');
+    const resetBtnMobile = document.getElementById('mp-reset-mobile');
+
+    let allListings = [];
+    let priceBounds = { min: 0, max: 1000000 };
+
+    function setState(text, isError) {
+        stateEl.textContent = text;
+        stateEl.className = isError ? 'text-red-600 text-sm mb-6 text-center' : 'text-[#03292B]/70 text-sm mb-6 text-center';
+    }
+
+    function fillSelect(select, options, allLabel) {
+        if (!select) return;
+        select.innerHTML = '';
+        const baseOption = document.createElement('option');
+        baseOption.value = '';
+        baseOption.textContent = allLabel;
+        select.appendChild(baseOption);
+        options.forEach(function (item) {
+            const opt = document.createElement('option');
+            opt.value = item;
+            opt.textContent = item;
+            select.appendChild(opt);
+        });
+    }
+
+    function formatPrice(v) { return new Intl.NumberFormat('en-US', { style: 'currency', currency: 'USD', maximumFractionDigits: 0 }).format(v); }
+
+    function updatePriceDisplays(min, max) {
+        if (filters.priceDisplayMin) filters.priceDisplayMin.textContent = formatPrice(min);
+        if (filters.priceDisplayMax) filters.priceDisplayMax.textContent = formatPrice(max);
+        if (filtersMobile.priceDisplayMin) filtersMobile.priceDisplayMin.textContent = formatPrice(min);
+        if (filtersMobile.priceDisplayMax) filtersMobile.priceDisplayMax.textContent = formatPrice(max);
+    }
+
+    function applyFilters() {
+        const search = (filters.search && filters.search.value || '').toLowerCase();
+        const country = (filters.country && filters.country.value) || (filtersMobile.country && filtersMobile.country.value) || '';
+        const type = (filters.type && filters.type.value) || (filtersMobile.type && filtersMobile.type.value) || '';
+        const bedrooms = (filters.bedrooms && filters.bedrooms.value) || (filtersMobile.bedrooms && filtersMobile.bedrooms.value) || '';
+
+        // price values (use desktop if available, otherwise mobile)
+        const minVal = Number((filters.priceMin && filters.priceMin.value) || (filtersMobile.priceMin && filtersMobile.priceMin.value) || priceBounds.min);
+        const maxVal = Number((filters.priceMax && filters.priceMax.value) || (filtersMobile.priceMax && filtersMobile.priceMax.value) || priceBounds.max);
+
+        const filtered = allListings.filter(function (item) {
+            const inSearch = !search || [item.title, item.city, item.country, item.type, item.description].join(' ').toLowerCase().indexOf(search) !== -1;
+            const inCountry = !country || item.country === country;
+            const inType = !type || item.type === type;
+            const inBedrooms = !bedrooms || String(item.bedrooms) === String(bedrooms);
+            const inPrice = item.priceUsd >= minVal && item.priceUsd <= maxVal;
+            return inSearch && inCountry && inType && inBedrooms && inPrice;
+        });
+
+        renderListings(filtered);
+    }
+
+    function renderListings(listings) {
+        if (!listings.length) {
+            setState('No listings match your filters. Try widening the criteria.', false);
+            gridEl.innerHTML = '<div class="col-span-full text-center text-[#03292B]/60">No listings found.</div>';
+            return;
+        }
+
+        setState('Showing verified marketplace listings from placeholder API data.', false);
+
+        gridEl.innerHTML = listings.map(function (item) {
+            return '<article class="bg-white border border-[#03292B]/10 rounded-xl overflow-hidden shadow-sm">'
+                + '<div class="h-44 bg-[#03292B]/10">'
+                + '<img src="' + item.image + '" alt="' + item.title + '" class="w-full h-full object-cover" loading="lazy" onerror="this.style.display=\'none\';this.parentNode.classList.add(\'bg-gradient-to-br\',\'from-[#03292B]\',\'to-[#0A4B4D]\');">'
+                + '</div>'
+                + '<div class="p-4 sm:p-5">'
+                + '<div class="flex items-center justify-between gap-3 mb-3">'
+                + '<span class="text-xs uppercase tracking-wider text-[#31D0B2]">' + item.type + '</span>'
+                + '<span class="text-xs text-[#03292B]/60">' + item.city + ', ' + item.country + '</span>'
+                + '</div>'
+                + '<h2 class="text-xl text-[#03292B] leading-tight mb-2" style="font-family:TT_Livret_Display_Trl,serif;">' + item.title + '</h2>'
+                + '<p class="text-sm text-[#03292B]/70 mb-4 leading-relaxed">' + item.description + '</p>'
+                + '<div class="flex items-center justify-between text-sm">'
+                + '<span class="text-[#03292B]/60">' + item.bedrooms + ' bedrooms</span>'
+                + '<span class="font-semibold text-[#03292B]">' + formatPrice(item.priceUsd) + '</span>'
+                + '</div>'
+                + '</div>'
+                + '</article>';
+        }).join('');
+    }
+
+    function bindFilterEvents() {
+        if (filters.search) {
+            filters.search.addEventListener('keyup', function (e) { if (e.key === 'Enter') applyFilters(); });
+            searchBtn.addEventListener('click', applyFilters);
+        }
+
+        ['country','type','bedrooms'].forEach(function (k) {
+            if (filters[k]) filters[k].addEventListener('change', applyFilters);
+            if (filtersMobile[k]) filtersMobile[k].addEventListener('change', applyFilters);
+        });
+
+        function bindRange(minEl, maxEl, displayMin, displayMax) {
+            if (!minEl || !maxEl) return;
+            minEl.addEventListener('input', function () {
+                let minV = Number(minEl.value);
+                let maxV = Number(maxEl.value);
+                if (minV > maxV) { minEl.value = maxV; minV = Number(minEl.value); }
+                displayMin.textContent = formatPrice(minV);
+                applyFilters();
+            });
+            maxEl.addEventListener('input', function () {
+                let minV = Number(minEl.value);
+                let maxV = Number(maxEl.value);
+                if (maxV < minV) { maxEl.value = minV; maxV = Number(maxEl.value); }
+                displayMax.textContent = formatPrice(maxV);
+                applyFilters();
+            });
+        }
+
+        bindRange(filters.priceMin, filters.priceMax, filters.priceDisplayMin, filters.priceDisplayMax);
+        bindRange(filtersMobile.priceMin, filtersMobile.priceMax, filtersMobile.priceDisplayMin, filtersMobile.priceDisplayMax);
+
+        if (resetBtn) resetBtn.addEventListener('click', resetFilters);
+        if (resetBtnMobile) resetBtnMobile.addEventListener('click', resetFilters);
+    }
+
+    function resetFilters() {
+        if (filters.country) filters.country.value = '';
+        if (filters.type) filters.type.value = '';
+        if (filters.bedrooms) filters.bedrooms.value = '';
+        if (filters.priceMin) filters.priceMin.value = priceBounds.min;
+        if (filters.priceMax) filters.priceMax.value = priceBounds.max;
+        if (filtersMobile.priceMin) filtersMobile.priceMin.value = priceBounds.min;
+        if (filtersMobile.priceMax) filtersMobile.priceMax.value = priceBounds.max;
+        updatePriceDisplays(priceBounds.min, priceBounds.max);
+        applyFilters();
+    }
+
+    // Fetch listings from backend real-estate records endpoint and derive filters client-side
+    fetch((window.SHARMONY_BACKEND_URL || '') + '/v1/real-estate/europe/records')
+        .then(function (r) { if (!r.ok) throw new Error('Failed to load records'); return r.json(); })
+        .then(function (data) {
+            // backend may return { records: [...] } or an array directly
+            const records = data.records || data.listings || data || [];
+            // normalize records into a consistent shape used by the UI
+            allListings = (Array.isArray(records) ? records : []).map(function (r) {
+                // helper to read fields with possible casing
+                const pick = function (obj, keys) {
+                    for (let i = 0; i < keys.length; i++) {
+                        const k = keys[i];
+                        if (obj && (obj[k] !== undefined)) return obj[k];
+                    }
+                    return undefined;
+                };
+
+                const title = pick(r, ['title', 'Title']) || '';
+                const description = pick(r, ['description', 'Description']) || '';
+                const images = pick(r, ['images', 'Images']) || [];
+                const image = (Array.isArray(images) && images.length) ? images[0] : '';
+                const metadata = pick(r, ['metadata', 'Metadata']) || {};
+                // derive location fields
+                let country = metadata.country || metadata.Country || '';
+                let city = metadata.city || metadata.City || '';
+                if ((!country || !city) && (r.address || r.Address)) {
+                    const addr = r.address || r.Address || '';
+                    const parts = addr.split(',').map(s => s.trim()).filter(Boolean);
+                    if (!city && parts.length) city = parts[0];
+                    if (!country && parts.length > 1) country = parts[parts.length - 1];
+                }
+
+                const type = metadata.type || metadata.propertyType || metadata.PropertyType || pick(r, ['type', 'Type']) || '';
+                const bedrooms = Number(pick(r, ['rooms', 'Rooms']) || metadata.bedrooms || metadata.Bedrooms || 0);
+                const priceCents = Number(pick(r, ['price_cents', 'priceCents', 'PriceCents']) || 0);
+                const priceUsd = priceCents ? (priceCents / 100) : Number(pick(r, ['priceUsd', 'price_usd']) || 0);
+
+                return {
+                    raw: r,
+                    id: pick(r, ['id', 'ID', '_id']) || null,
+                    title: title,
+                    description: description,
+                    image: image,
+                    country: country,
+                    city: city,
+                    type: type,
+                    bedrooms: bedrooms,
+                    priceUsd: priceUsd,
+                    owner: pick(r, ['owner', 'Owner']) || null,
+                    region: pick(r, ['region', 'Region']) || 'europe'
+                };
+            });
+
+            // compute numeric price bounds from listings
+            if (allListings.length) {
+                const prices = allListings.map(l => Number(l.priceUsd) || 0);
+                const minP = Math.min.apply(null, prices);
+                const maxP = Math.max.apply(null, prices);
+                priceBounds.min = Math.floor(minP / 1000) * 1000 || 0;
+                priceBounds.max = Math.ceil(maxP / 1000) * 1000 || 1000000;
+            }
+
+            // derive filter values from listings
+            const countries = Array.from(new Set(allListings.map(l => l.country).filter(Boolean))).sort();
+            const types = Array.from(new Set(allListings.map(l => l.type).filter(Boolean))).sort();
+            const bedrooms = Array.from(new Set(allListings.map(l => l.bedrooms).filter(v => v !== undefined && v !== null))).sort(function(a,b){return a-b;});
+
+            // hydrate selects (desktop + mobile)
+            fillSelect(filters.country, countries, 'All countries');
+            fillSelect(filters.type, types, 'All property types');
+            fillSelect(filters.bedrooms, bedrooms, 'Any bedrooms');
+            fillSelect(filtersMobile.country, countries, 'All countries');
+            fillSelect(filtersMobile.type, types, 'All property types');
+            fillSelect(filtersMobile.bedrooms, bedrooms, 'Any bedrooms');
+
+            // init sliders
+            if (filters.priceMin && filters.priceMax) {
+                filters.priceMin.min = priceBounds.min; filters.priceMin.max = priceBounds.max; filters.priceMin.value = priceBounds.min;
+                filters.priceMax.min = priceBounds.min; filters.priceMax.max = priceBounds.max; filters.priceMax.value = priceBounds.max;
+            }
+            if (filtersMobile.priceMin && filtersMobile.priceMax) {
+                filtersMobile.priceMin.min = priceBounds.min; filtersMobile.priceMin.max = priceBounds.max; filtersMobile.priceMin.value = priceBounds.min;
+                filtersMobile.priceMax.min = priceBounds.min; filtersMobile.priceMax.max = priceBounds.max; filtersMobile.priceMax.value = priceBounds.max;
+            }
+
+            updatePriceDisplays(priceBounds.min, priceBounds.max);
+            bindFilterEvents();
+            applyFilters();
+        })
+        .catch(function () {
+            setState('Could not load marketplace data from backend (/v1/real-estate/{region}/records).', true);
+        });
+})();
+</script>
+
+{{ end }}

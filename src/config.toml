@@ -81,6 +81,13 @@ roadmap_url = '/downloads/roadmap.pdf'
 presentation_url = '/downloads/presentation.pdf'
 contact_email = 'hello@project.com'
 
+# Optional runtime parameters (can be set in config.toml or via environment variables)
+[params]
+# Google OAuth client id used by frontend
+google_client_id = "818335456817-aeoc5n1r4fr9pan7hcg5lmm8recc6vvu.apps.googleusercontent.com"
+# Backend base URL
+backend_url = "http://localhost:8080"
+
 # 4. IMAGE PROCESSING (For the Designer)
 # Hugo automatically handles "Adaptive View" by resizing images
 [imaging]

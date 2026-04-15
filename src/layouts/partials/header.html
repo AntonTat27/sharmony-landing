@@ -129,4 +129,20 @@
         });
     </script>
 
+    <script>
+        // Expose runtime-config from build-time environment or site params.
+        (function(){
+            // BACKEND_URL: try environment variable first, then site param `params.backend_url`, default to localhost
+            window.SHARMONY_BACKEND_URL = '{{ .Site.Params.backend_url | default "http://localhost:8080" }}';
+
+            // GOOGLE_CLIENT_ID: try environment variable first, then site param `params.google_client_id`, then default to provided id
+            window.SHARMONY_GOOGLE_CLIENT_ID = '{{ .Site.Params.google_client_id | default "818335456817-aeoc5n1r4fr9pan7hcg5lmm8recc6vvu.apps.googleusercontent.com" }}';
+
+            // Normalize: remove trailing slash if present
+            if (window.SHARMONY_BACKEND_URL && window.SHARMONY_BACKEND_URL.endsWith('/')) {
+                window.SHARMONY_BACKEND_URL = window.SHARMONY_BACKEND_URL.slice(0, -1);
+            }
+        })();
+    </script>
+
 </header>
