@@ -4,7 +4,7 @@ backend:
   name: github
   repo: AntonTat27/sharmony-landing
   branch: dev
-  base_url: "https://decap-cms-oauth-murex.vercel.app"
+  base_url: "https://decap-cms-oath.vercel.app/"
   auth_endpoint: "auth"
 
 site_url: "https://sharmony.world"
