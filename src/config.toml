@@ -86,7 +86,7 @@ contact_email = 'hello@project.com'
 # Google OAuth client id used by frontend
 google_client_id = "818335456817-aeoc5n1r4fr9pan7hcg5lmm8recc6vvu.apps.googleusercontent.com"
 # Backend base URL
-backend_url = "http://localhost:8080"
+backend_url = "https://sharmony-backend.vercel.app"
 
 # 4. IMAGE PROCESSING (For the Designer)
 # Hugo automatically handles "Adaptive View" by resizing images
