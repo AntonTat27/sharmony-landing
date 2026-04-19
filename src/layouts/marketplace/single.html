@@ -1,15 +1,16 @@
 {{ define "main" }}
 <section class="bg-[#03292B] text-white py-16 sm:py-20 border-b border-white/10">
     <div class="max-w-7xl mx-auto px-4 sm:px-6">
-        <p class="uppercase tracking-[0.32em] text-[#31D0B2] text-xs sm:text-sm mb-4">{{ .Params.hero_eyebrow | default
-            "Marketplace" }}</p>
+        <p class="uppercase tracking-[0.32em] text-[#31D0B2] text-xs sm:text-sm mb-4">{{ .Params.hero_eyebrow |
+            default "Marketplace" }}</p>
         <div class="flex flex-col md:flex-row md:items-end md:justify-between gap-6">
             <div>
                 <h1 class="font-['TT_Livret_Display_Trl'] text-3xl sm:text-5xl md:text-6xl font-light leading-tight">
                     {{ .Title }}
                 </h1>
-                <p class="text-white/60 text-sm sm:text-base mt-4 max-w-2xl">{{ .Params.hero_subtitle | default "Browse
-                    global real estate listings, apply detailed filters, and publish your own listing." }}</p>
+                <p class="text-white/60 text-sm sm:text-base mt-4 max-w-2xl">{{ .Params.hero_subtitle |
+                    default "Browse global real estate listings, apply detailed filters, and publish your own listing."
+                    }}</p>
             </div>
             <a href='{{ "/marketplace/submit/" | relLangURL }}'
                 class="inline-flex items-center justify-center px-6 py-3 rounded-lg bg-gradient-to-r from-[#FFDDA8] to-[#DBA757] text-[#03292B] font-semibold hover:brightness-110 transition">
@@ -75,9 +76,10 @@
                     </div>
 
                     <div class="pt-2">
-                        <button id="mp-reset" type="button"
-                            class="w-full inline-flex items-center justify-center px-3 py-2 rounded-lg bg-[#031E20] border border-[#03292B]/20 text-[#31D0B2] hover:bg-[#072927] transition">Reset
-                            filters</button>
+                        <button id="mp-reset" type="button" class="w-full inline-flex items-center justify-center px-3 py-2 rounded-lg bg-[#031E20] 
+                            border border-[#03292B]/20 text-[#31D0B2] hover:bg-[#072927] transition">
+                            Reset filters
+                        </button>
                     </div>
                 </div>
             </aside>
@@ -89,8 +91,10 @@
                         <div class="relative">
                             <input id="mp-search" type="text" placeholder="Search by city, title, or keyword"
                                 class="w-full rounded-xl border border-[#03292B]/10 px-4 py-3 text-sm shadow-sm focus:outline-none focus:ring-2 focus:ring-[#31D0B2]">
-                            <button id="mp-search-btn"
-                                class="absolute right-2 top-1/2 -translate-y-1/2 inline-flex items-center gap-2 px-3 py-2 rounded-lg bg-[#31D0B2] text-[#03292B] font-semibold">Search</button>
+                            <button id="mp-search-btn" class="absolute right-2 top-1/2 -translate-y-1/2 inline-flex items-center 
+                                gap-2 px-3 py-2 rounded-lg bg-[#31D0B2] text-[#03292B] font-semibold">
+                                Search
+                            </button>
                         </div>
                     </div>
                 </div>
@@ -126,8 +130,9 @@
                         </div>
                     </div>
                     <button id="mp-reset-mobile"
-                        class="w-full inline-flex items-center justify-center px-3 py-2 rounded-lg bg-[#03292B] text-white">Reset
-                        filters</button>
+                        class="w-full inline-flex items-center justify-center px-3 py-2 rounded-lg bg-[#03292B] text-white">
+                        Reset filters
+                    </button>
                 </div>
             </details>
         </div>
@@ -256,7 +261,8 @@
             gridEl.innerHTML = listings.map(function (item) {
                 return '<article class="bg-white border border-[#03292B]/10 rounded-xl overflow-hidden shadow-sm">'
                     + '<div class="h-44 bg-[#03292B]/10">'
-                    + '<img src="' + item.image + '" alt="' + item.title + '" class="w-full h-full object-cover" loading="lazy" onerror="this.style.display=\'none\';this.parentNode.classList.add(\'bg-gradient-to-br\',\'from-[#03292B]\',\'to-[#0A4B4D]\');">'
+                    + '<img src="' + item.image + '" alt="' + item.title
+                    + '" class="w-full h-full object-cover" loading="lazy" onerror="this.style.display=\'none\';this.parentNode.classList.add(\'bg-gradient-to-br\',\'from-[#03292B]\',\'to-[#0A4B4D]\');">'
                     + '</div>'
                     + '<div class="p-4 sm:p-5">'
                     + '<div class="flex items-center justify-between gap-3 mb-3">'
