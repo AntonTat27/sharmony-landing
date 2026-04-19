@@ -1,8 +1,9 @@
 {{ define "main" }}
 <section class="bg-[#03292B] text-white py-14 sm:py-20 border-b border-white/10">
     <div class="max-w-7xl mx-auto px-4 sm:px-6">
-        <p class="uppercase tracking-[0.32em] text-[#31D0B2] text-xs mb-4">{{ .Params.hero_eyebrow | default "Personal
-            account" }}</p>
+        <p class="uppercase tracking-[0.32em] text-[#31D0B2] text-xs mb-4">{{ .Params.hero_eyebrow | default
+            "Personal account" }}
+        </p>
         <div class="flex flex-col sm:flex-row sm:items-end sm:justify-between gap-4">
             <div>
                 <h1 class="font-['TT_Livret_Display_Trl'] text-3xl sm:text-5xl font-light leading-tight">{{ .Title }}
@@ -29,8 +30,9 @@
                 <h2 class="font-['TT_Livret_Display_Trl'] text-2xl text-[#03292B] mb-3" id="account-name">-</h2>
                 <p class="text-sm text-[#03292B]/70 mb-1" id="account-email">-</p>
                 <p class="text-sm text-[#03292B]/70 mb-5" id="account-membership">-</p>
-                <a href='{{ "/marketplace/submit/" | relLangURL }}' class="inline-flex items-center justify-center px-4 py-2.5 rounded-lg bg-gradient-to-r from-[#FFDDA8] 
-                    to-[#DBA757] text-[#03292B] font-semibold hover:brightness-110 transition">
+                <a href='{{ "/marketplace/submit/" | relLangURL }}' class="inline-flex items-center justify-center px-4 py-2.5 
+                    rounded-lg bg-gradient-to-r from-[#FFDDA8] to-[#DBA757] text-[#03292B] font-semibold 
+                    hover:brightness-110 transition">
                     Post new listing
                 </a>
             </article>
