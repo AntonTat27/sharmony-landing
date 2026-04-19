@@ -1,13 +1,18 @@
 {{ define "main" }}
 <section class="bg-[#03292B] text-white py-14 sm:py-20 border-b border-white/10">
     <div class="max-w-7xl mx-auto px-4 sm:px-6">
-        <p class="uppercase tracking-[0.32em] text-[#31D0B2] text-xs mb-4">{{ .Params.hero_eyebrow | default "Personal account" }}</p>
+        <p class="uppercase tracking-[0.32em] text-[#31D0B2] text-xs mb-4">{{ .Params.hero_eyebrow | default "Personal
+            account" }}</p>
         <div class="flex flex-col sm:flex-row sm:items-end sm:justify-between gap-4">
             <div>
-                <h1 class="font-['TT_Livret_Display_Trl'] text-3xl sm:text-5xl font-light leading-tight">{{ .Title }}</h1>
-                <p class="text-white/60 text-sm sm:text-base mt-3">{{ .Params.hero_subtitle | default "Manage profile details and your own marketplace listings." }}</p>
+                <h1 class="font-['TT_Livret_Display_Trl'] text-3xl sm:text-5xl font-light leading-tight">{{ .Title }}
+                </h1>
+                <p class="text-white/60 text-sm sm:text-base mt-3">{{ .Params.hero_subtitle | default "Manage profile
+                    details and your own marketplace listings." }}</p>
             </div>
-            <button id="account-logout" type="button" class="inline-flex items-center justify-center px-5 py-2.5 border border-[#31D0B2]/50 text-[#31D0B2] rounded-lg hover:bg-[#31D0B2]/10 transition">{{ .Params.logout_label | default "Log out" }}</button>
+            <button id="account-logout" type="button"
+                class="inline-flex items-center justify-center px-5 py-2.5 border border-[#31D0B2]/50 text-[#31D0B2] rounded-lg hover:bg-[#31D0B2]/10 transition">{{
+                .Params.logout_label | default "Log out" }}</button>
         </div>
     </div>
 </section>
@@ -22,13 +27,17 @@
                 <h2 class="font-['TT_Livret_Display_Trl'] text-2xl text-[#03292B] mb-3" id="account-name">-</h2>
                 <p class="text-sm text-[#03292B]/70 mb-1" id="account-email">-</p>
                 <p class="text-sm text-[#03292B]/70 mb-5" id="account-membership">-</p>
-                <a href='{{ "/marketplace/submit/" | relLangURL }}' class="inline-flex items-center justify-center px-4 py-2.5 rounded-lg bg-gradient-to-r from-[#FFDDA8] to-[#DBA757] text-[#03292B] font-semibold hover:brightness-110 transition">Post new listing</a>
+                <a href='{{ "/marketplace/submit/" | relLangURL }}'
+                    class="inline-flex items-center justify-center px-4 py-2.5 rounded-lg bg-gradient-to-r from-[#FFDDA8] to-[#DBA757] text-[#03292B] font-semibold hover:brightness-110 transition">Post
+                    new listing</a>
             </article>
 
             <article class="lg:col-span-2 bg-white border border-[#03292B]/10 rounded-xl p-5 sm:p-6">
                 <div class="flex items-center justify-between gap-4 mb-4">
                     <h2 class="font-['TT_Livret_Display_Trl'] text-2xl text-[#03292B]">Your listings</h2>
-                    <a href='{{ "/marketplace/" | relLangURL }}' class="text-sm text-[#03292B] underline underline-offset-4 hover:text-[#DBA757]">Open marketplace</a>
+                    <a href='{{ "/marketplace/" | relLangURL }}'
+                        class="text-sm text-[#03292B] underline underline-offset-4 hover:text-[#DBA757]">Open
+                        marketplace</a>
                 </div>
                 <div id="account-listings" class="space-y-3"></div>
             </article>
@@ -37,89 +46,89 @@
 </section>
 
 <script>
-(function () {
-    const storageKey = 'sharmonyAuthToken';
-    const loginUrl = '{{ "/login/" | relLangURL }}';
-    const accountState = document.getElementById('account-state');
-    const listEl = document.getElementById('account-listings');
+    (function () {
+        const storageKey = 'sharmonyAuthToken';
+        const loginUrl = '{{ "/login/" | relLangURL }}';
+        const accountState = document.getElementById('account-state');
+        const listEl = document.getElementById('account-listings');
 
-    const token = localStorage.getItem(storageKey);
-    if (!token) {
-        window.location.replace(loginUrl);
-        return;
-    }
-
-    document.getElementById('account-logout').addEventListener('click', function () {
-        localStorage.removeItem(storageKey);
-        localStorage.removeItem('sharmonyAccountEmail');
-        localStorage.removeItem('sharmonyAccountAddress');
-        window.location.replace(loginUrl);
-    });
-
-    function setState(text, isError) {
-        accountState.textContent = text;
-        accountState.className = isError ? 'text-red-600 text-sm mb-6' : 'text-[#03292B]/70 text-sm mb-6';
-    }
-
-    function renderListings(items) {
-        if (!items.length) {
-            listEl.innerHTML = '<div class="border border-dashed border-[#03292B]/20 rounded-lg p-5 text-sm text-[#03292B]/65">No personal listings yet. Use the post listing page to create your first one.</div>';
+        const token = localStorage.getItem(storageKey);
+        if (!token) {
+            window.location.replace(loginUrl);
             return;
         }
 
-        listEl.innerHTML = items.map(function (item) {
-            // compute price in USD from possible fields
-            const priceCents = Number(item.price_cents || item.priceCents || item.PriceCents || item.priceCents || 0);
-            const priceUsd = priceCents ? (priceCents / 100) : (Number(item.priceUsd || item.price_usd || 0) || 0);
-            const city = item.city || (item.metadata && item.metadata.city) || '';
-            const country = item.country || (item.metadata && item.metadata.country) || '';
-            const type = item.type || (item.metadata && item.metadata.type) || '';
-            const status = item.status || 'n/a';
+        document.getElementById('account-logout').addEventListener('click', function () {
+            localStorage.removeItem(storageKey);
+            localStorage.removeItem('sharmonyAccountEmail');
+            localStorage.removeItem('sharmonyAccountAddress');
+            window.location.replace(loginUrl);
+        });
 
-            return '<div class="border border-[#03292B]/10 rounded-lg p-4">'
-                + '<div class="flex items-start justify-between gap-4 mb-2">'
-                + '<h3 class="font-semibold text-[#03292B]">' + (item.title || '-') + '</h3>'
-                + '<span class="text-xs uppercase tracking-wide text-[#31D0B2]">' + status + '</span>'
-                + '</div>'
-                + '<p class="text-sm text-[#03292B]/70 mb-2">' + city + (country ? (', ' + country) : '') + ' - ' + type + '</p>'
-                + '<p class="text-sm text-[#03292B]/70">Price: ' + new Intl.NumberFormat('en-US', { style: 'currency', currency: 'USD', maximumFractionDigits: 0 }).format(priceUsd) + '</p>'
-                + '</div>';
-        }).join('');
-    }
-    // Load profile from backend user endpoint and user's listings from real-estate records
-    (function loadProfileAndListings() {
-        const address = localStorage.getItem('sharmonyAccountAddress');
-        if (!address) {
-            setState('No user address stored. Please sign in again.', true);
-            return;
+        function setState(text, isError) {
+            accountState.textContent = text;
+            accountState.className = isError ? 'text-red-600 text-sm mb-6' : 'text-[#03292B]/70 text-sm mb-6';
         }
 
-        // Fetch user profile
-        fetch((window.SHARMONY_BACKEND_URL || '') + '/v1/users/' + encodeURIComponent(address), { headers: { 'Authorization': 'Bearer ' + token } })
-            .then(function (res) { if (!res.ok) throw new Error('Failed to fetch profile'); return res.json(); })
-            .then(function (profilePayload) {
-                const profile = profilePayload.profile || profilePayload || {};
-                document.getElementById('account-name').textContent = profile.fullName || profile.name || 'Sharmony User';
-                document.getElementById('account-email').textContent = profile.email || localStorage.getItem('sharmonyAccountEmail') || 'email@placeholder.local';
-                document.getElementById('account-membership').textContent = 'Membership: ' + (profile.membership || 'Starter');
-            })
-            .catch(function () {
-                setState('Could not load profile data from backend.', true);
-            });
+        function renderListings(items) {
+            if (!items.length) {
+                listEl.innerHTML = '<div class="border border-dashed border-[#03292B]/20 rounded-lg p-5 text-sm text-[#03292B]/65">No personal listings yet. Use the post listing page to create your first one.</div>';
+                return;
+            }
 
-        // Fetch user's listings (assume real-estate records support owner query)
-        fetch((window.SHARMONY_BACKEND_URL || '') + '/v1/real-estate/europe/records/' + encodeURIComponent(address))
-            .then(function (res) { if (!res.ok) throw new Error('Failed to fetch listings'); return res.json(); })
-            .then(function (recordsPayload) {
-                const items = recordsPayload.records || recordsPayload.listings || recordsPayload || [];
-                console.log('Fetched listings:', items);
-                renderListings(items || []);
-                setState('Session active. Data loaded from backend.', false);
-            })
-            .catch(function () {
-                setState('Could not load your listings from backend.', true);
-            });
+            listEl.innerHTML = items.map(function (item) {
+                // compute price in USD from possible fields
+                const priceCents = Number(item.price_cents || item.priceCents || item.PriceCents || item.priceCents || 0);
+                const priceUsd = priceCents ? (priceCents / 100) : (Number(item.priceUsd || item.price_usd || 0) || 0);
+                const city = item.city || (item.metadata && item.metadata.city) || '';
+                const country = item.country || (item.metadata && item.metadata.country) || '';
+                const type = item.type || (item.metadata && item.metadata.type) || '';
+                const status = item.status || 'n/a';
+
+                return '<div class="border border-[#03292B]/10 rounded-lg p-4">'
+                    + '<div class="flex items-start justify-between gap-4 mb-2">'
+                    + '<h3 class="font-semibold text-[#03292B]">' + (item.title || '-') + '</h3>'
+                    + '<span class="text-xs uppercase tracking-wide text-[#31D0B2]">' + status + '</span>'
+                    + '</div>'
+                    + '<p class="text-sm text-[#03292B]/70 mb-2">' + city + (country ? (', ' + country) : '') + ' - ' + type + '</p>'
+                    + '<p class="text-sm text-[#03292B]/70">Price: ' + new Intl.NumberFormat('en-US', { style: 'currency', currency: 'USD', maximumFractionDigits: 0 }).format(priceUsd) + '</p>'
+                    + '</div>';
+            }).join('');
+        }
+        // Load profile from backend user endpoint and user's listings from real-estate records
+        (function loadProfileAndListings() {
+            const address = localStorage.getItem('sharmonyAccountAddress');
+            if (!address) {
+                setState('No user address stored. Please sign in again.', true);
+                return;
+            }
+
+            // Fetch user profile
+            fetch((window.SHARMONY_BACKEND_URL || '') + '/api/v1/users/' + encodeURIComponent(address), { headers: { 'Authorization': 'Bearer ' + token } })
+                .then(function (res) { if (!res.ok) throw new Error('Failed to fetch profile'); return res.json(); })
+                .then(function (profilePayload) {
+                    const profile = profilePayload.profile || profilePayload || {};
+                    document.getElementById('account-name').textContent = profile.fullName || profile.name || 'Sharmony User';
+                    document.getElementById('account-email').textContent = profile.email || localStorage.getItem('sharmonyAccountEmail') || 'email@placeholder.local';
+                    document.getElementById('account-membership').textContent = 'Membership: ' + (profile.membership || 'Starter');
+                })
+                .catch(function () {
+                    setState('Could not load profile data from backend.', true);
+                });
+
+            // Fetch user's listings (assume real-estate records support owner query)
+            fetch((window.SHARMONY_BACKEND_URL || '') + '/api/v1/real-estate/europe/records/' + encodeURIComponent(address))
+                .then(function (res) { if (!res.ok) throw new Error('Failed to fetch listings'); return res.json(); })
+                .then(function (recordsPayload) {
+                    const items = recordsPayload.records || recordsPayload.listings || recordsPayload || [];
+                    console.log('Fetched listings:', items);
+                    renderListings(items || []);
+                    setState('Session active. Data loaded from backend.', false);
+                })
+                .catch(function () {
+                    setState('Could not load your listings from backend.', true);
+                });
+        })();
     })();
-})();
 </script>
 {{ end }}

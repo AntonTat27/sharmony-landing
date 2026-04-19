@@ -1,9 +1,11 @@
 {{ define "main" }}
 <section class="bg-[#03292B] text-white py-14 sm:py-20 border-b border-white/10">
     <div class="max-w-4xl mx-auto px-4 sm:px-6">
-        <p class="uppercase tracking-[0.32em] text-[#31D0B2] text-xs mb-4">{{ .Params.hero_eyebrow | default "Marketplace" }}</p>
+        <p class="uppercase tracking-[0.32em] text-[#31D0B2] text-xs mb-4">{{ .Params.hero_eyebrow | default
+            "Marketplace" }}</p>
         <h1 class="font-['TT_Livret_Display_Trl'] text-3xl sm:text-5xl font-light leading-tight mb-3">{{ .Title }}</h1>
-        <p class="text-white/60 text-sm sm:text-base">{{ .Params.hero_subtitle | default "Publish your real estate listing. This form currently uses placeholder endpoints." }}</p>
+        <p class="text-white/60 text-sm sm:text-base">{{ .Params.hero_subtitle | default "Publish your real estate
+            listing. This form currently uses placeholder endpoints." }}</p>
     </div>
 </section>
 
@@ -13,12 +15,17 @@
             <form id="submit-form" class="space-y-4" novalidate>
                 <div class="grid sm:grid-cols-2 gap-4">
                     <div>
-                        <label class="block text-xs uppercase tracking-[0.2em] text-[#03292B]/60 mb-2" for="listing-title">Listing title</label>
-                        <input id="listing-title" name="title" type="text" required class="w-full border border-[#03292B]/15 rounded-lg px-3 py-2.5 text-sm focus:outline-none focus:border-[#DBA757]" placeholder="e.g. Seaside villa in Bali">
+                        <label class="block text-xs uppercase tracking-[0.2em] text-[#03292B]/60 mb-2"
+                            for="listing-title">Listing title</label>
+                        <input id="listing-title" name="title" type="text" required
+                            class="w-full border border-[#03292B]/15 rounded-lg px-3 py-2.5 text-sm focus:outline-none focus:border-[#DBA757]"
+                            placeholder="e.g. Seaside villa in Bali">
                     </div>
                     <div>
-                        <label class="block text-xs uppercase tracking-[0.2em] text-[#03292B]/60 mb-2" for="listing-type">Property type</label>
-                        <select id="listing-type" name="type" required class="w-full border border-[#03292B]/15 rounded-lg px-3 py-2.5 text-sm focus:outline-none focus:border-[#DBA757]">
+                        <label class="block text-xs uppercase tracking-[0.2em] text-[#03292B]/60 mb-2"
+                            for="listing-type">Property type</label>
+                        <select id="listing-type" name="type" required
+                            class="w-full border border-[#03292B]/15 rounded-lg px-3 py-2.5 text-sm focus:outline-none focus:border-[#DBA757]">
                             <option value="">Select type</option>
                             <option>Villa</option>
                             <option>Apartment</option>
@@ -30,32 +37,51 @@
 
                 <div class="grid sm:grid-cols-3 gap-4">
                     <div>
-                        <label class="block text-xs uppercase tracking-[0.2em] text-[#03292B]/60 mb-2" for="listing-country">Country</label>
-                        <input id="listing-country" name="country" type="text" required class="w-full border border-[#03292B]/15 rounded-lg px-3 py-2.5 text-sm focus:outline-none focus:border-[#DBA757]" placeholder="Country">
+                        <label class="block text-xs uppercase tracking-[0.2em] text-[#03292B]/60 mb-2"
+                            for="listing-country">Country</label>
+                        <input id="listing-country" name="country" type="text" required
+                            class="w-full border border-[#03292B]/15 rounded-lg px-3 py-2.5 text-sm focus:outline-none focus:border-[#DBA757]"
+                            placeholder="Country">
                     </div>
                     <div>
-                        <label class="block text-xs uppercase tracking-[0.2em] text-[#03292B]/60 mb-2" for="listing-city">City</label>
-                        <input id="listing-city" name="city" type="text" required class="w-full border border-[#03292B]/15 rounded-lg px-3 py-2.5 text-sm focus:outline-none focus:border-[#DBA757]" placeholder="City">
+                        <label class="block text-xs uppercase tracking-[0.2em] text-[#03292B]/60 mb-2"
+                            for="listing-city">City</label>
+                        <input id="listing-city" name="city" type="text" required
+                            class="w-full border border-[#03292B]/15 rounded-lg px-3 py-2.5 text-sm focus:outline-none focus:border-[#DBA757]"
+                            placeholder="City">
                     </div>
                     <div>
-                        <label class="block text-xs uppercase tracking-[0.2em] text-[#03292B]/60 mb-2" for="listing-bedrooms">Bedrooms</label>
-                        <input id="listing-bedrooms" name="bedrooms" type="number" min="0" required class="w-full border border-[#03292B]/15 rounded-lg px-3 py-2.5 text-sm focus:outline-none focus:border-[#DBA757]" placeholder="2">
+                        <label class="block text-xs uppercase tracking-[0.2em] text-[#03292B]/60 mb-2"
+                            for="listing-bedrooms">Bedrooms</label>
+                        <input id="listing-bedrooms" name="bedrooms" type="number" min="0" required
+                            class="w-full border border-[#03292B]/15 rounded-lg px-3 py-2.5 text-sm focus:outline-none focus:border-[#DBA757]"
+                            placeholder="2">
                     </div>
                 </div>
 
                 <div>
-                    <label class="block text-xs uppercase tracking-[0.2em] text-[#03292B]/60 mb-2" for="listing-price">Price (USD)</label>
-                    <input id="listing-price" name="priceUsd" type="number" min="1" required class="w-full border border-[#03292B]/15 rounded-lg px-3 py-2.5 text-sm focus:outline-none focus:border-[#DBA757]" placeholder="250000">
+                    <label class="block text-xs uppercase tracking-[0.2em] text-[#03292B]/60 mb-2"
+                        for="listing-price">Price (USD)</label>
+                    <input id="listing-price" name="priceUsd" type="number" min="1" required
+                        class="w-full border border-[#03292B]/15 rounded-lg px-3 py-2.5 text-sm focus:outline-none focus:border-[#DBA757]"
+                        placeholder="250000">
                 </div>
 
                 <div>
-                    <label class="block text-xs uppercase tracking-[0.2em] text-[#03292B]/60 mb-2" for="listing-description">Description</label>
-                    <textarea id="listing-description" name="description" required rows="4" class="w-full border border-[#03292B]/15 rounded-lg px-3 py-2.5 text-sm focus:outline-none focus:border-[#DBA757]" placeholder="Describe your property and highlights"></textarea>
+                    <label class="block text-xs uppercase tracking-[0.2em] text-[#03292B]/60 mb-2"
+                        for="listing-description">Description</label>
+                    <textarea id="listing-description" name="description" required rows="4"
+                        class="w-full border border-[#03292B]/15 rounded-lg px-3 py-2.5 text-sm focus:outline-none focus:border-[#DBA757]"
+                        placeholder="Describe your property and highlights"></textarea>
                 </div>
 
                 <div class="pt-2 flex flex-wrap gap-3">
-                    <button id="submit-btn" type="submit" class="px-6 py-3 rounded-lg bg-gradient-to-r from-[#FFDDA8] to-[#DBA757] text-[#03292B] font-semibold hover:brightness-110 transition">Publish listing</button>
-                    <a href='{{ "/marketplace/" | relLangURL }}' class="px-6 py-3 rounded-lg border border-[#03292B]/25 text-[#03292B] hover:border-[#DBA757] hover:text-[#DBA757] transition">Back to marketplace</a>
+                    <button id="submit-btn" type="submit"
+                        class="px-6 py-3 rounded-lg bg-gradient-to-r from-[#FFDDA8] to-[#DBA757] text-[#03292B] font-semibold hover:brightness-110 transition">Publish
+                        listing</button>
+                    <a href='{{ "/marketplace/" | relLangURL }}'
+                        class="px-6 py-3 rounded-lg border border-[#03292B]/25 text-[#03292B] hover:border-[#DBA757] hover:text-[#DBA757] transition">Back
+                        to marketplace</a>
                 </div>
                 <p id="submit-status" class="text-sm text-[#03292B]/70"></p>
             </form>
@@ -64,79 +90,79 @@
 </section>
 
 <script>
-(function () {
-    const storageKey = 'sharmonyAuthToken';
-    const loginUrl = '{{ "/login/" | relLangURL }}';
-    const accountUrl = '{{ "/account/" | relLangURL }}';
+    (function () {
+        const storageKey = 'sharmonyAuthToken';
+        const loginUrl = '{{ "/login/" | relLangURL }}';
+        const accountUrl = '{{ "/account/" | relLangURL }}';
 
-    if (!localStorage.getItem(storageKey)) {
-        window.location.replace(loginUrl);
-        return;
-    }
-
-    const form = document.getElementById('submit-form');
-    const btn = document.getElementById('submit-btn');
-    const statusEl = document.getElementById('submit-status');
-
-    function setStatus(text, isError) {
-        statusEl.textContent = text;
-        statusEl.className = isError ? 'text-sm text-red-600' : 'text-sm text-[#03292B]/70';
-    }
-
-    form.addEventListener('submit', function (event) {
-        event.preventDefault();
-
-        if (!form.checkValidity()) {
-            setStatus('Fill all required fields before submitting.', true);
+        if (!localStorage.getItem(storageKey)) {
+            window.location.replace(loginUrl);
             return;
         }
 
-        btn.disabled = true;
-        btn.classList.add('opacity-60', 'cursor-not-allowed');
-        setStatus('Submitting listing to backend...', false);
+        const form = document.getElementById('submit-form');
+        const btn = document.getElementById('submit-btn');
+        const statusEl = document.getElementById('submit-status');
 
-        // build RealEstateRecord payload expected by backend
-        const priceUsd = Number(form.priceUsd.value) || 0;
-        const payload = {
-            title: form.title.value,
-            description: form.description.value,
-            owner: localStorage.getItem('sharmonyAccountAddress') || null,
-            region: 'europe',
-            address: (form.city.value || '') + (form.country.value ? (', ' + form.country.value) : ''),
-            rooms: Number(form.bedrooms.value) || 0,
-            price_cents: Math.round(priceUsd * 100),
-            currency: 'USD',
-            status: 'pending',
-            images: [],
-            metadata: { country: form.country.value || '', city: form.city.value || '', type: form.type.value || '' }
-        };
+        function setStatus(text, isError) {
+            statusEl.textContent = text;
+            statusEl.className = isError ? 'text-sm text-red-600' : 'text-sm text-[#03292B]/70';
+        }
 
-        const token = localStorage.getItem(storageKey) || '';
+        form.addEventListener('submit', function (event) {
+            event.preventDefault();
 
-        fetch((window.SHARMONY_BACKEND_URL || '') + '/v1/real-estate/europe/records', {
-            method: 'POST',
-            headers: Object.assign({ 'Content-Type': 'application/json' }, token ? { 'Authorization': 'Bearer ' + token } : {}),
-            body: JSON.stringify(payload)
-        })
-            .then(function (response) {
-                if (!response.ok) throw new Error('Failed to create record');
-                return response.json();
+            if (!form.checkValidity()) {
+                setStatus('Fill all required fields before submitting.', true);
+                return;
+            }
+
+            btn.disabled = true;
+            btn.classList.add('opacity-60', 'cursor-not-allowed');
+            setStatus('Submitting listing to backend...', false);
+
+            // build RealEstateRecord payload expected by backend
+            const priceUsd = Number(form.priceUsd.value) || 0;
+            const payload = {
+                title: form.title.value,
+                description: form.description.value,
+                owner: localStorage.getItem('sharmonyAccountAddress') || null,
+                region: 'europe',
+                address: (form.city.value || '') + (form.country.value ? (', ' + form.country.value) : ''),
+                rooms: Number(form.bedrooms.value) || 0,
+                price_cents: Math.round(priceUsd * 100),
+                currency: 'USD',
+                status: 'pending',
+                images: [],
+                metadata: { country: form.country.value || '', city: form.city.value || '', type: form.type.value || '' }
+            };
+
+            const token = localStorage.getItem(storageKey) || '';
+
+            fetch((window.SHARMONY_BACKEND_URL || '') + '/api/v1/real-estate/europe/records', {
+                method: 'POST',
+                headers: Object.assign({ 'Content-Type': 'application/json' }, token ? { 'Authorization': 'Bearer ' + token } : {}),
+                body: JSON.stringify(payload)
             })
-            .then(function (res) {
-                setStatus((res.message || 'Listing submitted successfully.') + ' Redirecting to account...', false);
-                form.reset();
-                window.setTimeout(function () {
-                    window.location.replace(accountUrl);
-                }, 900);
-            })
-            .catch(function () {
-                setStatus('Could not submit listing. Backend endpoint is unavailable or rejected the request.', true);
-            })
-            .finally(function () {
-                btn.disabled = false;
-                btn.classList.remove('opacity-60', 'cursor-not-allowed');
-            });
-    });
-})();
+                .then(function (response) {
+                    if (!response.ok) throw new Error('Failed to create record');
+                    return response.json();
+                })
+                .then(function (res) {
+                    setStatus((res.message || 'Listing submitted successfully.') + ' Redirecting to account...', false);
+                    form.reset();
+                    window.setTimeout(function () {
+                        window.location.replace(accountUrl);
+                    }, 900);
+                })
+                .catch(function () {
+                    setStatus('Could not submit listing. Backend endpoint is unavailable or rejected the request.', true);
+                })
+                .finally(function () {
+                    btn.disabled = false;
+                    btn.classList.remove('opacity-60', 'cursor-not-allowed');
+                });
+        });
+    })();
 </script>
 {{ end }}
