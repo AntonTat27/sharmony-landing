@@ -81,6 +81,12 @@ marketplace_submit_description: Описание
 marketplace_submit_description_placeholder: Опишите вашу собственность и ее преимущества
 marketplace_submit_button: Опубликовать объявление
 marketplace_submit_back: Вернуться на торговую площадку
+marketplace_submit_images: Изображения
+marketplace_submit_images_hint: Загрузите одно или несколько изображений. Они будут отправлены после создания объявления.
+marketplace_submit_uploading_images: Загрузка изображений...
+marketplace_submit_images_uploaded: Изображения успешно загружены.
+marketplace_submit_image_upload_error: Не удалось загрузить изображения объявления.
+marketplace_submit_no_images: Изображения не выбраны.
 marketplace_submit_required: Заполните все обязательные поля перед отправкой.
 marketplace_submit_submitting: Отправка объявления на сервер...
 marketplace_submit_success: Объявление успешно отправлено. Перенаправление на учетную запись...

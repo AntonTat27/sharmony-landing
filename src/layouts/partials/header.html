@@ -1,6 +1,7 @@
 {{ $currentLang := .Site.Language.Lang }}
 {{ $indexPage := .Site.GetPage (printf "/%s/_index.md" $currentLang) }}
 {{ $loginPage := .Site.GetPage (printf "/%s/login.md" $currentLang) }}
+{{ $accountPage := .Site.GetPage (printf "/%s/personal_account.md" $currentLang) }}
 
 <header class="main-header">
     <div class="header-banner">
@@ -65,8 +66,14 @@
                     <i class="bi bi-search"></i>
                 </div>
 
-                <a href='{{ with $loginPage }}{{ .RelPermalink }}{{ else }}{{ "/login/" | relLangURL }}{{ end }}' class="btn-login">
-                    <span>{{ .Site.Home.Params.btn_login }}</span>
+                <a id="header-auth-link"
+                   href='{{ with $loginPage }}{{ .RelPermalink }}{{ else }}{{ "/login/" | relLangURL }}{{ end }}'
+                   class="btn-login"
+                   data-login-href='{{ with $loginPage }}{{ .RelPermalink }}{{ else }}{{ "/login/" | relLangURL }}{{ end }}'
+                   data-account-href='{{ with $accountPage }}{{ .RelPermalink }}{{ else }}{{ "/account/" | relLangURL }}{{ end }}'
+                   data-login-label='{{ .Site.Home.Params.btn_login | default "Log-in" }}'
+                   data-account-label='{{ .Site.Home.Params.btn_account | default (or (index (dict "ru" "Профиль") $currentLang) "Profile") }}'>
+                    <span id="header-auth-label">{{ .Site.Home.Params.btn_login }}</span>
                     <i class="bi bi-person-circle"></i>
                 </a>
                 <div class="lang-switcher">
@@ -128,6 +135,39 @@
                 menu.style.display = 'none';
             }
         });
+
+        // Preserve listing query params when switching language on listing details pages.
+        (function () {
+            const pathname = window.location.pathname || '';
+            if (!/\/marketplace\/listing\/?$/.test(pathname)) return;
+
+            const params = new URLSearchParams(window.location.search || '');
+            const id = params.get('id');
+            const region = params.get('region');
+            if (!id) return;
+
+            document.querySelectorAll('.lang-options a[href]').forEach(function (link) {
+                try {
+                    const url = new URL(link.href, window.location.origin);
+                    url.searchParams.set('id', id);
+                    if (region) url.searchParams.set('region', region);
+                    if (!region) url.searchParams.delete('region');
+                    link.href = url.toString();
+                } catch (e) {
+                    // keep original link if URL parsing fails
+                }
+            });
+        })();
+
+        (function () {
+            const authLink = document.getElementById('header-auth-link');
+            const authLabel = document.getElementById('header-auth-label');
+            if (!authLink || !authLabel) return;
+
+            const isLoggedIn = !!localStorage.getItem('sharmonyAuthToken');
+            authLink.href = isLoggedIn ? authLink.dataset.accountHref : authLink.dataset.loginHref;
+            authLabel.textContent = isLoggedIn ? authLink.dataset.accountLabel : authLink.dataset.loginLabel;
+        })();
     </script>
 
     <script>

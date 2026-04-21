@@ -1,0 +1,346 @@
+{{ define "main" }}
+<section class="bg-[#03292B] text-white py-14 sm:py-20 border-b border-white/10">
+    <div class="max-w-6xl mx-auto px-4 sm:px-6">
+        <p class="uppercase tracking-[0.32em] text-[#31D0B2] text-xs mb-4">{{ .Params.hero_eyebrow | default "Marketplace" }}</p>
+        <h1 class="font-['TT_Livret_Display_Trl'] text-3xl sm:text-5xl font-light leading-tight">{{ .Title }}</h1>
+        <p class="text-white/60 text-sm sm:text-base mt-3">{{ .Params.hero_subtitle | default "View listing details and key property metadata." }}</p>
+    </div>
+</section>
+
+<section class="bg-[#F8EDDD] py-10 sm:py-14">
+    <div class="max-w-6xl mx-auto px-4 sm:px-6">
+        <p id="listing-state" class="text-[#03292B]/70 text-sm mb-6">{{ .Params.details_loading | default "Loading listing details..." }}</p>
+
+        <article id="listing-card" class="hidden bg-white border border-[#03292B]/10 rounded-xl overflow-hidden shadow-sm">
+            <div class="grid lg:grid-cols-2 gap-0">
+                <div class="p-4 sm:p-6 bg-[#03292B]/5">
+                    <div class="aspect-[4/3] rounded-xl overflow-hidden bg-[#03292B]/10">
+                        <img id="listing-image" src="" alt="" class="w-full h-full object-cover" loading="lazy">
+                    </div>
+                    <div class="flex items-center justify-between gap-3 mt-3">
+                        <p class="text-xs uppercase tracking-[0.25em] text-[#03292B]/60">{{ .Params.details_images_label | default "Images" }}</p>
+                        <p id="listing-images-count" class="text-xs text-[#03292B]/60"></p>
+                    </div>
+                    <div id="listing-thumbs" class="mt-3 grid grid-cols-4 gap-2"></div>
+                    <p id="listing-image-status" class="mt-2 text-xs text-[#03292B]/60"></p>
+                </div>
+                <div class="p-6 sm:p-8">
+                    <div class="flex items-center justify-between gap-4 mb-4">
+                        <span id="listing-type" class="text-xs uppercase tracking-wider text-[#31D0B2]"></span>
+                        <span id="listing-price" class="text-lg font-semibold text-[#03292B]"></span>
+                    </div>
+                    <h2 id="listing-title" class="text-2xl sm:text-3xl text-[#03292B] leading-tight mb-3" style="font-family:TT_Livret_Display_Trl,serif;"></h2>
+                    <p id="listing-location" class="text-sm text-[#03292B]/70 mb-4"></p>
+                    <p id="listing-description" class="text-sm text-[#03292B]/75 leading-relaxed mb-6"></p>
+
+                    <div class="grid sm:grid-cols-2 gap-3 text-sm">
+                        <div class="rounded-lg bg-[#F8EDDD] px-3 py-2"><span class="text-[#03292B]/60">{{ .Params.details_bedrooms_label | default "Bedrooms" }}:</span> <strong id="listing-bedrooms" class="text-[#03292B]"></strong></div>
+                        <div class="rounded-lg bg-[#F8EDDD] px-3 py-2"><span class="text-[#03292B]/60">{{ .Params.details_region_label | default "Region" }}:</span> <strong id="listing-region" class="text-[#03292B]"></strong></div>
+                        <div class="rounded-lg bg-[#F8EDDD] px-3 py-2"><span class="text-[#03292B]/60">{{ .Params.details_status_label | default "Status" }}:</span> <strong id="listing-status" class="text-[#03292B]"></strong></div>
+                        <div class="rounded-lg bg-[#F8EDDD] px-3 py-2"><span class="text-[#03292B]/60">{{ .Params.details_owner_label | default "Owner" }}:</span> <strong id="listing-owner" class="text-[#03292B]"></strong></div>
+                    </div>
+
+                    <div class="pt-6">
+                        <a href='{{ "/marketplace/" | relLangURL }}' class="inline-flex items-center justify-center px-5 py-2.5 rounded-lg border border-[#03292B]/20 text-[#03292B] hover:border-[#DBA757] hover:text-[#DBA757] transition">{{ .Params.details_back | default "Back to marketplace" }}</a>
+                    </div>
+                </div>
+            </div>
+        </article>
+    </div>
+</section>
+
+<script>
+(function () {
+    const i18n = {
+        loading: {{ (.Params.details_loading | default "Loading listing details...") | jsonify | safeJS }},
+        missingId: {{ (.Params.details_missing_id | default "Listing ID is missing in URL.") | jsonify | safeJS }},
+        notFound: {{ (.Params.details_not_found | default "Listing was not found.") | jsonify | safeJS }},
+        loadError: {{ (.Params.details_load_error | default "Could not load listing details from backend.") | jsonify | safeJS }},
+        noDescription: {{ (.Params.details_no_description | default "No description provided.") | jsonify | safeJS }},
+        bedroomsSuffix: {{ (.Params.details_bedrooms_suffix | default "rooms") | jsonify | safeJS }}
+    };
+
+    const stateEl = document.getElementById('listing-state');
+    const cardEl = document.getElementById('listing-card');
+    const thumbsEl = document.getElementById('listing-thumbs');
+    const imageStatusEl = document.getElementById('listing-image-status');
+    const imageCountEl = document.getElementById('listing-images-count');
+    const placeholderImage = '{{ "/images/hero/hero-bg.jpg" | relURL }}';
+    const listingStoragePrefix = 'sharmony_listing_';
+    const lastListingIdKey = 'sharmony_last_listing_id';
+    const lastListingRegionKey = 'sharmony_last_listing_region';
+    let galleryItems = [];
+
+    function setState(text, isError) {
+        stateEl.textContent = text;
+        stateEl.className = isError ? 'text-red-600 text-sm mb-6' : 'text-[#03292B]/70 text-sm mb-6';
+    }
+
+    function formatPrice(v) {
+        return new Intl.NumberFormat('en-US', { style: 'currency', currency: 'USD', maximumFractionDigits: 0 }).format(v || 0);
+    }
+
+    // Helper: normalize gallery items. Our API uses an array of image URLs (strings).
+    function normalizeGalleryItems(items, title) {
+        return items.map(function (item, index) {
+            // support both plain string items and objects with `src` and optional `alt`
+            const src = (typeof item === 'string') ? item : (item && item.src);
+            const alt = (typeof item === 'string') ? (title + ' #' + (index + 1)) : (item && (item.alt || item.caption || item.title) ) || (title + ' #' + (index + 1));
+            return src ? { src: src, alt: alt } : null;
+        }).filter(Boolean);
+    }
+
+    function setMainImage(image) {
+        const imgEl = document.getElementById('listing-image');
+        if (!imgEl) return;
+        imgEl.src = image ? image.src : placeholderImage;
+        imgEl.alt = image ? image.alt : ({{ (.Params.details_image_alt | default "Listing image") | jsonify | safeJS }});
+    }
+
+    function renderGallery(rawImages, title) {
+        galleryItems = normalizeGalleryItems(rawImages, title);
+        if (!galleryItems.length) {
+            setMainImage(null);
+            if (thumbsEl) thumbsEl.innerHTML = '';
+            if (imageCountEl) imageCountEl.textContent = '';
+            if (imageStatusEl) imageStatusEl.textContent = {{ (.Params.details_no_images | default "No images uploaded yet.") | jsonify | safeJS }};
+            return;
+        }
+
+        console.log(galleryItems);
+
+        setMainImage(galleryItems[0]);
+        if (imageCountEl) imageCountEl.textContent = String(galleryItems.length);
+        if (imageStatusEl) imageStatusEl.textContent = '';
+        if (thumbsEl) {
+            thumbsEl.innerHTML = galleryItems.map(function (image, index) {
+                return '<button type="button" data-index="' + index + '" class="overflow-hidden rounded-lg border border-[#03292B]/10 bg-white focus:outline-none focus:ring-2 focus:ring-[#31D0B2]">'
+                    + '<img src="' + image.src + '" alt="' + image.alt + '" class="h-20 w-full object-cover">'
+                    + '</button>';
+            }).join('');
+
+            thumbsEl.querySelectorAll('button[data-index]').forEach(function (button) {
+                button.addEventListener('click', function () {
+                    const idx = Number(button.getAttribute('data-index'));
+                    if (!Number.isNaN(idx) && galleryItems[idx]) setMainImage(galleryItems[idx]);
+                });
+            });
+        }
+    }
+
+    function normalizeRecord(raw) {
+        // We expect the API to return a RealEstateRecord with exact JSON field names
+        // See provided Go struct. Use those exact keys.
+        if (!raw) return null;
+        const metadata = raw.metadata || {};
+        const images = Array.isArray(raw.images) ? raw.images : [];
+        const priceCents = Number(raw.price_cents || 0);
+
+        return {
+            id: raw.id || '',
+            title: raw.title || '-',
+            description: raw.description || '',
+            // keep first image as a quick fallback but expose full images array
+            image: (images.length ? images[0] : ''),
+            images: images,
+            // prefer explicit metadata keys when available
+            type: metadata.propertyType || metadata.type || '-',
+            city: metadata.city || '',
+            country: metadata.country || '',
+            bedrooms: Number(raw.rooms || metadata.bedrooms || 0),
+            // price in USD (price_cents -> dollars)
+            priceUsd: priceCents ? (priceCents / 100) : Number(raw.price_usd || 0),
+            region: raw.region || 'europe',
+            owner: raw.owner || '-',
+            status: raw.status || '-'
+        };
+    }
+
+    function rememberListing(raw) {
+        if (!raw || !raw.id) return;
+        try {
+            sessionStorage.setItem(listingStoragePrefix + String(raw.id), JSON.stringify(raw));
+            sessionStorage.setItem(lastListingIdKey, String(raw.id));
+            if (raw.region) sessionStorage.setItem(lastListingRegionKey, String(raw.region));
+        } catch (e) {
+            // ignore storage issues (quota/private mode)
+        }
+    }
+
+    function syncLanguageLinks(id, region) {
+        if (!id) return;
+        document.querySelectorAll('.lang-options a[href]').forEach(function (link) {
+            try {
+                const url = new URL(link.href, window.location.origin);
+                url.searchParams.set('id', String(id));
+                if (region) url.searchParams.set('region', String(region));
+                if (!region) url.searchParams.delete('region');
+                link.href = url.toString();
+            } catch (e) {
+                // ignore broken href
+            }
+        });
+    }
+
+    function fetchUserProfile(address) {
+        if (!address) return;
+        const ownerEl = document.getElementById('listing-owner');
+        const backend = window.SHARMONY_BACKEND_URL || '';
+        const url = backend + '/api/v1/users/' + encodeURIComponent(address);
+        fetch(url)
+            .then(function (res) {
+                if (!res.ok) throw new Error('User lookup failed');
+                return res.json();
+            })
+            .then(function (profile) {
+                const name = profile && (profile.name || profile.Name);
+                if (name && ownerEl) ownerEl.textContent = name;
+            })
+            .catch(function () {
+                // keep owner id if lookup fails
+            });
+    }
+
+    function renderListing(item, rawImages) {
+        const safeImages = Array.isArray(rawImages) ? rawImages : [];
+        renderGallery(safeImages.length ? safeImages : [item.image].filter(Boolean), item.title);
+        document.getElementById('listing-title').textContent = item.title;
+        document.getElementById('listing-type').textContent = item.type;
+        document.getElementById('listing-price').textContent = formatPrice(item.priceUsd);
+        document.getElementById('listing-location').textContent = [item.city, item.country].filter(Boolean).join(', ');
+        document.getElementById('listing-description').textContent = item.description || i18n.noDescription;
+        document.getElementById('listing-bedrooms').textContent = String(item.bedrooms) + ' ' + i18n.bedroomsSuffix;
+        document.getElementById('listing-region').textContent = item.region || '-';
+        document.getElementById('listing-status').textContent = item.status || '-';
+        document.getElementById('listing-owner').textContent = item.owner || '-';
+
+        // Replace owner id/address with user name when available by fetching profile
+        if (item.owner && item.owner !== '-') {
+            fetchUserProfile(item.owner);
+        }
+
+        cardEl.classList.remove('hidden');
+        setState('', false);
+    }
+
+    function loadListing() {
+        const params = new URLSearchParams(window.location.search);
+        const hadIdInQuery = !!params.get('id');
+        const hadRegionInQuery = !!params.get('region');
+        let id = params.get('id');
+        let region = params.get('region') || 'europe';
+
+        // Try to recover id from history.state or sessionStorage when URL lost query params (e.g. language switch)
+        try {
+            if (!id) {
+                const lastId = sessionStorage.getItem(lastListingIdKey);
+                const lastRegion = sessionStorage.getItem(lastListingRegionKey);
+                if (lastId) {
+                    id = String(lastId);
+                    if (lastRegion) region = String(lastRegion);
+                }
+            }
+
+            if (!id) {
+                const passed = (window.history && window.history.state && window.history.state.record) ? window.history.state.record : null;
+                if (passed && passed.id) {
+                    id = String(passed.id);
+                    region = region || passed.region || region;
+                } else {
+                    for (let i = 0; i < sessionStorage.length; i++) {
+                        const key = sessionStorage.key(i);
+                        if (!key || !key.startsWith(listingStoragePrefix)) continue;
+                        try {
+                            const parsed = JSON.parse(sessionStorage.getItem(key));
+                            if (parsed && parsed.id) {
+                                id = String(parsed.id);
+                                region = region || parsed.region || region;
+                                break;
+                            }
+                        } catch (e) {
+                            // ignore
+                        }
+                    }
+                }
+            }
+        } catch (e) {
+            // ignore
+        }
+
+        if (!id) {
+            setState(i18n.missingId, true);
+            return;
+        }
+
+        // Ensure language switch links always keep the active listing context.
+        syncLanguageLinks(id, region);
+
+        // Keep URL stable for language switching even if query params were lost and recovered from storage.
+        if (!hadIdInQuery || !hadRegionInQuery) {
+            try {
+                const url = new URL(window.location.href);
+                url.searchParams.set('id', id);
+                if (region) url.searchParams.set('region', region);
+                window.history.replaceState(window.history.state, '', url.toString());
+            } catch (e) {
+                // ignore
+            }
+        }
+
+        setState(i18n.loading, false);
+
+        // Fast-path: if the marketplace page passed the full record via history.state or
+        // saved it into sessionStorage (key: 'sharmony_listing_<id>'), use it instead of fetching.
+        try {
+            const passed = (window.history && window.history.state && window.history.state.record) ? window.history.state.record : null;
+            const stored = sessionStorage.getItem(listingStoragePrefix + id);
+            const candidate = passed || (stored ? JSON.parse(stored) : null);
+            if (candidate) {
+                rememberListing(candidate);
+                const normalized = normalizeRecord(candidate);
+                if (normalized) return renderListing(normalized, normalized.images);
+                // otherwise fall through to fetch
+            }
+        } catch (e) {
+            // ignore parse errors and proceed to fetch
+            console.warn('Could not parse passed listing data, will fetch from backend.', e);
+        }
+
+        const backend = window.SHARMONY_BACKEND_URL || '';
+        const listEndpoint = backend + '/api/v1/real-estate/' + encodeURIComponent(region) + '/records';
+
+        fetch(listEndpoint)
+            .then(function (res) {
+                if (!res.ok) throw new Error('Listing lookup failed');
+                return res.json();
+            })
+            .then(function (payload) {
+                // API returns an object with records array; we expect a list of RealEstateRecord
+                const records = payload.records || payload.listings || payload.data || payload || [];
+                const recordList = Array.isArray(records) ? records : (records ? [records] : []);
+                const match = recordList.find(function (entry) {
+                    return String(entry && entry.id) === String(id);
+                });
+                if (!match) {
+                    setState(i18n.notFound, true);
+                    return null;
+                }
+
+                const normalized = normalizeRecord(match);
+                rememberListing(match);
+                // pass the raw images array (strings or objects) to the gallery renderer
+                return renderListing(normalized, normalized.images);
+            })
+            .catch(function () {
+                setState(i18n.loadError, true);
+            });
+    }
+
+    loadListing();
+})();
+</script>
+{{ end }}
+
+
+
+

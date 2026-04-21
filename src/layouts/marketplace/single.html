@@ -165,7 +165,7 @@
     const searchBtn = document.getElementById('mp-search-btn');
     const resetBtn = document.getElementById('mp-reset');
     const resetBtnMobile = document.getElementById('mp-reset-mobile');
-
+    const detailsBaseUrl = '{{ "/marketplace/listing/" | relLangURL }}';
     let allListings = [];
     let priceBounds = { min: 0, max: 1000000 };
 
@@ -229,10 +229,19 @@
 
         setState(i18n.verifiedListings, false);
 
+        function buildDetailsUrl(item) {
+            const id = item.id || '';
+            const region = item.region || 'europe';
+            return detailsBaseUrl + '?id=' + encodeURIComponent(id) + '&region=' + encodeURIComponent(region);
+        }
+
         gridEl.innerHTML = listings.map(function (item) {
-            return '<article class="bg-white border border-[#03292B]/10 rounded-xl overflow-hidden shadow-sm">'
-                + '<div class="h-44 bg-[#03292B]/10">'
+
+            return '<a href="' + buildDetailsUrl(item) + '" class="block focus:outline-none focus:ring-2 focus:ring-[#31D0B2] rounded-xl">'
+                + '<article class="bg-white border border-[#03292B]/10 rounded-xl overflow-hidden shadow-sm hover:shadow-md transition">'
+                + '<div class="relative h-44 bg-[#03292B]/10">'
                 + '<img src="' + item.image + '" alt="' + item.title + '" class="w-full h-full object-cover" loading="lazy" onerror="this.style.display=\'none\';this.parentNode.classList.add(\'bg-gradient-to-br\',\'from-[#03292B]\',\'to-[#0A4B4D]\');">'
+                + (item.imageCount > 1 ? ('<div class="absolute left-3 top-3 inline-flex items-center gap-2 rounded-full bg-[#03292B]/80 text-white px-3 py-1 text-[11px] backdrop-blur"><span class="h-2 w-2 rounded-full bg-[#31D0B2]"></span><span>' + item.imageCount + ' images</span></div>') : '')
                 + '</div>'
                 + '<div class="p-4 sm:p-5">'
                 + '<div class="flex items-center justify-between gap-3 mb-3">'
@@ -246,7 +255,8 @@
                 + '<span class="font-semibold text-[#03292B]">' + formatPrice(item.priceUsd) + '</span>'
                 + '</div>'
                 + '</div>'
-                + '</article>';
+                + '</article>'
+                + '</a>';
         }).join('');
     }
 
@@ -298,97 +308,119 @@
         applyFilters();
     }
 
-    // Fetch listings from backend real-estate records endpoint and derive filters client-side
-    fetch((window.SHARMONY_BACKEND_URL || '') + '/api/v1/real-estate/europe/records')
-        .then(function (r) { if (!r.ok) throw new Error('Failed to load records'); return r.json(); })
-        .then(function (data) {
-            // backend may return { records: [...] } or an array directly
-            const records = data.records || data.listings || data || [];
-            // normalize records into a consistent shape used by the UI
-            allListings = (Array.isArray(records) ? records : []).map(function (r) {
-                // helper to read fields with possible casing
-                const pick = function (obj, keys) {
-                    for (let i = 0; i < keys.length; i++) {
-                        const k = keys[i];
-                        if (obj && (obj[k] !== undefined)) return obj[k];
+    function pick(obj, keys) {
+        for (let i = 0; i < keys.length; i++) {
+            const k = keys[i];
+            if (obj && (obj[k] !== undefined)) return obj[k];
+        }
+        return undefined;
+    }
+
+    function normalizeGalleryItems(items, title) {
+        return items.map(function (item, index) {
+            const src = item;
+            const alt = typeof item === 'string' ? title : (pick(item, ['alt', 'Alt', 'caption', 'Caption', 'name', 'Name', 'filename', 'Filename', 'title', 'Title']) || (title + ' #' + (index + 1)));
+            return src ? { src: src, alt: alt } : null;
+        }).filter(Boolean);
+    }
+
+    function normalizeListings(records) {
+        allListings = (Array.isArray(records) ? records : []).map(function (r) {
+            const title = pick(r, ['title', 'Title']) || '';
+            const description = pick(r, ['description', 'Description']) || '';
+            const images = pick(r, ['images', 'Images']) || [];
+            const galleryFromImages = normalizeGalleryItems(images, title);
+            const image = (galleryFromImages.length ? galleryFromImages[0].src : (pick(r, ['image', 'Image']) || ''));
+            const metadata = pick(r, ['metadata', 'Metadata']) || {};
+            let country = metadata.country || metadata.Country || '';
+            let city = metadata.city || metadata.City || '';
+            if ((!country || !city) && (r.address || r.Address)) {
+                const addr = r.address || r.Address || '';
+                const parts = addr.split(',').map(s => s.trim()).filter(Boolean);
+                if (!city && parts.length) city = parts[0];
+                if (!country && parts.length > 1) country = parts[parts.length - 1];
+            }
+
+            const type = metadata.type || metadata.propertyType || metadata.PropertyType || pick(r, ['type', 'Type']) || '';
+            const bedrooms = Number(pick(r, ['rooms', 'Rooms']) || metadata.bedrooms || metadata.Bedrooms || 0);
+            const priceCents = Number(pick(r, ['price_cents', 'priceCents', 'PriceCents']) || 0);
+            const priceUsd = priceCents ? (priceCents / 100) : Number(pick(r, ['priceUsd', 'price_usd']) || 0);
+
+            return {
+                raw: r,
+                id: pick(r, ['id', 'ID', '_id']) || null,
+                title: title,
+                description: description,
+                image: image,
+                gallery: galleryFromImages,
+                imageCount: galleryFromImages.length || (pick(r, ['image', 'Image']) ? 1 : 0),
+                country: country,
+                city: city,
+                type: type,
+                bedrooms: bedrooms,
+                priceUsd: priceUsd,
+                owner: pick(r, ['owner', 'Owner']) || null,
+                region: pick(r, ['region', 'Region']) || 'global'
+            };
+        });
+
+        if (allListings.length) {
+            const prices = allListings.map(l => Number(l.priceUsd) || 0);
+            const minP = Math.min.apply(null, prices);
+            const maxP = Math.max.apply(null, prices);
+            priceBounds.min = Math.floor(minP / 1000) * 1000 || 0;
+            priceBounds.max = Math.ceil(maxP / 1000) * 1000 || 1000000;
+        }
+
+        const countries = Array.from(new Set(allListings.map(l => l.country).filter(Boolean))).sort();
+        const types = Array.from(new Set(allListings.map(l => l.type).filter(Boolean))).sort();
+        const bedrooms = Array.from(new Set(allListings.map(l => l.bedrooms).filter(v => v !== undefined && v !== null))).sort(function(a,b){return a-b;});
+
+        fillSelect(filters.country, countries, i18n.countryAll);
+        fillSelect(filters.type, types, i18n.typeAll);
+        fillSelect(filters.bedrooms, bedrooms, i18n.bedroomsAll);
+        fillSelect(filtersMobile.country, countries, i18n.countryAll);
+        fillSelect(filtersMobile.type, types, i18n.typeAll);
+        fillSelect(filtersMobile.bedrooms, bedrooms, i18n.bedroomsAll);
+
+        if (filters.priceMin && filters.priceMax) {
+            filters.priceMin.min = priceBounds.min; filters.priceMin.max = priceBounds.max; filters.priceMin.value = priceBounds.min;
+            filters.priceMax.min = priceBounds.min; filters.priceMax.max = priceBounds.max; filters.priceMax.value = priceBounds.max;
+        }
+        if (filtersMobile.priceMin && filtersMobile.priceMax) {
+            filtersMobile.priceMin.min = priceBounds.min; filtersMobile.priceMin.max = priceBounds.max; filtersMobile.priceMin.value = priceBounds.min;
+            filtersMobile.priceMax.min = priceBounds.min; filtersMobile.priceMax.max = priceBounds.max; filtersMobile.priceMax.value = priceBounds.max;
+        }
+
+        updatePriceDisplays(priceBounds.min, priceBounds.max);
+        bindFilterEvents();
+        applyFilters();
+    }
+
+    function loadListings(url) {
+        return fetch(url)
+            .then(
+                function (r) {
+                    if (!r.ok) {
+                        throw new Error('Failed to load records');
                     }
-                    return undefined;
-                };
+                    return r.json();
+                });
+    }
 
-                const title = pick(r, ['title', 'Title']) || '';
-                const description = pick(r, ['description', 'Description']) || '';
-                const images = pick(r, ['images', 'Images']) || [];
-                const image = (Array.isArray(images) && images.length) ? images[0] : '';
-                const metadata = pick(r, ['metadata', 'Metadata']) || {};
-                // derive location fields
-                let country = metadata.country || metadata.Country || '';
-                let city = metadata.city || metadata.City || '';
-                if ((!country || !city) && (r.address || r.Address)) {
-                    const addr = r.address || r.Address || '';
-                    const parts = addr.split(',').map(s => s.trim()).filter(Boolean);
-                    if (!city && parts.length) city = parts[0];
-                    if (!country && parts.length > 1) country = parts[parts.length - 1];
-                }
+    function getRecords(data) {
+        const records = data.records || data.listings || data || [];
+        return Array.isArray(records) ? records : [];
+    }
 
-                const type = metadata.type || metadata.propertyType || metadata.PropertyType || pick(r, ['type', 'Type']) || '';
-                const bedrooms = Number(pick(r, ['rooms', 'Rooms']) || metadata.bedrooms || metadata.Bedrooms || 0);
-                const priceCents = Number(pick(r, ['price_cents', 'priceCents', 'PriceCents']) || 0);
-                const priceUsd = priceCents ? (priceCents / 100) : Number(pick(r, ['priceUsd', 'price_usd']) || 0);
-
-                return {
-                    raw: r,
-                    id: pick(r, ['id', 'ID', '_id']) || null,
-                    title: title,
-                    description: description,
-                    image: image,
-                    country: country,
-                    city: city,
-                    type: type,
-                    bedrooms: bedrooms,
-                    priceUsd: priceUsd,
-                    owner: pick(r, ['owner', 'Owner']) || null,
-                    region: pick(r, ['region', 'Region']) || 'global'
-                };
-            });
-
-            // compute numeric price bounds from listings
-            if (allListings.length) {
-                const prices = allListings.map(l => Number(l.priceUsd) || 0);
-                const minP = Math.min.apply(null, prices);
-                const maxP = Math.max.apply(null, prices);
-                priceBounds.min = Math.floor(minP / 1000) * 1000 || 0;
-                priceBounds.max = Math.ceil(maxP / 1000) * 1000 || 1000000;
-            }
-
-            // derive filter values from listings
-            const countries = Array.from(new Set(allListings.map(l => l.country).filter(Boolean))).sort();
-            const types = Array.from(new Set(allListings.map(l => l.type).filter(Boolean))).sort();
-            const bedrooms = Array.from(new Set(allListings.map(l => l.bedrooms).filter(v => v !== undefined && v !== null))).sort(function(a,b){return a-b;});
-
-            // hydrate selects (desktop + mobile)
-            fillSelect(filters.country, countries, i18n.countryAll);
-            fillSelect(filters.type, types, i18n.typeAll);
-            fillSelect(filters.bedrooms, bedrooms, i18n.bedroomsAll);
-            fillSelect(filtersMobile.country, countries, i18n.countryAll);
-            fillSelect(filtersMobile.type, types, i18n.typeAll);
-            fillSelect(filtersMobile.bedrooms, bedrooms, i18n.bedroomsAll);
-
-            // init sliders
-            if (filters.priceMin && filters.priceMax) {
-                filters.priceMin.min = priceBounds.min; filters.priceMin.max = priceBounds.max; filters.priceMin.value = priceBounds.min;
-                filters.priceMax.min = priceBounds.min; filters.priceMax.max = priceBounds.max; filters.priceMax.value = priceBounds.max;
-            }
-            if (filtersMobile.priceMin && filtersMobile.priceMax) {
-                filtersMobile.priceMin.min = priceBounds.min; filtersMobile.priceMin.max = priceBounds.max; filtersMobile.priceMin.value = priceBounds.min;
-                filtersMobile.priceMax.min = priceBounds.min; filtersMobile.priceMax.max = priceBounds.max; filtersMobile.priceMax.value = priceBounds.max;
-            }
-
-            updatePriceDisplays(priceBounds.min, priceBounds.max);
-            bindFilterEvents();
-            applyFilters();
+    loadListings((window.SHARMONY_BACKEND_URL || '') + '/api/v1/real-estate/europe/records')
+        .then((data) => {
+            const records = getRecords(data);
+            normalizeListings(records);
         })
-        .catch(function () {
+        .catch((error) => {
             setState(i18n.loadingError, true);
+            console.log(error)
         });
 })();
 </script>
