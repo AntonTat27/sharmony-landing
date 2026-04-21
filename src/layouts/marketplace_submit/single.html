@@ -56,6 +56,12 @@
                     <textarea id="listing-description" name="description" required rows="4" class="w-full border border-[#03292B]/15 rounded-lg px-3 py-2.5 text-sm focus:outline-none focus:border-[#DBA757]" placeholder='{{ or (index $ui "marketplace_submit_description_placeholder") "Describe your property and highlights" }}'></textarea>
                 </div>
 
+                <div>
+                    <label class="block text-xs uppercase tracking-[0.2em] text-[#03292B]/60 mb-2" for="listing-images">{{ or (index $ui "marketplace_submit_images") "Images" }}</label>
+                    <input id="listing-images" name="images" type="file" multiple accept="image/*" class="w-full border border-[#03292B]/15 rounded-lg px-3 py-2.5 text-sm focus:outline-none focus:border-[#DBA757] bg-white">
+                    <p id="listing-images-meta" class="mt-2 text-xs text-[#03292B]/60">{{ or (index $ui "marketplace_submit_images_hint") "You can upload one or more images." }}</p>
+                </div>
+
                 <div class="pt-2 flex flex-wrap gap-3">
                     <button id="submit-btn" type="submit" class="px-6 py-3 rounded-lg bg-gradient-to-r from-[#FFDDA8] to-[#DBA757] text-[#03292B] font-semibold hover:brightness-110 transition">{{ or (index $ui "marketplace_submit_button") "Publish listing" }}</button>
                     <a href='{{ "/marketplace/" | relLangURL }}' class="px-6 py-3 rounded-lg border border-[#03292B]/25 text-[#03292B] hover:border-[#DBA757] hover:text-[#DBA757] transition">{{ or (index $ui "marketplace_submit_back") "Back to marketplace" }}</a>
@@ -72,7 +78,9 @@
         required: {{ (or (index $ui "marketplace_submit_required") "Fill all required fields before submitting.") | jsonify | safeJS }},
         submitting: {{ (or (index $ui "marketplace_submit_submitting") "Submitting listing to backend...") | jsonify | safeJS }},
         success: {{ (or (index $ui "marketplace_submit_success") "Listing submitted successfully. Redirecting to account...") | jsonify | safeJS }},
-        error: {{ (or (index $ui "marketplace_submit_error") "Could not submit listing. Backend endpoint is unavailable or rejected the request.") | jsonify | safeJS }}
+        error: {{ (or (index $ui "marketplace_submit_error") "Could not submit listing. Backend endpoint is unavailable or rejected the request.") | jsonify | safeJS }},
+        imagesSelectedSingle: {{ (or (index $ui "marketplace_submit_images_selected_single") "1 image selected") | jsonify | safeJS }},
+        imagesSelectedMany: {{ (or (index $ui "marketplace_submit_images_selected_many") "images selected") | jsonify | safeJS }}
     };
 
     const storageKey = 'sharmonyAuthToken';
@@ -87,10 +95,20 @@
     const form = document.getElementById('submit-form');
     const btn = document.getElementById('submit-btn');
     const statusEl = document.getElementById('submit-status');
+    const imagesInput = document.getElementById('listing-images');
+    const imagesMetaEl = document.getElementById('listing-images-meta');
 
     function setStatus(text, isError) {
         statusEl.textContent = text;
         statusEl.className = isError ? 'text-sm text-red-600' : 'text-sm text-[#03292B]/70';
+    }
+
+    if (imagesInput && imagesMetaEl) {
+        imagesInput.addEventListener('change', function () {
+            const count = (imagesInput.files && imagesInput.files.length) || 0;
+            if (!count) return;
+            imagesMetaEl.textContent = count === 1 ? i18n.imagesSelectedSingle : (String(count) + ' ' + i18n.imagesSelectedMany);
+        });
     }
 
     form.addEventListener('submit', function (event) {
@@ -123,10 +141,18 @@
 
         const token = localStorage.getItem(storageKey) || '';
 
-        fetch((window.SHARMONY_BACKEND_URL || '') + '/v1/real-estate/europe/records', {
+        const formData = new FormData();
+        formData.append('record', JSON.stringify(payload));
+
+        const files = (imagesInput && imagesInput.files) ? Array.from(imagesInput.files) : [];
+        files.forEach(function (file) {
+            formData.append('images', file, file.name);
+        });
+
+        fetch((window.SHARMONY_BACKEND_URL || '') + '/api/v1/real-estate/europe/records', {
             method: 'POST',
-            headers: Object.assign({ 'Content-Type': 'application/json' }, token ? { 'Authorization': 'Bearer ' + token } : {}),
-            body: JSON.stringify(payload)
+            headers: token ? { 'Authorization': 'Bearer ' + token } : {},
+            body: formData
         })
             .then(function (response) {
                 if (!response.ok) throw new Error('Failed to create record');
