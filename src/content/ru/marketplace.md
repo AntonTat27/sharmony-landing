@@ -1,4 +1,8 @@
 ---
 type: marketplace
-title: SHARMONY Marketplace
+title: Маркетплейс SHARMONY
+
+hero_eyebrow: Маркетплейс
+hero_subtitle: Просматривайте международные объявления о недвижимости, применяйте фильтры и публикуйте собственные объекты.
+post_listing_cta: Разместить объявление
 ---

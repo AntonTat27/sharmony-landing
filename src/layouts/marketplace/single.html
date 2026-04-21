@@ -1,4 +1,7 @@
 {{ define "main" }}
+{{ $uiPage := .Site.GetPage "/ui_strings.md" }}
+{{ $ui := dict }}
+{{ with $uiPage }}{{ $ui = .Params }}{{ end }}
 <section class="bg-[#03292B] text-white py-16 sm:py-20 border-b border-white/10">
     <div class="max-w-7xl mx-auto px-4 sm:px-6">
         <p class="uppercase tracking-[0.32em] text-[#31D0B2] text-xs sm:text-sm mb-4">{{ .Params.hero_eyebrow | default "Marketplace" }}</p>
@@ -23,32 +26,32 @@
             <!-- LEFT: Filters Sidebar -->
             <aside class="hidden lg:block lg:w-72 shrink-0 bg-gradient-to-b from-[#031E20] to-[#072927] border border-[#03292B]/10 rounded-xl p-5 text-white">
                 <div class="mb-4">
-                    <h3 class="text-xs uppercase tracking-[0.25em] text-[#DBA757]">Filters</h3>
-                    <p class="text-white/60 text-sm mt-2">Refine results by location, type and bedrooms.</p>
+                    <h3 class="text-xs uppercase tracking-[0.25em] text-[#DBA757]">{{ or (index $ui "marketplace_filters") "Filters" }}</h3>
+                    <p class="text-white/60 text-sm mt-2">{{ or (index $ui "marketplace_filters_description") "Refine results by location, type and bedrooms." }}</p>
                 </div>
 
                 <div class="space-y-4">
                     <div>
-                        <label class="text-xs uppercase text-white/60 mb-2 block">Country</label>
+                        <label class="text-xs uppercase text-white/60 mb-2 block">{{ or (index $ui "marketplace_country") "Country" }}</label>
                         <select id="mp-country" class="w-full bg-[#021B1C] border border-[#03292B]/15 rounded-lg px-3 py-2 text-sm"></select>
                     </div>
 
                     <div>
-                        <label class="text-xs uppercase text-white/60 mb-2 block">Property type</label>
+                        <label class="text-xs uppercase text-white/60 mb-2 block">{{ or (index $ui "marketplace_type") "Property type" }}</label>
                         <select id="mp-type" class="w-full bg-[#021B1C] border border-[#03292B]/15 rounded-lg px-3 py-2 text-sm"></select>
                     </div>
 
                     <div>
-                        <label class="text-xs uppercase text-white/60 mb-2 block">Bedrooms</label>
+                        <label class="text-xs uppercase text-white/60 mb-2 block">{{ or (index $ui "marketplace_bedrooms") "Bedrooms" }}</label>
                         <select id="mp-bedrooms" class="w-full bg-[#021B1C] border border-[#03292B]/15 rounded-lg px-3 py-2 text-sm"></select>
                     </div>
 
                     <div>
-                        <label class="text-xs uppercase text-white/60 mb-2 block">Price range</label>
+                        <label class="text-xs uppercase text-white/60 mb-2 block">{{ or (index $ui "marketplace_price_range") "Price range" }}</label>
                         <div class="bg-white/5 rounded-lg p-3">
                             <div class="flex items-center justify-between mb-2">
-                                <small class="text-white/70 text-xs">Min</small>
-                                <small class="text-white/70 text-xs">Max</small>
+                                <small class="text-white/70 text-xs">{{ or (index $ui "marketplace_price_min") "Min" }}</small>
+                                <small class="text-white/70 text-xs">{{ or (index $ui "marketplace_price_max") "Max" }}</small>
                             </div>
                             <div class="space-y-2">
                                 <div class="flex gap-3 items-center">
@@ -66,7 +69,7 @@
                     </div>
 
                     <div class="pt-2">
-                        <button id="mp-reset" type="button" class="w-full inline-flex items-center justify-center px-3 py-2 rounded-lg bg-[#031E20] border border-[#03292B]/20 text-[#31D0B2] hover:bg-[#072927] transition">Reset filters</button>
+                        <button id="mp-reset" type="button" class="w-full inline-flex items-center justify-center px-3 py-2 rounded-lg bg-[#031E20] border border-[#03292B]/20 text-[#31D0B2] hover:bg-[#072927] transition">{{ or (index $ui "marketplace_reset_filters") "Reset filters" }}</button>
                     </div>
                 </div>
             </aside>
@@ -76,13 +79,13 @@
                 <div class="mb-6">
                     <div class="max-w-3xl mx-auto">
                         <div class="relative">
-                            <input id="mp-search" type="text" placeholder="Search by city, title, or keyword" class="w-full rounded-xl border border-[#03292B]/10 px-4 py-3 text-sm shadow-sm focus:outline-none focus:ring-2 focus:ring-[#31D0B2]">
-                            <button id="mp-search-btn" class="absolute right-2 top-1/2 -translate-y-1/2 inline-flex items-center gap-2 px-3 py-2 rounded-lg bg-[#31D0B2] text-[#03292B] font-semibold">Search</button>
+                            <input id="mp-search" type="text" placeholder='{{ or (index $ui "marketplace_search_placeholder") "Search by city, title, or keyword" }}' class="w-full rounded-xl border border-[#03292B]/10 px-4 py-3 text-sm shadow-sm focus:outline-none focus:ring-2 focus:ring-[#31D0B2]">
+                            <button id="mp-search-btn" class="absolute right-2 top-1/2 -translate-y-1/2 inline-flex items-center gap-2 px-3 py-2 rounded-lg bg-[#31D0B2] text-[#03292B] font-semibold">{{ or (index $ui "marketplace_search_button") "Search" }}</button>
                         </div>
                     </div>
                 </div>
 
-                <div id="mp-state" class="text-[#03292B]/70 text-sm mb-6 text-center">Loading marketplace data...</div>
+                <div id="mp-state" class="text-[#03292B]/70 text-sm mb-6 text-center">{{ or (index $ui "marketplace_loading") "Loading marketplace data..." }}</div>
 
                 <div id="mp-grid" class="grid sm:grid-cols-2 lg:grid-cols-3 gap-5"></div>
             </main>
@@ -92,20 +95,20 @@
         <div class="lg:hidden mt-6">
             <details class="bg-white border border-[#03292B]/10 rounded-xl p-4">
                 <summary class="flex items-center justify-between cursor-pointer">
-                    <span class="font-medium">Filters</span>
-                    <span class="text-sm text-[#03292B]/60">Tap to open</span>
+                    <span class="font-medium">{{ or (index $ui "marketplace_mobile_filters") "Filters" }}</span>
+                    <span class="text-sm text-[#03292B]/60">{{ or (index $ui "marketplace_mobile_filters_open") "Tap to open" }}</span>
                 </summary>
                 <div class="mt-3 space-y-3">
                     <select id="mp-country-mobile" class="w-full bg-white border border-[#03292B]/15 rounded-lg px-3 py-2 text-sm"></select>
                     <select id="mp-type-mobile" class="w-full bg-white border border-[#03292B]/15 rounded-lg px-3 py-2 text-sm"></select>
                     <select id="mp-bedrooms-mobile" class="w-full bg-white border border-[#03292B]/15 rounded-lg px-3 py-2 text-sm"></select>
                     <div>
-                        <label class="text-xs uppercase text-[#03292B]/60">Price range</label>
+                        <label class="text-xs uppercase text-[#03292B]/60">{{ or (index $ui "marketplace_price_range") "Price range" }}</label>
                         <input id="mp-price-min-mobile" type="range" min="0" max="1000" value="0" class="w-full">
                         <input id="mp-price-max-mobile" type="range" min="0" max="1000" value="1000" class="w-full mt-2">
                         <div class="flex items-center justify-between text-xs text-[#03292B]/60 mt-1"><div id="mp-price-display-min-mobile">$0</div><div id="mp-price-display-max-mobile">$0</div></div>
                     </div>
-                    <button id="mp-reset-mobile" class="w-full inline-flex items-center justify-center px-3 py-2 rounded-lg bg-[#03292B] text-white">Reset filters</button>
+                    <button id="mp-reset-mobile" class="w-full inline-flex items-center justify-center px-3 py-2 rounded-lg bg-[#03292B] text-white">{{ or (index $ui "marketplace_reset_filters") "Reset filters" }}</button>
                 </div>
             </details>
         </div>
@@ -121,6 +124,17 @@
 
 <script>
 (function () {
+    const i18n = {
+        noListings: {{ (or (index $ui "marketplace_no_listings") "No listings match your filters. Try widening the criteria.") | jsonify | safeJS }},
+        noListingsFound: {{ (or (index $ui "marketplace_no_listings_found") "No listings found.") | jsonify | safeJS }},
+        verifiedListings: {{ (or (index $ui "marketplace_verified_listings") "Showing verified marketplace listings from placeholder API data.") | jsonify | safeJS }},
+        loadingError: {{ (or (index $ui "marketplace_loading_error") "Could not load marketplace data from backend (/v1/real-estate/{region}/records).") | jsonify | safeJS }},
+        countryAll: {{ (or (index $ui "marketplace_country_all") "All countries") | jsonify | safeJS }},
+        typeAll: {{ (or (index $ui "marketplace_type_all") "All property types") | jsonify | safeJS }},
+        bedroomsAll: {{ (or (index $ui "marketplace_bedrooms_all") "Any bedrooms") | jsonify | safeJS }},
+        bedroomsSuffix: {{ (or (index $ui "marketplace_bedrooms_suffix") "bedrooms") | jsonify | safeJS }}
+    };
+
     const stateEl = document.getElementById('mp-state');
     const gridEl = document.getElementById('mp-grid');
     const countEl = document.getElementById('mp-count'); // left-over if needed
@@ -208,12 +222,12 @@
 
     function renderListings(listings) {
         if (!listings.length) {
-            setState('No listings match your filters. Try widening the criteria.', false);
-            gridEl.innerHTML = '<div class="col-span-full text-center text-[#03292B]/60">No listings found.</div>';
+            setState(i18n.noListings, false);
+            gridEl.innerHTML = '<div class="col-span-full text-center text-[#03292B]/60">' + i18n.noListingsFound + '</div>';
             return;
         }
 
-        setState('Showing verified marketplace listings from placeholder API data.', false);
+        setState(i18n.verifiedListings, false);
 
         gridEl.innerHTML = listings.map(function (item) {
             return '<article class="bg-white border border-[#03292B]/10 rounded-xl overflow-hidden shadow-sm">'
@@ -228,7 +242,7 @@
                 + '<h2 class="text-xl text-[#03292B] leading-tight mb-2" style="font-family:TT_Livret_Display_Trl,serif;">' + item.title + '</h2>'
                 + '<p class="text-sm text-[#03292B]/70 mb-4 leading-relaxed">' + item.description + '</p>'
                 + '<div class="flex items-center justify-between text-sm">'
-                + '<span class="text-[#03292B]/60">' + item.bedrooms + ' bedrooms</span>'
+                + '<span class="text-[#03292B]/60">' + item.bedrooms + ' ' + i18n.bedroomsSuffix + '</span>'
                 + '<span class="font-semibold text-[#03292B]">' + formatPrice(item.priceUsd) + '</span>'
                 + '</div>'
                 + '</div>'
@@ -333,7 +347,7 @@
                     bedrooms: bedrooms,
                     priceUsd: priceUsd,
                     owner: pick(r, ['owner', 'Owner']) || null,
-                    region: pick(r, ['region', 'Region']) || 'europe'
+                    region: pick(r, ['region', 'Region']) || 'global'
                 };
             });
 
@@ -352,12 +366,12 @@
             const bedrooms = Array.from(new Set(allListings.map(l => l.bedrooms).filter(v => v !== undefined && v !== null))).sort(function(a,b){return a-b;});
 
             // hydrate selects (desktop + mobile)
-            fillSelect(filters.country, countries, 'All countries');
-            fillSelect(filters.type, types, 'All property types');
-            fillSelect(filters.bedrooms, bedrooms, 'Any bedrooms');
-            fillSelect(filtersMobile.country, countries, 'All countries');
-            fillSelect(filtersMobile.type, types, 'All property types');
-            fillSelect(filtersMobile.bedrooms, bedrooms, 'Any bedrooms');
+            fillSelect(filters.country, countries, i18n.countryAll);
+            fillSelect(filters.type, types, i18n.typeAll);
+            fillSelect(filters.bedrooms, bedrooms, i18n.bedroomsAll);
+            fillSelect(filtersMobile.country, countries, i18n.countryAll);
+            fillSelect(filtersMobile.type, types, i18n.typeAll);
+            fillSelect(filtersMobile.bedrooms, bedrooms, i18n.bedroomsAll);
 
             // init sliders
             if (filters.priceMin && filters.priceMax) {
@@ -374,7 +388,7 @@
             applyFilters();
         })
         .catch(function () {
-            setState('Could not load marketplace data from backend (/v1/real-estate/{region}/records).', true);
+            setState(i18n.loadingError, true);
         });
 })();
 </script>

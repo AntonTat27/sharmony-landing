@@ -1,4 +1,7 @@
 {{ define "main" }}
+{{ $uiPage := .Site.GetPage "/ui_strings.md" }}
+{{ $ui := dict }}
+{{ with $uiPage }}{{ $ui = .Params }}{{ end }}
 <section class="bg-[#03292B] text-white py-14 sm:py-20 border-b border-white/10">
     <div class="max-w-4xl mx-auto px-4 sm:px-6">
         <p class="uppercase tracking-[0.32em] text-[#31D0B2] text-xs mb-4">{{ .Params.hero_eyebrow | default "Marketplace" }}</p>
@@ -13,49 +16,49 @@
             <form id="submit-form" class="space-y-4" novalidate>
                 <div class="grid sm:grid-cols-2 gap-4">
                     <div>
-                        <label class="block text-xs uppercase tracking-[0.2em] text-[#03292B]/60 mb-2" for="listing-title">Listing title</label>
-                        <input id="listing-title" name="title" type="text" required class="w-full border border-[#03292B]/15 rounded-lg px-3 py-2.5 text-sm focus:outline-none focus:border-[#DBA757]" placeholder="e.g. Seaside villa in Bali">
+                        <label class="block text-xs uppercase tracking-[0.2em] text-[#03292B]/60 mb-2" for="listing-title">{{ or (index $ui "marketplace_submit_title") "Listing title" }}</label>
+                        <input id="listing-title" name="title" type="text" required class="w-full border border-[#03292B]/15 rounded-lg px-3 py-2.5 text-sm focus:outline-none focus:border-[#DBA757]" placeholder='{{ or (index $ui "marketplace_submit_title_placeholder") "e.g. Seaside villa in Bali" }}'>
                     </div>
                     <div>
-                        <label class="block text-xs uppercase tracking-[0.2em] text-[#03292B]/60 mb-2" for="listing-type">Property type</label>
+                        <label class="block text-xs uppercase tracking-[0.2em] text-[#03292B]/60 mb-2" for="listing-type">{{ or (index $ui "marketplace_submit_type") "Property type" }}</label>
                         <select id="listing-type" name="type" required class="w-full border border-[#03292B]/15 rounded-lg px-3 py-2.5 text-sm focus:outline-none focus:border-[#DBA757]">
-                            <option value="">Select type</option>
-                            <option>Villa</option>
-                            <option>Apartment</option>
-                            <option>Townhouse</option>
-                            <option>Commercial</option>
+                            <option value="">{{ or (index $ui "marketplace_submit_type_placeholder") "Select type" }}</option>
+                            <option>{{ or (index $ui "marketplace_submit_type_villa") "Villa" }}</option>
+                            <option>{{ or (index $ui "marketplace_submit_type_apartment") "Apartment" }}</option>
+                            <option>{{ or (index $ui "marketplace_submit_type_townhouse") "Townhouse" }}</option>
+                            <option>{{ or (index $ui "marketplace_submit_type_commercial") "Commercial" }}</option>
                         </select>
                     </div>
                 </div>
 
                 <div class="grid sm:grid-cols-3 gap-4">
                     <div>
-                        <label class="block text-xs uppercase tracking-[0.2em] text-[#03292B]/60 mb-2" for="listing-country">Country</label>
-                        <input id="listing-country" name="country" type="text" required class="w-full border border-[#03292B]/15 rounded-lg px-3 py-2.5 text-sm focus:outline-none focus:border-[#DBA757]" placeholder="Country">
+                        <label class="block text-xs uppercase tracking-[0.2em] text-[#03292B]/60 mb-2" for="listing-country">{{ or (index $ui "marketplace_submit_country") "Country" }}</label>
+                        <input id="listing-country" name="country" type="text" required class="w-full border border-[#03292B]/15 rounded-lg px-3 py-2.5 text-sm focus:outline-none focus:border-[#DBA757]" placeholder='{{ or (index $ui "marketplace_submit_country_placeholder") "Country" }}'>
                     </div>
                     <div>
-                        <label class="block text-xs uppercase tracking-[0.2em] text-[#03292B]/60 mb-2" for="listing-city">City</label>
-                        <input id="listing-city" name="city" type="text" required class="w-full border border-[#03292B]/15 rounded-lg px-3 py-2.5 text-sm focus:outline-none focus:border-[#DBA757]" placeholder="City">
+                        <label class="block text-xs uppercase tracking-[0.2em] text-[#03292B]/60 mb-2" for="listing-city">{{ or (index $ui "marketplace_submit_city") "City" }}</label>
+                        <input id="listing-city" name="city" type="text" required class="w-full border border-[#03292B]/15 rounded-lg px-3 py-2.5 text-sm focus:outline-none focus:border-[#DBA757]" placeholder='{{ or (index $ui "marketplace_submit_city_placeholder") "City" }}'>
                     </div>
                     <div>
-                        <label class="block text-xs uppercase tracking-[0.2em] text-[#03292B]/60 mb-2" for="listing-bedrooms">Bedrooms</label>
-                        <input id="listing-bedrooms" name="bedrooms" type="number" min="0" required class="w-full border border-[#03292B]/15 rounded-lg px-3 py-2.5 text-sm focus:outline-none focus:border-[#DBA757]" placeholder="2">
+                        <label class="block text-xs uppercase tracking-[0.2em] text-[#03292B]/60 mb-2" for="listing-bedrooms">{{ or (index $ui "marketplace_submit_bedrooms") "Bedrooms" }}</label>
+                        <input id="listing-bedrooms" name="bedrooms" type="number" min="0" required class="w-full border border-[#03292B]/15 rounded-lg px-3 py-2.5 text-sm focus:outline-none focus:border-[#DBA757]" placeholder='{{ or (index $ui "marketplace_submit_bedrooms_placeholder") "2" }}'>
                     </div>
                 </div>
 
                 <div>
-                    <label class="block text-xs uppercase tracking-[0.2em] text-[#03292B]/60 mb-2" for="listing-price">Price (USD)</label>
-                    <input id="listing-price" name="priceUsd" type="number" min="1" required class="w-full border border-[#03292B]/15 rounded-lg px-3 py-2.5 text-sm focus:outline-none focus:border-[#DBA757]" placeholder="250000">
+                    <label class="block text-xs uppercase tracking-[0.2em] text-[#03292B]/60 mb-2" for="listing-price">{{ or (index $ui "marketplace_submit_price") "Price (USD)" }}</label>
+                    <input id="listing-price" name="priceUsd" type="number" min="1" required class="w-full border border-[#03292B]/15 rounded-lg px-3 py-2.5 text-sm focus:outline-none focus:border-[#DBA757]" placeholder='{{ or (index $ui "marketplace_submit_price_placeholder") "250000" }}'>
                 </div>
 
                 <div>
-                    <label class="block text-xs uppercase tracking-[0.2em] text-[#03292B]/60 mb-2" for="listing-description">Description</label>
-                    <textarea id="listing-description" name="description" required rows="4" class="w-full border border-[#03292B]/15 rounded-lg px-3 py-2.5 text-sm focus:outline-none focus:border-[#DBA757]" placeholder="Describe your property and highlights"></textarea>
+                    <label class="block text-xs uppercase tracking-[0.2em] text-[#03292B]/60 mb-2" for="listing-description">{{ or (index $ui "marketplace_submit_description") "Description" }}</label>
+                    <textarea id="listing-description" name="description" required rows="4" class="w-full border border-[#03292B]/15 rounded-lg px-3 py-2.5 text-sm focus:outline-none focus:border-[#DBA757]" placeholder='{{ or (index $ui "marketplace_submit_description_placeholder") "Describe your property and highlights" }}'></textarea>
                 </div>
 
                 <div class="pt-2 flex flex-wrap gap-3">
-                    <button id="submit-btn" type="submit" class="px-6 py-3 rounded-lg bg-gradient-to-r from-[#FFDDA8] to-[#DBA757] text-[#03292B] font-semibold hover:brightness-110 transition">Publish listing</button>
-                    <a href='{{ "/marketplace/" | relLangURL }}' class="px-6 py-3 rounded-lg border border-[#03292B]/25 text-[#03292B] hover:border-[#DBA757] hover:text-[#DBA757] transition">Back to marketplace</a>
+                    <button id="submit-btn" type="submit" class="px-6 py-3 rounded-lg bg-gradient-to-r from-[#FFDDA8] to-[#DBA757] text-[#03292B] font-semibold hover:brightness-110 transition">{{ or (index $ui "marketplace_submit_button") "Publish listing" }}</button>
+                    <a href='{{ "/marketplace/" | relLangURL }}' class="px-6 py-3 rounded-lg border border-[#03292B]/25 text-[#03292B] hover:border-[#DBA757] hover:text-[#DBA757] transition">{{ or (index $ui "marketplace_submit_back") "Back to marketplace" }}</a>
                 </div>
                 <p id="submit-status" class="text-sm text-[#03292B]/70"></p>
             </form>
@@ -65,6 +68,13 @@
 
 <script>
 (function () {
+    const i18n = {
+        required: {{ (or (index $ui "marketplace_submit_required") "Fill all required fields before submitting.") | jsonify | safeJS }},
+        submitting: {{ (or (index $ui "marketplace_submit_submitting") "Submitting listing to backend...") | jsonify | safeJS }},
+        success: {{ (or (index $ui "marketplace_submit_success") "Listing submitted successfully. Redirecting to account...") | jsonify | safeJS }},
+        error: {{ (or (index $ui "marketplace_submit_error") "Could not submit listing. Backend endpoint is unavailable or rejected the request.") | jsonify | safeJS }}
+    };
+
     const storageKey = 'sharmonyAuthToken';
     const loginUrl = '{{ "/login/" | relLangURL }}';
     const accountUrl = '{{ "/account/" | relLangURL }}';
@@ -87,13 +97,13 @@
         event.preventDefault();
 
         if (!form.checkValidity()) {
-            setStatus('Fill all required fields before submitting.', true);
+            setStatus(i18n.required, true);
             return;
         }
 
         btn.disabled = true;
         btn.classList.add('opacity-60', 'cursor-not-allowed');
-        setStatus('Submitting listing to backend...', false);
+        setStatus(i18n.submitting, false);
 
         // build RealEstateRecord payload expected by backend
         const priceUsd = Number(form.priceUsd.value) || 0;
@@ -101,7 +111,7 @@
             title: form.title.value,
             description: form.description.value,
             owner: localStorage.getItem('sharmonyAccountAddress') || null,
-            region: 'europe',
+            region: 'global',
             address: (form.city.value || '') + (form.country.value ? (', ' + form.country.value) : ''),
             rooms: Number(form.bedrooms.value) || 0,
             price_cents: Math.round(priceUsd * 100),
@@ -123,14 +133,14 @@
                 return response.json();
             })
             .then(function (res) {
-                setStatus((res.message || 'Listing submitted successfully.') + ' Redirecting to account...', false);
+                setStatus((res.message || i18n.success), false);
                 form.reset();
                 window.setTimeout(function () {
                     window.location.replace(accountUrl);
                 }, 900);
             })
             .catch(function () {
-                setStatus('Could not submit listing. Backend endpoint is unavailable or rejected the request.', true);
+                setStatus(i18n.error, true);
             })
             .finally(function () {
                 btn.disabled = false;

@@ -1,4 +1,5 @@
 {{ define "main" }}
+{{ $accountPage := .Site.GetPage (printf "/%s/personal_account.md" .Lang) }}
 <section class="min-h-[calc(100vh-120px)] bg-[#03292B] text-white flex items-center py-16 sm:py-24">
     <div class="max-w-5xl mx-auto px-4 sm:px-6 w-full">
         <div class="grid lg:grid-cols-2 gap-8 sm:gap-10 items-stretch">
@@ -8,12 +9,12 @@
                 <p class="text-white/70 text-sm sm:text-base leading-relaxed mb-8">{{ .Params.hero_description | default "Sign in to access your personal account, manage listings, and post properties to the marketplace." }}</p>
                 <div class="space-y-4">
                     <div class="border border-white/10 rounded-lg p-4 bg-white/5">
-                        <p class="text-[#DBA757] text-xs uppercase tracking-[0.2em] mb-1">Placeholder API</p>
+                        <p class="text-[#DBA757] text-xs uppercase tracking-[0.2em] mb-1">{{ .Params.login_placeholder_api | default "Placeholder API" }}</p>
                         <p class="text-white/70 text-sm">GET <code class="text-[#31D0B2]">/api/v1/auth/login.json</code></p>
                     </div>
                     <div class="border border-white/10 rounded-lg p-4 bg-white/5">
-                        <p class="text-[#DBA757] text-xs uppercase tracking-[0.2em] mb-1">Demo credentials</p>
-                        <p class="text-white/70 text-sm">Use any valid email format and a password with at least 6 characters.</p>
+                        <p class="text-[#DBA757] text-xs uppercase tracking-[0.2em] mb-1">{{ .Params.login_demo_credentials | default "Demo credentials" }}</p>
+                        <p class="text-white/70 text-sm">{{ .Params.login_demo_help | default "Use any valid email format and a password with at least 6 characters." }}</p>
                     </div>
                 </div>
             </div>
@@ -21,12 +22,12 @@
             <div class="rounded-2xl border border-white/10 p-6 sm:p-8 bg-[#021B1C]">
                 <form id="login-form" class="space-y-5" novalidate>
                     <div>
-                        <label for="login-email" class="block text-xs uppercase tracking-[0.2em] text-white/50 mb-2">Email</label>
-                        <input id="login-email" name="email" type="email" required class="w-full rounded-lg border border-white/15 bg-white/5 px-4 py-3 text-sm text-white placeholder-white/30 focus:outline-none focus:border-[#DBA757]" placeholder="name@example.com">
+                        <label for="login-email" class="block text-xs uppercase tracking-[0.2em] text-white/50 mb-2">{{ .Params.login_email_label | default "Email" }}</label>
+                        <input id="login-email" name="email" type="email" required class="w-full rounded-lg border border-white/15 bg-white/5 px-4 py-3 text-sm text-white placeholder-white/30 focus:outline-none focus:border-[#DBA757]" placeholder='{{ .Params.login_email_placeholder | default "name@example.com" }}'>
                     </div>
                     <div>
-                        <label for="login-password" class="block text-xs uppercase tracking-[0.2em] text-white/50 mb-2">Password</label>
-                        <input id="login-password" name="password" type="password" required minlength="6" class="w-full rounded-lg border border-white/15 bg-white/5 px-4 py-3 text-sm text-white placeholder-white/30 focus:outline-none focus:border-[#DBA757]" placeholder="Enter password">
+                        <label for="login-password" class="block text-xs uppercase tracking-[0.2em] text-white/50 mb-2">{{ .Params.login_password_label | default "Password" }}</label>
+                        <input id="login-password" name="password" type="password" required minlength="6" class="w-full rounded-lg border border-white/15 bg-white/5 px-4 py-3 text-sm text-white placeholder-white/30 focus:outline-none focus:border-[#DBA757]" placeholder='{{ .Params.login_password_placeholder | default "Enter password" }}'>
                     </div>
 
                     <button id="login-submit" type="submit" class="w-full px-6 py-3 rounded-lg bg-gradient-to-r from-[#FFDDA8] to-[#DBA757] text-[#03292B] font-semibold hover:brightness-110 transition">{{ .Params.login_cta | default "Sign in" }}</button>
@@ -48,7 +49,18 @@
 <script>
 (function () {
     const storageKey = 'sharmonyAuthToken';
-    const accountUrl = '{{ "/account/" | relLangURL }}';
+    const accountUrl = '{{ with $accountPage }}{{ .RelPermalink }}{{ else }}{{ "/account/" | relLangURL }}{{ end }}';
+    const I18N = {
+        invalidEmail: '{{ .Params.login_validation_email | default "Enter a valid email address." }}',
+        invalidPassword: '{{ .Params.login_validation_password | default "Password must be at least 6 characters." }}',
+        signingIn: '{{ .Params.login_status_signing_in | default "Signing in..." }}',
+        successRedirect: '{{ .Params.login_status_success | default "Success. Redirecting to your account..." }}',
+        loginError: '{{ .Params.login_status_error | default "Login endpoint is unavailable or rejected the credentials. Please try again." }}',
+        googleSignIn: '{{ .Params.login_status_google_signing_in | default "Signing in with Google..." }}',
+        googleErrorCredential: '{{ .Params.login_status_google_credential_error | default "Google sign-in failed to return a credential." }}',
+        googleErrorBackend: '{{ .Params.login_status_google_error | default "Backend login with Google failed. Please try again." }}',
+        googleNotConfigured: '{{ .Params.login_google_not_configured | default "Google Sign-in is not configured." }}'
+    };
     const form = document.getElementById('login-form');
     const submitBtn = document.getElementById('login-submit');
     const statusEl = document.getElementById('login-status');
@@ -70,18 +82,18 @@
         const password = form.password.value;
 
         if (!email || !email.includes('@')) {
-            setStatus('Enter a valid email address.', true);
+            setStatus(I18N.invalidEmail, true);
             return;
         }
 
         if (!password || password.length < 6) {
-            setStatus('Password must be at least 6 characters.', true);
+            setStatus(I18N.invalidPassword, true);
             return;
         }
 
         submitBtn.disabled = true;
         submitBtn.classList.add('opacity-60', 'cursor-not-allowed');
-        setStatus('Signing in...', false);
+        setStatus(I18N.signingIn, false);
 
         fetch((window.SHARMONY_BACKEND_URL || '') + '/v1/auth/login', {
             method: 'POST',
@@ -100,13 +112,13 @@
                 localStorage.setItem(storageKey, token);
                 if (address) localStorage.setItem('sharmonyAccountAddress', address);
                 localStorage.setItem('sharmonyAccountEmail', payload.email || payload.Email || email);
-                setStatus('Success. Redirecting to your account...', false);
+                setStatus(I18N.successRedirect, false);
                 window.setTimeout(function () {
                     window.location.replace(accountUrl);
                 }, 500);
             })
             .catch(function () {
-                setStatus('Login endpoint is unavailable or rejected the credentials. Please try again.', true);
+                setStatus(I18N.loginError, true);
             })
             .finally(function () {
                 submitBtn.disabled = false;
@@ -138,7 +150,7 @@
     function handleGoogleCredentialResponse(response) {
         // response.credential is the ID token (JWT)
         if (!response || !response.credential) {
-            setStatus('Google sign-in failed to return a credential.', true);
+            setStatus(I18N.googleErrorCredential, true);
             return;
         }
 
@@ -151,7 +163,7 @@
 
         submitBtn.disabled = true;
         submitBtn.classList.add('opacity-60', 'cursor-not-allowed');
-        setStatus('Signing in with Google...', false);
+        setStatus(I18N.googleSignIn, false);
 
         // Call backend login endpoint with method=google
         // Include the Google ID token in the request body so backend can verify it (safer in cross-origin flows).
@@ -181,11 +193,11 @@
                 localStorage.setItem(storageKey, token);
                 if (address) localStorage.setItem('sharmonyAccountAddress', address);
                 localStorage.setItem('sharmonyAccountEmail', payload.email || payload.Email || payload.emailAddress || payload.email_address || payload.userId || '');
-                setStatus('Success. Redirecting to your account...', false);
+                setStatus(I18N.successRedirect, false);
                 window.setTimeout(function () { window.location.replace(accountUrl); }, 500);
             })
             .catch(function () {
-                setStatus('Backend login with Google failed. Please try again.', true);
+                setStatus(I18N.googleErrorBackend, true);
             })
             .finally(function () {
                 submitBtn.disabled = false;
@@ -204,7 +216,7 @@
         if (!GOOGLE_CLIENT_ID || GOOGLE_CLIENT_ID.indexOf('<REPLACE') === 0) {
             // No client id configured — render a passive info message
             const container = document.getElementById('google-button-container');
-            if (container) container.innerHTML = '<div class="text-xs text-white/60">Google Sign-in is not configured. Set a CLIENT_ID to enable.</div>';
+            if (container) container.innerHTML = '<div class="text-xs text-white/60">' + I18N.googleNotConfigured + '</div>';
             return;
         }
 
