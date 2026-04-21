@@ -110,7 +110,7 @@
         }
 
         // Fetch user profile
-        fetch((window.SHARMONY_BACKEND_URL || '') + '/v1/users/' + encodeURIComponent(address), { headers: { 'Authorization': 'Bearer ' + token } })
+        fetch((window.SHARMONY_BACKEND_URL || '') + '/api/v1/users/' + encodeURIComponent(address), { headers: { 'Authorization': 'Bearer ' + token } })
             .then(function (res) { if (!res.ok) throw new Error('Failed to fetch profile'); return res.json(); })
             .then(function (profilePayload) {
                 const profile = profilePayload.profile || profilePayload || {};
@@ -123,7 +123,7 @@
             });
 
         // Fetch user's listings (assume real-estate records support owner query)
-        fetch((window.SHARMONY_BACKEND_URL || '') + '/v1/real-estate/europe/records/' + encodeURIComponent(address))
+        fetch((window.SHARMONY_BACKEND_URL || '') + '/api/v1/real-estate/europe/records/' + encodeURIComponent(address))
             .then(function (res) { if (!res.ok) throw new Error('Failed to fetch listings'); return res.json(); })
             .then(function (recordsPayload) {
                 const items = recordsPayload.records || recordsPayload.listings || recordsPayload || [];

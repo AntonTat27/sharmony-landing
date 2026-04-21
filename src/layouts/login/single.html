@@ -95,7 +95,7 @@
         submitBtn.classList.add('opacity-60', 'cursor-not-allowed');
         setStatus(I18N.signingIn, false);
 
-        fetch((window.SHARMONY_BACKEND_URL || '') + '/v1/auth/login', {
+        fetch((window.SHARMONY_BACKEND_URL || '') + '/api/v1/auth/login', {
             method: 'POST',
             headers: { 'Content-Type': 'application/json' },
             body: JSON.stringify({ email: email, password: password })
@@ -167,7 +167,7 @@
 
         // Call backend login endpoint with method=google
         // Include the Google ID token in the request body so backend can verify it (safer in cross-origin flows).
-        fetch((window.SHARMONY_BACKEND_URL || '') + '/v1/auth/register', {
+        fetch((window.SHARMONY_BACKEND_URL || '') + '/api/v1/auth/register', {
             method: 'POST',
             credentials: 'include', // REQUIRED for cookie set/send across origins
             headers: { 'Content-Type': 'application/json' },

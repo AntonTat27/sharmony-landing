@@ -128,7 +128,7 @@
         noListings: {{ (or (index $ui "marketplace_no_listings") "No listings match your filters. Try widening the criteria.") | jsonify | safeJS }},
         noListingsFound: {{ (or (index $ui "marketplace_no_listings_found") "No listings found.") | jsonify | safeJS }},
         verifiedListings: {{ (or (index $ui "marketplace_verified_listings") "Showing verified marketplace listings from placeholder API data.") | jsonify | safeJS }},
-        loadingError: {{ (or (index $ui "marketplace_loading_error") "Could not load marketplace data from backend (/v1/real-estate/{region}/records).") | jsonify | safeJS }},
+        loadingError: {{ (or (index $ui "marketplace_loading_error") "Could not load marketplace data from backend (/api/v1/real-estate/{region}/records).") | jsonify | safeJS }},
         countryAll: {{ (or (index $ui "marketplace_country_all") "All countries") | jsonify | safeJS }},
         typeAll: {{ (or (index $ui "marketplace_type_all") "All property types") | jsonify | safeJS }},
         bedroomsAll: {{ (or (index $ui "marketplace_bedrooms_all") "Any bedrooms") | jsonify | safeJS }},
@@ -299,7 +299,7 @@
     }
 
     // Fetch listings from backend real-estate records endpoint and derive filters client-side
-    fetch((window.SHARMONY_BACKEND_URL || '') + '/v1/real-estate/europe/records')
+    fetch((window.SHARMONY_BACKEND_URL || '') + '/api/v1/real-estate/europe/records')
         .then(function (r) { if (!r.ok) throw new Error('Failed to load records'); return r.json(); })
         .then(function (data) {
             // backend may return { records: [...] } or an array directly

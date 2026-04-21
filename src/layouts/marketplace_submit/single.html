@@ -123,7 +123,7 @@
 
         const token = localStorage.getItem(storageKey) || '';
 
-        fetch((window.SHARMONY_BACKEND_URL || '') + '/v1/real-estate/europe/records', {
+        fetch((window.SHARMONY_BACKEND_URL || '') + '/api/v1/real-estate/europe/records', {
             method: 'POST',
             headers: Object.assign({ 'Content-Type': 'application/json' }, token ? { 'Authorization': 'Bearer ' + token } : {}),
             body: JSON.stringify(payload)
