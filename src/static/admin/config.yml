@@ -21,9 +21,10 @@ collections:
   - name: "home_common"
     label: "Home: Common"
     i18n: true
-    folder: "src/content/en"
+    folder: "src/content"
     extension: "md"
     format: "frontmatter"
+    path: "{{locale}}/{{slug}}"
     create: false
     filter: {field: "slug", value: "_index"}
     fields:
