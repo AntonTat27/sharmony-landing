@@ -22,6 +22,8 @@ collections:
     label: "Home: Common"
     i18n: true
     folder: "src/content"
+    nested:
+      depth: 1
     extension: "md"
     format: "frontmatter"
     path: "{{locale}}/{{slug}}"
