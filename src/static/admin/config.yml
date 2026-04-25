@@ -663,6 +663,8 @@ collections:
     folder: "src/content"
     path: "{{locale}}/about_us/"
     extension: "md"
+    nested:
+      depth: 2
     format: "frontmatter"
     create: false
     filter: {field: "slug", value: "_index"} 
