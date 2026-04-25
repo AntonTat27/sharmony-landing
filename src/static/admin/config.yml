@@ -41,7 +41,7 @@ collections:
     label: "Main: Hero"
     i18n: true
     folder: "content"
-    path: "{{locale}}/{{slug}}"
+    path: "{{locale}}"
     extension: "md"
     format: "frontmatter"
     create: false
