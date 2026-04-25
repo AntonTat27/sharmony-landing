@@ -20,7 +20,7 @@ i18n:
 collections:
   - name: "pages"
     label: "Pages"
-    folder: "content" # The root folder
+    folder: "/src/content" # The root folder
     i18n: true # Enable the i18n switcher
     create: false # Important: Stops users from making random files
     extension: "md"
