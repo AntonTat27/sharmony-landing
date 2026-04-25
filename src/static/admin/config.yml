@@ -29,6 +29,7 @@ collections:
     filter: {field: "slug", value: "_index"} 
     fields:
       # name: "home_common"
+      - { label: "Slug", name: "slug", widget: "hidden", default: "_index" }
       - { label: "Type", name: "type", widget: "string", i18n: true }
       - { label: "Title", name: "title", widget: "string", i18n: true }
       - { label: "Banner text", name: "banner_text", widget: "string", i18n: true }
@@ -50,6 +51,7 @@ collections:
     filter: {field: "slug", value: "main_hero"} 
     fields:
       # name: "main_hero"
+      - { label: "Slug", name: "slug", widget: "hidden", default: "main_hero" }
       - { label: "Type", name: "type", widget: "string", i18n: true }
       - { label: "Title", name: "title", widget: "string", i18n: true }
       - { label: "Hero subtitle", name: "hero_subtitle", widget: "string", i18n: true }
@@ -75,6 +77,7 @@ collections:
     filter: {field: "slug", value: "main_advantages"} 
     fields:
       # name: "main_advantages"
+      - { label: "Slug", name: "slug", widget: "hidden", default: "main_advantages" }
       - { label: "Type", name: "type", widget: "string", i18n: true }
       - { label: "Heading", name: "advantages_h1", widget: "string", i18n: true }
       - { label: "Subheading", name: "advantages_h2", widget: "text", i18n: true }
@@ -118,6 +121,7 @@ collections:
     filter: {field: "slug", value: "main_audience"} 
     fields:
       # name: "main_audience"
+      - { label: "Slug", name: "slug", widget: "hidden", default: "main_audience" }
       - { label: "Type", name: "type", widget: "string", i18n: true }
       - { label: "Heading 1", name: "audience_h1", widget: "string", i18n: true }
       - { label: "Heading 2", name: "audience_h2", widget: "string", i18n: true }
@@ -147,6 +151,7 @@ collections:
     filter: {field: "slug", value: "main_how-it-works"} 
     fields:
       # name: "main_how_it_works"
+      - { label: "Slug", name: "slug", widget: "hidden", default: "main_how-it-works" }
       - { label: "Type", name: "type", widget: "string", i18n: true }
       - { label: "Heading", name: "how_it_works_h1", widget: "string", i18n: true }
       - { label: "Subheading", name: "how_it_works_h2", widget: "text", i18n: true }
@@ -206,6 +211,7 @@ collections:
     filter: {field: "slug", value: "main_numbers"} 
     fields:
       # name: "main_numbers"
+      - { label: "Slug", name: "slug", widget: "hidden", default: "main_numbers" }
       - { label: "Type", name: "type", widget: "string", i18n: true }
       - { label: "Heading", name: "numbers_h1", widget: "string", i18n: true }
       - { label: "Item 1 value", name: "numbers_item_1_1", widget: "string", i18n: true }
@@ -236,6 +242,7 @@ collections:
     filter: {field: "slug", value: "main_locations"} 
     fields:
       # name: "main_locations"
+      - { label: "Slug", name: "slug", widget: "hidden", default: "main_locations" }
       - { label: "Type", name: "type", widget: "string", i18n: true }
       - { label: "Heading", name: "locations_h1", widget: "string", i18n: true }
       - { label: "Subheading", name: "locations_h2", widget: "string", i18n: true }
@@ -319,6 +326,7 @@ collections:
     filter: {field: "slug", value: "main_recommendations"} 
     fields:
       # name: "main_recommendations"
+      - { label: "Slug", name: "slug", widget: "hidden", default: "main_recommendations" }
       - { label: "Type", name: "type", widget: "string", i18n: true }
       - { label: "Heading", name: "recommendations_h1", widget: "string", i18n: true }
       - { label: "Item 1 name", name: "recommendations_item_1_1", widget: "string", i18n: true }
@@ -347,6 +355,7 @@ collections:
     filter: {field: "slug", value: "main_slogan"} 
     fields:
       # name: "main_slogan"
+      - { label: "Slug", name: "slug", widget: "hidden", default: "main_slogan" }
       - { label: "Type", name: "type", widget: "string", i18n: true }
       - { label: "Heading", name: "slogan_h1", widget: "string", i18n: true }
       - { label: "Subheading", name: "slogan_h2", widget: "text", i18n: true }
@@ -362,6 +371,7 @@ collections:
     filter: {field: "slug", value: "main_faq"} 
     fields:
       # name: "main_faq"
+      - { label: "Slug", name: "slug", widget: "hidden", default: "main_faq" }
       - { label: "Type", name: "type", widget: "string", i18n: true }
       - { label: "Heading", name: "faq_h1", widget: "string", i18n: true }
       - { label: "Question 1", name: "faq_item_1_1", widget: "string", i18n: true }
@@ -388,6 +398,7 @@ collections:
     filter: {field: "slug", value: "main_contact_us"} 
     fields:
       # name: "main_contact_us"
+      - { label: "Slug", name: "slug", widget: "hidden", default: "main_contact_us" }
       - { label: "Type", name: "type", widget: "string", i18n: true }
       - { label: "Heading", name: "contact_us_h1", widget: "string", i18n: true }
       - { label: "Subheading", name: "contact_us_h2", widget: "string", i18n: true }
@@ -433,6 +444,7 @@ collections:
     filter: {field: "slug", value: "marketplace"} 
     fields:
       # name: "marketplace"
+      - { label: "Slug", name: "slug", widget: "hidden", default: "marketplace" }
       - { label: "Type", name: "type", widget: "string", i18n: true }
       - { label: "Title", name: "title", widget: "string", i18n: true }
 
@@ -447,6 +459,7 @@ collections:
     filter: {field: "slug", value: "wallet"} 
     fields:
       # name: "wallet"
+      - { label: "Slug", name: "slug", widget: "hidden", default: "wallet" }
       - { label: "Type", name: "type", widget: "string", i18n: true }
       - { label: "Title", name: "title", widget: "string", i18n: true }
 
@@ -461,6 +474,7 @@ collections:
     filter: {field: "slug", value: "partners"} 
     fields:
       # name: "partners"
+      - { label: "Slug", name: "slug", widget: "hidden", default: "partners" }
       - { label: "Type", name: "type", widget: "string", i18n: true }
       - { label: "Title", name: "title", widget: "string", i18n: true }
       - { label: "Hero eyebrow", name: "hero_eyebrow", widget: "string", i18n: true }
@@ -537,6 +551,7 @@ collections:
     filter: {field: "slug", value: "investors"} 
     fields:
       # name: "investors"
+      - { label: "Slug", name: "slug", widget: "hidden", default: "investors" }
       - { label: "Type", name: "type", widget: "string", i18n: true }
       - { label: "Title", name: "title", widget: "string", i18n: true }
       - { label: "Hero H1", name: "hero_h1", widget: "string", i18n: true }
@@ -652,6 +667,7 @@ collections:
     filter: {field: "slug", value: "_index"} 
     fields:
       # name: "about_us"
+      - { label: "Slug", name: "slug", widget: "hidden", default: "_index" }
       - { label: "Title", name: "title", widget: "string", i18n: true }
       - { label: "Date", name: "date", widget: "datetime", required: false, i18n: true }
       - { label: "Draft", name: "draft", widget: "boolean", required: false, i18n: true }
