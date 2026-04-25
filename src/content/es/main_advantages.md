@@ -1,5 +1,5 @@
 ---
-type: mainpage
+type: main_advantages
 advantages_h1: Juntos es más accesible
 advantages_h2: Un nuevo estándar en la propiedad inmobiliaria que combina transparencia,
   seguridad, liquidez y acceso global.

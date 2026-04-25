@@ -1,5 +1,5 @@
 ---
-type: mainpage
+type: main_hero
 title: SHARMONY
 hero_subtitle: Real Estate · Tokenized
 btn_learn: Learn more

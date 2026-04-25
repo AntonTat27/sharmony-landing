@@ -1,5 +1,5 @@
 ---
-type: mainpage
+type: main_advantages
 advantages_h1: 共有房产，触手可及
 advantages_h2: 房地产持有新标准：集透明度、安全性、流动性和全球准入于一体。
 

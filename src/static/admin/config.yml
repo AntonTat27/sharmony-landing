@@ -47,10 +47,9 @@ collections:
       depth: 1
     format: "frontmatter"
     create: false
-    filter: {field: "type", value: "mainpage"} 
+    filter: {field: "type", value: "main_hero"} 
     fields:
       # name: "main_hero"
-      - { label: "Slug", name: "slug", widget: "hidden", default: "main_hero" }
       - { label: "Type", name: "type", widget: "string", i18n: true }
       - { label: "Title", name: "title", widget: "string", i18n: true }
       - { label: "Hero subtitle", name: "hero_subtitle", widget: "string", i18n: true }
@@ -74,10 +73,9 @@ collections:
       depth: 1
     format: "frontmatter"
     create: false
-    filter: {field: "type", value: "mainpage"} 
+    filter: {field: "type", value: "main_advantages"} 
     fields:
       # name: "main_advantages"
-      - { label: "Slug", name: "slug", widget: "hidden", default: "main_advantages" }
       - { label: "Type", name: "type", widget: "string", i18n: true }
       - { label: "Heading", name: "advantages_h1", widget: "string", i18n: true }
       - { label: "Subheading", name: "advantages_h2", widget: "text", i18n: true }
@@ -119,10 +117,9 @@ collections:
       depth: 1
     format: "frontmatter"
     create: false
-    filter: {field: "slug", value: "main_audience"} 
+    filter: {field: "type", value: "main_audience"} 
     fields:
       # name: "main_audience"
-      - { label: "Slug", name: "slug", widget: "hidden", default: "main_audience" }
       - { label: "Type", name: "type", widget: "string", i18n: true }
       - { label: "Heading 1", name: "audience_h1", widget: "string", i18n: true }
       - { label: "Heading 2", name: "audience_h2", widget: "string", i18n: true }
@@ -150,10 +147,9 @@ collections:
       depth: 1
     format: "frontmatter"
     create: false
-    filter: {field: "slug", value: "main_how-it-works"} 
+    filter: {field: "type", value: "main_how-it-works"} 
     fields:
       # name: "main_how_it_works"
-      - { label: "Slug", name: "slug", widget: "hidden", default: "main_how-it-works" }
       - { label: "Type", name: "type", widget: "string", i18n: true }
       - { label: "Heading", name: "how_it_works_h1", widget: "string", i18n: true }
       - { label: "Subheading", name: "how_it_works_h2", widget: "text", i18n: true }

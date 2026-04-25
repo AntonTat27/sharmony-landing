@@ -1,5 +1,5 @@
 ---
-type: mainpage
+type: main_advantages
 advantages_h1: Plus accessible ensemble
 advantages_h2: Un nouveau standard de propriété immobilière alliant transparence,
   sécurité, liquidité et accès mondial.

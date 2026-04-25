@@ -1,5 +1,5 @@
 ---
-type: mainpage
+type: main_advantages
 advantages_h1: Gemeinsam erschwinglicher
 advantages_h2: Ein neuer Standard des Immobilienbesitzes, der Transparenz, Sicherheit, Liquidität und globalen Zugang vereint.
 

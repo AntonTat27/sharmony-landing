@@ -1,5 +1,5 @@
 ---
-type: mainpage
+type: main_advantages
 advantages_h1: Together more affordable
 advantages_h2: A new standard of real estate ownership combining transparency,
   security, liquidity, and global access.

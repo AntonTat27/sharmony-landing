@@ -11,5 +11,5 @@ btn_explore: Explorer la plateforme
 main_intro_slider1: Propriétés mondiales
 main_intro_slider2: Asie • Europe • USA
 title: SHARMONY
-type: mainpage
+type: main_hero
 ---

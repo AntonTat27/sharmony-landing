@@ -1,4 +1,5 @@
 ---
+type: main_hero
 btn_learn: تعرف على المزيد
 main_intro_h1: سوق ابتكاري لـ
 main_intro_h2: العقارات المجزأة
@@ -10,5 +11,4 @@ btn_explore: استكشف المنصة
 main_intro_slider1: عقارات عالمية
 main_intro_slider2: آسيا • أوروبا • الولايات المتحدة
 title: شارموني | SHARMONY
-type: mainpage
 ---

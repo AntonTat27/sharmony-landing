@@ -8,5 +8,5 @@ btn_explore: 探索平台
 main_intro_slider1: 全球房产
 main_intro_slider2: 亚洲 • 欧洲 • 美国
 title: SHARMONY
-type: mainpage
+type: main_hero
 ---

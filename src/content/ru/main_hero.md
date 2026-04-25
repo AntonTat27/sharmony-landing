@@ -14,6 +14,6 @@ hero_badge_blockchain: Защищено блокчейном
 main_intro_slider1: Объекты недвижимости в целом
 main_intro_slider2: Азия • Европа • США
 title: SHARMONY
-type: mainpage
+type: main_hero
 hero_subtitle: Недвижимость · Токенизирована
 ---

@@ -11,5 +11,5 @@ btn_explore: Plattform erkunden
 main_intro_slider1: Globale Immobilien
 main_intro_slider2: Asien • Europa • USA
 title: SHARMONY
-type: mainpage
+type: main_hero
 ---
