@@ -4,39 +4,38 @@ title = 'Sharmony'
 canonifyURLs = true
 relativeURLs = true
 #theme = 'sharmony-theme'
-disableKinds = ["RSS", "taxonomy", "taxonomyTerm"]
-
+disableKinds = ["RSS", "taxonomy"]
 # 1. LOCALIZATION SETUP
 # This allows localization team to manage different languages
 defaultContentLanguage = 'en'
 [languages]
 [languages.en]
 languageName = 'English'
-contentDir = 'src/content/en'
+contentDir = 'content/en'
 weight = 1
 [languages.zh]
 languageName = '中文'
-contentDir = 'src/content/zh'
+contentDir = 'content/zh'
 weight = 2
 [languages.ar]
 languageName = 'العربية'
-contentDir = 'src/content/ar'
+contentDir = 'content/ar'
 weight = 3
 [languages.ru]
 languageName = 'Русский'
-contentDir = 'src/content/ru'
+contentDir = 'content/ru'
 weight = 4
 [languages.de]
 languageName = 'Deutsch'
-contentDir = 'src/content/de'
+contentDir = 'content/de'
 weight = 5
 [languages.es]
 languageName = 'Español'
-contentDir = 'src/content/es'
+contentDir = 'content/es'
 weight = 6
 [languages.fr]
 languageName = 'Français'
-contentDir = 'src/content/fr'
+contentDir = 'content/fr'
 weight = 7
 
 # 2. MENU STRUCTURE
