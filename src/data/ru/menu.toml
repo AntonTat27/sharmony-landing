@@ -1,5 +1,6 @@
+title = "Menu localization"
 [[items]]
-id = "about"
+id = "about_us"
 text = "Домой"
 
 [[items]]
