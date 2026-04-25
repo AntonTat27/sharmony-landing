@@ -26,7 +26,7 @@ collections:
     extension: "md"
     format: "frontmatter"
     create: false
-    filter: {field: "slug", value: "_index"} 
+    filter: {field: "type", value: "common"} 
     fields:
       # name: "home_common"
       - { label: "Slug", name: "slug", widget: "hidden", default: "_index" }
@@ -48,7 +48,7 @@ collections:
     extension: "md"
     format: "frontmatter"
     create: false
-    filter: {field: "slug", value: "main_hero"} 
+    filter: {field: "type", value: "mainpage"} 
     fields:
       # name: "main_hero"
       - { label: "Slug", name: "slug", widget: "hidden", default: "main_hero" }
@@ -74,7 +74,7 @@ collections:
     extension: "md"
     format: "frontmatter"
     create: false
-    filter: {field: "slug", value: "main_advantages"} 
+    filter: {field: "type", value: "mainpage"} 
     fields:
       # name: "main_advantages"
       - { label: "Slug", name: "slug", widget: "hidden", default: "main_advantages" }
