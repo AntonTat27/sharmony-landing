@@ -40,7 +40,7 @@ collections:
   - name: "main_hero"
     label: "Main: Hero"
     i18n: true
-    folder: "src/content"
+    folder: "content"
     path: "{{locale}}/{{slug}}"
     extension: "md"
     format: "frontmatter"
