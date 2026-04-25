@@ -661,13 +661,12 @@ collections:
     label: "About us"
     i18n: true
     folder: "src/content"
-    path: "{{locale}}/about_us/"
     extension: "md"
     nested:
       depth: 2
     format: "frontmatter"
     create: false
-    filter: {field: "slug", value: "_index"} 
+    filter: {field: "type", value: "about_us_main"} 
     fields:
       # name: "about_us"
       - { label: "Slug", name: "slug", widget: "hidden", default: "_index" }
