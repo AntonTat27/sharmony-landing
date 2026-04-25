@@ -24,6 +24,8 @@ collections:
       - name: "home_common"
         label: "Home: Common (_index)"
         file: "src/content/{{locale}}/_index.md"
+        extension: "md"
+        format: "frontmatter"
         i18n: true
         fields:
           - { label: "Slug", name: "slug", widget: "hidden", default: "_index" }
