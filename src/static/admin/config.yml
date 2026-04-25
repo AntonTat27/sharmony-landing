@@ -24,6 +24,8 @@ collections:
     i18n: true # Enable the i18n switcher
     create: false # Important: Stops users from making random files
     extension: "md"
+    nested:
+      depth: 1
     format: "frontmatter"
     filter: { field: "type", value: "mainpage" }
     path: "{{locale}}/{{slug}}"
