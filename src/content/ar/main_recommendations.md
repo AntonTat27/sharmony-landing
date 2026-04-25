@@ -1,5 +1,5 @@
 ---
-type: mainpage
+type: main_recommendations
 recommendations_h1: من يوصي بمنصة شارموني (SHARMONY)
 
 recommendations_item_1_1: الشركة ١

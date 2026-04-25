@@ -1,5 +1,5 @@
 ---
-type: mainpage
+type: main_recommendations
 recommendations_h1: Who recommends the SHARMONY platform
 
 recommendations_item_1_1: Company 1

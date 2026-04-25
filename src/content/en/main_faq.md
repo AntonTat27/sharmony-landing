@@ -1,5 +1,5 @@
 ---
-type: mainpage
+type: main_faq
 
 faq_h1: Frequently Asked Questions
 faq_item_1_1: What is Sharmony?

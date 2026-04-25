@@ -1,5 +1,5 @@
 ---
-type: mainpage
+type: main_recommendations
 recommendations_h1: Wer die SHARMONY-Plattform empfiehlt
 
 recommendations_item_1_1: Unternehmen 1

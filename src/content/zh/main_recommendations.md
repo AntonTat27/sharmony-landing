@@ -1,5 +1,5 @@
 ---
-type: mainpage
+type: main_recommendations
 recommendations_h1: 谁在推荐 SHARMONY 平台
 
 recommendations_item_1_1: 公司 1

@@ -1,5 +1,5 @@
 ---
-type: mainpage
+type: main_contact_us
 
 contact_us_h1: 联系我们
 contact_us_h2: 让我们共同构建和谐未来。

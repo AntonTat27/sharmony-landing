@@ -1,5 +1,5 @@
 ---
-type: mainpage
+type: main_contact_us
 
 contact_us_h1: اتصل بنا
 contact_us_h2: لنبني شيئاً متناغماً معاً.

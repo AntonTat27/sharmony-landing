@@ -1,5 +1,5 @@
 ---
-type: mainpage
+type: main_faq
 
 faq_h1: 常见问题解答
 faq_item_1_1: 什么是 Sharmony？

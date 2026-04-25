@@ -1,5 +1,5 @@
 ---
-type: mainpage
+type: main_faq
 
 faq_h1: الأسئلة الشائعة
 faq_item_1_1: ما هي منصة شارموني؟

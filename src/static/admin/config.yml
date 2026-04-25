@@ -661,7 +661,7 @@ collections:
     label: "About us"
     i18n: true
     folder: "src/content"
-    path: "{{locale}}/about_us/{{slug}}"
+    path: "{{locale}}/about_us/"
     extension: "md"
     format: "frontmatter"
     create: false

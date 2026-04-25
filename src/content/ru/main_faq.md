@@ -1,5 +1,5 @@
 ---
-type: mainpage
+type: main_faq
 
 faq_h1: Часто задаваемые вопросы
 faq_item_1_1: Что такое Sharmony?

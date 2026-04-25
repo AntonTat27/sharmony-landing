@@ -1,5 +1,5 @@
 ---
-type: mainpage
+type: main_contact_us
 
 contact_us_h1: Связаться с нами
 contact_us_h2: Давайте создадим что-то гармоничное вместе.
