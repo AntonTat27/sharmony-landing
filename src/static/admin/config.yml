@@ -663,7 +663,7 @@ collections:
     folder: "src/content"
     extension: "md"
     nested:
-      depth: 2
+      depth: 1
     format: "frontmatter"
     create: false
     filter: {field: "type", value: "about_us_main"} 
