@@ -27,7 +27,8 @@ collections:
     nested:
       depth: 1
     format: "frontmatter"
-    filter: { field: "type", value: "mainpage" }
+    filter: { field: "type", value: "common" }
+    path: "{{locale}}"
     fields:
       - { label: "Title", name: "title", widget: "string", i18n: true }
       - { label: "Banner text", name: "banner_text", widget: "string", i18n: true }
@@ -41,9 +42,11 @@ collections:
   - name: "main_hero"
     label: "Main: Hero"
     i18n: true
-    folder: "content"
+    folder: "/src/content/"
     path: "{{locale}}"
     extension: "md"
+    nested:
+      depth: 1
     format: "frontmatter"
     create: false
     filter: {field: "type", value: "mainpage"} 
@@ -70,6 +73,8 @@ collections:
     folder: "src/content"
     path: "{{locale}}/{{slug}}"
     extension: "md"
+    nested:
+      depth: 1
     format: "frontmatter"
     create: false
     filter: {field: "type", value: "mainpage"} 
@@ -114,6 +119,8 @@ collections:
     folder: "src/content"
     path: "{{locale}}/{{slug}}"
     extension: "md"
+    nested:
+      depth: 1
     format: "frontmatter"
     create: false
     filter: {field: "slug", value: "main_audience"} 
