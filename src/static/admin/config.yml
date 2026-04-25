@@ -26,7 +26,7 @@ collections:
     extension: "md"
     format: "frontmatter"
     filter: { field: "type", value: "mainpage" }
-    path: "{{locale}}"
+    path: "{{locale}}/{{slug}}"
     fields:
       - { label: "Title", name: "title", widget: "string", i18n: true }
       - { label: "Banner text", name: "banner_text", widget: "string", i18n: true }
