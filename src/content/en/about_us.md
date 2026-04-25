@@ -106,7 +106,7 @@ numbers_stat_4_label: Offices
 ceo_quote: Building a future where real estate and technology seamlessly converge.
 ceo_title: CEO, SHARMONY PJSC
 ceo_btn: Contact Our Team
-type: about_us_main
+type: about_us
 ceo_name: Alexander Lee
 ceo_placeholder: CEO portrait placeholder
 ---
