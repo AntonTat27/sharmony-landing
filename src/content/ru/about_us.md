@@ -108,7 +108,7 @@ numbers_stat_4_label: Офисов
 ceo_quote: Создаем будущее, где недвижимость и технологии работают в гармонии.
 ceo_title: Генеральный директор, SHARMONY
 ceo_btn: Присоединяйтесь к нам!
-type: about_us_main
+type: about_us
 ceo_name: Александр Ли
 ceo_placeholder: Портрет CEO (заглушка)
 ---

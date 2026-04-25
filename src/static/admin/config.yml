@@ -666,7 +666,7 @@ collections:
       depth: 1
     format: "frontmatter"
     create: false
-    filter: {field: "type", value: "about_us_main"} 
+    filter: {field: "type", value: "about_us"} 
     fields:
       # name: "about_us"
       - { label: "Slug", name: "slug", widget: "hidden", default: "_index" }
