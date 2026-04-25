@@ -1,5 +1,5 @@
 ---
-type: mainpage
+type: main_numbers
 
 numbers_h1: نافذة واحدة على عالم العقارات والاستثمار
 numbers_item_1_1: +5

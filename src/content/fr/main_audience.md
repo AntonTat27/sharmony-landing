@@ -1,5 +1,5 @@
 ---
-type: mainpage
+type: main_audience
 audience_h1: La Révolution SHARMONY —
 audience_h2: Quand l'immobilier rencontre la Blockchain
 audience_h3: Sharmony connecte le monde réel au monde virtuel grâce à la tokenisation des droits immobiliers.

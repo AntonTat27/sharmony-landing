@@ -1,5 +1,5 @@
 ---
-type: mainpage
+type: main_how-it-works
 how_it_works_h1: Sharmony P2P 平台运作原理
 how_it_works_h2: 结合法律保护、智能合约和区块链透明度的分步交易流程。
 

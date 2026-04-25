@@ -207,10 +207,9 @@ collections:
       depth: 1
     format: "frontmatter"
     create: false
-    filter: {field: "slug", value: "main_numbers"} 
+    filter: {field: "type", value: "main_numbers"} 
     fields:
       # name: "main_numbers"
-      - { label: "Slug", name: "slug", widget: "hidden", default: "main_numbers" }
       - { label: "Type", name: "type", widget: "string", i18n: true }
       - { label: "Heading", name: "numbers_h1", widget: "string", i18n: true }
       - { label: "Item 1 value", name: "numbers_item_1_1", widget: "string", i18n: true }
@@ -239,7 +238,7 @@ collections:
       depth: 1
     format: "frontmatter"
     create: false
-    filter: {field: "slug", value: "main_locations"} 
+    filter: {field: "type", value: "main_locations"} 
     fields:
       # name: "main_locations"
       - { label: "Slug", name: "slug", widget: "hidden", default: "main_locations" }
@@ -318,15 +317,15 @@ collections:
   - name: "main_recommendations"
     label: "Main: Recommendations"
     i18n: true
-    folder: "src/content"
-    path: "{{locale}}/{{slug}}"
+    folder: "/src/content"
     extension: "md"
+    nested:
+      depth: 1
     format: "frontmatter"
     create: false
-    filter: {field: "slug", value: "main_recommendations"} 
+    filter: {field: "type", value: "main_recommendations"} 
     fields:
       # name: "main_recommendations"
-      - { label: "Slug", name: "slug", widget: "hidden", default: "main_recommendations" }
       - { label: "Type", name: "type", widget: "string", i18n: true }
       - { label: "Heading", name: "recommendations_h1", widget: "string", i18n: true }
       - { label: "Item 1 name", name: "recommendations_item_1_1", widget: "string", i18n: true }
@@ -347,15 +346,15 @@ collections:
   - name: "main_slogan"
     label: "Main: Slogan"
     i18n: true
-    folder: "src/content"
-    path: "{{locale}}/{{slug}}"
+    folder: "/src/content"
     extension: "md"
+    nested:
+      depth: 1
     format: "frontmatter"
     create: false
-    filter: {field: "slug", value: "main_slogan"} 
+    filter: {field: "type", value: "main_slogan"} 
     fields:
       # name: "main_slogan"
-      - { label: "Slug", name: "slug", widget: "hidden", default: "main_slogan" }
       - { label: "Type", name: "type", widget: "string", i18n: true }
       - { label: "Heading", name: "slogan_h1", widget: "string", i18n: true }
       - { label: "Subheading", name: "slogan_h2", widget: "text", i18n: true }
@@ -363,12 +362,13 @@ collections:
   - name: "main_faq"
     label: "Main: FAQ"
     i18n: true
-    folder: "src/content"
-    path: "{{locale}}/{{slug}}"
+    folder: "/src/content"
     extension: "md"
+    nested:
+      depth: 1
     format: "frontmatter"
     create: false
-    filter: {field: "slug", value: "main_faq"} 
+    filter: {field: "type", value: "main_faq"} 
     fields:
       # name: "main_faq"
       - { label: "Slug", name: "slug", widget: "hidden", default: "main_faq" }
@@ -390,15 +390,15 @@ collections:
   - name: "main_contact_us"
     label: "Main: Contact us"
     i18n: true
-    folder: "src/content"
-    path: "{{locale}}/{{slug}}"
+    folder: "/src/content"
     extension: "md"
+    nested:
+      depth: 1
     format: "frontmatter"
     create: false
-    filter: {field: "slug", value: "main_contact_us"} 
+    filter: {field: "type", value: "main_contact_us"} 
     fields:
       # name: "main_contact_us"
-      - { label: "Slug", name: "slug", widget: "hidden", default: "main_contact_us" }
       - { label: "Type", name: "type", widget: "string", i18n: true }
       - { label: "Heading", name: "contact_us_h1", widget: "string", i18n: true }
       - { label: "Subheading", name: "contact_us_h2", widget: "string", i18n: true }
@@ -436,15 +436,15 @@ collections:
   - name: "marketplace"
     label: "Marketplace"
     i18n: true
-    folder: "src/content"
-    path: "{{locale}}/{{slug}}"
+    folder: "/src/content"
     extension: "md"
+    nested:
+      depth: 1
     format: "frontmatter"
     create: false
-    filter: {field: "slug", value: "marketplace"} 
+    filter: {field: "type", value: "marketplace"} 
     fields:
       # name: "marketplace"
-      - { label: "Slug", name: "slug", widget: "hidden", default: "marketplace" }
       - { label: "Type", name: "type", widget: "string", i18n: true }
       - { label: "Title", name: "title", widget: "string", i18n: true }
 
@@ -452,29 +452,29 @@ collections:
     label: "Wallet"
     i18n: true
     folder: "src/content"
-    path: "{{locale}}/{{slug}}"
     extension: "md"
+    nested:
+      depth: 1
     format: "frontmatter"
     create: false
-    filter: {field: "slug", value: "wallet"} 
+    filter: {field: "type", value: "wallet"} 
     fields:
       # name: "wallet"
-      - { label: "Slug", name: "slug", widget: "hidden", default: "wallet" }
       - { label: "Type", name: "type", widget: "string", i18n: true }
       - { label: "Title", name: "title", widget: "string", i18n: true }
 
   - name: "partners"
     label: "Partners"
     i18n: true
-    folder: "src/content"
-    path: "{{locale}}/{{slug}}"
+    folder: "/src/content"
     extension: "md"
+    nested:
+      depth: 1
     format: "frontmatter"
     create: false
-    filter: {field: "slug", value: "partners"} 
+    filter: {field: "type", value: "partners"} 
     fields:
       # name: "partners"
-      - { label: "Slug", name: "slug", widget: "hidden", default: "partners" }
       - { label: "Type", name: "type", widget: "string", i18n: true }
       - { label: "Title", name: "title", widget: "string", i18n: true }
       - { label: "Hero eyebrow", name: "hero_eyebrow", widget: "string", i18n: true }
@@ -543,12 +543,13 @@ collections:
   - name: "investors"
     label: "Investors"
     i18n: true
-    folder: "src/content"
-    path: "{{locale}}/{{slug}}"
+    folder: "/src/content"
     extension: "md"
+    nested:
+      depth: 1
     format: "frontmatter"
     create: false
-    filter: {field: "slug", value: "investors"} 
+    filter: {field: "type", value: "investors"} 
     fields:
       # name: "investors"
       - { label: "Slug", name: "slug", widget: "hidden", default: "investors" }

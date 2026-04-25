@@ -1,5 +1,5 @@
 ---
-type: mainpage
+type: main_locations
 locations_h1: Global Locations
 locations_h2: — Invest in high-demand real estate markets
 locations_h3: Carefully selected countries with strong rental demand,

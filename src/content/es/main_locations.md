@@ -1,5 +1,5 @@
 ---
-type: mainpage
+type: main_locations
 locations_h1: Ubicaciones Globales
 locations_h2: — Invierta en mercados inmobiliarios de alta demanda
 locations_h3: Países cuidadosamente seleccionados con una fuerte demanda de alquiler,

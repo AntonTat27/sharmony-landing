@@ -1,5 +1,5 @@
 ---
-type: mainpage
+type: main_locations
 locations_h1: Emplacements Mondiaux
 locations_h2: — Investissez dans des marchés immobiliers à forte demande
 locations_h3: Des pays soigneusement sélectionnés avec une forte demande locative,

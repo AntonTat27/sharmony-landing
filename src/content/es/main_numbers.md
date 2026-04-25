@@ -1,5 +1,5 @@
 ---
-type: mainpage
+type: main_numbers
 
 numbers_h1: Una única ventana al mundo de los bienes raíces y la inversión
 numbers_item_1_1: 5+

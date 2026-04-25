@@ -1,5 +1,5 @@
 ---
-type: mainpage
+type: main_numbers
 
 numbers_h1: One window into the world of real estate and investment
 numbers_item_1_1: 5+

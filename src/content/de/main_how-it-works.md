@@ -1,5 +1,5 @@
 ---
-type: mainpage
+type: main_how-it-works
 how_it_works_h1: So funktioniert die P2P-Plattform von Sharmony
 how_it_works_h2: Schritt-für-Schritt-Transaktionsablauf mit rechtlichem Schutz, Smart Contracts und Blockchain-Transparenz.
 

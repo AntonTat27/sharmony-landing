@@ -1,5 +1,5 @@
 ---
-type: mainpage
+type: main_audience
 audience_h1: Революция SHARMONY —
 audience_h2: Когда недвижимость встречается с блокчейном
 audience_h3: Sharmony соединяет реальный мир с виртуальным миром посредством 

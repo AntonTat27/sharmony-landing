@@ -1,5 +1,5 @@
 ---
-type: mainpage
+type: main_numbers
 
 numbers_h1: 开启全球房产与投资的唯一窗口
 numbers_item_1_1: 5+

@@ -1,5 +1,5 @@
 ---
-type: mainpage
+type: main_how-it-works
 how_it_works_h1: How Sharmony’s P2P platform works
 how_it_works_h2: Step-by-step transaction flow with legal protection, smart contracts, and blockchain transparency.
 

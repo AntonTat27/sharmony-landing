@@ -1,5 +1,5 @@
 ---
-type: for_investors
+type: investors
 title: Для инвесторов
 
 hero_h1: "Цифровой ключ к реальным инвестициям:"

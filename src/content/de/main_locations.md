@@ -1,5 +1,5 @@
 ---
-type: mainpage
+type: main_locations
 locations_h1: Globale Standorte
 locations_h2: — Investieren Sie in Immobilienmärkte mit hoher Nachfrage
 locations_h3: Sorgfältig ausgewählte Länder mit starker Mietnachfrage,

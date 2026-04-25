@@ -1,5 +1,5 @@
 ---
-type: mainpage
+type: main_audience
 audience_h1: The SHARMONY Revolution —
 audience_h2: When Real Estate Meets Blockchain
 audience_h3: Sharmony connects the real world to the virtual world through

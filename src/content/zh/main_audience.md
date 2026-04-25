@@ -1,5 +1,5 @@
 ---
-type: mainpage
+type: main_audience
 audience_h1: SHARMONY 变革 —
 audience_h2: 当房地产遇上区块链
 audience_h3: Sharmony 通过房地产权益的代币化，连接现实世界与虚拟世界。

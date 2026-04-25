@@ -1,5 +1,5 @@
 ---
-type: mainpage
+type: main_numbers
 
 numbers_h1: Une fenêtre unique sur le monde de l'immobilier et de l'investissement
 numbers_item_1_1: 5+

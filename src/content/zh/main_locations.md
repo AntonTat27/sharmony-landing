@@ -1,5 +1,5 @@
 ---
-type: mainpage
+type: main_locations
 locations_h1: 全球布局
 locations_h2: — 投资高需求房地产市场
 locations_h3: 严格挑选租赁需求强劲、经济稳定且投资环境透明的国家。

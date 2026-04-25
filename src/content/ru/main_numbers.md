@@ -1,5 +1,5 @@
 ---
-type: mainpage
+type: main_numbers
 
 numbers_h1: Одно окно в мир недвижимости и инвестиций
 numbers_item_1_1: 5+

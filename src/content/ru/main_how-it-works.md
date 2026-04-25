@@ -1,5 +1,5 @@
 ---
-type: mainpage
+type: main_how-it-works
 how_it_works_h1: Как работает P2P-платформа Sharmony
 how_it_works_h2: Пошаговый процесс сделки с юридической защитой, смарт-контрактами и прозрачностью блокчейна.
 
