@@ -42,7 +42,7 @@ weight = 7
 # This defines the navigation for all pages
 [menus]
 [[menus.main]]
-identifier = 'about'
+identifier = 'home'
 name = 'Home'
 url = '/'
 weight = 10

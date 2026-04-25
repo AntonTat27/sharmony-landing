@@ -1,7 +1,11 @@
 title = "Menu localization"
 [[items]]
-id = "about_us"
+id = "home"
 text = "Home"
+
+[[items]]
+id = "about_us"
+text = "About Us"
 
 [[items]]
 id = "investors"

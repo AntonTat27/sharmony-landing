@@ -1,5 +1,9 @@
 title = "Menu localization"
 [[items]]
+id = "home"
+text = "Home"
+
+[[items]]
 id = "about_us"
 text = "Accueil"
 
