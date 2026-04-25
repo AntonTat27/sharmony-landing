@@ -28,7 +28,6 @@ collections:
       depth: 1
     format: "frontmatter"
     filter: { field: "type", value: "common" }
-    path: "{{locale}}"
     fields:
       - { label: "Title", name: "title", widget: "string", i18n: true }
       - { label: "Banner text", name: "banner_text", widget: "string", i18n: true }
@@ -43,7 +42,6 @@ collections:
     label: "Main: Hero"
     i18n: true
     folder: "/src/content/"
-    path: "{{locale}}"
     extension: "md"
     nested:
       depth: 1
@@ -70,8 +68,7 @@ collections:
   - name: "main_advantages"
     label: "Main: Advantages"
     i18n: true
-    folder: "src/content"
-    path: "{{locale}}/{{slug}}"
+    folder: "/src/content"
     extension: "md"
     nested:
       depth: 1
@@ -116,8 +113,7 @@ collections:
   - name: "main_audience"
     label: "Main: Audience"
     i18n: true
-    folder: "src/content"
-    path: "{{locale}}/{{slug}}"
+    folder: "/src/content"
     extension: "md"
     nested:
       depth: 1
@@ -148,9 +144,10 @@ collections:
   - name: "main_how-it-works"
     label: "Main: How it works"
     i18n: true
-    folder: "src/content"
-    path: "{{locale}}/{{slug}}"
+    folder: "/src/content"
     extension: "md"
+    nested:
+      depth: 1
     format: "frontmatter"
     create: false
     filter: {field: "slug", value: "main_how-it-works"} 
@@ -208,9 +205,10 @@ collections:
   - name: "main_numbers"
     label: "Main: Numbers"
     i18n: true
-    folder: "src/content"
-    path: "{{locale}}/{{slug}}"
+    folder: "/src/content"
     extension: "md"
+    nested:
+      depth: 1
     format: "frontmatter"
     create: false
     filter: {field: "slug", value: "main_numbers"} 
@@ -239,9 +237,10 @@ collections:
   - name: "main_locations"
     label: "Main: Locations"
     i18n: true
-    folder: "src/content"
-    path: "{{locale}}/{{slug}}"
+    folder: "/src/content"
     extension: "md"
+    nested:
+      depth: 1
     format: "frontmatter"
     create: false
     filter: {field: "slug", value: "main_locations"} 
