@@ -18,29 +18,24 @@ i18n:
   default_locale: en
 
 collections:
-  - name: "home_common"
-    label: "Home: Common"
-    i18n: true
-    folder: "src/content"
-    nested:
-      depth: 1
-    extension: "md"
-    format: "frontmatter"
-    path: "{{locale}}/{{slug}}"
-    create: false
-    filter: {field: "slug", value: "_index"}
-    fields:
-      # name: "home_common"
-      - { label: "Slug", name: "slug", widget: "hidden", default: "_index" }
-      - { label: "Type", name: "type", widget: "string", i18n: true }
-      - { label: "Title", name: "title", widget: "string", i18n: true }
-      - { label: "Banner text", name: "banner_text", widget: "string", i18n: true }
-      - { label: "Banner CTA", name: "banner_cta", widget: "string", i18n: true }
-      - { label: "Login button", name: "btn_login", widget: "string", i18n: true }
-      - { label: "Header menu aria", name: "header_menu_aria", widget: "string", i18n: true }
-      - { label: "Header search placeholder", name: "header_search_placeholder", widget: "string", i18n: true }
-      - { label: "Footer copyright", name: "footer_copyright", widget: "string", i18n: true }
-      - { label: "Footer terms link", name: "footer_terms_link", widget: "string", i18n: true }
+  - name: "pages"
+    label: "Pages"
+    files:
+      - name: "home_common"
+        label: "Home: Common (_index)"
+        file: "src/content/{{locale}}/_index.md"
+        i18n: true
+        fields:
+          - { label: "Slug", name: "slug", widget: "hidden", default: "_index" }
+          - { label: "Type", name: "type", widget: "string", i18n: true }
+          - { label: "Title", name: "title", widget: "string", i18n: true }
+          - { label: "Banner text", name: "banner_text", widget: "string", i18n: true }
+          - { label: "Banner CTA", name: "banner_cta", widget: "string", i18n: true }
+          - { label: "Login button", name: "btn_login", widget: "string", i18n: true }
+          - { label: "Header menu aria", name: "header_menu_aria", widget: "string", i18n: true }
+          - { label: "Header search placeholder", name: "header_search_placeholder", widget: "string", i18n: true }
+          - { label: "Footer copyright", name: "footer_copyright", widget: "string", i18n: true }
+          - { label: "Footer terms link", name: "footer_terms_link", widget: "string", i18n: true }
 
   - name: "main_hero"
     label: "Main: Hero"
