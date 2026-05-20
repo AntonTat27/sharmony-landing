@@ -1,53 +1,155 @@
 {{ define "main" }}
-<section class="bg-[#03292B] text-white py-14 sm:py-20 border-b border-white/10">
-    <div class="max-w-6xl mx-auto px-4 sm:px-6">
-        <p class="uppercase tracking-[0.32em] text-[#31D0B2] text-xs mb-4">{{ .Params.hero_eyebrow | default "Marketplace" }}</p>
-        <h1 class="font-['TT_Livret_Display_Trl'] text-3xl sm:text-5xl font-light leading-tight">{{ .Title }}</h1>
-        <p class="text-white/60 text-sm sm:text-base mt-3">{{ .Params.hero_subtitle | default "View listing details and key property metadata." }}</p>
+{{ $uiPage := .Site.GetPage "/ui_strings.md" }}
+{{ $ui := dict }}
+{{ with $uiPage }}{{ $ui = .Params }}{{ end }}
+
+<section class="relative bg-gradient-to-b from-[#03292B] to-[#011415] text-white py-16 sm:py-24 border-b border-white/5 overflow-hidden">
+    <div class="absolute inset-0 bg-[radial-gradient(circle_at_70%_120%,rgba(49,208,178,0.08),transparent_50%)]"></div>
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 relative z-10">
+        <p class="uppercase tracking-[0.32em] text-[#31D0B2] text-xs font-semibold mb-4">{{ .Params.hero_eyebrow | default "Marketplace" }}</p>
+        <h1 class="font-['TT_Livret_Display_Trl'] text-4xl sm:text-5xl font-light leading-tight">{{ .Title }}</h1>
+        <p class="text-white/60 text-sm sm:text-base mt-3 max-w-xl leading-relaxed">{{ .Params.hero_subtitle | default "View listing details and fractional real estate options." }}</p>
     </div>
 </section>
 
-<section class="bg-[#F8EDDD] py-10 sm:py-14">
-    <div class="max-w-6xl mx-auto px-4 sm:px-6">
-        <p id="listing-state" class="text-[#03292B]/70 text-sm mb-6">{{ .Params.details_loading | default "Loading listing details..." }}</p>
+<section class="bg-[#011415] text-white py-12 sm:py-16 relative min-h-[600px]">
+    <div class="absolute inset-0 bg-[radial-gradient(circle_at_10%_30%,rgba(219,167,87,0.03),transparent_40%)]"></div>
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 relative z-10">
+        
+        <p id="listing-state" class="text-white/40 text-xs uppercase tracking-wider mb-6 flex items-center gap-2">
+            <span class="inline-block w-2 h-2 rounded-full bg-[#31D0B2] animate-pulse"></span>
+            <span>{{ .Params.details_loading | default "Loading listing details..." }}</span>
+        </p>
 
-        <article id="listing-card" class="hidden bg-white border border-[#03292B]/10 rounded-xl overflow-hidden shadow-sm">
-            <div class="grid lg:grid-cols-2 gap-0">
-                <div class="p-4 sm:p-6 bg-[#03292B]/5">
-                    <div class="aspect-[4/3] rounded-xl overflow-hidden bg-[#03292B]/10">
-                        <img id="listing-image" src="" alt="" class="w-full h-full object-cover" loading="lazy">
+        <article id="listing-card" class="hidden bg-white/5 border border-white/10 backdrop-blur-lg rounded-2xl overflow-hidden shadow-2xl p-6 sm:p-10">
+            <div class="grid lg:grid-cols-2 gap-8 lg:gap-12">
+                
+                <!-- Left: Interactive Gallery -->
+                <div class="space-y-4">
+                    <div class="relative aspect-[16/10] rounded-2xl overflow-hidden bg-white/5 border border-white/5 group shadow-inner">
+                        <img id="listing-image" src="" alt="" class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105" loading="lazy">
+                        <div class="absolute inset-0 bg-gradient-to-t from-black/40 via-transparent to-transparent pointer-events-none"></div>
                     </div>
-                    <div class="flex items-center justify-between gap-3 mt-3">
-                        <p class="text-xs uppercase tracking-[0.25em] text-[#03292B]/60">{{ .Params.details_images_label | default "Images" }}</p>
-                        <p id="listing-images-count" class="text-xs text-[#03292B]/60"></p>
+                    <div class="flex items-center justify-between gap-3 px-1">
+                        <p class="text-[10px] uppercase tracking-wider text-white/40 font-semibold">{{ .Params.details_images_label | default "Gallery" }}</p>
+                        <p id="listing-images-count" class="text-xs text-white/50 font-medium"></p>
                     </div>
-                    <div id="listing-thumbs" class="mt-3 grid grid-cols-4 gap-2"></div>
-                    <p id="listing-image-status" class="mt-2 text-xs text-[#03292B]/60"></p>
+                    <div id="listing-thumbs" class="grid grid-cols-4 gap-3"></div>
+                    <p id="listing-image-status" class="text-xs text-white/40"></p>
                 </div>
-                <div class="p-6 sm:p-8">
-                    <div class="flex items-center justify-between gap-4 mb-4">
-                        <span id="listing-type" class="text-xs uppercase tracking-wider text-[#31D0B2]"></span>
-                        <span id="listing-price" class="text-lg font-semibold text-[#03292B]"></span>
-                    </div>
-                    <h2 id="listing-title" class="text-2xl sm:text-3xl text-[#03292B] leading-tight mb-3" style="font-family:TT_Livret_Display_Trl,serif;"></h2>
-                    <p id="listing-location" class="text-sm text-[#03292B]/70 mb-4"></p>
-                    <p id="listing-description" class="text-sm text-[#03292B]/75 leading-relaxed mb-6"></p>
+                
+                <!-- Right: Information & Actions -->
+                <div class="flex flex-col justify-between h-full">
+                    <div>
+                        <div class="flex items-center justify-between gap-4 mb-4 border-b border-white/5 pb-4">
+                            <span id="listing-type" class="text-xs font-semibold uppercase tracking-wider text-[#31D0B2] bg-[#31D0B2]/10 px-3 py-1 rounded-md"></span>
+                            <span id="listing-price" class="text-xl font-bold text-[#DBA757]"></span>
+                        </div>
+                        <h2 id="listing-title" class="text-3xl sm:text-4xl text-white font-light leading-tight mb-3" style="font-family:'TT_Livret_Display_Trl', serif;"></h2>
+                        <p id="listing-location" class="text-sm text-[#31D0B2] flex items-center gap-1 mb-5">
+                            <i class="bi bi-geo-alt"></i> <span class="text-white/60"></span>
+                        </p>
+                        <p id="listing-description" class="text-sm text-white/70 leading-relaxed mb-6"></p>
 
-                    <div class="grid sm:grid-cols-2 gap-3 text-sm">
-                        <div class="rounded-lg bg-[#F8EDDD] px-3 py-2"><span class="text-[#03292B]/60">{{ .Params.details_bedrooms_label | default "Bedrooms" }}:</span> <strong id="listing-bedrooms" class="text-[#03292B]"></strong></div>
-                        <div class="rounded-lg bg-[#F8EDDD] px-3 py-2"><span class="text-[#03292B]/60">{{ .Params.details_region_label | default "Region" }}:</span> <strong id="listing-region" class="text-[#03292B]"></strong></div>
-                        <div class="rounded-lg bg-[#F8EDDD] px-3 py-2"><span class="text-[#03292B]/60">{{ .Params.details_status_label | default "Status" }}:</span> <strong id="listing-status" class="text-[#03292B]"></strong></div>
-                        <div class="rounded-lg bg-[#F8EDDD] px-3 py-2"><span class="text-[#03292B]/60">{{ .Params.details_owner_label | default "Owner" }}:</span> <strong id="listing-owner" class="text-[#03292B]"></strong></div>
+                        <!-- Specifications Grid -->
+                        <div class="grid sm:grid-cols-2 gap-4 text-xs">
+                            <div class="rounded-xl bg-white/[0.02] border border-white/5 px-4 py-3 flex items-center justify-between">
+                                <span class="text-white/40">{{ .Params.details_bedrooms_label | default "Bedrooms" }}</span>
+                                <strong id="listing-bedrooms" class="text-white font-semibold"></strong>
+                            </div>
+                            <div class="rounded-xl bg-white/[0.02] border border-white/5 px-4 py-3 flex items-center justify-between">
+                                <span class="text-white/40">{{ .Params.details_region_label | default "Region" }}</span>
+                                <strong id="listing-region" class="text-white font-semibold"></strong>
+                            </div>
+                            <div class="rounded-xl bg-white/[0.02] border border-white/5 px-4 py-3 flex items-center justify-between">
+                                <span class="text-white/40">{{ .Params.details_status_label | default "Status" }}</span>
+                                <strong id="listing-status" class="text-white font-semibold"></strong>
+                            </div>
+                            <div class="rounded-xl bg-white/[0.02] border border-white/5 px-4 py-3 flex items-center justify-between">
+                                <span class="text-white/40">{{ .Params.details_owner_label | default "Owner" }}</span>
+                                <strong id="listing-owner" class="text-white font-semibold break-all ml-4 text-right"></strong>
+                            </div>
+                        </div>
+
+                        <!-- Fractional ownership section -->
+                        <div id="fractional-info-section" class="hidden mt-6 pt-6 border-t border-white/5">
+                            <h3 class="text-xs uppercase tracking-wider text-[#DBA757] font-semibold mb-4 flex items-center gap-1.5">
+                                <i class="bi bi-pie-chart"></i> Fractional Investment Panel
+                            </h3>
+                            <div class="grid grid-cols-3 gap-3 text-xs mb-5">
+                                <div class="rounded-xl bg-white/[0.02] border border-white/5 p-3">
+                                    <span class="block text-white/40 mb-1">Total Fractions</span>
+                                    <strong id="listing-total-fractions" class="text-white text-sm font-semibold">-</strong>
+                                </div>
+                                <div class="rounded-xl bg-white/[0.02] border border-white/5 p-3">
+                                    <span class="block text-white/40 mb-1">Available</span>
+                                    <strong id="listing-available-fractions" class="text-white text-sm font-semibold">-</strong>
+                                </div>
+                                <div class="rounded-xl bg-white/[0.02] border border-white/5 p-3">
+                                    <span class="block text-white/40 mb-1">Cost / Fraction</span>
+                                    <strong id="listing-price-per-fraction" class="text-[#DBA757] text-sm font-semibold">-</strong>
+                                </div>
+                            </div>
+                            <button id="buy-fractions-btn" type="button" class="w-full sm:w-auto inline-flex items-center justify-center gap-2 px-6 py-3.5 rounded-xl bg-gradient-to-r from-[#FFDDA8] to-[#DBA757] text-[#03292B] font-semibold hover:brightness-110 transition shadow-lg shadow-gold/5 hover:shadow-gold/15 duration-200">
+                                <i class="bi bi-wallet2"></i> Buy Fractions
+                            </button>
+                        </div>
                     </div>
 
-                    <div class="pt-6">
-                        <a href='{{ "/marketplace/" | relLangURL }}' class="inline-flex items-center justify-center px-5 py-2.5 rounded-lg border border-[#03292B]/20 text-[#03292B] hover:border-[#DBA757] hover:text-[#DBA757] transition">{{ .Params.details_back | default "Back to marketplace" }}</a>
+                    <div class="pt-8 border-t border-white/5 mt-8 flex flex-wrap gap-4">
+                        <a href='{{ "/marketplace/" | relLangURL }}' class="inline-flex items-center justify-center gap-2 px-5 py-3 rounded-xl bg-white/5 border border-white/10 text-white hover:border-[#31D0B2] hover:text-[#31D0B2] transition duration-200 text-xs font-semibold">
+                            <i class="bi bi-arrow-left"></i> {{ .Params.details_back | default "Back to marketplace" }}
+                        </a>
                     </div>
                 </div>
+
             </div>
         </article>
     </div>
 </section>
+
+<!-- Fractional Purchase Modal (Upgrade to Dark Elegant Theme) -->
+<div id="purchase-modal" class="hidden fixed inset-0 bg-black/70 z-50 flex items-center justify-center p-4 backdrop-blur-sm">
+    <div class="bg-[#021B1C] border border-white/10 rounded-2xl max-w-md w-full p-6 sm:p-8 shadow-2xl relative">
+        <button id="purchase-cancel-x" class="absolute top-4 right-4 text-white/40 hover:text-white transition"><i class="bi bi-x-lg"></i></button>
+        
+        <h2 class="text-2xl font-light text-white mb-2" style="font-family:'TT_Livret_Display_Trl', serif;">Buy Property Fractions</h2>
+        <p class="text-xs text-white/50 mb-6">Invest in fraction shares of this verified estate property.</p>
+
+        <form id="purchase-form" class="space-y-5">
+            <div>
+                <label class="block text-[10px] uppercase tracking-wider text-white/50 mb-2" for="purchase-quantity">Quantity of Fractions</label>
+                <input id="purchase-quantity" type="number" min="1" required class="w-full bg-[#011415] border border-white/10 text-white placeholder-white/20 px-4 py-3 rounded-xl focus:border-[#31D0B2] focus:outline-none text-sm transition">
+                <p class="mt-2 text-xs text-white/40 flex justify-between">
+                    <span>Available shares:</span>
+                    <strong class="text-white"><span id="purchase-available">-</span> fractions</strong>
+                </p>
+            </div>
+
+            <div class="bg-white/[0.02] border border-white/5 rounded-xl p-4 flex items-center justify-between">
+                <div>
+                    <label class="block text-[10px] uppercase tracking-wider text-white/40">Total Cost</label>
+                    <div class="text-2xl font-bold text-[#DBA757]" id="purchase-total">$0</div>
+                </div>
+                <div class="text-right">
+                    <span class="block text-[9px] uppercase text-white/40 tracking-wider">Method</span>
+                    <span class="text-xs text-[#31D0B2] font-semibold"><i class="bi bi-shield-check"></i> Wallet Balance</span>
+                </div>
+            </div>
+
+            <div id="purchase-status" class="text-xs font-semibold"></div>
+
+            <div class="flex gap-4 pt-2">
+                <button id="purchase-submit" type="submit" class="flex-1 px-4 py-3 rounded-xl bg-gradient-to-r from-[#FFDDA8] to-[#DBA757] text-[#03292B] font-semibold hover:brightness-110 transition shadow-lg duration-200">
+                    Confirm Investment
+                </button>
+                <button id="purchase-cancel" type="button" class="flex-1 px-4 py-3 rounded-xl bg-white/5 border border-white/10 text-white hover:bg-white/10 transition duration-200 text-xs font-semibold">
+                    Cancel
+                </button>
+            </div>
+        </form>
+    </div>
+</div>
 
 <script>
 (function () {
@@ -55,9 +157,13 @@
         loading: {{ (.Params.details_loading | default "Loading listing details...") | jsonify | safeJS }},
         missingId: {{ (.Params.details_missing_id | default "Listing ID is missing in URL.") | jsonify | safeJS }},
         notFound: {{ (.Params.details_not_found | default "Listing was not found.") | jsonify | safeJS }},
-        loadError: {{ (.Params.details_load_error | default "Could not load listing details from backend.") | jsonify | safeJS }},
+        loadError: {{ (.Params.details_load_error | default "Could not load listing details.") | jsonify | safeJS }},
         noDescription: {{ (.Params.details_no_description | default "No description provided.") | jsonify | safeJS }},
-        bedroomsSuffix: {{ (.Params.details_bedrooms_suffix | default "rooms") | jsonify | safeJS }}
+        bedroomsSuffix: {{ (.Params.details_bedrooms_suffix | default "rooms") | jsonify | safeJS }},
+        purchaseLoginRequired: {{ (or (index $ui "listing_details_purchase_login_required") "Please log in to purchase fractions.") | jsonify | safeJS }},
+        purchaseSuccess: {{ (or (index $ui "listing_details_purchase_success") "Purchase successful! Your fractions have been transferred to your wallet.") | jsonify | safeJS }},
+        purchaseError: {{ (or (index $ui "listing_details_purchase_error") "Could not complete purchase. Please check your balance.") | jsonify | safeJS }},
+        dealCreationError: {{ (or (index $ui "listing_details_deal_creation_error") "Could not create deal. Please try again.") | jsonify | safeJS }}
     };
 
     const stateEl = document.getElementById('listing-state');
@@ -65,25 +171,43 @@
     const thumbsEl = document.getElementById('listing-thumbs');
     const imageStatusEl = document.getElementById('listing-image-status');
     const imageCountEl = document.getElementById('listing-images-count');
-    const placeholderImage = '{{ "/images/hero/hero-bg.jpg" | relURL }}';
-    const listingStoragePrefix = 'sharmony_listing_';
+    const placeholderImage = '/images/hero_bg.jpg';
+    const listingStoragePrefix = 'sharmonyListing_';
     const lastListingIdKey = 'sharmony_last_listing_id';
     const lastListingRegionKey = 'sharmony_last_listing_region';
+    const loginUrl = '{{ "/login/" | relLangURL }}';
+    const accountUrl = '{{ "/account/" | relLangURL }}';
     let galleryItems = [];
+    let currentListing = null;
+    let currentListingId = null;
+
+    // Purchase modal elements
+    const purchaseModal = document.getElementById('purchase-modal');
+    const purchaseForm = document.getElementById('purchase-form');
+    const purchaseQuantity = document.getElementById('purchase-quantity');
+    const purchaseTotal = document.getElementById('purchase-total');
+    const purchaseSubmit = document.getElementById('purchase-submit');
+    const purchaseCancel = document.getElementById('purchase-cancel');
+    const purchaseCancelX = document.getElementById('purchase-cancel-x');
+    const purchaseStatus = document.getElementById('purchase-status');
+    const buyFractionsBtn = document.getElementById('buy-fractions-btn');
+    const purchaseAvailable = document.getElementById('purchase-available');
+    const fractionalInfoSection = document.getElementById('fractional-info-section');
 
     function setState(text, isError) {
-        stateEl.textContent = text;
-        stateEl.className = isError ? 'text-red-600 text-sm mb-6' : 'text-[#03292B]/70 text-sm mb-6';
+        stateEl.innerHTML = isError 
+            ? `<span class="inline-block w-2 h-2 rounded-full bg-red-400"></span><span class="text-red-300">${text}</span>` 
+            : `<span class="inline-block w-2 h-2 rounded-full bg-[#31D0B2] animate-pulse"></span><span class="text-white/60">${text}</span>`;
+        if (text === '') stateEl.classList.add('hidden');
+        else stateEl.classList.remove('hidden');
     }
 
     function formatPrice(v) {
         return new Intl.NumberFormat('en-US', { style: 'currency', currency: 'USD', maximumFractionDigits: 0 }).format(v || 0);
     }
 
-    // Helper: normalize gallery items. Our API uses an array of image URLs (strings).
     function normalizeGalleryItems(items, title) {
         return items.map(function (item, index) {
-            // support both plain string items and objects with `src` and optional `alt`
             const src = (typeof item === 'string') ? item : (item && item.src);
             const alt = (typeof item === 'string') ? (title + ' #' + (index + 1)) : (item && (item.alt || item.caption || item.title) ) || (title + ' #' + (index + 1));
             return src ? { src: src, alt: alt } : null;
@@ -94,7 +218,7 @@
         const imgEl = document.getElementById('listing-image');
         if (!imgEl) return;
         imgEl.src = image ? image.src : placeholderImage;
-        imgEl.alt = image ? image.alt : ({{ (.Params.details_image_alt | default "Listing image") | jsonify | safeJS }});
+        imgEl.alt = image ? image.alt : "Property image";
     }
 
     function renderGallery(rawImages, title) {
@@ -103,24 +227,26 @@
             setMainImage(null);
             if (thumbsEl) thumbsEl.innerHTML = '';
             if (imageCountEl) imageCountEl.textContent = '';
-            if (imageStatusEl) imageStatusEl.textContent = {{ (.Params.details_no_images | default "No images uploaded yet.") | jsonify | safeJS }};
+            if (imageStatusEl) imageStatusEl.textContent = "No images uploaded yet.";
             return;
         }
 
-        console.log(galleryItems);
-
         setMainImage(galleryItems[0]);
-        if (imageCountEl) imageCountEl.textContent = String(galleryItems.length);
+        if (imageCountEl) imageCountEl.textContent = String(galleryItems.length) + ' images';
         if (imageStatusEl) imageStatusEl.textContent = '';
         if (thumbsEl) {
             thumbsEl.innerHTML = galleryItems.map(function (image, index) {
-                return '<button type="button" data-index="' + index + '" class="overflow-hidden rounded-lg border border-[#03292B]/10 bg-white focus:outline-none focus:ring-2 focus:ring-[#31D0B2]">'
-                    + '<img src="' + image.src + '" alt="' + image.alt + '" class="h-20 w-full object-cover">'
+                const isActiveClass = index === 0 ? 'border-[#31D0B2] scale-95' : 'border-white/10 hover:border-white/30';
+                return '<button type="button" data-index="' + index + '" class="thumb-btn overflow-hidden rounded-xl border aspect-[16/10] bg-white/5 focus:outline-none transition duration-200 ' + isActiveClass + '">'
+                    + '<img src="' + image.src + '" alt="' + image.alt + '" class="h-full w-full object-cover">'
                     + '</button>';
             }).join('');
 
-            thumbsEl.querySelectorAll('button[data-index]').forEach(function (button) {
+            const btns = thumbsEl.querySelectorAll('.thumb-btn');
+            btns.forEach(function (button) {
                 button.addEventListener('click', function () {
+                    btns.forEach(b => b.className = b.className.replace('border-[#31D0B2] scale-95', 'border-white/10').replace('hover:border-white/30', ''));
+                    button.classList.add('border-[#31D0B2]', 'scale-95');
                     const idx = Number(button.getAttribute('data-index'));
                     if (!Number.isNaN(idx) && galleryItems[idx]) setMainImage(galleryItems[idx]);
                 });
@@ -129,30 +255,31 @@
     }
 
     function normalizeRecord(raw) {
-        // We expect the API to return a RealEstateRecord with exact JSON field names
-        // See provided Go struct. Use those exact keys.
         if (!raw) return null;
         const metadata = raw.metadata || {};
-        const images = Array.isArray(raw.images) ? raw.images : [];
+        const fractional = metadata.fractional || {};
+        const images = Array.isArray(raw.images) ? raw.images : (raw.image ? [raw.image] : []);
         const priceCents = Number(raw.price_cents || 0);
 
         return {
             id: raw.id || '',
             title: raw.title || '-',
             description: raw.description || '',
-            // keep first image as a quick fallback but expose full images array
             image: (images.length ? images[0] : ''),
             images: images,
-            // prefer explicit metadata keys when available
-            type: metadata.propertyType || metadata.type || '-',
-            city: metadata.city || '',
-            country: metadata.country || '',
-            bedrooms: Number(raw.rooms || metadata.bedrooms || 0),
-            // price in USD (price_cents -> dollars)
-            priceUsd: priceCents ? (priceCents / 100) : Number(raw.price_usd || 0),
+            type: metadata.propertyType || metadata.type || raw.type || '-',
+            city: metadata.city || raw.city || '',
+            country: metadata.country || raw.country || '',
+            bedrooms: Number(raw.rooms || metadata.bedrooms || raw.bedrooms || 0),
+            priceUsd: priceCents ? (priceCents / 100) : Number(raw.priceUsd || raw.price_usd || 0),
             region: raw.region || 'europe',
             owner: raw.owner || '-',
-            status: raw.status || '-'
+            status: raw.status || '-',
+            // Fractional fields
+            totalFractions: Number(fractional.totalFractions || metadata.totalFractions || 0),
+            fractionsPercentage: Number(fractional.fractionsPercentage || metadata.fractionsPercentage || 100),
+            ownerWallet: fractional.ownerWallet || metadata.ownerWallet || null,
+            isFractional: Number(fractional.totalFractions || metadata.totalFractions || 0) > 0
         };
     }
 
@@ -163,7 +290,7 @@
             sessionStorage.setItem(lastListingIdKey, String(raw.id));
             if (raw.region) sessionStorage.setItem(lastListingRegionKey, String(raw.region));
         } catch (e) {
-            // ignore storage issues (quota/private mode)
+            // ignore storage issues
         }
     }
 
@@ -177,7 +304,7 @@
                 if (!region) url.searchParams.delete('region');
                 link.href = url.toString();
             } catch (e) {
-                // ignore broken href
+                // ignore
             }
         });
     }
@@ -201,20 +328,60 @@
             });
     }
 
+    function renderFractionalInfo(item) {
+        if (!item.isFractional) {
+            if (fractionalInfoSection) fractionalInfoSection.classList.add('hidden');
+            return;
+        }
+
+        fractionalInfoSection.classList.remove('hidden');
+
+        const totalFractions = item.totalFractions || 0;
+        const fractionsPercentage = item.fractionsPercentage || 100;
+        const availableFractions = Math.round((totalFractions * fractionsPercentage) / 100);
+        const pricePerFraction = item.priceUsd / totalFractions;
+
+        document.getElementById('listing-total-fractions').textContent = totalFractions;
+        document.getElementById('listing-available-fractions').textContent = availableFractions;
+        document.getElementById('listing-price-per-fraction').textContent = formatPrice(pricePerFraction);
+        purchaseAvailable.textContent = availableFractions;
+
+        // Update purchase form max
+        if (purchaseQuantity) {
+            purchaseQuantity.max = availableFractions;
+        }
+
+        // Update total on quantity change
+        if (purchaseQuantity) {
+            // Set initial state
+            purchaseQuantity.value = 1;
+            purchaseTotal.textContent = formatPrice(pricePerFraction);
+
+            purchaseQuantity.addEventListener('input', function () {
+                const qty = Number(purchaseQuantity.value) || 0;
+                const total = qty * pricePerFraction;
+                purchaseTotal.textContent = formatPrice(total);
+            });
+        }
+    }
+
     function renderListing(item, rawImages) {
+        currentListing = item;
+        currentListingId = item.id;
         const safeImages = Array.isArray(rawImages) ? rawImages : [];
         renderGallery(safeImages.length ? safeImages : [item.image].filter(Boolean), item.title);
         document.getElementById('listing-title').textContent = item.title;
         document.getElementById('listing-type').textContent = item.type;
         document.getElementById('listing-price').textContent = formatPrice(item.priceUsd);
-        document.getElementById('listing-location').textContent = [item.city, item.country].filter(Boolean).join(', ');
+        document.getElementById('listing-location').querySelector('span').textContent = [item.city, item.country].filter(Boolean).join(', ');
         document.getElementById('listing-description').textContent = item.description || i18n.noDescription;
         document.getElementById('listing-bedrooms').textContent = String(item.bedrooms) + ' ' + i18n.bedroomsSuffix;
         document.getElementById('listing-region').textContent = item.region || '-';
         document.getElementById('listing-status').textContent = item.status || '-';
         document.getElementById('listing-owner').textContent = item.owner || '-';
 
-        // Replace owner id/address with user name when available by fetching profile
+        renderFractionalInfo(item);
+
         if (item.owner && item.owner !== '-') {
             fetchUserProfile(item.owner);
         }
@@ -225,12 +392,9 @@
 
     function loadListing() {
         const params = new URLSearchParams(window.location.search);
-        const hadIdInQuery = !!params.get('id');
-        const hadRegionInQuery = !!params.get('region');
         let id = params.get('id');
         let region = params.get('region') || 'europe';
 
-        // Try to recover id from history.state or sessionStorage when URL lost query params (e.g. language switch)
         try {
             if (!id) {
                 const lastId = sessionStorage.getItem(lastListingIdKey);
@@ -240,72 +404,18 @@
                     if (lastRegion) region = String(lastRegion);
                 }
             }
-
-            if (!id) {
-                const passed = (window.history && window.history.state && window.history.state.record) ? window.history.state.record : null;
-                if (passed && passed.id) {
-                    id = String(passed.id);
-                    region = region || passed.region || region;
-                } else {
-                    for (let i = 0; i < sessionStorage.length; i++) {
-                        const key = sessionStorage.key(i);
-                        if (!key || !key.startsWith(listingStoragePrefix)) continue;
-                        try {
-                            const parsed = JSON.parse(sessionStorage.getItem(key));
-                            if (parsed && parsed.id) {
-                                id = String(parsed.id);
-                                region = region || parsed.region || region;
-                                break;
-                            }
-                        } catch (e) {
-                            // ignore
-                        }
-                    }
-                }
-            }
-        } catch (e) {
-            // ignore
-        }
+        } catch (e) { }
 
         if (!id) {
             setState(i18n.missingId, true);
             return;
         }
 
-        // Ensure language switch links always keep the active listing context.
         syncLanguageLinks(id, region);
-
-        // Keep URL stable for language switching even if query params were lost and recovered from storage.
-        if (!hadIdInQuery || !hadRegionInQuery) {
-            try {
-                const url = new URL(window.location.href);
-                url.searchParams.set('id', id);
-                if (region) url.searchParams.set('region', region);
-                window.history.replaceState(window.history.state, '', url.toString());
-            } catch (e) {
-                // ignore
-            }
-        }
 
         setState(i18n.loading, false);
 
-        // Fast-path: if the marketplace page passed the full record via history.state or
-        // saved it into sessionStorage (key: 'sharmony_listing_<id>'), use it instead of fetching.
-        try {
-            const passed = (window.history && window.history.state && window.history.state.record) ? window.history.state.record : null;
-            const stored = sessionStorage.getItem(listingStoragePrefix + id);
-            const candidate = passed || (stored ? JSON.parse(stored) : null);
-            if (candidate) {
-                rememberListing(candidate);
-                const normalized = normalizeRecord(candidate);
-                if (normalized) return renderListing(normalized, normalized.images);
-                // otherwise fall through to fetch
-            }
-        } catch (e) {
-            // ignore parse errors and proceed to fetch
-            console.warn('Could not parse passed listing data, will fetch from backend.', e);
-        }
-
+        // Fetch check: First check backend, then check fallback
         const backend = window.SHARMONY_BACKEND_URL || '';
         const listEndpoint = backend + '/api/v1/real-estate/' + encodeURIComponent(region) + '/records';
 
@@ -315,32 +425,112 @@
                 return res.json();
             })
             .then(function (payload) {
-                // API returns an object with records array; we expect a list of RealEstateRecord
                 const records = payload.records || payload.listings || payload.data || payload || [];
                 const recordList = Array.isArray(records) ? records : (records ? [records] : []);
-                const match = recordList.find(function (entry) {
-                    return String(entry && entry.id) === String(id);
-                });
-                if (!match) {
-                    setState(i18n.notFound, true);
-                    return null;
-                }
+                const match = recordList.find(entry => String(entry && entry.id) === String(id));
+                if (!match) throw new Error('Not found on backend');
 
                 const normalized = normalizeRecord(match);
                 rememberListing(match);
-                // pass the raw images array (strings or objects) to the gallery renderer
-                return renderListing(normalized, normalized.images);
+                renderListing(normalized, normalized.images);
             })
-            .catch(function () {
+            .catch(function (error) {
+                console.error('Backend fetch failed.', error);
                 setState(i18n.loadError, true);
             });
+    }
+
+    // Purchase modal handlers
+    if (buyFractionsBtn) {
+        buyFractionsBtn.addEventListener('click', function () {
+            const token = localStorage.getItem('sharmonyAuthToken');
+            if (!token) {
+                alert(i18n.purchaseLoginRequired);
+                window.location.href = loginUrl;
+                return;
+            }
+            if (purchaseModal) purchaseModal.classList.remove('hidden');
+        });
+    }
+
+    function closeModal() {
+        if (purchaseModal) purchaseModal.classList.add('hidden');
+        purchaseForm.reset();
+        purchaseStatus.textContent = '';
+    }
+
+    if (purchaseCancel) purchaseCancel.addEventListener('click', closeModal);
+    if (purchaseCancelX) purchaseCancelX.addEventListener('click', closeModal);
+
+    if (purchaseForm) {
+        purchaseForm.addEventListener('submit', function (event) {
+            event.preventDefault();
+
+            const token = localStorage.getItem('sharmonyAuthToken');
+            const userId = localStorage.getItem('sharmonyAccountAddress');
+
+            if (!token || !userId || !currentListing) {
+                purchaseStatus.textContent = i18n.purchaseLoginRequired;
+                purchaseStatus.className = 'text-sm text-red-400 mt-2';
+                return;
+            }
+
+            const quantity = Number(purchaseQuantity.value) || 0;
+            if (quantity < 1) {
+                purchaseStatus.textContent = 'Please enter a valid quantity.';
+                purchaseStatus.className = 'text-sm text-red-400 mt-2';
+                return;
+            }
+
+            purchaseSubmit.disabled = true;
+            purchaseSubmit.classList.add('opacity-60', 'cursor-not-allowed');
+            purchaseStatus.textContent = 'Creating investment deal...';
+            purchaseStatus.className = 'text-xs text-white/50 mt-2';
+
+            const pricePerFraction = currentListing.priceUsd / currentListing.totalFractions;
+            const totalPrice = quantity * pricePerFraction;
+
+            window.SharmonyFractional.createFractionalDeal(token, userId, {
+                listingId: currentListingId,
+                quantityFractions: quantity,
+                totalPriceUsd: totalPrice,
+                sellerUserId: currentListing.owner,
+            })
+                .then(function (dealResult) {
+                    purchaseStatus.textContent = 'Deal created. Transferring balance and fractions...';
+                    return window.SharmonyFractional.confirmDealPayment(token, dealResult.dealId);
+                })
+                .then(function (confirmResult) {
+                    purchaseStatus.textContent = i18n.purchaseSuccess;
+                    purchaseStatus.className = 'text-xs text-[#31D0B2] mt-2';
+                    purchaseForm.reset();
+
+                    // Update local state available fractions
+                    const totalFractions = currentListing.totalFractions || 0;
+                    const fractionsPercentage = currentListing.fractionsPercentage || 100;
+                    const previouslyAvailable = Math.round((totalFractions * fractionsPercentage) / 100);
+                    const newAvailable = Math.max(0, previouslyAvailable - quantity);
+
+                    currentListing.fractionsPercentage = (newAvailable / totalFractions) * 100;
+
+                    // Redraw numbers in UI
+                    renderFractionalInfo(currentListing);
+
+                    window.setTimeout(closeModal, 2000);
+                })
+                .catch(function (error) {
+                    console.error('Purchase failed:', error);
+                    purchaseStatus.textContent = error.message || i18n.purchaseError;
+                    purchaseStatus.className = 'text-xs text-red-400 mt-2';
+                })
+                .finally(function () {
+                    purchaseSubmit.disabled = false;
+                    purchaseSubmit.classList.remove('opacity-60', 'cursor-not-allowed');
+                });
+        });
     }
 
     loadListing();
 })();
 </script>
 {{ end }}
-
-
-
-

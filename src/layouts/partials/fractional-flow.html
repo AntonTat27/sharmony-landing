@@ -1,0 +1,315 @@
+{{/*
+Shared fractional real estate flow utilities
+Handles wallet provisioning, fractional listing creation, and deal confirmation
+*/}}
+
+<script id="fractional-flow-utils">
+    (function () {
+        // Expose fractional flow API globally
+        window.SharmonyFractional = window.SharmonyFractional || {};
+
+        const backendUrl = window.SHARMONY_BACKEND_URL || '';
+        const walletStorageKey = 'sharmonyWallet';
+        const fractionsStoragePrefix = 'sharmonyFractions_';
+        const dealStoragePrefix = 'sharmonyDeal_';
+        const listingStoragePrefix = 'sharmonyListing_';
+
+        /**
+         * Get or ensure wallet for current user
+         * @returns {Promise<{address: string, ensured: boolean}>}
+         */
+        async function ensureWallet(token, userId) {
+            try {
+                // Try to get existing wallet
+                let wallet = sessionStorage.getItem(walletStorageKey);
+                if (wallet) {
+                    return { address: wallet, ensured: false };
+                }
+
+                // Call backend to ensure wallet
+                const resp = await fetch(backendUrl + '/api/v1/users/' + encodeURIComponent(userId) + '/wallet', {
+                    method: 'POST',
+                    headers: {
+                        'Authorization': 'Bearer ' + token,
+                        'Content-Type': 'application/json'
+                    },
+                    body: JSON.stringify({ userId: userId })
+                });
+
+                if (!resp.ok) {
+                    const err = await resp.json().catch(() => ({}));
+                    throw new Error(err.error || 'Failed to provision wallet');
+                }
+
+                const data = await resp.json();
+                wallet = data.wallet || data.address || null;
+                if (wallet) {
+                    sessionStorage.setItem(walletStorageKey, wallet);
+                }
+                return { address: wallet, ensured: true };
+            } catch (error) {
+                console.error('ensureWallet error:', error);
+                throw error;
+            }
+        }
+
+        /**
+         * Create a fractional listing
+         * @param {Object} payload - { title, description, totalFractions, pricePerFraction, ... }
+         * @param {Array} [files] - List of File objects to upload
+         * @returns {Promise<{listingId, dealId, fractionBalance}>}
+         */
+        async function createFractionalListing(token, userId, payload, files) {
+            try {
+                // First ensure wallet
+                const walletInfo = await ensureWallet(token, userId);
+                const walletAddress = walletInfo.address;
+
+                if (!walletAddress) {
+                    throw new Error('Could not provision wallet for listing creation');
+                }
+
+                const region = payload.region || 'europe';
+                const totalFractions = Number(payload.totalFractions || 100);
+
+                // Build request matching fractionalCreateRequest
+                const formData = new FormData();
+                const req = {
+                    region: region,
+                    ownerUserId: userId,
+                    totalFractions: totalFractions,
+                    record: {
+                        title: payload.title,
+                        description: payload.description,
+                        owner: walletAddress,
+                        region: region,
+                        address: payload.address || (payload.city || '') + (payload.country ? (', ' + payload.country) : ''),
+                        latitude: Number(payload.latitude || 0),
+                        longitude: Number(payload.longitude || 0),
+                        price_cents: Math.round((payload.priceUsd || 0) * 100),
+                        currency: 'USD',
+                        status: 'active',
+                        asset_id: payload.assetId || '',
+                        size_sqm: Number(payload.sizeSqm || 0),
+                        rooms: Number(payload.bedrooms || 0),
+                        images: [],
+                        metadata: {
+                            country: payload.country || '',
+                            city: payload.city || '',
+                            type: payload.type || '',
+                            propertyType: payload.type || '',
+                            totalFractions: totalFractions,
+                            fractionsPercentage: Number(payload.fractionsPercentage || 100),
+                            ownerWallet: walletAddress
+                        }
+                    }
+                };
+                formData.append('record', JSON.stringify(req));
+
+                const filesInputList = files ? Array.from(files) : [];
+                filesInputList.forEach(function (file) {
+                    formData.append('images', file, file.name);
+                });
+
+                // Create fractional listing via backend
+                const resp = await fetch(
+                    backendUrl + '/api/v1/real-estate/' + encodeURIComponent(region) + '/fractional-records',
+                    {
+                        method: 'POST',
+                        headers: token ? { 'Authorization': 'Bearer ' + token } : {},
+                        body: formData
+                    }
+                );
+
+                if (!resp.ok) {
+                    const err = await resp.json().catch(() => ({}));
+                    throw new Error(err.error || 'Failed to create fractional listing');
+                }
+
+                const data = await resp.json();
+                const listingId = data.id || data.listing_id || null;
+
+                // Store fractional metadata in session
+                if (listingId) {
+                    sessionStorage.setItem(fractionsStoragePrefix + listingId, JSON.stringify({
+                        id: listingId,
+                        ownerWallet: walletAddress,
+                        region: region,
+                        totalFractions: totalFractions,
+                        fractionsPercentage: Number(payload.fractionsPercentage || 100),
+                        createdAt: new Date().toISOString()
+                    }));
+                }
+
+                return {
+                    listingId: listingId,
+                    ownerWallet: walletAddress,
+                    totalFractions: totalFractions,
+                    metadata: data
+                };
+            } catch (error) {
+                console.error('createFractionalListing error:', error);
+                throw error;
+            }
+        }
+
+        /**
+         * Get available fractions for a listing
+         * @returns {Promise<number>}
+         */
+        async function getFractionBalance(token, listingId) {
+            try {
+                const stored = sessionStorage.getItem(fractionsStoragePrefix + listingId);
+                let region = 'europe';
+                if (stored) {
+                    try {
+                        const meta = JSON.parse(stored);
+                        if (meta && meta.region) region = meta.region;
+                    } catch (e) { }
+                }
+
+                const resp = await fetch(
+                    backendUrl + '/api/v1/real-estate/' + encodeURIComponent(region) + '/listings/' + encodeURIComponent(listingId) + '/fractions/balance',
+                    { headers: { 'Authorization': 'Bearer ' + token } }
+                );
+
+                if (resp.ok) {
+                    const data = await resp.json();
+                    return data.balance || 0;
+                } else {
+                    throw new Error('Failed to fetch fraction balance');
+                }
+            } catch (error) {
+                console.error('getFractionBalance error:', error);
+                return 0; // Better to return 0 on failure to prevent over-purchasing
+            }
+        }
+
+        /**
+         * Create a deal to purchase fractions
+         * @param {Object} payload - { listingId, buyerWalletAddress, quantityFractions, totalPriceUsd }
+         * @returns {Promise<{dealId, status, nextStep}>}
+         */
+        async function createFractionalDeal(token, userId, payload) {
+            try {
+                const buyerWalletInfo = await ensureWallet(token, userId);
+                const buyerWalletAddress = buyerWalletInfo.address;
+
+                if (!buyerWalletAddress) {
+                    throw new Error('Could not provision buyer wallet');
+                }
+
+                const req = {
+                    listing_id: payload.listingId,
+                    buyer_id: userId,
+                    seller_id: payload.sellerUserId,
+                    quantity_fractions: payload.quantityFractions,
+                    total_price_cents: Math.round((payload.totalPriceUsd || 0) * 100),
+                    status: 'pending_payment'
+                };
+
+                const resp = await fetch(backendUrl + '/api/v1/deals', {
+                    method: 'POST',
+                    headers: {
+                        'Authorization': 'Bearer ' + token,
+                        'Content-Type': 'application/json'
+                    },
+                    body: JSON.stringify(req)
+                });
+
+                if (!resp.ok) {
+                    const err = await resp.json().catch(() => ({}));
+                    throw new Error(err.error || 'Failed to create deal');
+                }
+
+                const data = await resp.json();
+                const dealId = data.id || data.deal_id || null;
+
+                return {
+                    dealId: dealId,
+                    status: 'pending_payment',
+                    nextStep: 'confirm_payment',
+                    metadata: data
+                };
+            } catch (error) {
+                console.error('createFractionalDeal error:', error);
+                throw error;
+            }
+        }
+
+        /**
+         * Confirm payment and complete deal
+         * @param {string} dealId
+         * @returns {Promise<{status, message, fractionTransferred}>}
+         */
+        async function confirmDealPayment(token, dealId) {
+            try {
+                const resp = await fetch(
+                    backendUrl + '/api/v1/deals/' + encodeURIComponent(dealId) + '/confirm-payment',
+                    {
+                        method: 'POST',
+                        headers: {
+                            'Authorization': 'Bearer ' + token,
+                            'Content-Type': 'application/json'
+                        },
+                        body: JSON.stringify({})
+                    }
+                );
+
+                if (!resp.ok) {
+                    const err = await resp.json().catch(() => ({}));
+                    throw new Error(err.error || 'Failed to confirm payment');
+                }
+
+                const data = await resp.json();
+
+                return {
+                    status: 'completed',
+                    message: data.message || 'Payment confirmed and fractions transferred',
+                    dealId: dealId,
+                    metadata: data
+                };
+            } catch (error) {
+                console.error('confirmDealPayment error:', error);
+                throw error;
+            }
+        }
+
+        /**
+         * Get user's fractional portfolio
+         * @returns {Promise<Array>}
+         */
+        async function getUserFractionalPortfolio(token, userId) {
+            try {
+                const resp = await fetch(
+                    backendUrl + '/api/v1/users/' + encodeURIComponent(userId) + '/fractions',
+                    {
+                        headers: { 'Authorization': 'Bearer ' + token }
+                    }
+                );
+
+                if (!resp.ok) {
+                    throw new Error('Failed to fetch user fractional portfolio');
+                }
+
+                const data = await resp.json();
+                return data.fractions || data.portfolio || [];
+            } catch (error) {
+                console.error('getUserFractionalPortfolio error:', error);
+                return [];
+            }
+        }
+
+        // Export API
+        window.SharmonyFractional = {
+            ensureWallet,
+            createFractionalListing,
+            getFractionBalance,
+            createFractionalDeal,
+            confirmDealPayment,
+            getUserFractionalPortfolio
+        };
+
+        console.log('SharmonyFractional flow utils loaded (Backend Only)');
+    })();
+</script>

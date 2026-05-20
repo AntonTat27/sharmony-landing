@@ -1,40 +1,125 @@
 {{ define "main" }}
+{{ $uiPage := .Site.GetPage "/ui_strings.md" }}
+{{ $ui := dict }}
+{{ with $uiPage }}{{ $ui = .Params }}{{ end }}
 {{ $loginPage := .Site.GetPage (printf "/%s/login.md" .Lang) }}
 {{ $submitPage := .Site.GetPage (printf "/%s/marketplace_submit.md" .Lang) }}
 {{ $marketplacePage := .Site.GetPage (printf "/%s/marketplace.md" .Lang) }}
-<section class="bg-[#03292B] text-white py-14 sm:py-20 border-b border-white/10">
-    <div class="max-w-7xl mx-auto px-4 sm:px-6">
-        <p class="uppercase tracking-[0.32em] text-[#31D0B2] text-xs mb-4">{{ .Params.hero_eyebrow | default "Personal account" }}</p>
-        <div class="flex flex-col sm:flex-row sm:items-end sm:justify-between gap-4">
+
+<section class="relative bg-gradient-to-b from-[#03292B] to-[#011415] text-white py-16 sm:py-24 border-b border-white/5 overflow-hidden">
+    <div class="absolute inset-0 bg-[radial-gradient(circle_at_70%_120%,rgba(49,208,178,0.08),transparent_50%)]"></div>
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 relative z-10">
+        <p class="uppercase tracking-[0.32em] text-[#31D0B2] text-xs font-semibold mb-4">{{ .Params.hero_eyebrow | default "Investor Dashboard" }}</p>
+        <div class="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-6">
             <div>
-                <h1 class="font-['TT_Livret_Display_Trl'] text-3xl sm:text-5xl font-light leading-tight">{{ .Title }}</h1>
-                <p class="text-white/60 text-sm sm:text-base mt-3">{{ .Params.hero_subtitle | default "Manage profile details and your own marketplace listings." }}</p>
+                <h1 class="font-['TT_Livret_Display_Trl'] text-4xl sm:text-5xl font-light leading-tight">{{ .Title }}</h1>
+                <p class="text-white/60 text-sm sm:text-base mt-3 max-w-xl leading-relaxed">{{ .Params.hero_subtitle | default "Manage your luxury property listings and track fractional investment holdings." }}</p>
             </div>
-            <button id="account-logout" type="button" class="inline-flex items-center justify-center px-5 py-2.5 border border-[#31D0B2]/50 text-[#31D0B2] rounded-lg hover:bg-[#31D0B2]/10 transition">{{ .Params.logout_label | default "Log out" }}</button>
+            <button id="account-logout" type="button" class="inline-flex items-center justify-center gap-2 px-5 py-3 border border-white/10 text-white/80 rounded-xl hover:border-red-400 hover:text-red-400 transition duration-200 text-xs font-semibold">
+                <i class="bi bi-box-arrow-right"></i> {{ .Params.logout_label | default "Log out" }}
+            </button>
         </div>
     </div>
 </section>
 
-<section class="bg-[#F8EDDD] py-10 sm:py-14">
-    <div class="max-w-7xl mx-auto px-4 sm:px-6">
-        <div id="account-state" class="text-[#03292B]/70 text-sm mb-6">{{ .Params.account_checking_session | default "Checking session..." }}</div>
+<section class="bg-[#011415] text-white py-12 sm:py-16 relative min-h-[600px]">
+    <div class="absolute inset-0 bg-[radial-gradient(circle_at_10%_30%,rgba(219,167,87,0.03),transparent_40%)]"></div>
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 relative z-10">
+        
+        <div id="account-state" class="text-white/40 text-xs uppercase tracking-wider mb-8 flex items-center gap-2">
+            <span class="inline-block w-2 h-2 rounded-full bg-[#31D0B2] animate-pulse"></span>
+            <span>Checking session...</span>
+        </div>
 
-        <div class="grid lg:grid-cols-3 gap-6 sm:gap-8">
-            <article class="lg:col-span-1 bg-white border border-[#03292B]/10 rounded-xl p-5 sm:p-6">
-                <p class="text-xs uppercase tracking-[0.22em] text-[#DBA757] mb-2">{{ .Params.account_profile_label | default "Profile" }}</p>
-                <h2 class="font-['TT_Livret_Display_Trl'] text-2xl text-[#03292B] mb-3" id="account-name">-</h2>
-                <p class="text-sm text-[#03292B]/70 mb-1" id="account-email">-</p>
-                <p class="text-sm text-[#03292B]/70 mb-5" id="account-membership">-</p>
-                <a href='{{ with $submitPage }}{{ .RelPermalink }}{{ else }}{{ "/marketplace/submit/" | relLangURL }}{{ end }}' class="inline-flex items-center justify-center px-4 py-2.5 rounded-lg bg-gradient-to-r from-[#FFDDA8] to-[#DBA757] text-[#03292B] font-semibold hover:brightness-110 transition">{{ .Params.account_post_listing | default "Post new listing" }}</a>
-            </article>
-
-            <article class="lg:col-span-2 bg-white border border-[#03292B]/10 rounded-xl p-5 sm:p-6">
-                <div class="flex items-center justify-between gap-4 mb-4">
-                    <h2 class="font-['TT_Livret_Display_Trl'] text-2xl text-[#03292B]">{{ .Params.account_your_listings | default "Your listings" }}</h2>
-                    <a href='{{ with $marketplacePage }}{{ .RelPermalink }}{{ else }}{{ "/marketplace/" | relLangURL }}{{ end }}' class="text-sm text-[#03292B] underline underline-offset-4 hover:text-[#DBA757]">{{ .Params.account_open_marketplace | default "Open marketplace" }}</a>
+        <!-- Metric Statistics Cards Row -->
+        <div class="grid grid-cols-1 sm:grid-cols-3 gap-6 mb-10">
+            <!-- Cash Balance Card Removed -->
+            <div class="bg-white/5 border border-white/10 rounded-2xl p-6 shadow-xl flex items-center gap-5">
+                <div class="w-12 h-12 rounded-xl bg-[#DBA757]/10 flex items-center justify-center text-[#DBA757] text-xl">
+                    <i class="bi bi-pie-chart"></i>
                 </div>
-                <div id="account-listings" class="space-y-3"></div>
-            </article>
+                <div>
+                    <span class="block text-[10px] text-white/40 uppercase tracking-wider">Portfolio Value</span>
+                    <strong id="stat-portfolio-value" class="text-xl font-bold text-[#DBA757]">$0</strong>
+                </div>
+            </div>
+            <div class="bg-white/5 border border-white/10 rounded-2xl p-6 shadow-xl flex items-center gap-5">
+                <div class="w-12 h-12 rounded-xl bg-[#31D0B2]/10 flex items-center justify-center text-[#31D0B2] text-xl">
+                    <i class="bi bi-gem"></i>
+                </div>
+                <div>
+                    <span class="block text-[10px] text-white/40 uppercase tracking-wider">Fractions Owned</span>
+                    <strong id="stat-fractions-owned" class="text-xl font-bold text-white">0</strong>
+                </div>
+            </div>
+        </div>
+
+        <div class="grid lg:grid-cols-3 gap-8">
+            
+            <!-- LEFT: Profile & Wallet Sidebar -->
+            <aside class="lg:col-span-1 bg-white/5 border border-white/10 rounded-2xl p-6 sm:p-8 shadow-xl flex flex-col justify-between h-full">
+                <div class="space-y-6">
+                    <div class="border-b border-white/5 pb-6">
+                        <p class="text-[10px] uppercase tracking-[0.22em] text-[#DBA757] mb-4 font-semibold">Investor Profile</p>
+                        
+                        <div class="flex items-center gap-4 mb-4">
+                            <div class="w-14 h-14 rounded-full bg-gradient-to-br from-[#FFDDA8] to-[#DBA757] flex items-center justify-center text-[#03292B] text-xl font-bold font-serif" id="account-avatar">U</div>
+                            <div>
+                                <h2 class="font-['TT_Livret_Display_Trl'] text-2xl text-white font-light" id="account-name">-</h2>
+                                <span class="inline-block text-[10px] font-bold uppercase tracking-wider text-[#31D0B2] bg-[#31D0B2]/10 px-2 py-0.5 rounded mt-1" id="account-membership">Starter</span>
+                            </div>
+                        </div>
+                        <p class="text-xs text-white/60 flex items-center gap-2" id="account-email">
+                            <i class="bi bi-envelope"></i> -
+                        </p>
+                    </div>
+
+                    <div>
+                        <p class="text-[10px] uppercase tracking-[0.22em] text-white/40 mb-3 font-semibold">Provisioned Wallet</p>
+                        <div class="bg-[#021B1C] border border-white/10 rounded-xl p-4 space-y-3">
+                            <div>
+                                <span class="block text-[9px] uppercase text-white/40">Address</span>
+                                <span id="wallet-address" class="text-xs font-mono text-[#31D0B2] break-all select-all font-semibold">-</span>
+                            </div>
+                            <!-- Available Balance Removed -->
+                        </div>
+                    </div>
+                </div>
+
+                <div class="pt-8">
+                    <a href='{{ with $submitPage }}{{ .RelPermalink }}{{ else }}{{ "/marketplace/submit/" | relLangURL }}{{ end }}' class="w-full inline-flex items-center justify-center gap-2 px-5 py-3.5 rounded-xl bg-gradient-to-r from-[#FFDDA8] to-[#DBA757] text-[#03292B] font-semibold hover:brightness-110 transition duration-200 text-sm shadow-md shadow-gold/5">
+                        <i class="bi bi-plus-lg"></i> {{ .Params.account_post_listing | default "Post new listing" }}
+                    </a>
+                </div>
+            </aside>
+
+            <!-- RIGHT: Holdings & Listings -->
+            <main class="lg:col-span-2 space-y-8">
+                
+                <!-- Listings Card -->
+                <article class="bg-white/5 border border-white/10 rounded-2xl p-6 sm:p-8 shadow-xl">
+                    <div class="flex items-center justify-between gap-4 mb-6 border-b border-white/5 pb-4">
+                        <h2 class="font-['TT_Livret_Display_Trl'] text-2xl text-white font-light flex items-center gap-2">
+                            <i class="bi bi-houses text-xl text-[#31D0B2]"></i> {{ .Params.account_your_listings | default "Your Listings" }}
+                        </h2>
+                        <a href='{{ with $marketplacePage }}{{ .RelPermalink }}{{ else }}{{ "/marketplace/" | relLangURL }}{{ end }}' class="text-xs text-[#31D0B2] hover:text-[#DBA757] transition flex items-center gap-1">
+                            {{ .Params.account_open_marketplace | default "Marketplace" }} <i class="bi bi-arrow-right"></i>
+                        </a>
+                    </div>
+                    <div id="account-listings" class="space-y-4"></div>
+                </article>
+
+                <!-- Portfolio Section -->
+                <div id="fractional-portfolio-section" class="hidden">
+                    <article class="bg-white/5 border border-white/10 rounded-2xl p-6 sm:p-8 shadow-xl">
+                        <h2 class="font-['TT_Livret_Display_Trl'] text-2xl text-white font-light mb-6 border-b border-white/5 pb-4 flex items-center gap-2">
+                            <i class="bi bi-pie-chart text-xl text-[#DBA757]"></i> {{ or (index $ui "account_fractional_portfolio") "Fractional Holdings" }}
+                        </h2>
+                        <div id="fractional-portfolio" class="space-y-4"></div>
+                    </article>
+                </div>
+
+            </main>
         </div>
     </div>
 </section>
@@ -46,17 +131,21 @@
     const detailsBaseUrl = '{{ "/marketplace/listing/" | relLangURL }}';
     const accountState = document.getElementById('account-state');
     const listEl = document.getElementById('account-listings');
+    const fractionalPortfolioSection = document.getElementById('fractional-portfolio-section');
+    const fractionalPortfolioEl = document.getElementById('fractional-portfolio');
     const I18N = {
-        noListings: '{{ .Params.account_no_listings | default "No personal listings yet. Use the post listing page to create your first one." }}',
+        noListings: '{{ .Params.account_no_listings | default "No personal listings yet. Click the button on the left to post one." }}',
         noAddress: '{{ .Params.account_no_address | default "No user address stored. Please sign in again." }}',
-        loadingProfileError: '{{ .Params.account_loading_profile_error | default "Could not load profile data from backend." }}',
-        loadingListingsError: '{{ .Params.account_loading_listings_error | default "Could not load your listings from backend." }}',
-        sessionActive: '{{ .Params.account_session_active | default "Session active. Data loaded from backend." }}',
-        profileFallbackName: '{{ .Params.account_fallback_name | default "Sharmony User" }}',
-        profileFallbackEmail: '{{ .Params.account_fallback_email | default "email@placeholder.local" }}',
+        loadingProfileError: '{{ .Params.account_loading_profile_error | default "Could not load profile data." }}',
+        loadingListingsError: '{{ .Params.account_loading_listings_error | default "Could not load your listings." }}',
+        sessionActive: '{{ .Params.account_session_active | default "Dashboard active. Data synced with local wallet." }}',
+        profileFallbackName: '{{ .Params.account_fallback_name | default "Demo Investor" }}',
+        profileFallbackEmail: '{{ .Params.account_fallback_email | default "investor@sharmony.demo" }}',
         membershipLabel: '{{ .Params.account_membership_label | default "Membership" }}',
-        membershipFallback: '{{ .Params.account_membership_fallback | default "Starter" }}',
-        priceLabel: '{{ .Params.account_price_label | default "Price" }}'
+        membershipFallback: 'Premium',
+        priceLabel: '{{ .Params.account_price_label | default "Price" }}',
+        noFractionalPortfolio: 'No fractional holdings yet. Explore the marketplace to purchase fractions.',
+        loadingFractionalPortfolio: 'Loading fractional portfolio...'
     };
 
     const token = localStorage.getItem(storageKey);
@@ -73,13 +162,18 @@
     });
 
     function setState(text, isError) {
-        accountState.textContent = text;
-        accountState.className = isError ? 'text-red-600 text-sm mb-6' : 'text-[#03292B]/70 text-sm mb-6';
+        accountState.innerHTML = isError 
+            ? `<span class="inline-block w-2 h-2 rounded-full bg-red-400"></span><span class="text-red-300">${text}</span>` 
+            : `<span class="inline-block w-2 h-2 rounded-full bg-[#31D0B2]"></span><span class="text-white/60">${text}</span>`;
+    }
+
+    function formatPrice(v) {
+        return new Intl.NumberFormat('en-US', { style: 'currency', currency: 'USD', maximumFractionDigits: 0 }).format(v || 0);
     }
 
     function renderListings(items) {
         if (!items.length) {
-            listEl.innerHTML = '<div class="border border-dashed border-[#03292B]/20 rounded-lg p-5 text-sm text-[#03292B]/65">' + I18N.noListings + '</div>';
+            listEl.innerHTML = '<div class="border border-dashed border-white/10 rounded-xl p-8 text-center text-xs text-white/40"><i class="bi bi-journal-x text-2xl mb-2 block"></i>' + I18N.noListings + '</div>';
             return;
         }
 
@@ -90,58 +184,124 @@
         }
 
         listEl.innerHTML = items.map(function (item) {
-            // compute price in USD from possible fields
-            const priceCents = Number(item.price_cents || item.priceCents || item.PriceCents || item.priceCents || 0);
+            const priceCents = Number(item.price_cents || item.priceCents || item.PriceCents || 0);
             const priceUsd = priceCents ? (priceCents / 100) : (Number(item.priceUsd || item.price_usd || 0) || 0);
             const city = item.city || (item.metadata && item.metadata.city) || '';
             const country = item.country || (item.metadata && item.metadata.country) || '';
             const type = item.type || (item.metadata && item.metadata.type) || '';
             const status = item.status || 'n/a';
+            const isFractional = !!(item.metadata && (item.metadata.fractional || item.metadata.totalFractions));
 
-            return '<a href="' + buildDetailsUrl(item) + '" class="block border border-[#03292B]/10 rounded-lg p-4 hover:shadow-sm transition focus:outline-none focus:ring-2 focus:ring-[#31D0B2]">'
-                + '<div class="flex items-start justify-between gap-4 mb-2">'
-                + '<h3 class="font-semibold text-[#03292B]">' + (item.title || '-') + '</h3>'
-                + '<span class="text-xs uppercase tracking-wide text-[#31D0B2]">' + status + '</span>'
+            return '<a href="' + buildDetailsUrl(item) + '" class="group block bg-white/[0.01] border border-white/5 hover:border-[#31D0B2]/30 rounded-xl p-5 shadow transition-all duration-200 focus:outline-none focus:ring-1 focus:ring-[#31D0B2]">'
+                + '<div class="flex items-center justify-between gap-4 mb-2">'
+                + '<h3 class="font-semibold text-white group-hover:text-[#31D0B2] transition duration-200">' + (item.title || '-') + '</h3>'
+                + '<div class="flex gap-2">'
+                + (isFractional ? '<span class="text-[9px] font-bold uppercase tracking-wider text-[#DBA757] bg-[#DBA757]/10 px-2 py-0.5 rounded">Fractional</span>' : '')
+                + '<span class="text-[9px] font-bold uppercase tracking-wider text-[#31D0B2] bg-[#31D0B2]/10 px-2 py-0.5 rounded">' + status + '</span>'
                 + '</div>'
-                + '<p class="text-sm text-[#03292B]/70 mb-2">' + city + (country ? (', ' + country) : '') + ' - ' + type + '</p>'
-                + '<p class="text-sm text-[#03292B]/70">' + I18N.priceLabel + ': ' + new Intl.NumberFormat('en-US', { style: 'currency', currency: 'USD', maximumFractionDigits: 0 }).format(priceUsd) + '</p>'
+                + '</div>'
+                + '<div class="flex flex-wrap items-center justify-between text-xs text-white/50 pt-2 border-t border-white/5 gap-2">'
+                + '<span><i class="bi bi-geo-alt"></i> ' + city + (country ? (', ' + country) : '') + ' • ' + type + '</span>'
+                + '<span class="font-semibold text-white">' + formatPrice(priceUsd) + '</span>'
+                + '</div>'
                 + '</a>';
         }).join('');
     }
-    // Load profile from backend user endpoint and user's listings from real-estate records
-    (function loadProfileAndListings() {
-        const address = localStorage.getItem('sharmonyAccountAddress');
-        if (!address) {
-            setState(I18N.noAddress, true);
+
+    function renderFractionalPortfolio(items) {
+        let totalInvested = 0;
+        let totalFractions = 0;
+
+        if (!items.length) {
+            fractionalPortfolioSection.classList.add('hidden');
+            document.getElementById('stat-portfolio-value').textContent = formatPrice(0);
+            document.getElementById('stat-fractions-owned').textContent = '0';
             return;
         }
 
-        // Fetch user profile
-        fetch((window.SHARMONY_BACKEND_URL || '') + '/api/v1/users/' + encodeURIComponent(address), { headers: { 'Authorization': 'Bearer ' + token } })
-            .then(function (res) { if (!res.ok) throw new Error('Failed to fetch profile'); return res.json(); })
-            .then(function (profilePayload) {
-                const profile = profilePayload.profile || profilePayload || {};
-                document.getElementById('account-name').textContent = profile.fullName || profile.name || I18N.profileFallbackName;
-                document.getElementById('account-email').textContent = profile.email || localStorage.getItem('sharmonyAccountEmail') || I18N.profileFallbackEmail;
-                document.getElementById('account-membership').textContent = I18N.membershipLabel + ': ' + (profile.membership || I18N.membershipFallback);
-            })
-            .catch(function () {
-                setState(I18N.loadingProfileError, true);
-            });
+        fractionalPortfolioSection.classList.remove('hidden');
 
-        // Fetch user's listings (assume real-estate records support owner query)
-        fetch((window.SHARMONY_BACKEND_URL || '') + '/api/v1/real-estate/europe/records/' + encodeURIComponent(address))
-            .then(function (res) { if (!res.ok) throw new Error('Failed to fetch listings'); return res.json(); })
-            .then(function (recordsPayload) {
-                const items = recordsPayload.records || recordsPayload.listings || recordsPayload || [];
-                console.log('Fetched listings:', items);
-                renderListings(items || []);
-                setState(I18N.sessionActive, false);
-            })
-            .catch(function () {
-                setState(I18N.loadingListingsError, true);
-            });
-    })();
+        fractionalPortfolioEl.innerHTML = items.map(function (item) {
+            const quantity = Number(item.quantity || item.Quantity || 0);
+            const listingTitle = item.listing_title || item.listingTitle || 'Unknown Listing';
+            const value = Number(item.value || item.Value || 0);
+
+            totalInvested += value;
+            totalFractions += quantity;
+
+            return '<div class="bg-white/[0.01] border border-white/5 rounded-xl p-5 flex items-center justify-between hover:border-white/15 transition">'
+                + '<div>'
+                + '<h3 class="font-semibold text-white">' + listingTitle + '</h3>'
+                + '<p class="text-xs text-white/50 mt-1.5 flex items-center gap-1.5"><i class="bi bi-cash-stack text-[#DBA757]"></i> Est. Value: ' + formatPrice(value) + '</p>'
+                + '</div>'
+                + '<span class="text-xs font-bold text-[#31D0B2] bg-[#31D0B2]/10 px-3 py-1.5 rounded-lg">' + quantity + ' fractions</span>'
+                + '</div>';
+        }).join('');
+
+        document.getElementById('stat-portfolio-value').textContent = formatPrice(totalInvested);
+        document.getElementById('stat-fractions-owned').textContent = String(totalFractions);
+    }
+
+    document.addEventListener('DOMContentLoaded', function loadDashboard() {
+        const address = localStorage.getItem('sharmonyAccountAddress') || 'usr_demo_001';
+        // 1. (Cash balance mock removed)
+
+        // 2. Ensure Wallet
+        if (window.SharmonyFractional && window.SharmonyFractional.ensureWallet) {
+            window.SharmonyFractional.ensureWallet(token, address)
+                .then(function (walletInfo) {
+                    const walletAddress = walletInfo.address;
+                    document.getElementById('wallet-address').textContent = walletAddress;
+                    document.getElementById('account-avatar').textContent = (address.charAt(0) || 'U').toUpperCase();
+
+                    // Load User Profile Data
+                    fetch((window.SHARMONY_BACKEND_URL || '') + '/api/v1/users/' + encodeURIComponent(address), { headers: { 'Authorization': 'Bearer ' + token } })
+                        .then(res => { if (!res.ok) throw new Error(); return res.json(); })
+                        .then(profilePayload => {
+                            const profile = profilePayload.profile || profilePayload || {};
+                            document.getElementById('account-name').textContent = profile.fullName || profile.name || I18N.profileFallbackName;
+                            document.getElementById('account-email').textContent = profile.email || localStorage.getItem('sharmonyAccountEmail') || I18N.profileFallbackEmail;
+                            document.getElementById('account-membership').textContent = profile.membership || I18N.membershipFallback;
+                        })
+                        .catch(() => {
+                            document.getElementById('account-name').textContent = I18N.profileFallbackName;
+                            document.getElementById('account-email').textContent = localStorage.getItem('sharmonyAccountEmail') || I18N.profileFallbackEmail;
+                            document.getElementById('account-membership').textContent = I18N.membershipFallback;
+                        });
+
+                    // Load User Listings
+                    fetch((window.SHARMONY_BACKEND_URL || '') + '/api/v1/real-estate/europe/records/' + encodeURIComponent(address))
+                        .then(res => { if (!res.ok) throw new Error(); return res.json(); })
+                        .then(recordsPayload => {
+                            const items = recordsPayload.records || recordsPayload.listings || recordsPayload || [];
+                            renderListings(items);
+                            setState(I18N.sessionActive, false);
+                        })
+                        .catch(() => {
+                            setState(I18N.loadingListingsError, true);
+                            renderListings([]);
+                        });
+
+                    // Load Fractional Portfolio
+                    if (window.SharmonyFractional.getUserFractionalPortfolio) {
+                        window.SharmonyFractional.getUserFractionalPortfolio(token, address)
+                            .then(function (portfolio) {
+                                renderFractionalPortfolio(portfolio || []);
+                            })
+                            .catch(() => {
+                                renderFractionalPortfolio([]);
+                            });
+                    }
+                })
+                .catch(function (err) {
+                    console.error('Wallet provisioning failed:', err);
+                    setState(I18N.loadingProfileError, true);
+                });
+        } else {
+            console.warn('SharmonyFractional utils not loaded');
+            setState('System offline, components missing.', true);
+        }
+    });
 })();
 </script>
 {{ end }}

@@ -2,91 +2,193 @@
 {{ $uiPage := .Site.GetPage "/ui_strings.md" }}
 {{ $ui := dict }}
 {{ with $uiPage }}{{ $ui = .Params }}{{ end }}
-<section class="bg-[#03292B] text-white py-14 sm:py-20 border-b border-white/10">
-    <div class="max-w-4xl mx-auto px-4 sm:px-6">
-        <p class="uppercase tracking-[0.32em] text-[#31D0B2] text-xs mb-4">{{ .Params.hero_eyebrow | default "Marketplace" }}</p>
-        <h1 class="font-['TT_Livret_Display_Trl'] text-3xl sm:text-5xl font-light leading-tight mb-3">{{ .Title }}</h1>
-        <p class="text-white/60 text-sm sm:text-base">{{ .Params.hero_subtitle | default "Publish your real estate listing. This form currently uses placeholder endpoints." }}</p>
+
+<section
+    class="relative bg-gradient-to-b from-[#03292B] to-[#011415] text-white py-16 sm:py-24 border-b border-white/5 overflow-hidden">
+    <div class="absolute inset-0 bg-[radial-gradient(circle_at_70%_120%,rgba(49,208,178,0.08),transparent_50%)]"></div>
+    <div class="max-w-4xl mx-auto px-4 sm:px-6 relative z-10">
+        <p class="uppercase tracking-[0.32em] text-[#31D0B2] text-xs font-semibold mb-4">{{ .Params.hero_eyebrow |
+            default "Marketplace" }}</p>
+        <h1 class="font-['TT_Livret_Display_Trl'] text-4xl sm:text-5xl font-light leading-tight mb-4">{{ .Title }}</h1>
+        <p class="text-white/60 text-sm sm:text-base leading-relaxed max-w-2xl">{{ .Params.hero_subtitle | default "List your property on Sharmony. Fill in details below to publish your property listing globally." }}</p>
     </div>
 </section>
 
-<section class="bg-[#F8EDDD] py-10 sm:py-14">
-    <div class="max-w-4xl mx-auto px-4 sm:px-6">
-        <div class="bg-white border border-[#03292B]/10 rounded-xl p-6 sm:p-8">
-            <form id="submit-form" class="space-y-4" novalidate>
-                <div class="grid sm:grid-cols-2 gap-4">
-                    <div>
-                        <label class="block text-xs uppercase tracking-[0.2em] text-[#03292B]/60 mb-2" for="listing-title">{{ or (index $ui "marketplace_submit_title") "Listing title" }}</label>
-                        <input id="listing-title" name="title" type="text" required class="w-full border border-[#03292B]/15 rounded-lg px-3 py-2.5 text-sm focus:outline-none focus:border-[#DBA757]" placeholder='{{ or (index $ui "marketplace_submit_title_placeholder") "e.g. Seaside villa in Bali" }}'>
+<section class="bg-[#011415] text-white py-12 sm:py-16 relative min-h-[600px]">
+    <div class="absolute inset-0 bg-[radial-gradient(circle_at_10%_30%,rgba(219,167,87,0.03),transparent_40%)]"></div>
+    <div class="max-w-4xl mx-auto px-4 sm:px-6 relative z-10">
+        <div class="bg-white/5 border border-white/10 backdrop-blur-lg rounded-2xl p-6 sm:p-10 shadow-2xl">
+            <form id="submit-form" class="space-y-8" novalidate>
+
+                <!-- Listing Mode Custom sliding switch -->
+                <div>
+                    <label class="block text-xs uppercase tracking-[0.2em] text-white/50 mb-3 font-semibold">Listing
+                        Mode</label>
+                    <div
+                        class="relative w-full bg-[#021B1C] border border-white/10 p-1.5 rounded-xl flex items-center max-w-sm">
+                        <div id="listing-mode-bg"
+                            class="absolute top-1.5 bottom-1.5 left-1.5 w-[calc(50%-6px)] bg-gradient-to-r from-[#FFDDA8] to-[#DBA757] rounded-lg transition-all duration-300 ease-out">
+                        </div>
+                        <button type="button" id="mode-regular"
+                            class="relative z-10 w-1/2 py-2.5 text-xs uppercase tracking-wider font-semibold transition-colors duration-300 text-[#03292B] focus:outline-none">Regular</button>
+                        <button type="button" id="mode-fractional"
+                            class="relative z-10 w-1/2 py-2.5 text-xs uppercase tracking-wider font-semibold transition-colors duration-300 text-white/50 focus:outline-none">Fractional</button>
                     </div>
-                    <div>
-                        <label class="block text-xs uppercase tracking-[0.2em] text-[#03292B]/60 mb-2" for="listing-type">{{ or (index $ui "marketplace_submit_type") "Property type" }}</label>
-                        <select id="listing-type" name="type" required class="w-full border border-[#03292B]/15 rounded-lg px-3 py-2.5 text-sm focus:outline-none focus:border-[#DBA757]">
-                            <option value="">{{ or (index $ui "marketplace_submit_type_placeholder") "Select type" }}</option>
-                            <option>{{ or (index $ui "marketplace_submit_type_villa") "Villa" }}</option>
-                            <option>{{ or (index $ui "marketplace_submit_type_apartment") "Apartment" }}</option>
-                            <option>{{ or (index $ui "marketplace_submit_type_townhouse") "Townhouse" }}</option>
-                            <option>{{ or (index $ui "marketplace_submit_type_commercial") "Commercial" }}</option>
-                        </select>
+                    <input type="hidden" id="listing-mode" name="listingMode" value="regular">
+                </div>
+
+                <!-- Fractional Ownership Fields -->
+                <div id="fractional-fields"
+                    class="hidden transition-all duration-300 bg-white/[0.02] border border-white/5 p-5 rounded-2xl space-y-4">
+                    <h3
+                        class="text-xs uppercase tracking-wider text-[#DBA757] font-semibold mb-3 flex items-center gap-1.5">
+                        <i class="bi bi-pie-chart"></i> Fractional Parameters
+                    </h3>
+                    <div class="grid sm:grid-cols-2 gap-5">
+                        <div>
+                            <label class="block text-xs uppercase tracking-wider text-white/50 mb-2"
+                                for="listing-total-fractions">Total fractions</label>
+                            <input id="listing-total-fractions" name="totalFractions" type="number" min="1" value="100"
+                                class="w-full bg-[#021B1C] border border-white/10 text-white placeholder-white/20 px-4 py-3 text-sm rounded-xl focus:border-[#DBA757]/60 focus:outline-none transition">
+                        </div>
+                        <div>
+                            <label class="block text-xs uppercase tracking-wider text-white/50 mb-2"
+                                for="listing-fractions-percentage">Fractions for sale (%)</label>
+                            <input id="listing-fractions-percentage" name="fractionsPercentage" type="number" min="1"
+                                max="100" value="100"
+                                class="w-full bg-[#021B1C] border border-white/10 text-white placeholder-white/20 px-4 py-3 text-sm rounded-xl focus:border-[#DBA757]/60 focus:outline-none transition">
+                        </div>
                     </div>
                 </div>
 
-                <div class="grid sm:grid-cols-3 gap-4">
+                <!-- Core Fields -->
+                <div class="grid sm:grid-cols-2 gap-5">
                     <div>
-                        <label class="block text-xs uppercase tracking-[0.2em] text-[#03292B]/60 mb-2" for="listing-country">{{ or (index $ui "marketplace_submit_country") "Country" }}</label>
-                        <input id="listing-country" name="country" type="text" required class="w-full border border-[#03292B]/15 rounded-lg px-3 py-2.5 text-sm focus:outline-none focus:border-[#DBA757]" placeholder='{{ or (index $ui "marketplace_submit_country_placeholder") "Country" }}'>
+                        <label class="block text-xs uppercase tracking-wider text-white/50 mb-2" for="listing-title">{{
+                            or (index $ui "marketplace_submit_title") "Listing title" }}</label>
+                        <input id="listing-title" name="title" type="text" required
+                            class="w-full bg-[#021B1C] border border-white/10 text-white placeholder-white/25 px-4 py-3 text-sm rounded-xl focus:border-[#31D0B2] focus:ring-1 focus:ring-[#31D0B2] focus:outline-none transition"
+                            placeholder='{{ or (index $ui "marketplace_submit_title_placeholder") "e.g. Seaside villa in Bali" }}'>
                     </div>
                     <div>
-                        <label class="block text-xs uppercase tracking-[0.2em] text-[#03292B]/60 mb-2" for="listing-city">{{ or (index $ui "marketplace_submit_city") "City" }}</label>
-                        <input id="listing-city" name="city" type="text" required class="w-full border border-[#03292B]/15 rounded-lg px-3 py-2.5 text-sm focus:outline-none focus:border-[#DBA757]" placeholder='{{ or (index $ui "marketplace_submit_city_placeholder") "City" }}'>
+                        <label class="block text-xs uppercase tracking-wider text-white/50 mb-2" for="listing-type">{{
+                            or (index $ui "marketplace_submit_type") "Property type" }}</label>
+                        <div class="relative">
+                            <select id="listing-type" name="type" required
+                                class="w-full bg-[#021B1C] border border-white/10 text-white px-4 py-3 text-sm rounded-xl focus:border-[#31D0B2] focus:outline-none appearance-none cursor-pointer">
+                                <option value="" class="bg-[#03292B]">{{ or (index $ui
+                                    "marketplace_submit_type_placeholder") "Select type" }}</option>
+                                <option class="bg-[#03292B]" value="Villa">{{ or (index $ui
+                                    "marketplace_submit_type_villa") "Villa" }}</option>
+                                <option class="bg-[#03292B]" value="Apartment">{{ or (index $ui
+                                    "marketplace_submit_type_apartment") "Apartment" }}</option>
+                                <option class="bg-[#03292B]" value="Townhouse">{{ or (index $ui
+                                    "marketplace_submit_type_townhouse") "Townhouse" }}</option>
+                                <option class="bg-[#03292B]" value="Commercial">{{ or (index $ui
+                                    "marketplace_submit_type_commercial") "Commercial" }}</option>
+                            </select>
+                            <i
+                                class="bi bi-chevron-down absolute right-4 top-1/2 -translate-y-1/2 text-white/40 pointer-events-none text-xs"></i>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="grid sm:grid-cols-2 gap-5">
+                    <div>
+                        <label class="block text-xs uppercase tracking-wider text-white/50 mb-2" for="listing-price">{{
+                            or (index $ui "marketplace_submit_price") "Price (USD)" }}</label>
+                        <input id="listing-price" name="priceUsd" type="number" min="1" required
+                            class="w-full bg-[#021B1C] border border-white/10 text-white placeholder-white/25 px-4 py-3 text-sm rounded-xl focus:border-[#31D0B2] focus:ring-1 focus:ring-[#31D0B2] focus:outline-none transition"
+                            placeholder='{{ or (index $ui "marketplace_submit_price_placeholder") "250000" }}'>
                     </div>
                     <div>
-                        <label class="block text-xs uppercase tracking-[0.2em] text-[#03292B]/60 mb-2" for="listing-bedrooms">{{ or (index $ui "marketplace_submit_bedrooms") "Bedrooms" }}</label>
-                        <input id="listing-bedrooms" name="bedrooms" type="number" min="0" required class="w-full border border-[#03292B]/15 rounded-lg px-3 py-2.5 text-sm focus:outline-none focus:border-[#DBA757]" placeholder='{{ or (index $ui "marketplace_submit_bedrooms_placeholder") "2" }}'>
+                        <label class="block text-xs uppercase tracking-wider text-white/50 mb-2"
+                            for="listing-bedrooms">{{ or (index $ui "marketplace_submit_bedrooms") "Bedrooms" }}</label>
+                        <input id="listing-bedrooms" name="bedrooms" type="number" min="0" required
+                            class="w-full bg-[#021B1C] border border-white/10 text-white placeholder-white/25 px-4 py-3 text-sm rounded-xl focus:border-[#31D0B2] focus:ring-1 focus:ring-[#31D0B2] focus:outline-none transition"
+                            placeholder='{{ or (index $ui "marketplace_submit_bedrooms_placeholder") "2" }}'>
+                    </div>
+                </div>
+
+                <div class="grid sm:grid-cols-2 gap-5">
+                    <div>
+                        <label class="block text-xs uppercase tracking-wider text-white/50 mb-2"
+                            for="listing-country">{{ or (index $ui "marketplace_submit_country") "Country" }}</label>
+                        <input id="listing-country" name="country" type="text" required
+                            class="w-full bg-[#021B1C] border border-white/10 text-white placeholder-white/25 px-4 py-3 text-sm rounded-xl focus:border-[#31D0B2] focus:ring-1 focus:ring-[#31D0B2] focus:outline-none transition"
+                            placeholder='{{ or (index $ui "marketplace_submit_country_placeholder") "Country" }}'>
+                    </div>
+                    <div>
+                        <label class="block text-xs uppercase tracking-wider text-white/50 mb-2" for="listing-city">{{
+                            or (index $ui "marketplace_submit_city") "City" }}</label>
+                        <input id="listing-city" name="city" type="text" required
+                            class="w-full bg-[#021B1C] border border-white/10 text-white placeholder-white/25 px-4 py-3 text-sm rounded-xl focus:border-[#31D0B2] focus:ring-1 focus:ring-[#31D0B2] focus:outline-none transition"
+                            placeholder='{{ or (index $ui "marketplace_submit_city_placeholder") "City" }}'>
                     </div>
                 </div>
 
                 <div>
-                    <label class="block text-xs uppercase tracking-[0.2em] text-[#03292B]/60 mb-2" for="listing-price">{{ or (index $ui "marketplace_submit_price") "Price (USD)" }}</label>
-                    <input id="listing-price" name="priceUsd" type="number" min="1" required class="w-full border border-[#03292B]/15 rounded-lg px-3 py-2.5 text-sm focus:outline-none focus:border-[#DBA757]" placeholder='{{ or (index $ui "marketplace_submit_price_placeholder") "250000" }}'>
+                    <label class="block text-xs uppercase tracking-wider text-white/50 mb-2"
+                        for="listing-description">{{ or (index $ui "marketplace_submit_description") "Description"
+                        }}</label>
+                    <textarea id="listing-description" name="description" required rows="4"
+                        class="w-full bg-[#021B1C] border border-white/10 text-white placeholder-white/25 px-4 py-3 text-sm rounded-xl focus:border-[#31D0B2] focus:ring-1 focus:ring-[#31D0B2] focus:outline-none transition resize-none"
+                        placeholder='{{ or (index $ui "marketplace_submit_description_placeholder") "Describe your property features and investment highlights" }}'></textarea>
                 </div>
 
+                <!-- Custom Styled Upload Dropzone with Preview -->
                 <div>
-                    <label class="block text-xs uppercase tracking-[0.2em] text-[#03292B]/60 mb-2" for="listing-description">{{ or (index $ui "marketplace_submit_description") "Description" }}</label>
-                    <textarea id="listing-description" name="description" required rows="4" class="w-full border border-[#03292B]/15 rounded-lg px-3 py-2.5 text-sm focus:outline-none focus:border-[#DBA757]" placeholder='{{ or (index $ui "marketplace_submit_description_placeholder") "Describe your property and highlights" }}'></textarea>
+                    <label class="block text-xs uppercase tracking-wider text-white/50 mb-2.5 font-semibold">{{ or
+                        (index $ui "marketplace_submit_images") "Images" }}</label>
+                    <div id="dropzone"
+                        class="border-2 border-dashed border-white/10 hover:border-[#31D0B2]/50 bg-white/[0.01] rounded-2xl p-8 text-center cursor-pointer transition duration-200 relative flex flex-col items-center justify-center">
+                        <input id="listing-images" name="images" type="file" multiple accept="image/*" class="hidden">
+                        <div id="dropzone-prompt" class="space-y-2">
+                            <i class="bi bi-cloud-arrow-up text-4xl text-[#31D0B2]"></i>
+                            <p class="text-sm font-semibold">Drag & drop files here, or <span
+                                    class="text-[#31D0B2] underline">browse files</span></p>
+                            <p class="text-xs text-white/40">Upload high quality JPEG or PNG images (Max 5MB each)</p>
+                        </div>
+                        <div id="preview-grid" class="hidden grid grid-cols-2 sm:grid-cols-4 gap-3 mt-5 w-full"></div>
+                    </div>
+                    <p id="listing-images-meta" class="mt-2 text-xs text-white/40">{{ or (index $ui
+                        "marketplace_submit_images_hint") "At least one image is recommended." }}</p>
                 </div>
 
-                <div>
-                    <label class="block text-xs uppercase tracking-[0.2em] text-[#03292B]/60 mb-2" for="listing-images">{{ or (index $ui "marketplace_submit_images") "Images" }}</label>
-                    <input id="listing-images" name="images" type="file" multiple accept="image/*" class="w-full border border-[#03292B]/15 rounded-lg px-3 py-2.5 text-sm focus:outline-none focus:border-[#DBA757] bg-white">
-                    <p id="listing-images-meta" class="mt-2 text-xs text-[#03292B]/60">{{ or (index $ui "marketplace_submit_images_hint") "You can upload one or more images." }}</p>
+                <!-- Action Buttons -->
+                <div class="pt-4 flex flex-wrap gap-4 items-center">
+                    <button id="submit-btn" type="submit"
+                        class="px-6 py-3.5 rounded-xl bg-gradient-to-r from-[#FFDDA8] to-[#DBA757] text-[#03292B] font-semibold hover:brightness-110 transition shadow-lg shadow-gold/5 hover:shadow-gold/15 duration-200">
+                        {{ or (index $ui "marketplace_submit_button") "Publish listing" }}
+                    </button>
+                    <a href='{{ "/marketplace/" | relLangURL }}'
+                        class="px-6 py-3.5 rounded-xl bg-white/5 border border-white/15 text-white hover:border-[#31D0B2] hover:text-[#31D0B2] transition duration-200">
+                        {{ or (index $ui "marketplace_submit_back") "Back to marketplace" }}
+                    </a>
                 </div>
 
-                <div class="pt-2 flex flex-wrap gap-3">
-                    <button id="submit-btn" type="submit" class="px-6 py-3 rounded-lg bg-gradient-to-r from-[#FFDDA8] to-[#DBA757] text-[#03292B] font-semibold hover:brightness-110 transition">{{ or (index $ui "marketplace_submit_button") "Publish listing" }}</button>
-                    <a href='{{ "/marketplace/" | relLangURL }}' class="px-6 py-3 rounded-lg border border-[#03292B]/25 text-[#03292B] hover:border-[#DBA757] hover:text-[#DBA757] transition">{{ or (index $ui "marketplace_submit_back") "Back to marketplace" }}</a>
-                </div>
-                <p id="submit-status" class="text-sm text-[#03292B]/70"></p>
+                <p id="submit-status" class="text-sm font-semibold"></p>
             </form>
         </div>
     </div>
 </section>
 
 <script>
-(function () {
-    const i18n = {
-        required: {{ (or (index $ui "marketplace_submit_required") "Fill all required fields before submitting.") | jsonify | safeJS }},
-        submitting: {{ (or (index $ui "marketplace_submit_submitting") "Submitting listing to backend...") | jsonify | safeJS }},
-        success: {{ (or (index $ui "marketplace_submit_success") "Listing submitted successfully. Redirecting to account...") | jsonify | safeJS }},
-        error: {{ (or (index $ui "marketplace_submit_error") "Could not submit listing. Backend endpoint is unavailable or rejected the request.") | jsonify | safeJS }},
-        imagesSelectedSingle: {{ (or (index $ui "marketplace_submit_images_selected_single") "1 image selected") | jsonify | safeJS }},
-        imagesSelectedMany: {{ (or (index $ui "marketplace_submit_images_selected_many") "images selected") | jsonify | safeJS }}
-    };
+    (function () {
+        const i18n = {
+            required: {{ (or (index $ui "marketplace_submit_required") "Fill all required fields before submitting.") | jsonify | safeJS }},
+            submitting: {{ (or (index $ui "marketplace_submit_submitting") "Publishing listing...") | jsonify | safeJS }},
+            success: {{ (or (index $ui "marketplace_submit_success") "Listing published successfully! Redirecting...") | jsonify | safeJS }},
+            error: {{ (or (index $ui "marketplace_submit_error") "Could not submit listing. Backend is offline or rejected the request.") | jsonify | safeJS }},
+            imagesSelectedSingle: "1 image selected",
+            imagesSelectedMany: "images selected"
+        };
 
     const storageKey = 'sharmonyAuthToken';
     const loginUrl = '{{ "/login/" | relLangURL }}';
     const accountUrl = '{{ "/account/" | relLangURL }}';
 
+    // Redirect to login if unauthorized
     if (!localStorage.getItem(storageKey)) {
         window.location.replace(loginUrl);
         return;
@@ -97,18 +199,114 @@
     const statusEl = document.getElementById('submit-status');
     const imagesInput = document.getElementById('listing-images');
     const imagesMetaEl = document.getElementById('listing-images-meta');
+    const listingModeInput = document.getElementById('listing-mode');
+    const fractionalFields = document.getElementById('fractional-fields');
+    const dropzone = document.getElementById('dropzone');
+    const dropzonePrompt = document.getElementById('dropzone-prompt');
+    const previewGrid = document.getElementById('preview-grid');
+
+    // Listing Mode Custom Slide Switch Logic
+    const modeRegular = document.getElementById('mode-regular');
+    const modeFractional = document.getElementById('mode-fractional');
+    const modeBg = document.getElementById('listing-mode-bg');
+
+    function selectMode(mode) {
+        listingModeInput.value = mode;
+        if (mode === 'fractional') {
+            modeBg.style.left = 'calc(50% - 2px)';
+            modeFractional.classList.add('text-[#03292B]');
+            modeFractional.classList.remove('text-white/50');
+            modeRegular.classList.add('text-white/50');
+            modeRegular.classList.remove('text-[#03292B]');
+            fractionalFields.classList.remove('hidden');
+        } else {
+            modeBg.style.left = '6px';
+            modeRegular.classList.add('text-[#03292B]');
+            modeRegular.classList.remove('text-white/50');
+            modeFractional.classList.add('text-white/50');
+            modeFractional.classList.remove('text-[#03292B]');
+            fractionalFields.classList.add('hidden');
+        }
+    }
+
+    modeRegular.addEventListener('click', () => selectMode('regular'));
+    modeFractional.addEventListener('click', () => selectMode('fractional'));
+
+    // Custom Styled Dropzone File select click triggers input click
+    dropzone.addEventListener('click', function (e) {
+        if (e.target !== imagesInput && !imagesInput.contains(e.target) && !e.target.closest('.remove-btn')) {
+            imagesInput.click();
+        }
+    });
+
+    // Drag over highlights
+    ['dragenter', 'dragover'].forEach(eventName => {
+        dropzone.addEventListener(eventName, e => {
+            e.preventDefault();
+            dropzone.classList.add('border-[#31D0B2]/50', 'bg-white/[0.03]');
+        }, false);
+    });
+    ['dragleave', 'drop'].forEach(eventName => {
+        dropzone.addEventListener(eventName, e => {
+            e.preventDefault();
+            dropzone.classList.remove('border-[#31D0B2]/50', 'bg-white/[0.03]');
+        }, false);
+    });
+
+    // File drop
+    dropzone.addEventListener('drop', e => {
+        const dt = e.dataTransfer;
+        const files = dt.files;
+        imagesInput.files = files;
+        handleFiles(files);
+    });
+
+    imagesInput.addEventListener('change', function () {
+        handleFiles(imagesInput.files);
+    });
+
+    let selectedFilesBase64 = [];
+
+    function handleFiles(files) {
+        const count = files.length;
+        if (!count) {
+            dropzonePrompt.classList.remove('hidden');
+            previewGrid.classList.add('hidden');
+            previewGrid.innerHTML = '';
+            imagesMetaEl.textContent = i18n.required;
+            return;
+        }
+
+        imagesMetaEl.textContent = count === 1 ? i18n.imagesSelectedSingle : (String(count) + ' ' + i18n.imagesSelectedMany);
+        dropzonePrompt.classList.add('hidden');
+        previewGrid.classList.remove('hidden');
+        previewGrid.innerHTML = '';
+        selectedFilesBase64 = [];
+
+        Array.from(files).forEach((file, index) => {
+            if (!file.type.startsWith('image/')) return;
+            const reader = new FileReader();
+
+            // Create preview thumbnail
+            const thumb = document.createElement('div');
+            thumb.className = 'relative h-20 bg-white/5 border border-white/10 rounded-xl overflow-hidden group';
+
+            const img = document.createElement('img');
+            img.className = 'w-full h-full object-cover';
+            thumb.appendChild(img);
+
+            reader.onload = function (e) {
+                img.src = e.target.result;
+                selectedFilesBase64.push(e.target.result);
+            };
+            reader.readAsDataURL(file);
+            previewGrid.appendChild(thumb);
+        });
+    }
 
     function setStatus(text, isError) {
         statusEl.textContent = text;
-        statusEl.className = isError ? 'text-sm text-red-600' : 'text-sm text-[#03292B]/70';
-    }
-
-    if (imagesInput && imagesMetaEl) {
-        imagesInput.addEventListener('change', function () {
-            const count = (imagesInput.files && imagesInput.files.length) || 0;
-            if (!count) return;
-            imagesMetaEl.textContent = count === 1 ? i18n.imagesSelectedSingle : (String(count) + ' ' + i18n.imagesSelectedMany);
-        });
+        statusEl.className = isError ? 'text-sm text-red-300 mt-4' : 'text-sm text-[#31D0B2] mt-4';
     }
 
     form.addEventListener('submit', function (event) {
@@ -123,29 +321,100 @@
         btn.classList.add('opacity-60', 'cursor-not-allowed');
         setStatus(i18n.submitting, false);
 
-        // build RealEstateRecord payload expected by backend
         const priceUsd = Number(form.priceUsd.value) || 0;
-        const payload = {
+        const listingMode = String(listingModeInput.value || 'regular').toLowerCase();
+        const userId = localStorage.getItem('sharmonyAccountAddress') || 'usr_demo_001';
+        const token = localStorage.getItem(storageKey) || '';
+
+        // Prepare local database record
+        const listingId = 'l_custom_' + Date.now();
+        const newListing = {
+            id: listingId,
             title: form.title.value,
             description: form.description.value,
-            owner: localStorage.getItem('sharmonyAccountAddress') || null,
-            region: 'global',
+            owner: userId,
+            region: 'europe',
             address: (form.city.value || '') + (form.country.value ? (', ' + form.country.value) : ''),
             rooms: Number(form.bedrooms.value) || 0,
-            price_cents: Math.round(priceUsd * 100),
+            priceCents: Math.round(priceUsd * 100),
+            priceUsd: priceUsd,
+            currency: 'USD',
+            status: 'Published',
+            image: selectedFilesBase64.length ? selectedFilesBase64[0] : '/images/hero_bg.jpg',
+            images: selectedFilesBase64.length ? selectedFilesBase64 : ['/images/hero_bg.jpg'],
+            metadata: {
+                country: form.country.value || '',
+                city: form.city.value || '',
+                type: form.type.value || '',
+                propertyType: form.type.value || '',
+                totalFractions: listingMode === 'fractional' ? Number(form.totalFractions.value) : 100,
+                fractionsPercentage: listingMode === 'fractional' ? Number(form.fractionsPercentage.value) : 100
+            }
+        };
+
+        if (listingMode === 'fractional') {
+            newListing.metadata.fractional = {
+                totalFractions: Number(form.totalFractions.value) || 100,
+                fractionsPercentage: Number(form.fractionsPercentage.value) || 100,
+                ownerWallet: userId
+            };
+        }
+
+        // Action selector
+        if (listingMode === 'fractional' && window.SharmonyFractional && window.SharmonyFractional.createFractionalListing) {
+            const fractionalPayload = {
+                title: form.title.value,
+                description: form.description.value,
+                region: 'europe',
+                country: form.country.value,
+                city: form.city.value,
+                bedrooms: Number(form.bedrooms.value) || 0,
+                priceUsd: priceUsd,
+                type: form.type.value,
+                totalFractions: Number(form.totalFractions.value) || 100,
+                fractionsPercentage: Number(form.fractionsPercentage.value) || 100,
+                images: selectedFilesBase64
+            };
+
+            const files = (imagesInput && imagesInput.files) ? Array.from(imagesInput.files) : [];
+
+            window.SharmonyFractional.createFractionalListing(token, userId, fractionalPayload, files)
+                .then(function () {
+                    setStatus(i18n.success, false);
+                    form.reset();
+                    window.setTimeout(function () {
+                        window.location.replace(accountUrl);
+                    }, 1000);
+                })
+                .catch(function (err) {
+                    setStatus((err && err.message) || i18n.error, true);
+                })
+                .finally(function () {
+                    btn.disabled = false;
+                    btn.classList.remove('opacity-60', 'cursor-not-allowed');
+                });
+            return;
+        }
+
+        // Regular listing POST request (with fallback)
+        const formData = new FormData();
+        const payloadForApi = {
+            title: newListing.title,
+            description: newListing.description,
+            owner: newListing.owner,
+            region: 'europe',
+            address: newListing.address,
+            rooms: newListing.rooms,
+            price_cents: newListing.priceCents,
             currency: 'USD',
             status: 'pending',
             images: [],
-            metadata: { country: form.country.value || '', city: form.city.value || '', type: form.type.value || '' }
+            metadata: newListing.metadata
         };
+        formData.append('record', JSON.stringify(payloadForApi));
 
-        const token = localStorage.getItem(storageKey) || '';
-
-        const formData = new FormData();
-        formData.append('record', JSON.stringify(payload));
-
-        const files = (imagesInput && imagesInput.files) ? Array.from(imagesInput.files) : [];
-        files.forEach(function (file) {
+        const filesInputList = (imagesInput && imagesInput.files) ? Array.from(imagesInput.files) : [];
+        filesInputList.forEach(function (file) {
             formData.append('images', file, file.name);
         });
 
@@ -163,9 +432,10 @@
                 form.reset();
                 window.setTimeout(function () {
                     window.location.replace(accountUrl);
-                }, 900);
+                }, 1000);
             })
-            .catch(function () {
+            .catch(function (err) {
+                console.error('Submission failed:', err);
                 setStatus(i18n.error, true);
             })
             .finally(function () {
@@ -173,6 +443,6 @@
                 btn.classList.remove('opacity-60', 'cursor-not-allowed');
             });
     });
-})();
+}) ();
 </script>
 {{ end }}
