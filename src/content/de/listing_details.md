@@ -1,7 +1,7 @@
 ﻿---
 type: listing_details
 title: Listing Details
-url: /marketplace/listing/
+url: /de/marketplace/listing/
 hero_eyebrow: Marketplace
 hero_subtitle: View listing details and key property metadata.
 details_back: Back to marketplace

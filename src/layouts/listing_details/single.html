@@ -4,35 +4,35 @@
 {{ with $uiPage }}{{ $ui = .Params }}{{ end }}
 
 <section
-    class="relative bg-gradient-to-b from-[#F2E8D5] dark:from-[#03292B] to-[#FDF9F0] dark:to-[#011415] text-slate-900 dark:text-white py-16 sm:py-24 border-b border-slate-200 dark:border-white/5 overflow-hidden">
+    class="relative bg-gradient-to-b from-[#03292B] to-[#011415] text-white py-16 sm:py-24 border-b border-white/5 overflow-hidden">
     <div class="absolute inset-0 bg-[radial-gradient(circle_at_70%_120%,rgba(49,208,178,0.08),transparent_50%)]"></div>
     <div class="max-w-7xl mx-auto px-4 sm:px-6 relative z-10">
         <p class="uppercase tracking-[0.32em] text-[#31D0B2] text-xs font-semibold mb-4">{{ .Params.hero_eyebrow |
             default "Marketplace" }}</p>
         <h1 class="font-['TT_Livret_Display_Trl'] text-4xl sm:text-5xl font-light leading-tight">{{ .Title }}</h1>
-        <p class="text-slate-600 dark:text-white/60 text-sm sm:text-base mt-3 max-w-xl leading-relaxed">{{
+        <p class="text-white/60 text-sm sm:text-base mt-3 max-w-xl leading-relaxed">{{
             .Params.hero_subtitle | default "View listing details and fractional real estate options." }}</p>
     </div>
 </section>
 
-<section class="bg-[#FDF9F0] dark:bg-[#011415] text-slate-900 dark:text-white py-12 sm:py-16 relative min-h-[600px]">
+<section class="bg-[#F2E8D5] dark:bg-[#011415] text-slate-900 dark:text-white py-12 sm:py-16 relative min-h-[600px]">
     <div class="absolute inset-0 bg-[radial-gradient(circle_at_10%_30%,rgba(219,167,87,0.03),transparent_40%)]"></div>
     <div class="max-w-7xl mx-auto px-4 sm:px-6 relative z-10">
 
         <p id="listing-state"
-            class="text-slate-400 dark:text-white/40 text-xs uppercase tracking-wider mb-6 flex items-center gap-2">
+            class="text-[#03292B]/60 dark:text-white/40 text-xs uppercase tracking-wider mb-6 flex items-center gap-2">
             <span class="inline-block w-2 h-2 rounded-full bg-[#31D0B2] animate-pulse"></span>
             <span>{{ .Params.details_loading | default "Loading listing details..." }}</span>
         </p>
 
         <article id="listing-card"
-            class="hidden bg-[#FDF9F0] shadow-sm dark:shadow-none dark:bg-white/5 border border-slate-200 dark:border-white/10 backdrop-blur-lg rounded-2xl overflow-hidden shadow-2xl p-6 sm:p-10">
+            class="hidden bg-[#FDF9F0] shadow-sm dark:shadow-none dark:bg-white/5 border border-[#03292B]/10 dark:border-white/10 backdrop-blur-lg rounded-2xl overflow-hidden shadow-2xl p-6 sm:p-10">
             <div class="grid lg:grid-cols-2 gap-8 lg:gap-12">
 
                 <!-- Left: Interactive Gallery -->
                 <div class="space-y-4">
                     <div
-                        class="relative aspect-[16/10] rounded-2xl overflow-hidden bg-white shadow-sm dark:shadow-none dark:bg-white/5 border border-slate-200 dark:border-white/5 group shadow-inner">
+                        class="relative aspect-[16/10] rounded-2xl overflow-hidden bg-[#FDF9F0] shadow-sm dark:shadow-none dark:bg-white/5 border border-[#03292B]/10 dark:border-white/5 group shadow-inner">
                         <img id="listing-image" src="" alt=""
                             class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
                             loading="lazy">
@@ -70,28 +70,28 @@
                         <!-- Specifications Grid -->
                         <div class="grid sm:grid-cols-2 gap-4 text-xs">
                             <div
-                                class="rounded-xl bg-white shadow-sm dark:shadow-none dark:bg-white/[0.02] border border-slate-200 dark:border-white/5 px-4 py-3 flex items-center justify-between">
+                                class="rounded-xl bg-[#FDF9F0] shadow-sm dark:shadow-none dark:bg-white/[0.02] border border-[#03292B]/10 dark:border-white/5 px-4 py-3 flex items-center justify-between">
                                 <span class="text-slate-400 dark:text-white/40">{{ .Params.details_bedrooms_label |
                                     default "Bedrooms" }}</span>
                                 <strong id="listing-bedrooms"
                                     class="text-slate-900 dark:text-white font-semibold"></strong>
                             </div>
                             <div
-                                class="rounded-xl bg-white shadow-sm dark:shadow-none dark:bg-white/[0.02] border border-slate-200 dark:border-white/5 px-4 py-3 flex items-center justify-between">
+                                class="rounded-xl bg-[#FDF9F0] shadow-sm dark:shadow-none dark:bg-white/[0.02] border border-[#03292B]/10 dark:border-white/5 px-4 py-3 flex items-center justify-between">
                                 <span class="text-slate-400 dark:text-white/40">{{ .Params.details_region_label |
                                     default "Region" }}</span>
                                 <strong id="listing-region"
                                     class="text-slate-900 dark:text-white font-semibold"></strong>
                             </div>
                             <div
-                                class="rounded-xl bg-white shadow-sm dark:shadow-none dark:bg-white/[0.02] border border-slate-200 dark:border-white/5 px-4 py-3 flex items-center justify-between">
+                                class="rounded-xl bg-[#FDF9F0] shadow-sm dark:shadow-none dark:bg-white/[0.02] border border-[#03292B]/10 dark:border-white/5 px-4 py-3 flex items-center justify-between">
                                 <span class="text-slate-400 dark:text-white/40">{{ .Params.details_status_label |
                                     default "Status" }}</span>
                                 <strong id="listing-status"
                                     class="text-slate-900 dark:text-white font-semibold"></strong>
                             </div>
                             <div
-                                class="rounded-xl bg-white shadow-sm dark:shadow-none dark:bg-white/[0.02] border border-slate-200 dark:border-white/5 px-4 py-3 flex items-center justify-between">
+                                class="rounded-xl bg-[#FDF9F0] shadow-sm dark:shadow-none dark:bg-white/[0.02] border border-[#03292B]/10 dark:border-white/5 px-4 py-3 flex items-center justify-between">
                                 <span class="text-slate-400 dark:text-white/40">{{ .Params.details_owner_label | default
                                     "Owner" }}</span>
                                 <strong id="listing-owner"
@@ -108,19 +108,19 @@
                             </h3>
                             <div class="grid grid-cols-3 gap-3 text-xs mb-5">
                                 <div
-                                    class="rounded-xl bg-white shadow-sm dark:shadow-none dark:bg-white/[0.02] border border-slate-200 dark:border-white/5 p-3">
+                                    class="rounded-xl bg-[#FDF9F0] shadow-sm dark:shadow-none dark:bg-white/[0.02] border border-[#03292B]/10 dark:border-white/5 p-3">
                                     <span class="block text-slate-400 dark:text-white/40 mb-1">Total Fractions</span>
                                     <strong id="listing-total-fractions"
                                         class="text-slate-900 dark:text-white text-sm font-semibold">-</strong>
                                 </div>
                                 <div
-                                    class="rounded-xl bg-white shadow-sm dark:shadow-none dark:bg-white/[0.02] border border-slate-200 dark:border-white/5 p-3">
+                                    class="rounded-xl bg-[#FDF9F0] shadow-sm dark:shadow-none dark:bg-white/[0.02] border border-[#03292B]/10 dark:border-white/5 p-3">
                                     <span class="block text-slate-400 dark:text-white/40 mb-1">Available</span>
                                     <strong id="listing-available-fractions"
                                         class="text-slate-900 dark:text-white text-sm font-semibold">-</strong>
                                 </div>
                                 <div
-                                    class="rounded-xl bg-white shadow-sm dark:shadow-none dark:bg-white/[0.02] border border-slate-200 dark:border-white/5 p-3">
+                                    class="rounded-xl bg-[#FDF9F0] shadow-sm dark:shadow-none dark:bg-white/[0.02] border border-[#03292B]/10 dark:border-white/5 p-3">
                                     <span class="block text-slate-400 dark:text-white/40 mb-1">Cost / Fraction</span>
                                     <strong id="listing-price-per-fraction"
                                         class="text-[#DBA757] text-sm font-semibold">-</strong>
@@ -135,7 +135,7 @@
 
                     <div class="pt-8 border-t border-slate-200 dark:border-white/5 mt-8 flex flex-wrap gap-4">
                         <a href='{{ "/marketplace/" | relLangURL }}'
-                            class="inline-flex items-center justify-center gap-2 px-5 py-3 rounded-xl bg-white shadow-sm dark:shadow-none dark:bg-white/5 border border-slate-200 dark:border-white/10 text-slate-900 dark:text-white hover:border-[#31D0B2] hover:text-[#31D0B2] transition duration-200 text-xs font-semibold">
+                            class="inline-flex items-center justify-center gap-2 px-5 py-3 rounded-xl bg-[#FDF9F0] shadow-sm dark:shadow-none dark:bg-white/5 border border-[#03292B]/10 dark:border-white/10 text-slate-900 dark:text-white hover:border-[#31D0B2] hover:text-[#31D0B2] transition duration-200 text-xs font-semibold">
                             <i class="bi bi-arrow-left"></i> {{ .Params.details_back | default "Back to marketplace" }}
                         </a>
                     </div>
@@ -150,7 +150,7 @@
 <div id="purchase-modal"
     class="hidden fixed inset-0 bg-black/70 z-50 flex items-center justify-center p-4 backdrop-blur-sm">
     <div
-        class="bg-white dark:bg-[#021B1C] border border-slate-200 dark:border-white/10 rounded-2xl max-w-md w-full p-6 sm:p-8 shadow-2xl relative">
+        class="bg-[#FDF9F0] dark:bg-[#021B1C] border border-[#03292B]/10 dark:border-white/10 rounded-2xl max-w-md w-full p-6 sm:p-8 shadow-2xl relative">
         <button id="purchase-cancel-x"
             class="absolute top-4 right-4 text-slate-400 dark:text-white/40 hover:text-slate-900 dark:text-white transition"><i
                 class="bi bi-x-lg"></i></button>
@@ -165,7 +165,7 @@
                 <label class="block text-[10px] uppercase tracking-wider text-slate-500 dark:text-white/50 mb-2"
                     for="purchase-quantity">Quantity of Fractions</label>
                 <input id="purchase-quantity" type="number" min="1" required
-                    class="w-full bg-slate-50 dark:bg-[#011415] border border-slate-200 dark:border-white/10 text-slate-900 dark:text-white placeholder-white/20 px-4 py-3 rounded-xl focus:border-[#31D0B2] focus:outline-none text-sm transition">
+                    class="w-full bg-[#FDF9F0] dark:bg-[#011415] border border-[#03292B]/10 dark:border-white/10 text-slate-900 dark:text-white placeholder-white/20 px-4 py-3 rounded-xl focus:border-[#31D0B2] focus:outline-none text-sm transition">
                 <p class="mt-2 text-xs text-slate-400 dark:text-white/40 flex justify-between">
                     <span>Available shares:</span>
                     <strong class="text-slate-900 dark:text-white"><span id="purchase-available">-</span>
@@ -174,7 +174,7 @@
             </div>
 
             <div
-                class="bg-white shadow-sm dark:shadow-none dark:bg-white/[0.02] border border-slate-200 dark:border-white/5 rounded-xl p-4 flex items-center justify-between">
+                class="bg-[#FDF9F0] shadow-sm dark:shadow-none dark:bg-white/[0.02] border border-[#03292B]/10 dark:border-white/5 rounded-xl p-4 flex items-center justify-between">
                 <div>
                     <label class="block text-[10px] uppercase tracking-wider text-slate-400 dark:text-white/40">Total
                         Cost</label>
@@ -196,7 +196,7 @@
                     Confirm Investment
                 </button>
                 <button id="purchase-cancel" type="button"
-                    class="flex-1 px-4 py-3 rounded-xl bg-white shadow-sm dark:shadow-none dark:bg-white/5 border border-slate-200 dark:border-white/10 text-slate-900 dark:text-white hover:bg-slate-100 dark:hover:bg-white/10 transition duration-200 text-xs font-semibold">
+                    class="flex-1 px-4 py-3 rounded-xl bg-[#FDF9F0] shadow-sm dark:shadow-none dark:bg-white/5 border border-[#03292B]/10 dark:border-white/10 text-slate-900 dark:text-white hover:bg-[#FDF9F0]/80 dark:hover:bg-white/10 transition duration-200 text-xs font-semibold">
                     Cancel
                 </button>
             </div>
@@ -289,8 +289,8 @@
         if (imageStatusEl) imageStatusEl.textContent = '';
         if (thumbsEl) {
             thumbsEl.innerHTML = galleryItems.map(function (image, index) {
-                const isActiveClass = index === 0 ? 'border-[#31D0B2] scale-95' : 'border-slate-200 dark:border-white/10 hover:border-white/30';
-                return '<button type="button" data-index="' + index + '" class="thumb-btn overflow-hidden rounded-xl border aspect-[16/10] bg-white shadow-sm dark:shadow-none dark:bg-white/5 focus:outline-none transition duration-200 ' + isActiveClass + '">'
+                const isActiveClass = index === 0 ? 'border-[#31D0B2] scale-95' : 'border-[#03292B]/10 dark:border-white/10 hover:border-[#03292B]/30';
+                return '<button type="button" data-index="' + index + '" class="thumb-btn overflow-hidden rounded-xl border aspect-[16/10] bg-[#FDF9F0] shadow-sm dark:shadow-none dark:bg-white/5 focus:outline-none transition duration-200 ' + isActiveClass + '">'
                     + '<img src="' + image.src + '" alt="' + image.alt + '" class="h-full w-full object-cover">'
                     + '</button>';
             }).join('');
@@ -298,7 +298,7 @@
             const btns = thumbsEl.querySelectorAll('.thumb-btn');
             btns.forEach(function (button) {
                 button.addEventListener('click', function () {
-                    btns.forEach(b => b.className = b.className.replace('border-[#31D0B2] scale-95', 'border-slate-200 dark:border-white/10').replace('hover:border-white/30', ''));
+                    btns.forEach(b => b.className = b.className.replace('border-[#31D0B2] scale-95', 'border-[#03292B]/10 dark:border-white/10').replace('hover:border-[#03292B]/30', ''));
                     button.classList.add('border-[#31D0B2]', 'scale-95');
                     const idx = Number(button.getAttribute('data-index'));
                     if (!Number.isNaN(idx) && galleryItems[idx]) setMainImage(galleryItems[idx]);
