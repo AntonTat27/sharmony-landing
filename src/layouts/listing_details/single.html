@@ -207,17 +207,16 @@
 <script>
     (function () {
         const i18n = {
-            loading: {{ (.Params.details_loading | default "Loading listing details...") | jsonify | safeJS
-    }},
-    missingId: { { (.Params.details_missing_id | default "Listing ID is missing in URL.") | jsonify | safeJS } },
-    notFound: { { (.Params.details_not_found | default "Listing was not found.") | jsonify | safeJS } },
-    loadError: { { (.Params.details_load_error | default "Could not load listing details.") | jsonify | safeJS } },
-    noDescription: { { (.Params.details_no_description | default "No description provided.") | jsonify | safeJS } },
-    bedroomsSuffix: { { (.Params.details_bedrooms_suffix | default "rooms") | jsonify | safeJS } },
-    purchaseLoginRequired: { { (or(index $ui "listing_details_purchase_login_required") "Please log in to purchase fractions.") | jsonify | safeJS } },
-    purchaseSuccess: { { (or(index $ui "listing_details_purchase_success") "Purchase successful! Your fractions have been transferred to your wallet.") | jsonify | safeJS } },
-    purchaseError: { { (or(index $ui "listing_details_purchase_error") "Could not complete purchase. Please check your balance.") | jsonify | safeJS } },
-    dealCreationError: { { (or(index $ui "listing_details_deal_creation_error") "Could not create deal. Please try again.") | jsonify | safeJS } }
+            loading: {{ (.Params.details_loading | default "Loading listing details...") | jsonify | safeJS }},
+        missingId: {{ (.Params.details_missing_id | default "Listing ID is missing in URL.") | jsonify | safeJS }},
+        notFound: {{ (.Params.details_not_found | default "Listing was not found.") | jsonify | safeJS }},
+        loadError: {{ (.Params.details_load_error | default "Could not load listing details.") | jsonify | safeJS }},
+        noDescription: {{ (.Params.details_no_description | default "No description provided.") | jsonify | safeJS }},
+        bedroomsSuffix: {{ (.Params.details_bedrooms_suffix | default "rooms") | jsonify | safeJS }},
+        purchaseLoginRequired: {{ (or (index $ui "listing_details_purchase_login_required") "Please log in to purchase fractions.") | jsonify | safeJS }},
+        purchaseSuccess: {{ (or (index $ui "listing_details_purchase_success") "Purchase successful! Your fractions have been transferred to your wallet.") | jsonify | safeJS }},
+        purchaseError: {{ (or (index $ui "listing_details_purchase_error") "Could not complete purchase. Please check your balance.") | jsonify | safeJS }},
+        dealCreationError: {{ (or (index $ui "listing_details_deal_creation_error") "Could not create deal. Please try again.") | jsonify | safeJS }}
     };
 
     const stateEl = document.getElementById('listing-state');
