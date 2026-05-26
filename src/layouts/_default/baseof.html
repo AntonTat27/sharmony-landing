@@ -6,6 +6,21 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>{{ .Params.Title }} | {{ .Site.Title }}</title>
     <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            darkMode: 'class'
+        }
+    </script>
+    <script>
+        (function () {
+            const savedTheme = localStorage.getItem('sharmonyTheme') || 'dark';
+            if (savedTheme === 'dark') {
+                document.documentElement.classList.add('dark');
+            } else {
+                document.documentElement.classList.remove('dark');
+            }
+        })();
+    </script>
 
     {{ $main := resources.Get "css/main.css" | minify | fingerprint }}
     <link rel="stylesheet" href="{{ $main.Permalink }}">

@@ -487,3 +487,69 @@ header, .navigation-bar, .nav-inner {
         transform: translateY(0);
     }
 }
+
+/* --- Theme Toggle Switcher Button --- */
+.theme-toggle-btn {
+    background: rgba(112, 226, 208, 0.05);
+    border: 1px solid rgba(112, 226, 208, 0.2);
+    border-radius: 50%;
+    width: 40px;
+    height: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    color: #70E2D0;
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    position: relative;
+    overflow: hidden;
+    padding: 0;
+    flex-shrink: 0;
+}
+
+.theme-toggle-btn:hover {
+    border-color: #70E2D0;
+    background: rgba(112, 226, 208, 0.1);
+    transform: rotate(15deg) scale(1.05);
+}
+
+.theme-toggle-btn .light-icon {
+    display: none;
+    font-size: 16px;
+    animation: rotateIn 0.5s ease;
+}
+
+.theme-toggle-btn .dark-icon {
+    display: block;
+    font-size: 16px;
+    animation: scaleIn 0.5s ease;
+}
+
+html:not(.dark) .theme-toggle-btn {
+    color: #DBA757;
+    background: rgba(219, 167, 87, 0.05);
+    border-color: rgba(219, 167, 87, 0.2);
+}
+
+html:not(.dark) .theme-toggle-btn:hover {
+    border-color: #DBA757;
+    background: rgba(219, 167, 87, 0.1);
+}
+
+html:not(.dark) .theme-toggle-btn .light-icon {
+    display: block;
+}
+
+html:not(.dark) .theme-toggle-btn .dark-icon {
+    display: none;
+}
+
+@keyframes rotateIn {
+    from { transform: rotate(-90deg) scale(0); opacity: 0; }
+    to { transform: rotate(0) scale(1); opacity: 1; }
+}
+
+@keyframes scaleIn {
+    from { transform: scale(0); opacity: 0; }
+    to { transform: scale(1); opacity: 1; }
+}

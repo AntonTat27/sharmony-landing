@@ -21,59 +21,59 @@
     </div>
 </section>
 
-<section class="bg-[#011415] py-12 sm:py-16 text-white min-h-[600px] relative">
+<section class="bg-[#F2E8D5] dark:bg-[#011415] py-12 sm:py-16 text-[#03292B] dark:text-white min-h-[600px] relative">
     <div class="absolute inset-0 bg-[radial-gradient(circle_at_10%_30%,rgba(219,167,87,0.03),transparent_40%)]"></div>
     <div class="max-w-7xl mx-auto px-4 sm:px-6 relative z-10">
         <div class="lg:flex lg:items-start lg:gap-10">
 
             <!-- LEFT: Filters Sidebar (Desktop) -->
-            <aside class="hidden lg:block lg:w-80 shrink-0 bg-white/5 backdrop-blur-md border border-white/10 rounded-2xl p-6 shadow-xl">
-                <div class="mb-6 border-b border-white/10 pb-4">
+            <aside class="hidden lg:block lg:w-80 shrink-0 bg-[#FDF9F0] shadow-sm dark:shadow-none dark:bg-white/5 backdrop-blur-md border border-[#03292B]/10 dark:border-white/10 rounded-2xl p-6 shadow-xl">
+                <div class="mb-6 border-b border-[#03292B]/10 dark:border-white/10 pb-4">
                     <h3 class="text-xs uppercase tracking-[0.25em] text-[#DBA757] font-semibold flex items-center gap-2">
                         <i class="bi bi-sliders text-sm"></i> {{ or (index $ui "marketplace_filters") "Filters" }}
                     </h3>
-                    <p class="text-white/50 text-xs mt-2 leading-relaxed">{{ or (index $ui "marketplace_filters_description") "Refine results by location, type and bedrooms." }}</p>
+                    <p class="text-[#03292B]/60 dark:text-white/50 text-xs mt-2 leading-relaxed">{{ or (index $ui "marketplace_filters_description") "Refine results by location, type and bedrooms." }}</p>
                 </div>
 
                 <div class="space-y-5">
                     <div>
-                        <label class="text-[11px] uppercase tracking-wider text-white/50 mb-2 block">{{ or (index $ui "marketplace_country") "Country" }}</label>
+                        <label class="text-[11px] uppercase tracking-wider text-[#03292B]/60 dark:text-white/50 mb-2 block">{{ or (index $ui "marketplace_country") "Country" }}</label>
                         <div class="relative">
-                            <select id="mp-country" class="w-full bg-[#021B1C] border border-white/10 rounded-xl px-4 py-2.5 text-sm text-white focus:outline-none focus:border-[#DBA757] appearance-none cursor-pointer"></select>
-                            <i class="bi bi-chevron-down absolute right-4 top-1/2 -translate-y-1/2 text-white/40 pointer-events-none text-xs"></i>
+                            <select id="mp-country" class="w-full bg-[#FDF9F0] dark:bg-[#021B1C] border border-[#03292B]/10 dark:border-white/10 rounded-xl px-4 py-2.5 text-sm text-[#03292B] dark:text-white focus:outline-none focus:border-[#DBA757] appearance-none cursor-pointer"></select>
+                            <i class="bi bi-chevron-down absolute right-4 top-1/2 -translate-y-1/2 text-[#03292B]/40 dark:text-white/40 pointer-events-none text-xs"></i>
                         </div>
                     </div>
 
                     <div>
-                        <label class="text-[11px] uppercase tracking-wider text-white/50 mb-2 block">{{ or (index $ui "marketplace_type") "Property type" }}</label>
+                        <label class="text-[11px] uppercase tracking-wider text-[#03292B]/60 dark:text-white/50 mb-2 block">{{ or (index $ui "marketplace_type") "Property type" }}</label>
                         <div class="relative">
-                            <select id="mp-type" class="w-full bg-[#021B1C] border border-white/10 rounded-xl px-4 py-2.5 text-sm text-white focus:outline-none focus:border-[#DBA757] appearance-none cursor-pointer"></select>
-                            <i class="bi bi-chevron-down absolute right-4 top-1/2 -translate-y-1/2 text-white/40 pointer-events-none text-xs"></i>
+                            <select id="mp-type" class="w-full bg-[#FDF9F0] dark:bg-[#021B1C] border border-[#03292B]/10 dark:border-white/10 rounded-xl px-4 py-2.5 text-sm text-[#03292B] dark:text-white focus:outline-none focus:border-[#DBA757] appearance-none cursor-pointer"></select>
+                            <i class="bi bi-chevron-down absolute right-4 top-1/2 -translate-y-1/2 text-[#03292B]/40 dark:text-white/40 pointer-events-none text-xs"></i>
                         </div>
                     </div>
 
                     <div>
-                        <label class="text-[11px] uppercase tracking-wider text-white/50 mb-2 block">{{ or (index $ui "marketplace_bedrooms") "Bedrooms" }}</label>
+                        <label class="text-[11px] uppercase tracking-wider text-[#03292B]/60 dark:text-white/50 mb-2 block">{{ or (index $ui "marketplace_bedrooms") "Bedrooms" }}</label>
                         <div class="relative">
-                            <select id="mp-bedrooms" class="w-full bg-[#021B1C] border border-white/10 rounded-xl px-4 py-2.5 text-sm text-white focus:outline-none focus:border-[#DBA757] appearance-none cursor-pointer"></select>
-                            <i class="bi bi-chevron-down absolute right-4 top-1/2 -translate-y-1/2 text-white/40 pointer-events-none text-xs"></i>
+                            <select id="mp-bedrooms" class="w-full bg-[#FDF9F0] dark:bg-[#021B1C] border border-[#03292B]/10 dark:border-white/10 rounded-xl px-4 py-2.5 text-sm text-[#03292B] dark:text-white focus:outline-none focus:border-[#DBA757] appearance-none cursor-pointer"></select>
+                            <i class="bi bi-chevron-down absolute right-4 top-1/2 -translate-y-1/2 text-[#03292B]/40 dark:text-white/40 pointer-events-none text-xs"></i>
                         </div>
                     </div>
 
                     <div>
-                        <label class="text-[11px] uppercase tracking-wider text-white/50 mb-2 block">{{ or (index $ui "marketplace_price_range") "Price range" }}</label>
-                        <div class="bg-white/[0.02] border border-white/5 rounded-xl p-4">
+                        <label class="text-[11px] uppercase tracking-wider text-[#03292B]/60 dark:text-white/50 mb-2 block">{{ or (index $ui "marketplace_price_range") "Price range" }}</label>
+                        <div class="bg-[#FDF9F0]/50 dark:bg-white/[0.02] border border-[#03292B]/10 dark:border-white/5 rounded-xl p-4">
                             <div class="space-y-3">
                                 <div>
                                     <div class="flex items-center justify-between mb-1.5">
-                                        <small class="text-white/40 text-[10px] uppercase tracking-wider">{{ or (index $ui "marketplace_price_min") "Min" }}</small>
+                                        <small class="text-slate-400 dark:text-white/40 text-[10px] uppercase tracking-wider">{{ or (index $ui "marketplace_price_min") "Min" }}</small>
                                         <span id="mp-price-display-min" class="text-xs font-semibold text-[#31D0B2]">$0</span>
                                     </div>
                                     <input id="mp-price-min" type="range" min="0" max="1000" value="0" class="range-input w-full cursor-pointer">
                                 </div>
                                 <div class="pt-1">
                                     <div class="flex items-center justify-between mb-1.5">
-                                        <small class="text-white/40 text-[10px] uppercase tracking-wider">{{ or (index $ui "marketplace_price_max") "Max" }}</small>
+                                        <small class="text-slate-400 dark:text-white/40 text-[10px] uppercase tracking-wider">{{ or (index $ui "marketplace_price_max") "Max" }}</small>
                                         <span id="mp-price-display-max" class="text-xs font-semibold text-[#DBA757]">$1,000,000</span>
                                     </div>
                                     <input id="mp-price-max" type="range" min="0" max="1000" value="1000" class="range-input w-full cursor-pointer">
@@ -83,7 +83,7 @@
                     </div>
 
                     <div class="pt-4">
-                        <button id="mp-reset" type="button" class="w-full inline-flex items-center justify-center gap-2 px-4 py-3 rounded-xl bg-white/5 border border-white/10 text-white hover:bg-white/10 hover:text-[#31D0B2] transition duration-200 text-sm font-semibold">
+                        <button id="mp-reset" type="button" class="w-full inline-flex items-center justify-center gap-2 px-4 py-3 rounded-xl bg-[#FDF9F0] shadow-sm dark:shadow-none dark:bg-white/5 border border-[#03292B]/15 dark:border-white/10 text-[#03292B] dark:text-white hover:bg-[#FDF9F0]/80 dark:hover:bg-white/10 hover:text-[#31D0B2] transition duration-200 text-sm font-semibold">
                             <i class="bi bi-arrow-counterclockwise"></i> {{ or (index $ui "marketplace_reset_filters") "Reset filters" }}
                         </button>
                     </div>
@@ -95,8 +95,8 @@
                 <div class="mb-8">
                     <div class="max-w-3xl">
                         <div class="relative">
-                            <i class="bi bi-search absolute left-4 top-1/2 -translate-y-1/2 text-white/40 text-base"></i>
-                            <input id="mp-search" type="text" placeholder='{{ or (index $ui "marketplace_search_placeholder") "Search by city, title, or keyword" }}' class="w-full rounded-xl border border-white/10 bg-white/5 pl-11 pr-32 py-3.5 text-sm text-white placeholder-white/30 focus:outline-none focus:border-[#31D0B2] focus:ring-1 focus:ring-[#31D0B2] shadow-inner transition duration-200">
+                            <i class="bi bi-search absolute left-4 top-1/2 -translate-y-1/2 text-[#03292B]/40 dark:text-white/40 text-base"></i>
+                            <input id="mp-search" type="text" placeholder='{{ or (index $ui "marketplace_search_placeholder") "Search by city, title, or keyword" }}' class="w-full rounded-xl border border-[#03292B]/15 dark:border-white/10 bg-[#FDF9F0] shadow-sm dark:shadow-none dark:bg-white/5 pl-11 pr-32 py-3.5 text-sm text-[#03292B] dark:text-white placeholder-[#03292B]/30 dark:placeholder-white/30 focus:outline-none focus:border-[#31D0B2] focus:ring-1 focus:ring-[#31D0B2] shadow-inner transition duration-200">
                             <button id="mp-search-btn" class="absolute right-2 top-1/2 -translate-y-1/2 inline-flex items-center gap-2 px-5 py-2 rounded-lg bg-gradient-to-r from-[#FFDDA8] to-[#DBA757] text-[#03292B] font-semibold text-xs hover:brightness-110 transition duration-200 shadow-md">
                                 {{ or (index $ui "marketplace_search_button") "Search" }}
                             </button>
@@ -104,7 +104,7 @@
                     </div>
                 </div>
 
-                <div id="mp-state" class="text-white/40 text-xs tracking-wide uppercase mb-6 flex items-center gap-2">
+                <div id="mp-state" class="text-slate-400 dark:text-white/40 text-xs tracking-wide uppercase mb-6 flex items-center gap-2">
                     <span class="inline-block w-2 h-2 rounded-full bg-[#31D0B2] animate-pulse"></span>
                     <span>{{ or (index $ui "marketplace_loading") "Loading marketplace data..." }}</span>
                 </div>
@@ -116,7 +116,7 @@
 
         <!-- Mobile filters (collapsible) -->
         <div class="lg:hidden mt-8">
-            <details class="bg-white/5 border border-white/10 rounded-2xl p-5 shadow-lg overflow-hidden group">
+            <details class="bg-[#FDF9F0] shadow-sm dark:shadow-none dark:bg-white/5 border border-[#03292B]/10 dark:border-white/10 rounded-2xl p-5 shadow-lg overflow-hidden group">
                 <summary class="flex items-center justify-between cursor-pointer list-none select-none">
                     <span class="font-semibold text-sm flex items-center gap-2">
                         <i class="bi bi-sliders text-[#DBA757]"></i> {{ or (index $ui "marketplace_mobile_filters") "Filters" }}
@@ -124,52 +124,52 @@
                     <span class="text-xs text-[#31D0B2] flex items-center gap-1 group-open:hidden">
                         {{ or (index $ui "marketplace_mobile_filters_open") "Tap to open" }} <i class="bi bi-chevron-down text-[10px]"></i>
                     </span>
-                    <span class="text-xs text-white/40 hidden group-open:flex items-center gap-1">
+                    <span class="text-xs text-[#03292B]/40 dark:text-white/40 hidden group-open:flex items-center gap-1">
                         Close <i class="bi bi-chevron-up text-[10px]"></i>
                     </span>
                 </summary>
-                <div class="mt-5 space-y-4 border-t border-white/5 pt-4">
+                <div class="mt-5 space-y-4 border-t border-[#03292B]/10 dark:border-white/5 pt-4">
                     <div>
-                        <label class="text-[10px] uppercase tracking-wider text-white/40 mb-1.5 block">Country</label>
+                        <label class="text-[10px] uppercase tracking-wider text-[#03292B]/40 dark:text-white/40 mb-1.5 block">Country</label>
                         <div class="relative">
-                            <select id="mp-country-mobile" class="w-full bg-[#021B1C] border border-white/10 rounded-xl px-4 py-2.5 text-sm text-white focus:outline-none appearance-none cursor-pointer"></select>
-                            <i class="bi bi-chevron-down absolute right-4 top-1/2 -translate-y-1/2 text-white/40 pointer-events-none text-xs"></i>
+                            <select id="mp-country-mobile" class="w-full bg-[#FDF9F0] dark:bg-[#021B1C] border border-[#03292B]/10 dark:border-white/10 rounded-xl px-4 py-2.5 text-sm text-[#03292B] dark:text-white focus:outline-none appearance-none cursor-pointer"></select>
+                            <i class="bi bi-chevron-down absolute right-4 top-1/2 -translate-y-1/2 text-[#03292B]/40 dark:text-white/40 pointer-events-none text-xs"></i>
                         </div>
                     </div>
                     <div>
-                        <label class="text-[10px] uppercase tracking-wider text-white/40 mb-1.5 block">Property Type</label>
+                        <label class="text-[10px] uppercase tracking-wider text-[#03292B]/40 dark:text-white/40 mb-1.5 block">Property Type</label>
                         <div class="relative">
-                            <select id="mp-type-mobile" class="w-full bg-[#021B1C] border border-white/10 rounded-xl px-4 py-2.5 text-sm text-white focus:outline-none appearance-none cursor-pointer"></select>
-                            <i class="bi bi-chevron-down absolute right-4 top-1/2 -translate-y-1/2 text-white/40 pointer-events-none text-xs"></i>
+                            <select id="mp-type-mobile" class="w-full bg-[#FDF9F0] dark:bg-[#021B1C] border border-[#03292B]/10 dark:border-white/10 rounded-xl px-4 py-2.5 text-sm text-[#03292B] dark:text-white focus:outline-none appearance-none cursor-pointer"></select>
+                            <i class="bi bi-chevron-down absolute right-4 top-1/2 -translate-y-1/2 text-[#03292B]/40 dark:text-white/40 pointer-events-none text-xs"></i>
                         </div>
                     </div>
                     <div>
-                        <label class="text-[10px] uppercase tracking-wider text-white/40 mb-1.5 block">Bedrooms</label>
+                        <label class="text-[10px] uppercase tracking-wider text-[#03292B]/40 dark:text-white/40 mb-1.5 block">Bedrooms</label>
                         <div class="relative">
-                            <select id="mp-bedrooms-mobile" class="w-full bg-[#021B1C] border border-white/10 rounded-xl px-4 py-2.5 text-sm text-white focus:outline-none appearance-none cursor-pointer"></select>
-                            <i class="bi bi-chevron-down absolute right-4 top-1/2 -translate-y-1/2 text-white/40 pointer-events-none text-xs"></i>
+                            <select id="mp-bedrooms-mobile" class="w-full bg-[#FDF9F0] dark:bg-[#021B1C] border border-[#03292B]/10 dark:border-white/10 rounded-xl px-4 py-2.5 text-sm text-[#03292B] dark:text-white focus:outline-none appearance-none cursor-pointer"></select>
+                            <i class="bi bi-chevron-down absolute right-4 top-1/2 -translate-y-1/2 text-[#03292B]/40 dark:text-white/40 pointer-events-none text-xs"></i>
                         </div>
                     </div>
-                    <div class="bg-white/[0.02] border border-white/5 rounded-xl p-4">
-                        <label class="text-[10px] uppercase tracking-wider text-white/40 mb-2.5 block">{{ or (index $ui "marketplace_price_range") "Price range" }}</label>
+                    <div class="bg-[#FDF9F0]/50 dark:bg-white/[0.02] border border-[#03292B]/10 dark:border-white/5 rounded-xl p-4">
+                        <label class="text-[10px] uppercase tracking-wider text-[#03292B]/40 dark:text-white/40 mb-2.5 block">{{ or (index $ui "marketplace_price_range") "Price range" }}</label>
                         <div class="space-y-4">
                             <div>
                                 <div class="flex items-center justify-between mb-1">
-                                    <small class="text-white/40 text-[9px] uppercase">Min</small>
+                                    <small class="text-[#03292B]/40 dark:text-white/40 text-[9px] uppercase">Min</small>
                                     <span id="mp-price-display-min-mobile" class="text-xs font-semibold text-[#31D0B2]">$0</span>
                                 </div>
                                 <input id="mp-price-min-mobile" type="range" min="0" max="1000" value="0" class="range-input w-full cursor-pointer">
                             </div>
                             <div>
                                 <div class="flex items-center justify-between mb-1">
-                                    <small class="text-white/40 text-[9px] uppercase">Max</small>
+                                    <small class="text-[#03292B]/40 dark:text-white/40 text-[9px] uppercase">Max</small>
                                     <span id="mp-price-display-max-mobile" class="text-xs font-semibold text-[#DBA757]">$0</span>
                                 </div>
                                 <input id="mp-price-max-mobile" type="range" min="0" max="1000" value="1000" class="range-input w-full cursor-pointer">
                             </div>
                         </div>
                     </div>
-                    <button id="mp-reset-mobile" class="w-full inline-flex items-center justify-center gap-2 px-4 py-3 rounded-xl bg-white/5 border border-white/10 text-white hover:bg-white/10 transition duration-200 text-sm font-semibold">
+                    <button id="mp-reset-mobile" class="w-full inline-flex items-center justify-center gap-2 px-4 py-3 rounded-xl bg-[#FDF9F0] shadow-sm dark:shadow-none dark:bg-white/5 border border-[#03292B]/10 dark:border-white/10 text-[#03292B] dark:text-white hover:bg-[#FDF9F0]/80 dark:hover:bg-white/10 transition duration-200 text-sm font-semibold">
                         <i class="bi bi-arrow-counterclockwise"></i> {{ or (index $ui "marketplace_reset_filters") "Reset filters" }}
                     </button>
                 </div>
@@ -264,7 +264,7 @@
     function setState(text, isError) {
         stateEl.innerHTML = isError 
             ? `<span class="inline-block w-2 h-2 rounded-full bg-red-400"></span><span class="text-red-300">${text}</span>` 
-            : `<span class="inline-block w-2 h-2 rounded-full bg-[#31D0B2]"></span><span class="text-white/60">${text}</span>`;
+            : `<span class="inline-block w-2 h-2 rounded-full bg-[#31D0B2]"></span><span class="text-[#03292B]/60 dark:text-white/60">${text}</span>`;
     }
 
     function fillSelect(select, options, allLabel) {
@@ -316,7 +316,7 @@
     function renderListings(listings) {
         if (!listings.length) {
             setState(i18n.noListings, false);
-            gridEl.innerHTML = '<div class="col-span-full py-16 text-center text-white/40"><i class="bi bi-search text-3xl mb-3 block"></i>' + i18n.noListingsFound + '</div>';
+            gridEl.innerHTML = '<div class="col-span-full py-16 text-center text-slate-400 dark:text-white/40"><i class="bi bi-search text-3xl mb-3 block"></i>' + i18n.noListingsFound + '</div>';
             return;
         }
 
@@ -334,29 +334,29 @@
             const fractionPrice = item.priceUsd / totalFractions;
 
             return '<a href="' + buildDetailsUrl(item) + '" class="group block focus:outline-none focus:ring-2 focus:ring-[#31D0B2] rounded-2xl transition duration-300 transform hover:-translate-y-1.5">'
-                + '<article class="h-full bg-white/5 border border-white/10 rounded-2xl overflow-hidden shadow-xl hover:border-[#31D0B2]/30 transition-colors flex flex-col justify-between">'
+                + '<article class="h-full bg-[#FDF9F0] shadow-sm dark:shadow-none dark:bg-white/5 border border-[#03292B]/10 dark:border-white/10 rounded-2xl overflow-hidden shadow-xl hover:border-[#31D0B2]/30 transition-colors flex flex-col justify-between">'
                 + '<div>'
                 + '<div class="relative h-52 bg-[#03292B]/30 overflow-hidden">'
-                + '<img src="' + item.image + '" alt="' + item.title + '" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110" loading="lazy" onerror="this.style.display=\'none\';this.parentNode.classList.add(\'bg-gradient-to-br\',\'from-[#03292B]\',\'to-[#0A4B4D]\');this.parentNode.querySelector(\'.fallback-icon\').classList.remove(\'hidden\');">'
+                + '<img src="' + item.image + '" alt="' + item.title + '" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110" loading="lazy" onerror="this.style.display=\'none\';this.parentNode.classList.add(\'bg-gradient-to-br\',\'from-slate-100 dark:from-[#03292B]\',\'to-[#0A4B4D]\');this.parentNode.querySelector(\'.fallback-icon\').classList.remove(\'hidden\');">'
                 + '<div class="fallback-icon hidden absolute inset-0 flex items-center justify-center text-white/15"><i class="bi bi-house-door text-5xl"></i></div>'
-                + (item.imageCount > 1 ? ('<div class="absolute left-3 top-3 inline-flex items-center gap-1.5 rounded-full bg-[#03292B]/80 text-white px-3 py-1 text-[10px] backdrop-blur font-medium"><i class="bi bi-images text-[#31D0B2]"></i><span>' + item.imageCount + '</span></div>') : '')
-                + (isFractional ? '<div class="absolute right-3 top-3 inline-flex items-center gap-1 rounded-full bg-[#DBA757]/90 text-[#03292B] px-3 py-1 text-[10px] font-bold uppercase tracking-wider shadow">Fractional</div>' : '')
+                + (item.imageCount > 1 ? ('<div class="absolute left-3 top-3 inline-flex items-center gap-1.5 rounded-full bg-[#03292B]/80 text-[#03292B] dark:text-white px-3 py-1 text-[10px] backdrop-blur font-medium"><i class="bi bi-images text-[#31D0B2]"></i><span>' + item.imageCount + '</span></div>') : '')
+                + (isFractional ? '<div class="absolute right-3 top-3 inline-flex items-center gap-1 rounded-full bg-[#DBA757]/90 text-slate-900 dark:text-[#03292B] px-3 py-1 text-[10px] font-bold uppercase tracking-wider shadow">Fractional</div>' : '')
                 + '</div>'
                 + '<div class="p-5">'
                 + '<div class="flex items-center justify-between gap-3 mb-2.5">'
                 + '<span class="text-[10px] uppercase font-semibold tracking-wider text-[#31D0B2] bg-[#31D0B2]/10 px-2 py-0.5 rounded-md">' + item.type + '</span>'
-                + '<span class="text-xs text-white/50 flex items-center gap-1"><i class="bi bi-geo-alt"></i> ' + item.city + ', ' + item.country + '</span>'
+                + '<span class="text-xs text-[#03292B]/60 dark:text-white/50 flex items-center gap-1"><i class="bi bi-geo-alt"></i> ' + item.city + ', ' + item.country + '</span>'
                 + '</div>'
-                + '<h2 class="text-xl text-white font-light leading-tight mb-2.5 group-hover:text-[#31D0B2] transition duration-200" style="font-family:\'TT_Livret_Display_Trl\', serif;">' + item.title + '</h2>'
-                + '<p class="text-xs text-white/60 mb-4 leading-relaxed line-clamp-2">' + item.description + '</p>'
+                + '<h2 class="text-xl text-[#03292B] dark:text-white font-light leading-tight mb-2.5 group-hover:text-[#31D0B2] transition duration-200" style="font-family:\'TT_Livret_Display_Trl\', serif;">' + item.title + '</h2>'
+                + '<p class="text-xs text-[#03292B]/60 dark:text-white/60 mb-4 leading-relaxed line-clamp-2">' + item.description + '</p>'
                 + '</div>'
                 + '</div>'
-                + '<div class="px-5 pb-5 pt-3 border-t border-white/5 flex items-center justify-between text-xs">'
-                + '<span class="text-white/40 flex items-center gap-1"><i class="bi bi-door-open"></i> ' + item.bedrooms + ' ' + i18n.bedroomsSuffix + '</span>'
+                + '<div class="px-5 pb-5 pt-3 border-t border-[#03292B]/10 dark:border-white/5 flex items-center justify-between text-xs">'
+                + '<span class="text-[#03292B]/40 dark:text-white/40 flex items-center gap-1"><i class="bi bi-door-open"></i> ' + item.bedrooms + ' ' + i18n.bedroomsSuffix + '</span>'
                 + '<div class="text-right">'
                 + (isFractional 
-                    ? '<span class="block text-[10px] text-white/40 uppercase tracking-wider">Fraction From</span><span class="font-bold text-[#DBA757] text-sm">' + formatPrice(fractionPrice) + '</span>'
-                    : '<span class="block text-[10px] text-white/40 uppercase tracking-wider">Full Price</span><span class="font-bold text-white text-sm">' + formatPrice(item.priceUsd) + '</span>')
+                    ? '<span class="block text-[10px] text-[#03292B]/40 dark:text-white/40 uppercase tracking-wider">Fraction From</span><span class="font-bold text-[#DBA757] text-sm">' + formatPrice(fractionPrice) + '</span>'
+                    : '<span class="block text-[10px] text-[#03292B]/40 dark:text-white/40 uppercase tracking-wider">Full Price</span><span class="font-bold text-[#03292B] dark:text-white text-sm">' + formatPrice(item.priceUsd) + '</span>')
                 + '</div>'
                 + '</div>'
                 + '</article>'
@@ -538,7 +538,7 @@
             .catch((error) => {
                 console.error('Backend fetch failed:', error);
                 setState(i18n.loadingError, true);
-                gridEl.innerHTML = '<div class="col-span-full border border-dashed border-white/20 p-12 text-center text-white/50 rounded-2xl">' + i18n.loadingError + '</div>';
+                gridEl.innerHTML = '<div class="col-span-full border border-dashed border-slate-300 dark:border-white/20 p-12 text-center text-slate-500 dark:text-white/50 rounded-2xl">' + i18n.loadingError + '</div>';
             });
     }
     fetchAndMerge();
