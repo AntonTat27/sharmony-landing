@@ -6,8 +6,8 @@
 {{ $submitPage := .Site.GetPage (printf "/%s/marketplace_submit.md" .Lang) }}
 {{ $marketplacePage := .Site.GetPage (printf "/%s/marketplace.md" .Lang) }}
 
-<section class="relative bg-gradient-to-b from-[#F2E8D5] dark:from-[#03292B] to-[#FDF9F0] dark:to-[#011415] text-slate-900 dark:text-white py-16 sm:py-24 border-b border-slate-200 dark:border-white/5 overflow-hidden">
-    <div class="absolute inset-0 bg-[radial-gradient(circle_at_70%_120%,rgba(49,208,178,0.08),transparent_50%)]"></div>
+<section class="relative bg-gradient-to-b from-[#03292B] to-[#011415] text-white py-16 sm:py-24 border-b border-white/5 overflow-hidden">
+    <div class="absolute inset-0 bg-[radial-gradient(circle_at_70%_120%,rgba(49,208,178,0.15),transparent_55%)]"></div>
     <div class="max-w-7xl mx-auto px-4 sm:px-6 relative z-10">
         <p class="uppercase tracking-[0.32em] text-[#31D0B2] text-xs font-semibold mb-4">{{ .Params.hero_eyebrow | default "Investor Dashboard" }}</p>
         <div class="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-6">
@@ -15,15 +15,15 @@
                 <h1 class="font-['TT_Livret_Display_Trl'] text-4xl sm:text-5xl font-light leading-tight">{{ .Title }}</h1>
                 <p class="text-slate-600 dark:text-white/60 text-sm sm:text-base mt-3 max-w-xl leading-relaxed">{{ .Params.hero_subtitle | default "Manage your luxury property listings and track fractional investment holdings." }}</p>
             </div>
-            <button id="account-logout" type="button" class="inline-flex items-center justify-center gap-2 px-5 py-3 border border-slate-200 dark:border-white/10 text-slate-700 dark:text-white/80 rounded-xl hover:border-red-400 hover:text-red-400 transition duration-200 text-xs font-semibold">
+            <button id="account-logout" type="button" class="inline-flex items-center justify-center gap-2 px-5 py-3 border border-slate-200 dark:border-white/10 text-slate-200 dark:text-white/80 rounded-xl hover:border-red-400 hover:text-red-400 transition duration-200 text-xs font-semibold">
                 <i class="bi bi-box-arrow-right"></i> {{ .Params.logout_label | default "Log out" }}
             </button>
         </div>
     </div>
 </section>
 
-<section class="bg-[#FDF9F0] dark:bg-[#011415] text-slate-900 dark:text-white py-12 sm:py-16 relative min-h-[600px]">
-    <div class="absolute inset-0 bg-[radial-gradient(circle_at_10%_30%,rgba(219,167,87,0.03),transparent_40%)]"></div>
+<section class="bg-[var(--color-bg-light)] dark:bg-[#011415] text-slate-900 dark:text-white py-12 sm:py-16 relative min-h-[600px]">
+    <div class="absolute inset-0 bg-[radial-gradient(circle_at_10%_30%,rgba(219,167,87,0.06),transparent_45%)]"></div>
     <div class="max-w-7xl mx-auto px-4 sm:px-6 relative z-10">
         
         <div id="account-state" class="text-slate-400 dark:text-white/40 text-xs uppercase tracking-wider mb-8 flex items-center gap-2">
@@ -34,16 +34,16 @@
         <!-- Metric Statistics Cards Row -->
         <div class="grid grid-cols-1 sm:grid-cols-3 gap-6 mb-10">
             <!-- Cash Balance Card Removed -->
-            <div class="bg-white shadow-sm dark:shadow-none dark:bg-white/5 border border-slate-200 dark:border-white/10 rounded-2xl p-6 shadow-xl flex items-center gap-5">
-                <div class="w-12 h-12 rounded-xl bg-[#DBA757]/10 flex items-center justify-center text-[#DBA757] text-xl">
+            <div class="bg-[var(--color-card-light)] shadow-sm dark:shadow-none dark:bg-white/5 border border-slate-200/70 dark:border-white/10 rounded-2xl p-6 shadow-xl flex items-center gap-5">
+                <div class="w-12 h-12 rounded-xl bg-[#31D0B2]/10 flex items-center justify-center text-[#31D0B2] text-xl">
                     <i class="bi bi-pie-chart"></i>
                 </div>
                 <div>
                     <span class="block text-[10px] text-slate-400 dark:text-white/40 uppercase tracking-wider">Portfolio Value</span>
-                    <strong id="stat-portfolio-value" class="text-xl font-bold text-[#DBA757]">$0</strong>
+                    <strong id="stat-portfolio-value" class="text-xl font-bold text-[#31D0B2]">$0</strong>
                 </div>
             </div>
-            <div class="bg-white shadow-sm dark:shadow-none dark:bg-white/5 border border-slate-200 dark:border-white/10 rounded-2xl p-6 shadow-xl flex items-center gap-5">
+            <div class="bg-[var(--color-card-light)] shadow-sm dark:shadow-none dark:bg-white/5 border border-slate-200/70 dark:border-white/10 rounded-2xl p-6 shadow-xl flex items-center gap-5">
                 <div class="w-12 h-12 rounded-xl bg-[#31D0B2]/10 flex items-center justify-center text-[#31D0B2] text-xl">
                     <i class="bi bi-gem"></i>
                 </div>
@@ -57,13 +57,13 @@
         <div class="grid lg:grid-cols-3 gap-8">
             
             <!-- LEFT: Profile & Wallet Sidebar -->
-            <aside class="lg:col-span-1 bg-white shadow-sm dark:shadow-none dark:bg-white/5 border border-slate-200 dark:border-white/10 rounded-2xl p-6 sm:p-8 shadow-xl flex flex-col justify-between h-full">
+            <aside class="lg:col-span-1 bg-[var(--color-card-light)] shadow-sm dark:shadow-none dark:bg-white/5 border border-slate-200/70 dark:border-white/10 rounded-2xl p-6 sm:p-8 shadow-xl flex flex-col justify-between h-full">
                 <div class="space-y-6">
-                    <div class="border-b border-slate-200 dark:border-white/5 pb-6">
-                        <p class="text-[10px] uppercase tracking-[0.22em] text-[#DBA757] mb-4 font-semibold">Investor Profile</p>
+                    <div class="border-b border-slate-200/70 dark:border-white/5 pb-6">
+                        <p class="text-[10px] uppercase tracking-[0.22em] text-[#31D0B2] mb-4 font-semibold">Investor Profile</p>
                         
                         <div class="flex items-center gap-4 mb-4">
-                            <div class="w-14 h-14 rounded-full bg-gradient-to-br from-[#FFDDA8] to-[#DBA757] flex items-center justify-center text-slate-900 dark:text-[#03292B] text-xl font-bold font-serif" id="account-avatar">U</div>
+                            <div class="w-14 h-14 rounded-full bg-gradient-to-br from-[#70E2D0] to-[#31D0B2] flex items-center justify-center text-slate-900 dark:text-[#03292B] text-xl font-bold font-serif" id="account-avatar">U</div>
                             <div>
                                 <h2 class="font-['TT_Livret_Display_Trl'] text-2xl text-slate-900 dark:text-white font-light" id="account-name">-</h2>
                                 <span class="inline-block text-[10px] font-bold uppercase tracking-wider text-[#31D0B2] bg-[#31D0B2]/10 px-2 py-0.5 rounded mt-1" id="account-membership">Starter</span>
@@ -76,7 +76,7 @@
 
                     <div>
                         <p class="text-[10px] uppercase tracking-[0.22em] text-slate-400 dark:text-white/40 mb-3 font-semibold">Provisioned Wallet</p>
-                        <div class="bg-white dark:bg-[#021B1C] border border-slate-200 dark:border-white/10 rounded-xl p-4 space-y-3">
+                        <div class="bg-[var(--color-card-light)] dark:bg-[#021B1C] border border-slate-200/70 dark:border-white/10 rounded-xl p-4 space-y-3">
                             <div>
                                 <span class="block text-[9px] uppercase text-slate-400 dark:text-white/40">Address</span>
                                 <span id="wallet-address" class="text-xs font-mono text-[#31D0B2] break-all select-all font-semibold">-</span>
@@ -97,12 +97,12 @@
             <main class="lg:col-span-2 space-y-8">
                 
                 <!-- Listings Card -->
-                <article class="bg-white shadow-sm dark:shadow-none dark:bg-white/5 border border-slate-200 dark:border-white/10 rounded-2xl p-6 sm:p-8 shadow-xl">
-                    <div class="flex items-center justify-between gap-4 mb-6 border-b border-slate-200 dark:border-white/5 pb-4">
+                <article class="bg-[var(--color-card-light)] shadow-sm dark:shadow-none dark:bg-white/5 border border-slate-200/70 dark:border-white/10 rounded-2xl p-6 sm:p-8 shadow-xl">
+                    <div class="flex items-center justify-between gap-4 mb-6 border-b border-slate-200/70 dark:border-white/5 pb-4">
                         <h2 class="font-['TT_Livret_Display_Trl'] text-2xl text-slate-900 dark:text-white font-light flex items-center gap-2">
                             <i class="bi bi-houses text-xl text-[#31D0B2]"></i> {{ .Params.account_your_listings | default "Your Listings" }}
                         </h2>
-                        <a href='{{ with $marketplacePage }}{{ .RelPermalink }}{{ else }}{{ "/marketplace/" | relLangURL }}{{ end }}' class="text-xs text-[#31D0B2] hover:text-[#DBA757] transition flex items-center gap-1">
+                        <a href='{{ with $marketplacePage }}{{ .RelPermalink }}{{ else }}{{ "/marketplace/" | relLangURL }}{{ end }}' class="text-xs text-[#31D0B2] hover:text-[#5DD4C0] transition flex items-center gap-1">
                             {{ .Params.account_open_marketplace | default "Marketplace" }} <i class="bi bi-arrow-right"></i>
                         </a>
                     </div>
@@ -111,9 +111,9 @@
 
                 <!-- Portfolio Section -->
                 <div id="fractional-portfolio-section" class="hidden">
-                    <article class="bg-white shadow-sm dark:shadow-none dark:bg-white/5 border border-slate-200 dark:border-white/10 rounded-2xl p-6 sm:p-8 shadow-xl">
-                        <h2 class="font-['TT_Livret_Display_Trl'] text-2xl text-slate-900 dark:text-white font-light mb-6 border-b border-slate-200 dark:border-white/5 pb-4 flex items-center gap-2">
-                            <i class="bi bi-pie-chart text-xl text-[#DBA757]"></i> {{ or (index $ui "account_fractional_portfolio") "Fractional Holdings" }}
+                    <article class="bg-[var(--color-card-light)] shadow-sm dark:shadow-none dark:bg-white/5 border border-slate-200/70 dark:border-white/10 rounded-2xl p-6 sm:p-8 shadow-xl">
+                        <h2 class="font-['TT_Livret_Display_Trl'] text-2xl text-slate-900 dark:text-white font-light mb-6 border-b border-slate-200/70 dark:border-white/5 pb-4 flex items-center gap-2">
+                            <i class="bi bi-pie-chart text-xl text-[#31D0B2]"></i> {{ or (index $ui "account_fractional_portfolio") "Fractional Holdings" }}
                         </h2>
                         <div id="fractional-portfolio" class="space-y-4"></div>
                     </article>
@@ -173,7 +173,7 @@
 
     function renderListings(items) {
         if (!items.length) {
-            listEl.innerHTML = '<div class="border border-dashed border-slate-200 dark:border-white/10 rounded-xl p-8 text-center text-xs text-slate-400 dark:text-white/40"><i class="bi bi-journal-x text-2xl mb-2 block"></i>' + I18N.noListings + '</div>';
+            listEl.innerHTML = '<div class="border border-dashed border-slate-200/70 dark:border-white/10 rounded-xl p-8 text-center text-xs text-slate-400 dark:text-white/40"><i class="bi bi-journal-x text-2xl mb-2 block"></i>' + I18N.noListings + '</div>';
             return;
         }
 
@@ -192,15 +192,15 @@
             const status = item.status || 'n/a';
             const isFractional = !!(item.metadata && (item.metadata.fractional || item.metadata.totalFractions));
 
-            return '<a href="' + buildDetailsUrl(item) + '" class="group block bg-white shadow-sm dark:shadow-none dark:bg-white/[0.01] border border-slate-200 dark:border-white/5 hover:border-[#31D0B2]/30 rounded-xl p-5 shadow transition-all duration-200 focus:outline-none focus:ring-1 focus:ring-[#31D0B2]">'
+            return '<a href="' + buildDetailsUrl(item) + '" class="group block bg-[var(--color-card-light)] shadow-sm dark:shadow-none dark:bg-white/[0.01] border border-slate-200/70 dark:border-white/5 hover:border-[#31D0B2]/30 rounded-xl p-5 shadow transition-all duration-200 focus:outline-none focus:ring-1 focus:ring-[#31D0B2]">'
                 + '<div class="flex items-center justify-between gap-4 mb-2">'
                 + '<h3 class="font-semibold text-slate-900 dark:text-white group-hover:text-[#31D0B2] transition duration-200">' + (item.title || '-') + '</h3>'
                 + '<div class="flex gap-2">'
-                + (isFractional ? '<span class="text-[9px] font-bold uppercase tracking-wider text-[#DBA757] bg-[#DBA757]/10 px-2 py-0.5 rounded">Fractional</span>' : '')
+                + (isFractional ? '<span class="text-[9px] font-bold uppercase tracking-wider text-[#31D0B2] bg-[#31D0B2]/10 px-2 py-0.5 rounded">Fractional</span>' : '')
                 + '<span class="text-[9px] font-bold uppercase tracking-wider text-[#31D0B2] bg-[#31D0B2]/10 px-2 py-0.5 rounded">' + status + '</span>'
                 + '</div>'
                 + '</div>'
-                + '<div class="flex flex-wrap items-center justify-between text-xs text-slate-500 dark:text-white/50 pt-2 border-t border-slate-200 dark:border-white/5 gap-2">'
+                + '<div class="flex flex-wrap items-center justify-between text-xs text-slate-500 dark:text-white/50 pt-2 border-t border-slate-200/70 dark:border-white/5 gap-2">'
                 + '<span><i class="bi bi-geo-alt"></i> ' + city + (country ? (', ' + country) : '') + ' • ' + type + '</span>'
                 + '<span class="font-semibold text-slate-900 dark:text-white">' + formatPrice(priceUsd) + '</span>'
                 + '</div>'
@@ -229,10 +229,10 @@
             totalInvested += value;
             totalFractions += quantity;
 
-            return '<div class="bg-white shadow-sm dark:shadow-none dark:bg-white/[0.01] border border-slate-200 dark:border-white/5 rounded-xl p-5 flex items-center justify-between hover:border-slate-300 dark:hover:border-white/15 transition">'
+            return '<div class="bg-[var(--color-card-light)] shadow-sm dark:shadow-none dark:bg-white/[0.01] border border-slate-200/70 dark:border-white/5 rounded-xl p-5 flex items-center justify-between hover:border-slate-300 dark:hover:border-white/15 transition">'
                 + '<div>'
                 + '<h3 class="font-semibold text-slate-900 dark:text-white">' + listingTitle + '</h3>'
-                + '<p class="text-xs text-slate-500 dark:text-white/50 mt-1.5 flex items-center gap-1.5"><i class="bi bi-cash-stack text-[#DBA757]"></i> Est. Value: ' + formatPrice(value) + '</p>'
+                + '<p class="text-xs text-slate-500 dark:text-white/50 mt-1.5 flex items-center gap-1.5"><i class="bi bi-cash-stack text-[#31D0B2]"></i> Est. Value: ' + formatPrice(value) + '</p>'
                 + '</div>'
                 + '<span class="text-xs font-bold text-[#31D0B2] bg-[#31D0B2]/10 px-3 py-1.5 rounded-lg">' + quantity + ' fractions</span>'
                 + '</div>';

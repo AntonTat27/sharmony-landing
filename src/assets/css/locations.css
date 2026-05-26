@@ -1,6 +1,6 @@
 /* Locations Section - Light Theme (Section 5 - Odd) */
 .locations-section {
-    background-color: #F2E8D5;
+    background-color: var(--color-bg-light);
     color: #03292B;
     border-top: 1px solid rgba(3, 41, 43, 0.1);
 }
@@ -59,7 +59,7 @@
     border-radius: 24px;
     overflow: hidden;
     border: 1px solid rgba(3, 41, 43, 0.1);
-    background: #FDF9F0;
+    background: var(--color-card-light);
 }
 
 @media (min-width: 640px) {

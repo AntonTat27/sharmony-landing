@@ -1,6 +1,6 @@
 /* How It Works Section - Light Theme (Section 7 - Odd) */
 .how-it-works-section {
-    background-color: #F2E8D5;
+    background-color: var(--color-bg-light);
     color: #03292B;
     border-top: 1px solid rgba(3, 41, 43, 0.1);
 }
@@ -80,7 +80,7 @@
     border: 1px solid rgba(3, 41, 43, 0.15);
     border-radius: 12px;
     padding: 1rem;
-    background-color: #FDF9F0;
+    background-color: var(--color-card-light);
     transition: all 0.3s ease;
 }
 

@@ -1,6 +1,6 @@
 /* Numbers Section - Light Theme (Section 3 - Odd) */
 .numbers-section {
-    background-color: #F2E8D5;
+    background-color: var(--color-bg-light);
     color: #03292B;
     border-top: 1px solid rgba(3, 41, 43, 0.1);
 }

@@ -1,6 +1,6 @@
 /* FAQ Section - Light Theme (Section 9 - Odd) */
 .faq-section {
-    background-color: #F2E8D5;
+    background-color: var(--color-bg-light);
     color: #03292B;
     border-top: 1px solid rgba(3, 41, 43, 0.1);
 }
@@ -28,7 +28,7 @@
     border: 1px solid rgba(3, 41, 43, 0.15);
     border-radius: 12px;
     padding: 1.25rem;
-    background-color: #FDF9F0;
+    background-color: var(--color-card-light);
 }
 
 .faq-item summary {

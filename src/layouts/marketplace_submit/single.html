@@ -4,59 +4,59 @@
 {{ with $uiPage }}{{ $ui = .Params }}{{ end }}
 
 <section
-    class="relative bg-gradient-to-b from-slate-100 dark:from-[#03292B] to-slate-50 dark:to-[#011415] text-slate-900 dark:text-white py-16 sm:py-24 border-b border-slate-200 dark:border-white/5 overflow-hidden">
+    class="relative bg-gradient-to-b from-[#03292B] to-[#011415] text-white py-16 sm:py-24 border-b border-white/5 overflow-hidden">
     <div class="absolute inset-0 bg-[radial-gradient(circle_at_70%_120%,rgba(49,208,178,0.08),transparent_50%)]"></div>
     <div class="max-w-4xl mx-auto px-4 sm:px-6 relative z-10">
         <p class="uppercase tracking-[0.32em] text-[#31D0B2] text-xs font-semibold mb-4">{{ .Params.hero_eyebrow |
             default "Marketplace" }}</p>
         <h1 class="font-['TT_Livret_Display_Trl'] text-4xl sm:text-5xl font-light leading-tight mb-4">{{ .Title }}</h1>
-        <p class="text-slate-600 dark:text-white/60 text-sm sm:text-base leading-relaxed max-w-2xl">{{ .Params.hero_subtitle | default "List your property on Sharmony. Fill in details below to publish your property listing globally." }}</p>
+        <p class="text-white/60 text-sm sm:text-base leading-relaxed max-w-2xl">{{ .Params.hero_subtitle | default "List your property on Sharmony. Fill in details below to publish your property listing globally." }}</p>
     </div>
 </section>
 
-<section class="bg-slate-50 dark:bg-[#011415] text-slate-900 dark:text-white py-12 sm:py-16 relative min-h-[600px]">
+<section class="bg-[#F2E8D5] dark:bg-[#011415] text-[#03292B] dark:text-white py-12 sm:py-16 relative min-h-[600px]">
     <div class="absolute inset-0 bg-[radial-gradient(circle_at_10%_30%,rgba(219,167,87,0.03),transparent_40%)]"></div>
     <div class="max-w-4xl mx-auto px-4 sm:px-6 relative z-10">
-        <div class="bg-white shadow-sm dark:shadow-none dark:bg-white/5 border border-slate-200 dark:border-white/10 backdrop-blur-lg rounded-2xl p-6 sm:p-10 shadow-2xl">
+        <div class="bg-[#FDF9F0] shadow-sm dark:shadow-none dark:bg-white/5 border border-[#03292B]/10 dark:border-white/10 backdrop-blur-lg rounded-2xl p-6 sm:p-10 shadow-xl">
             <form id="submit-form" class="space-y-8" novalidate>
 
                 <!-- Listing Mode Custom sliding switch -->
                 <div>
-                    <label class="block text-xs uppercase tracking-[0.2em] text-slate-500 dark:text-white/50 mb-3 font-semibold">Listing
+                    <label class="block text-xs uppercase tracking-[0.2em] text-[#03292B]/60 dark:text-white/50 mb-3 font-semibold">Listing
                         Mode</label>
                     <div
-                        class="relative w-full bg-white dark:bg-[#021B1C] border border-slate-200 dark:border-white/10 p-1.5 rounded-xl flex items-center max-w-sm">
+                        class="relative w-full bg-[#FDF9F0] dark:bg-[#021B1C] border border-[#03292B]/10 dark:border-white/10 p-1.5 rounded-xl flex items-center max-w-sm">
                         <div id="listing-mode-bg"
                             class="absolute top-1.5 bottom-1.5 left-1.5 w-[calc(50%-6px)] bg-gradient-to-r from-[#FFDDA8] to-[#DBA757] rounded-lg transition-all duration-300 ease-out">
                         </div>
                         <button type="button" id="mode-regular"
-                            class="relative z-10 w-1/2 py-2.5 text-xs uppercase tracking-wider font-semibold transition-colors duration-300 text-slate-900 dark:text-[#03292B] focus:outline-none">Regular</button>
+                            class="relative z-10 w-1/2 py-2.5 text-xs uppercase tracking-wider font-semibold transition-colors duration-300 text-[#03292B] dark:text-[#03292B] focus:outline-none">Regular</button>
                         <button type="button" id="mode-fractional"
-                            class="relative z-10 w-1/2 py-2.5 text-xs uppercase tracking-wider font-semibold transition-colors duration-300 text-slate-500 dark:text-white/50 focus:outline-none">Fractional</button>
+                            class="relative z-10 w-1/2 py-2.5 text-xs uppercase tracking-wider font-semibold transition-colors duration-300 text-[#03292B]/60 dark:text-white/50 focus:outline-none">Fractional</button>
                     </div>
                     <input type="hidden" id="listing-mode" name="listingMode" value="regular">
                 </div>
 
                 <!-- Fractional Ownership Fields -->
                 <div id="fractional-fields"
-                    class="hidden transition-all duration-300 bg-white shadow-sm dark:shadow-none dark:bg-white/[0.02] border border-slate-200 dark:border-white/5 p-5 rounded-2xl space-y-4">
+                    class="hidden transition-all duration-300 bg-[#FDF9F0] shadow-sm dark:shadow-none dark:bg-white/[0.02] border border-[#03292B]/10 dark:border-white/5 p-5 rounded-2xl space-y-4">
                     <h3
                         class="text-xs uppercase tracking-wider text-[#DBA757] font-semibold mb-3 flex items-center gap-1.5">
                         <i class="bi bi-pie-chart"></i> Fractional Parameters
                     </h3>
                     <div class="grid sm:grid-cols-2 gap-5">
                         <div>
-                            <label class="block text-xs uppercase tracking-wider text-slate-500 dark:text-white/50 mb-2"
+                            <label class="block text-xs uppercase tracking-wider text-[#03292B]/60 dark:text-white/50 mb-2"
                                 for="listing-total-fractions">Total fractions</label>
                             <input id="listing-total-fractions" name="totalFractions" type="number" min="1" value="100"
-                                class="w-full bg-white dark:bg-[#021B1C] border border-slate-200 dark:border-white/10 text-slate-900 dark:text-white placeholder-white/20 px-4 py-3 text-sm rounded-xl focus:border-[#DBA757]/60 focus:outline-none transition">
+                                class="w-full bg-[#FDF9F0] dark:bg-[#021B1C] border border-[#03292B]/10 dark:border-white/10 text-[#03292B] dark:text-white placeholder-[#03292B]/20 dark:placeholder-white/20 px-4 py-3 text-sm rounded-xl focus:border-[#DBA757]/60 focus:outline-none transition">
                         </div>
                         <div>
-                            <label class="block text-xs uppercase tracking-wider text-slate-500 dark:text-white/50 mb-2"
+                            <label class="block text-xs uppercase tracking-wider text-[#03292B]/60 dark:text-white/50 mb-2"
                                 for="listing-fractions-percentage">Fractions for sale (%)</label>
                             <input id="listing-fractions-percentage" name="fractionsPercentage" type="number" min="1"
                                 max="100" value="100"
-                                class="w-full bg-white dark:bg-[#021B1C] border border-slate-200 dark:border-white/10 text-slate-900 dark:text-white placeholder-white/20 px-4 py-3 text-sm rounded-xl focus:border-[#DBA757]/60 focus:outline-none transition">
+                                class="w-full bg-[#FDF9F0] dark:bg-[#021B1C] border border-[#03292B]/10 dark:border-white/10 text-[#03292B] dark:text-white placeholder-[#03292B]/20 dark:placeholder-white/20 px-4 py-3 text-sm rounded-xl focus:border-[#DBA757]/60 focus:outline-none transition">
                         </div>
                     </div>
                 </div>
@@ -64,94 +64,94 @@
                 <!-- Core Fields -->
                 <div class="grid sm:grid-cols-2 gap-5">
                     <div>
-                        <label class="block text-xs uppercase tracking-wider text-slate-500 dark:text-white/50 mb-2" for="listing-title">{{
+                        <label class="block text-xs uppercase tracking-wider text-[#03292B]/60 dark:text-white/50 mb-2" for="listing-title">{{
                             or (index $ui "marketplace_submit_title") "Listing title" }}</label>
                         <input id="listing-title" name="title" type="text" required
-                            class="w-full bg-white dark:bg-[#021B1C] border border-slate-200 dark:border-white/10 text-slate-900 dark:text-white placeholder-white/25 px-4 py-3 text-sm rounded-xl focus:border-[#31D0B2] focus:ring-1 focus:ring-[#31D0B2] focus:outline-none transition"
+                            class="w-full bg-[#FDF9F0] dark:bg-[#021B1C] border border-[#03292B]/10 dark:border-white/10 text-[#03292B] dark:text-white placeholder-[#03292B]/30 dark:placeholder-white/25 px-4 py-3 text-sm rounded-xl focus:border-[#31D0B2] focus:ring-1 focus:ring-[#31D0B2] focus:outline-none transition"
                             placeholder='{{ or (index $ui "marketplace_submit_title_placeholder") "e.g. Seaside villa in Bali" }}'>
                     </div>
                     <div>
-                        <label class="block text-xs uppercase tracking-wider text-slate-500 dark:text-white/50 mb-2" for="listing-type">{{
+                        <label class="block text-xs uppercase tracking-wider text-[#03292B]/60 dark:text-white/50 mb-2" for="listing-type">{{
                             or (index $ui "marketplace_submit_type") "Property type" }}</label>
                         <div class="relative">
                             <select id="listing-type" name="type" required
-                                class="w-full bg-white dark:bg-[#021B1C] border border-slate-200 dark:border-white/10 text-slate-900 dark:text-white px-4 py-3 text-sm rounded-xl focus:border-[#31D0B2] focus:outline-none appearance-none cursor-pointer">
-                                <option value="" class="bg-white dark:bg-[#03292B] text-slate-900 dark:text-white">{{ or (index $ui
+                                class="w-full bg-[#FDF9F0] dark:bg-[#021B1C] border border-[#03292B]/10 dark:border-white/10 text-[#03292B] dark:text-white px-4 py-3 text-sm rounded-xl focus:border-[#31D0B2] focus:outline-none appearance-none cursor-pointer">
+                                <option value="" class="bg-[#FDF9F0] dark:bg-[#03292B] text-[#03292B] dark:text-white">{{ or (index $ui
                                     "marketplace_submit_type_placeholder") "Select type" }}</option>
-                                <option class="bg-white dark:bg-[#03292B] text-slate-900 dark:text-white" value="Villa">{{ or (index $ui
+                                <option class="bg-[#FDF9F0] dark:bg-[#03292B] text-[#03292B] dark:text-white" value="Villa">{{ or (index $ui
                                     "marketplace_submit_type_villa") "Villa" }}</option>
-                                <option class="bg-white dark:bg-[#03292B] text-slate-900 dark:text-white" value="Apartment">{{ or (index $ui
+                                <option class="bg-[#FDF9F0] dark:bg-[#03292B] text-[#03292B] dark:text-white" value="Apartment">{{ or (index $ui
                                     "marketplace_submit_type_apartment") "Apartment" }}</option>
-                                <option class="bg-white dark:bg-[#03292B] text-slate-900 dark:text-white" value="Townhouse">{{ or (index $ui
+                                <option class="bg-[#FDF9F0] dark:bg-[#03292B] text-[#03292B] dark:text-white" value="Townhouse">{{ or (index $ui
                                     "marketplace_submit_type_townhouse") "Townhouse" }}</option>
-                                <option class="bg-white dark:bg-[#03292B] text-slate-900 dark:text-white" value="Commercial">{{ or (index $ui
+                                <option class="bg-[#FDF9F0] dark:bg-[#03292B] text-[#03292B] dark:text-white" value="Commercial">{{ or (index $ui
                                     "marketplace_submit_type_commercial") "Commercial" }}</option>
                             </select>
                             <i
-                                class="bi bi-chevron-down absolute right-4 top-1/2 -translate-y-1/2 text-slate-400 dark:text-white/40 pointer-events-none text-xs"></i>
+                                class="bi bi-chevron-down absolute right-4 top-1/2 -translate-y-1/2 text-[#03292B]/40 dark:text-white/40 pointer-events-none text-xs"></i>
                         </div>
                     </div>
                 </div>
 
                 <div class="grid sm:grid-cols-2 gap-5">
                     <div>
-                        <label class="block text-xs uppercase tracking-wider text-slate-500 dark:text-white/50 mb-2" for="listing-price">{{
+                        <label class="block text-xs uppercase tracking-wider text-[#03292B]/60 dark:text-white/50 mb-2" for="listing-price">{{
                             or (index $ui "marketplace_submit_price") "Price (USD)" }}</label>
                         <input id="listing-price" name="priceUsd" type="number" min="1" required
-                            class="w-full bg-white dark:bg-[#021B1C] border border-slate-200 dark:border-white/10 text-slate-900 dark:text-white placeholder-white/25 px-4 py-3 text-sm rounded-xl focus:border-[#31D0B2] focus:ring-1 focus:ring-[#31D0B2] focus:outline-none transition"
+                            class="w-full bg-[#FDF9F0] dark:bg-[#021B1C] border border-[#03292B]/10 dark:border-white/10 text-[#03292B] dark:text-white placeholder-[#03292B]/30 dark:placeholder-white/25 px-4 py-3 text-sm rounded-xl focus:border-[#31D0B2] focus:ring-1 focus:ring-[#31D0B2] focus:outline-none transition"
                             placeholder='{{ or (index $ui "marketplace_submit_price_placeholder") "250000" }}'>
                     </div>
                     <div>
-                        <label class="block text-xs uppercase tracking-wider text-slate-500 dark:text-white/50 mb-2"
+                        <label class="block text-xs uppercase tracking-wider text-[#03292B]/60 dark:text-white/50 mb-2"
                             for="listing-bedrooms">{{ or (index $ui "marketplace_submit_bedrooms") "Bedrooms" }}</label>
                         <input id="listing-bedrooms" name="bedrooms" type="number" min="0" required
-                            class="w-full bg-white dark:bg-[#021B1C] border border-slate-200 dark:border-white/10 text-slate-900 dark:text-white placeholder-white/25 px-4 py-3 text-sm rounded-xl focus:border-[#31D0B2] focus:ring-1 focus:ring-[#31D0B2] focus:outline-none transition"
+                            class="w-full bg-[#FDF9F0] dark:bg-[#021B1C] border border-[#03292B]/10 dark:border-white/10 text-[#03292B] dark:text-white placeholder-[#03292B]/30 dark:placeholder-white/25 px-4 py-3 text-sm rounded-xl focus:border-[#31D0B2] focus:ring-1 focus:ring-[#31D0B2] focus:outline-none transition"
                             placeholder='{{ or (index $ui "marketplace_submit_bedrooms_placeholder") "2" }}'>
                     </div>
                 </div>
 
                 <div class="grid sm:grid-cols-2 gap-5">
                     <div>
-                        <label class="block text-xs uppercase tracking-wider text-slate-500 dark:text-white/50 mb-2"
+                        <label class="block text-xs uppercase tracking-wider text-[#03292B]/60 dark:text-white/50 mb-2"
                             for="listing-country">{{ or (index $ui "marketplace_submit_country") "Country" }}</label>
                         <input id="listing-country" name="country" type="text" required
-                            class="w-full bg-white dark:bg-[#021B1C] border border-slate-200 dark:border-white/10 text-slate-900 dark:text-white placeholder-white/25 px-4 py-3 text-sm rounded-xl focus:border-[#31D0B2] focus:ring-1 focus:ring-[#31D0B2] focus:outline-none transition"
+                            class="w-full bg-[#FDF9F0] dark:bg-[#021B1C] border border-[#03292B]/10 dark:border-white/10 text-[#03292B] dark:text-white placeholder-[#03292B]/30 dark:placeholder-white/25 px-4 py-3 text-sm rounded-xl focus:border-[#31D0B2] focus:ring-1 focus:ring-[#31D0B2] focus:outline-none transition"
                             placeholder='{{ or (index $ui "marketplace_submit_country_placeholder") "Country" }}'>
                     </div>
                     <div>
-                        <label class="block text-xs uppercase tracking-wider text-slate-500 dark:text-white/50 mb-2" for="listing-city">{{
+                        <label class="block text-xs uppercase tracking-wider text-[#03292B]/60 dark:text-white/50 mb-2" for="listing-city">{{
                             or (index $ui "marketplace_submit_city") "City" }}</label>
                         <input id="listing-city" name="city" type="text" required
-                            class="w-full bg-white dark:bg-[#021B1C] border border-slate-200 dark:border-white/10 text-slate-900 dark:text-white placeholder-white/25 px-4 py-3 text-sm rounded-xl focus:border-[#31D0B2] focus:ring-1 focus:ring-[#31D0B2] focus:outline-none transition"
+                            class="w-full bg-[#FDF9F0] dark:bg-[#021B1C] border border-[#03292B]/10 dark:border-white/10 text-[#03292B] dark:text-white placeholder-[#03292B]/30 dark:placeholder-white/25 px-4 py-3 text-sm rounded-xl focus:border-[#31D0B2] focus:ring-1 focus:ring-[#31D0B2] focus:outline-none transition"
                             placeholder='{{ or (index $ui "marketplace_submit_city_placeholder") "City" }}'>
                     </div>
                 </div>
 
                 <div>
-                    <label class="block text-xs uppercase tracking-wider text-slate-500 dark:text-white/50 mb-2"
+                    <label class="block text-xs uppercase tracking-wider text-[#03292B]/60 dark:text-white/50 mb-2"
                         for="listing-description">{{ or (index $ui "marketplace_submit_description") "Description"
                         }}</label>
                     <textarea id="listing-description" name="description" required rows="4"
-                        class="w-full bg-white dark:bg-[#021B1C] border border-slate-200 dark:border-white/10 text-slate-900 dark:text-white placeholder-white/25 px-4 py-3 text-sm rounded-xl focus:border-[#31D0B2] focus:ring-1 focus:ring-[#31D0B2] focus:outline-none transition resize-none"
+                        class="w-full bg-[#FDF9F0] dark:bg-[#021B1C] border border-[#03292B]/10 dark:border-white/10 text-[#03292B] dark:text-white placeholder-[#03292B]/30 dark:placeholder-white/25 px-4 py-3 text-sm rounded-xl focus:border-[#31D0B2] focus:ring-1 focus:ring-[#31D0B2] focus:outline-none transition resize-none"
                         placeholder='{{ or (index $ui "marketplace_submit_description_placeholder") "Describe your property features and investment highlights" }}'></textarea>
                 </div>
 
                 <!-- Custom Styled Upload Dropzone with Preview -->
                 <div>
-                    <label class="block text-xs uppercase tracking-wider text-slate-500 dark:text-white/50 mb-2.5 font-semibold">{{ or
+                    <label class="block text-xs uppercase tracking-wider text-[#03292B]/60 dark:text-white/50 mb-2.5 font-semibold">{{ or
                         (index $ui "marketplace_submit_images") "Images" }}</label>
                     <div id="dropzone"
-                        class="border-2 border-dashed border-slate-200 dark:border-white/10 hover:border-[#31D0B2]/50 bg-white shadow-sm dark:shadow-none dark:bg-white/[0.01] rounded-2xl p-8 text-center cursor-pointer transition duration-200 relative flex flex-col items-center justify-center">
+                        class="border-2 border-dashed border-[#03292B]/15 dark:border-white/10 hover:border-[#31D0B2]/50 bg-[#FDF9F0] shadow-sm dark:shadow-none dark:bg-white/[0.01] rounded-2xl p-8 text-center cursor-pointer transition duration-200 relative flex flex-col items-center justify-center">
                         <input id="listing-images" name="images" type="file" multiple accept="image/*" class="hidden">
                         <div id="dropzone-prompt" class="space-y-2">
                             <i class="bi bi-cloud-arrow-up text-4xl text-[#31D0B2]"></i>
                             <p class="text-sm font-semibold">Drag & drop files here, or <span
                                     class="text-[#31D0B2] underline">browse files</span></p>
-                            <p class="text-xs text-slate-400 dark:text-white/40">Upload high quality JPEG or PNG images (Max 5MB each)</p>
+                            <p class="text-xs text-[#03292B]/40 dark:text-white/40">Upload high quality JPEG or PNG images (Max 5MB each)</p>
                         </div>
                         <div id="preview-grid" class="hidden grid grid-cols-2 sm:grid-cols-4 gap-3 mt-5 w-full"></div>
                     </div>
-                    <p id="listing-images-meta" class="mt-2 text-xs text-slate-400 dark:text-white/40">{{ or (index $ui
+                    <p id="listing-images-meta" class="mt-2 text-xs text-[#03292B]/40 dark:text-white/40">{{ or (index $ui
                         "marketplace_submit_images_hint") "At least one image is recommended." }}</p>
                 </div>
 
@@ -162,7 +162,7 @@
                         {{ or (index $ui "marketplace_submit_button") "Publish listing" }}
                     </button>
                     <a href='{{ "/marketplace/" | relLangURL }}'
-                        class="px-6 py-3.5 rounded-xl bg-white shadow-sm dark:shadow-none dark:bg-white/5 border border-slate-200 dark:border-white/15 text-slate-900 dark:text-white hover:border-[#31D0B2] hover:text-[#31D0B2] transition duration-200">
+                        class="px-6 py-3.5 rounded-xl bg-[#FDF9F0] shadow-sm dark:shadow-none dark:bg-white/5 border border-[#03292B]/10 dark:border-white/15 text-[#03292B] dark:text-white hover:border-[#31D0B2] hover:text-[#31D0B2] transition duration-200">
                         {{ or (index $ui "marketplace_submit_back") "Back to marketplace" }}
                     </a>
                 </div>
@@ -214,17 +214,17 @@
         listingModeInput.value = mode;
         if (mode === 'fractional') {
             modeBg.style.left = 'calc(50% - 2px)';
-            modeFractional.classList.add('text-slate-900 dark:text-[#03292B]');
-            modeFractional.classList.remove('text-slate-500 dark:text-white/50');
-            modeRegular.classList.add('text-slate-500 dark:text-white/50');
-            modeRegular.classList.remove('text-slate-900 dark:text-[#03292B]');
+            modeFractional.classList.add('text-[#03292B]', 'dark:text-[#03292B]');
+            modeFractional.classList.remove('text-[#03292B]/60', 'dark:text-white/50');
+            modeRegular.classList.add('text-[#03292B]/60', 'dark:text-white/50');
+            modeRegular.classList.remove('text-[#03292B]', 'dark:text-[#03292B]');
             fractionalFields.classList.remove('hidden');
         } else {
             modeBg.style.left = '6px';
-            modeRegular.classList.add('text-slate-900 dark:text-[#03292B]');
-            modeRegular.classList.remove('text-slate-500 dark:text-white/50');
-            modeFractional.classList.add('text-slate-500 dark:text-white/50');
-            modeFractional.classList.remove('text-slate-900 dark:text-[#03292B]');
+            modeRegular.classList.add('text-[#03292B]', 'dark:text-[#03292B]');
+            modeRegular.classList.remove('text-[#03292B]/60', 'dark:text-white/50');
+            modeFractional.classList.add('text-[#03292B]/60', 'dark:text-white/50');
+            modeFractional.classList.remove('text-[#03292B]', 'dark:text-[#03292B]');
             fractionalFields.classList.add('hidden');
         }
     }
@@ -243,13 +243,13 @@
     ['dragenter', 'dragover'].forEach(eventName => {
         dropzone.addEventListener(eventName, e => {
             e.preventDefault();
-            dropzone.classList.add('border-[#31D0B2]/50', 'bg-white/[0.03]');
+            dropzone.classList.add('border-[#31D0B2]/50', 'bg-[#FDF9F0]/50');
         }, false);
     });
     ['dragleave', 'drop'].forEach(eventName => {
         dropzone.addEventListener(eventName, e => {
             e.preventDefault();
-            dropzone.classList.remove('border-[#31D0B2]/50', 'bg-white/[0.03]');
+            dropzone.classList.remove('border-[#31D0B2]/50', 'bg-[#FDF9F0]/50');
         }, false);
     });
 
@@ -289,7 +289,7 @@
 
             // Create preview thumbnail
             const thumb = document.createElement('div');
-            thumb.className = 'relative h-20 bg-white shadow-sm dark:shadow-none dark:bg-white/5 border border-slate-200 dark:border-white/10 rounded-xl overflow-hidden group';
+            thumb.className = 'relative h-20 bg-[#FDF9F0] shadow-sm dark:shadow-none dark:bg-white/5 border border-[#03292B]/10 dark:border-white/10 rounded-xl overflow-hidden group';
 
             const img = document.createElement('img');
             img.className = 'w-full h-full object-cover';
