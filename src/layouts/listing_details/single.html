@@ -207,384 +207,384 @@
 <script>
     (function () {
         const i18n = {
-            loading: {{ (.Params.details_loading | default "Loading listing details...") | jsonify | safeJS }},
-            missingId: {{ (.Params.details_missing_id | default "Listing ID is missing in URL.") | jsonify | safeJS }},
-            notFound: {{ (.Params.details_not_found | default "Listing was not found.") | jsonify | safeJS }},
-            loadError: {{ (.Params.details_load_error | default "Could not load listing details.") | jsonify | safeJS }},
-            noDescription: {{ (.Params.details_no_description | default "No description provided.") | jsonify | safeJS }},
-            bedroomsSuffix: {{ (.Params.details_bedrooms_suffix | default "rooms") | jsonify | safeJS }},
-            purchaseLoginRequired: {{ (or (index $ui "listing_details_purchase_login_required") "Please log in to purchase fractions.") | jsonify | safeJS }},
-            purchaseSuccess: {{ (or (index $ui "listing_details_purchase_success") "Purchase successful! Your fractions have been transferred to your wallet.") | jsonify | safeJS }},
-            purchaseError: {{ (or (index $ui "listing_details_purchase_error") "Could not complete purchase. Please check your balance.") | jsonify | safeJS }},
-            dealCreationError: {{ (or (index $ui "listing_details_deal_creation_error") "Could not create deal. Please try again.") | jsonify | safeJS }}
-        };
+            loading: {{ (.Params.details_loading | default "Loading listing details...") | jsonify | safeJS
+    }},
+    missingId: { { (.Params.details_missing_id | default "Listing ID is missing in URL.") | jsonify | safeJS } },
+    notFound: { { (.Params.details_not_found | default "Listing was not found.") | jsonify | safeJS } },
+    loadError: { { (.Params.details_load_error | default "Could not load listing details.") | jsonify | safeJS } },
+    noDescription: { { (.Params.details_no_description | default "No description provided.") | jsonify | safeJS } },
+    bedroomsSuffix: { { (.Params.details_bedrooms_suffix | default "rooms") | jsonify | safeJS } },
+    purchaseLoginRequired: { { (or(index $ui "listing_details_purchase_login_required") "Please log in to purchase fractions.") | jsonify | safeJS } },
+    purchaseSuccess: { { (or(index $ui "listing_details_purchase_success") "Purchase successful! Your fractions have been transferred to your wallet.") | jsonify | safeJS } },
+    purchaseError: { { (or(index $ui "listing_details_purchase_error") "Could not complete purchase. Please check your balance.") | jsonify | safeJS } },
+    dealCreationError: { { (or(index $ui "listing_details_deal_creation_error") "Could not create deal. Please try again.") | jsonify | safeJS } }
+    };
 
-        const stateEl = document.getElementById('listing-state');
-        const cardEl = document.getElementById('listing-card');
-        const thumbsEl = document.getElementById('listing-thumbs');
-        const imageStatusEl = document.getElementById('listing-image-status');
-        const imageCountEl = document.getElementById('listing-images-count');
-        const placeholderImage = '/images/hero_bg.jpg';
-        const listingStoragePrefix = 'sharmonyListing_';
-        const lastListingIdKey = 'sharmony_last_listing_id';
-        const lastListingRegionKey = 'sharmony_last_listing_region';
-        const loginUrl = '{{ "/login/" | relLangURL }}';
-        const accountUrl = '{{ "/account/" | relLangURL }}';
-        let galleryItems = [];
-        let currentListing = null;
-        let currentListingId = null;
+    const stateEl = document.getElementById('listing-state');
+    const cardEl = document.getElementById('listing-card');
+    const thumbsEl = document.getElementById('listing-thumbs');
+    const imageStatusEl = document.getElementById('listing-image-status');
+    const imageCountEl = document.getElementById('listing-images-count');
+    const placeholderImage = '/images/hero_bg.jpg';
+    const listingStoragePrefix = 'sharmonyListing_';
+    const lastListingIdKey = 'sharmony_last_listing_id';
+    const lastListingRegionKey = 'sharmony_last_listing_region';
+    const loginUrl = '{{ "/login/" | relLangURL }}';
+    const accountUrl = '{{ "/account/" | relLangURL }}';
+    let galleryItems = [];
+    let currentListing = null;
+    let currentListingId = null;
 
-        // Purchase modal elements
-        const purchaseModal = document.getElementById('purchase-modal');
-        const purchaseForm = document.getElementById('purchase-form');
-        const purchaseQuantity = document.getElementById('purchase-quantity');
-        const purchaseTotal = document.getElementById('purchase-total');
-        const purchaseSubmit = document.getElementById('purchase-submit');
-        const purchaseCancel = document.getElementById('purchase-cancel');
-        const purchaseCancelX = document.getElementById('purchase-cancel-x');
-        const purchaseStatus = document.getElementById('purchase-status');
-        const buyFractionsBtn = document.getElementById('buy-fractions-btn');
-        const purchaseAvailable = document.getElementById('purchase-available');
-        const fractionalInfoSection = document.getElementById('fractional-info-section');
+    // Purchase modal elements
+    const purchaseModal = document.getElementById('purchase-modal');
+    const purchaseForm = document.getElementById('purchase-form');
+    const purchaseQuantity = document.getElementById('purchase-quantity');
+    const purchaseTotal = document.getElementById('purchase-total');
+    const purchaseSubmit = document.getElementById('purchase-submit');
+    const purchaseCancel = document.getElementById('purchase-cancel');
+    const purchaseCancelX = document.getElementById('purchase-cancel-x');
+    const purchaseStatus = document.getElementById('purchase-status');
+    const buyFractionsBtn = document.getElementById('buy-fractions-btn');
+    const purchaseAvailable = document.getElementById('purchase-available');
+    const fractionalInfoSection = document.getElementById('fractional-info-section');
 
-        function setState(text, isError) {
-            stateEl.innerHTML = isError
-                ? `<span class="inline-block w-2 h-2 rounded-full bg-red-400"></span><span class="text-red-300">${text}</span>`
-                : `<span class="inline-block w-2 h-2 rounded-full bg-[#31D0B2] animate-pulse"></span><span class="text-slate-600 dark:text-white/60">${text}</span>`;
-            if (text === '') stateEl.classList.add('hidden');
-            else stateEl.classList.remove('hidden');
+    function setState(text, isError) {
+        stateEl.innerHTML = isError
+            ? `<span class="inline-block w-2 h-2 rounded-full bg-red-400"></span><span class="text-red-300">${text}</span>`
+            : `<span class="inline-block w-2 h-2 rounded-full bg-[#31D0B2] animate-pulse"></span><span class="text-slate-600 dark:text-white/60">${text}</span>`;
+        if (text === '') stateEl.classList.add('hidden');
+        else stateEl.classList.remove('hidden');
+    }
+
+    function formatPrice(v) {
+        return new Intl.NumberFormat('en-US', { style: 'currency', currency: 'USD', maximumFractionDigits: 0 }).format(v || 0);
+    }
+
+    function normalizeGalleryItems(items, title) {
+        return items.map(function (item, index) {
+            const src = (typeof item === 'string') ? item : (item && item.src);
+            const alt = (typeof item === 'string') ? (title + ' #' + (index + 1)) : (item && (item.alt || item.caption || item.title)) || (title + ' #' + (index + 1));
+            return src ? { src: src, alt: alt } : null;
+        }).filter(Boolean);
+    }
+
+    function setMainImage(image) {
+        const imgEl = document.getElementById('listing-image');
+        if (!imgEl) return;
+        imgEl.src = image ? image.src : placeholderImage;
+        imgEl.alt = image ? image.alt : "Property image";
+    }
+
+    function renderGallery(rawImages, title) {
+        galleryItems = normalizeGalleryItems(rawImages, title);
+        if (!galleryItems.length) {
+            setMainImage(null);
+            if (thumbsEl) thumbsEl.innerHTML = '';
+            if (imageCountEl) imageCountEl.textContent = '';
+            if (imageStatusEl) imageStatusEl.textContent = "No images uploaded yet.";
+            return;
         }
 
-        function formatPrice(v) {
-            return new Intl.NumberFormat('en-US', { style: 'currency', currency: 'USD', maximumFractionDigits: 0 }).format(v || 0);
-        }
+        setMainImage(galleryItems[0]);
+        if (imageCountEl) imageCountEl.textContent = String(galleryItems.length) + ' images';
+        if (imageStatusEl) imageStatusEl.textContent = '';
+        if (thumbsEl) {
+            thumbsEl.innerHTML = galleryItems.map(function (image, index) {
+                const isActiveClass = index === 0 ? 'border-[#31D0B2] scale-95' : 'border-slate-200 dark:border-white/10 hover:border-white/30';
+                return '<button type="button" data-index="' + index + '" class="thumb-btn overflow-hidden rounded-xl border aspect-[16/10] bg-white shadow-sm dark:shadow-none dark:bg-white/5 focus:outline-none transition duration-200 ' + isActiveClass + '">'
+                    + '<img src="' + image.src + '" alt="' + image.alt + '" class="h-full w-full object-cover">'
+                    + '</button>';
+            }).join('');
 
-        function normalizeGalleryItems(items, title) {
-            return items.map(function (item, index) {
-                const src = (typeof item === 'string') ? item : (item && item.src);
-                const alt = (typeof item === 'string') ? (title + ' #' + (index + 1)) : (item && (item.alt || item.caption || item.title)) || (title + ' #' + (index + 1));
-                return src ? { src: src, alt: alt } : null;
-            }).filter(Boolean);
-        }
-
-        function setMainImage(image) {
-            const imgEl = document.getElementById('listing-image');
-            if (!imgEl) return;
-            imgEl.src = image ? image.src : placeholderImage;
-            imgEl.alt = image ? image.alt : "Property image";
-        }
-
-        function renderGallery(rawImages, title) {
-            galleryItems = normalizeGalleryItems(rawImages, title);
-            if (!galleryItems.length) {
-                setMainImage(null);
-                if (thumbsEl) thumbsEl.innerHTML = '';
-                if (imageCountEl) imageCountEl.textContent = '';
-                if (imageStatusEl) imageStatusEl.textContent = "No images uploaded yet.";
-                return;
-            }
-
-            setMainImage(galleryItems[0]);
-            if (imageCountEl) imageCountEl.textContent = String(galleryItems.length) + ' images';
-            if (imageStatusEl) imageStatusEl.textContent = '';
-            if (thumbsEl) {
-                thumbsEl.innerHTML = galleryItems.map(function (image, index) {
-                    const isActiveClass = index === 0 ? 'border-[#31D0B2] scale-95' : 'border-slate-200 dark:border-white/10 hover:border-white/30';
-                    return '<button type="button" data-index="' + index + '" class="thumb-btn overflow-hidden rounded-xl border aspect-[16/10] bg-white shadow-sm dark:shadow-none dark:bg-white/5 focus:outline-none transition duration-200 ' + isActiveClass + '">'
-                        + '<img src="' + image.src + '" alt="' + image.alt + '" class="h-full w-full object-cover">'
-                        + '</button>';
-                }).join('');
-
-                const btns = thumbsEl.querySelectorAll('.thumb-btn');
-                btns.forEach(function (button) {
-                    button.addEventListener('click', function () {
-                        btns.forEach(b => b.className = b.className.replace('border-[#31D0B2] scale-95', 'border-slate-200 dark:border-white/10').replace('hover:border-white/30', ''));
-                        button.classList.add('border-[#31D0B2]', 'scale-95');
-                        const idx = Number(button.getAttribute('data-index'));
-                        if (!Number.isNaN(idx) && galleryItems[idx]) setMainImage(galleryItems[idx]);
-                    });
+            const btns = thumbsEl.querySelectorAll('.thumb-btn');
+            btns.forEach(function (button) {
+                button.addEventListener('click', function () {
+                    btns.forEach(b => b.className = b.className.replace('border-[#31D0B2] scale-95', 'border-slate-200 dark:border-white/10').replace('hover:border-white/30', ''));
+                    button.classList.add('border-[#31D0B2]', 'scale-95');
+                    const idx = Number(button.getAttribute('data-index'));
+                    if (!Number.isNaN(idx) && galleryItems[idx]) setMainImage(galleryItems[idx]);
                 });
-            }
-        }
-
-        function normalizeRecord(raw) {
-            if (!raw) return null;
-            const metadata = raw.metadata || {};
-            const fractional = metadata.fractional || {};
-            const images = Array.isArray(raw.images) ? raw.images : (raw.image ? [raw.image] : []);
-            const priceCents = Number(raw.price_cents || 0);
-
-            return {
-                id: raw.id || '',
-                title: raw.title || '-',
-                description: raw.description || '',
-                image: (images.length ? images[0] : ''),
-                images: images,
-                type: metadata.propertyType || metadata.type || raw.type || '-',
-                city: metadata.city || raw.city || '',
-                country: metadata.country || raw.country || '',
-                bedrooms: Number(raw.rooms || metadata.bedrooms || raw.bedrooms || 0),
-                priceUsd: priceCents ? (priceCents / 100) : Number(raw.priceUsd || raw.price_usd || 0),
-                region: raw.region || 'europe',
-                owner: raw.owner || '-',
-                status: raw.status || '-',
-                // Fractional fields
-                totalFractions: Number(fractional.totalFractions || metadata.totalFractions || 0),
-                fractionsPercentage: Number(fractional.fractionsPercentage || metadata.fractionsPercentage || 100),
-                ownerWallet: fractional.ownerWallet || metadata.ownerWallet || null,
-                isFractional: Number(fractional.totalFractions || metadata.totalFractions || 0) > 0
-            };
-        }
-
-        function rememberListing(raw) {
-            if (!raw || !raw.id) return;
-            try {
-                sessionStorage.setItem(listingStoragePrefix + String(raw.id), JSON.stringify(raw));
-                sessionStorage.setItem(lastListingIdKey, String(raw.id));
-                if (raw.region) sessionStorage.setItem(lastListingRegionKey, String(raw.region));
-            } catch (e) {
-                // ignore storage issues
-            }
-        }
-
-        function syncLanguageLinks(id, region) {
-            if (!id) return;
-            document.querySelectorAll('.lang-options a[href]').forEach(function (link) {
-                try {
-                    const url = new URL(link.href, window.location.origin);
-                    url.searchParams.set('id', String(id));
-                    if (region) url.searchParams.set('region', String(region));
-                    if (!region) url.searchParams.delete('region');
-                    link.href = url.toString();
-                } catch (e) {
-                    // ignore
-                }
             });
         }
+    }
 
-        function fetchUserProfile(address) {
-            if (!address) return;
-            const ownerEl = document.getElementById('listing-owner');
-            const backend = window.SHARMONY_BACKEND_URL || '';
-            const url = backend + '/api/v1/users/' + encodeURIComponent(address);
-            fetch(url)
-                .then(function (res) {
-                    if (!res.ok) throw new Error('User lookup failed');
-                    return res.json();
-                })
-                .then(function (profile) {
-                    const name = profile && (profile.name || profile.Name);
-                    if (name && ownerEl) ownerEl.textContent = name;
-                })
-                .catch(function () {
-                    // keep owner id if lookup fails
-                });
+    function normalizeRecord(raw) {
+        if (!raw) return null;
+        const metadata = raw.metadata || {};
+        const fractional = metadata.fractional || {};
+        const images = Array.isArray(raw.images) ? raw.images : (raw.image ? [raw.image] : []);
+        const priceCents = Number(raw.price_cents || 0);
+
+        return {
+            id: raw.id || '',
+            title: raw.title || '-',
+            description: raw.description || '',
+            image: (images.length ? images[0] : ''),
+            images: images,
+            type: metadata.propertyType || metadata.type || raw.type || '-',
+            city: metadata.city || raw.city || '',
+            country: metadata.country || raw.country || '',
+            bedrooms: Number(raw.rooms || metadata.bedrooms || raw.bedrooms || 0),
+            priceUsd: priceCents ? (priceCents / 100) : Number(raw.priceUsd || raw.price_usd || 0),
+            region: raw.region || 'europe',
+            owner: raw.owner || '-',
+            status: raw.status || '-',
+            // Fractional fields
+            totalFractions: Number(fractional.totalFractions || metadata.totalFractions || 0),
+            fractionsPercentage: Number(fractional.fractionsPercentage || metadata.fractionsPercentage || 100),
+            ownerWallet: fractional.ownerWallet || metadata.ownerWallet || null,
+            isFractional: Number(fractional.totalFractions || metadata.totalFractions || 0) > 0
+        };
+    }
+
+    function rememberListing(raw) {
+        if (!raw || !raw.id) return;
+        try {
+            sessionStorage.setItem(listingStoragePrefix + String(raw.id), JSON.stringify(raw));
+            sessionStorage.setItem(lastListingIdKey, String(raw.id));
+            if (raw.region) sessionStorage.setItem(lastListingRegionKey, String(raw.region));
+        } catch (e) {
+            // ignore storage issues
         }
+    }
 
-        function renderFractionalInfo(item) {
-            if (!item.isFractional) {
-                if (fractionalInfoSection) fractionalInfoSection.classList.add('hidden');
-                return;
-            }
-
-            fractionalInfoSection.classList.remove('hidden');
-
-            const totalFractions = item.totalFractions || 0;
-            const fractionsPercentage = item.fractionsPercentage || 100;
-            const availableFractions = Math.round((totalFractions * fractionsPercentage) / 100);
-            const pricePerFraction = item.priceUsd / totalFractions;
-
-            document.getElementById('listing-total-fractions').textContent = totalFractions;
-            document.getElementById('listing-available-fractions').textContent = availableFractions;
-            document.getElementById('listing-price-per-fraction').textContent = formatPrice(pricePerFraction);
-            purchaseAvailable.textContent = availableFractions;
-
-            // Update purchase form max
-            if (purchaseQuantity) {
-                purchaseQuantity.max = availableFractions;
-            }
-
-            // Update total on quantity change
-            if (purchaseQuantity) {
-                // Set initial state
-                purchaseQuantity.value = 1;
-                purchaseTotal.textContent = formatPrice(pricePerFraction);
-
-                purchaseQuantity.addEventListener('input', function () {
-                    const qty = Number(purchaseQuantity.value) || 0;
-                    const total = qty * pricePerFraction;
-                    purchaseTotal.textContent = formatPrice(total);
-                });
-            }
-        }
-
-        function renderListing(item, rawImages) {
-            currentListing = item;
-            currentListingId = item.id;
-            const safeImages = Array.isArray(rawImages) ? rawImages : [];
-            renderGallery(safeImages.length ? safeImages : [item.image].filter(Boolean), item.title);
-            document.getElementById('listing-title').textContent = item.title;
-            document.getElementById('listing-type').textContent = item.type;
-            document.getElementById('listing-price').textContent = formatPrice(item.priceUsd);
-            document.getElementById('listing-location').querySelector('span').textContent = [item.city, item.country].filter(Boolean).join(', ');
-            document.getElementById('listing-description').textContent = item.description || i18n.noDescription;
-            document.getElementById('listing-bedrooms').textContent = String(item.bedrooms) + ' ' + i18n.bedroomsSuffix;
-            document.getElementById('listing-region').textContent = item.region || '-';
-            document.getElementById('listing-status').textContent = item.status || '-';
-            document.getElementById('listing-owner').textContent = item.owner || '-';
-
-            renderFractionalInfo(item);
-
-            if (item.owner && item.owner !== '-') {
-                fetchUserProfile(item.owner);
-            }
-
-            cardEl.classList.remove('hidden');
-            setState('', false);
-        }
-
-        function loadListing() {
-            const params = new URLSearchParams(window.location.search);
-            let id = params.get('id');
-            let region = params.get('region') || 'europe';
-
+    function syncLanguageLinks(id, region) {
+        if (!id) return;
+        document.querySelectorAll('.lang-options a[href]').forEach(function (link) {
             try {
-                if (!id) {
-                    const lastId = sessionStorage.getItem(lastListingIdKey);
-                    const lastRegion = sessionStorage.getItem(lastListingRegionKey);
-                    if (lastId) {
-                        id = String(lastId);
-                        if (lastRegion) region = String(lastRegion);
-                    }
-                }
-            } catch (e) { }
+                const url = new URL(link.href, window.location.origin);
+                url.searchParams.set('id', String(id));
+                if (region) url.searchParams.set('region', String(region));
+                if (!region) url.searchParams.delete('region');
+                link.href = url.toString();
+            } catch (e) {
+                // ignore
+            }
+        });
+    }
 
+    function fetchUserProfile(address) {
+        if (!address) return;
+        const ownerEl = document.getElementById('listing-owner');
+        const backend = window.SHARMONY_BACKEND_URL || '';
+        const url = backend + '/api/v1/users/' + encodeURIComponent(address);
+        fetch(url)
+            .then(function (res) {
+                if (!res.ok) throw new Error('User lookup failed');
+                return res.json();
+            })
+            .then(function (profile) {
+                const name = profile && (profile.name || profile.Name);
+                if (name && ownerEl) ownerEl.textContent = name;
+            })
+            .catch(function () {
+                // keep owner id if lookup fails
+            });
+    }
+
+    function renderFractionalInfo(item) {
+        if (!item.isFractional) {
+            if (fractionalInfoSection) fractionalInfoSection.classList.add('hidden');
+            return;
+        }
+
+        fractionalInfoSection.classList.remove('hidden');
+
+        const totalFractions = item.totalFractions || 0;
+        const fractionsPercentage = item.fractionsPercentage || 100;
+        const availableFractions = Math.round((totalFractions * fractionsPercentage) / 100);
+        const pricePerFraction = item.priceUsd / totalFractions;
+
+        document.getElementById('listing-total-fractions').textContent = totalFractions;
+        document.getElementById('listing-available-fractions').textContent = availableFractions;
+        document.getElementById('listing-price-per-fraction').textContent = formatPrice(pricePerFraction);
+        purchaseAvailable.textContent = availableFractions;
+
+        // Update purchase form max
+        if (purchaseQuantity) {
+            purchaseQuantity.max = availableFractions;
+        }
+
+        // Update total on quantity change
+        if (purchaseQuantity) {
+            // Set initial state
+            purchaseQuantity.value = 1;
+            purchaseTotal.textContent = formatPrice(pricePerFraction);
+
+            purchaseQuantity.addEventListener('input', function () {
+                const qty = Number(purchaseQuantity.value) || 0;
+                const total = qty * pricePerFraction;
+                purchaseTotal.textContent = formatPrice(total);
+            });
+        }
+    }
+
+    function renderListing(item, rawImages) {
+        currentListing = item;
+        currentListingId = item.id;
+        const safeImages = Array.isArray(rawImages) ? rawImages : [];
+        renderGallery(safeImages.length ? safeImages : [item.image].filter(Boolean), item.title);
+        document.getElementById('listing-title').textContent = item.title;
+        document.getElementById('listing-type').textContent = item.type;
+        document.getElementById('listing-price').textContent = formatPrice(item.priceUsd);
+        document.getElementById('listing-location').querySelector('span').textContent = [item.city, item.country].filter(Boolean).join(', ');
+        document.getElementById('listing-description').textContent = item.description || i18n.noDescription;
+        document.getElementById('listing-bedrooms').textContent = String(item.bedrooms) + ' ' + i18n.bedroomsSuffix;
+        document.getElementById('listing-region').textContent = item.region || '-';
+        document.getElementById('listing-status').textContent = item.status || '-';
+        document.getElementById('listing-owner').textContent = item.owner || '-';
+
+        renderFractionalInfo(item);
+
+        if (item.owner && item.owner !== '-') {
+            fetchUserProfile(item.owner);
+        }
+
+        cardEl.classList.remove('hidden');
+        setState('', false);
+    }
+
+    function loadListing() {
+        const params = new URLSearchParams(window.location.search);
+        let id = params.get('id');
+        let region = params.get('region') || 'europe';
+
+        try {
             if (!id) {
-                setState(i18n.missingId, true);
+                const lastId = sessionStorage.getItem(lastListingIdKey);
+                const lastRegion = sessionStorage.getItem(lastListingRegionKey);
+                if (lastId) {
+                    id = String(lastId);
+                    if (lastRegion) region = String(lastRegion);
+                }
+            }
+        } catch (e) { }
+
+        if (!id) {
+            setState(i18n.missingId, true);
+            return;
+        }
+
+        syncLanguageLinks(id, region);
+
+        setState(i18n.loading, false);
+
+        // Fetch check: First check backend, then check fallback
+        const backend = window.SHARMONY_BACKEND_URL || '';
+        const listEndpoint = backend + '/api/v1/real-estate/' + encodeURIComponent(region) + '/records';
+
+        fetch(listEndpoint)
+            .then(function (res) {
+                if (!res.ok) throw new Error('Listing lookup failed');
+                return res.json();
+            })
+            .then(function (payload) {
+                const records = payload.records || payload.listings || payload.data || payload || [];
+                const recordList = Array.isArray(records) ? records : (records ? [records] : []);
+                const match = recordList.find(entry => String(entry && entry.id) === String(id));
+                if (!match) throw new Error('Not found on backend');
+
+                const normalized = normalizeRecord(match);
+                rememberListing(match);
+                renderListing(normalized, normalized.images);
+            })
+            .catch(function (error) {
+                console.error('Backend fetch failed.', error);
+                setState(i18n.loadError, true);
+            });
+    }
+
+    // Purchase modal handlers
+    if (buyFractionsBtn) {
+        buyFractionsBtn.addEventListener('click', function () {
+            const token = localStorage.getItem('sharmonyAuthToken');
+            if (!token) {
+                alert(i18n.purchaseLoginRequired);
+                window.location.href = loginUrl;
+                return;
+            }
+            if (purchaseModal) purchaseModal.classList.remove('hidden');
+        });
+    }
+
+    function closeModal() {
+        if (purchaseModal) purchaseModal.classList.add('hidden');
+        purchaseForm.reset();
+        purchaseStatus.textContent = '';
+    }
+
+    if (purchaseCancel) purchaseCancel.addEventListener('click', closeModal);
+    if (purchaseCancelX) purchaseCancelX.addEventListener('click', closeModal);
+
+    if (purchaseForm) {
+        purchaseForm.addEventListener('submit', function (event) {
+            event.preventDefault();
+
+            const token = localStorage.getItem('sharmonyAuthToken');
+            const userId = localStorage.getItem('sharmonyAccountAddress');
+
+            if (!token || !userId || !currentListing) {
+                purchaseStatus.textContent = i18n.purchaseLoginRequired;
+                purchaseStatus.className = 'text-sm text-red-400 mt-2';
                 return;
             }
 
-            syncLanguageLinks(id, region);
+            const quantity = Number(purchaseQuantity.value) || 0;
+            if (quantity < 1) {
+                purchaseStatus.textContent = 'Please enter a valid quantity.';
+                purchaseStatus.className = 'text-sm text-red-400 mt-2';
+                return;
+            }
 
-            setState(i18n.loading, false);
+            purchaseSubmit.disabled = true;
+            purchaseSubmit.classList.add('opacity-60', 'cursor-not-allowed');
+            purchaseStatus.textContent = 'Creating investment deal...';
+            purchaseStatus.className = 'text-xs text-slate-500 dark:text-white/50 mt-2';
 
-            // Fetch check: First check backend, then check fallback
-            const backend = window.SHARMONY_BACKEND_URL || '';
-            const listEndpoint = backend + '/api/v1/real-estate/' + encodeURIComponent(region) + '/records';
+            const pricePerFraction = currentListing.priceUsd / currentListing.totalFractions;
+            const totalPrice = quantity * pricePerFraction;
 
-            fetch(listEndpoint)
-                .then(function (res) {
-                    if (!res.ok) throw new Error('Listing lookup failed');
-                    return res.json();
+            window.SharmonyFractional.createFractionalDeal(token, userId, {
+                listingId: currentListingId,
+                quantityFractions: quantity,
+                totalPriceUsd: totalPrice,
+                sellerUserId: currentListing.owner,
+            })
+                .then(function (dealResult) {
+                    purchaseStatus.textContent = 'Deal created. Transferring balance and fractions...';
+                    return window.SharmonyFractional.confirmDealPayment(token, dealResult.dealId);
                 })
-                .then(function (payload) {
-                    const records = payload.records || payload.listings || payload.data || payload || [];
-                    const recordList = Array.isArray(records) ? records : (records ? [records] : []);
-                    const match = recordList.find(entry => String(entry && entry.id) === String(id));
-                    if (!match) throw new Error('Not found on backend');
+                .then(function (confirmResult) {
+                    purchaseStatus.textContent = i18n.purchaseSuccess;
+                    purchaseStatus.className = 'text-xs text-[#31D0B2] mt-2';
+                    purchaseForm.reset();
 
-                    const normalized = normalizeRecord(match);
-                    rememberListing(match);
-                    renderListing(normalized, normalized.images);
+                    // Update local state available fractions
+                    const totalFractions = currentListing.totalFractions || 0;
+                    const fractionsPercentage = currentListing.fractionsPercentage || 100;
+                    const previouslyAvailable = Math.round((totalFractions * fractionsPercentage) / 100);
+                    const newAvailable = Math.max(0, previouslyAvailable - quantity);
+
+                    currentListing.fractionsPercentage = (newAvailable / totalFractions) * 100;
+
+                    // Redraw numbers in UI
+                    renderFractionalInfo(currentListing);
+
+                    window.setTimeout(closeModal, 2000);
                 })
                 .catch(function (error) {
-                    console.error('Backend fetch failed.', error);
-                    setState(i18n.loadError, true);
-                });
-        }
-
-        // Purchase modal handlers
-        if (buyFractionsBtn) {
-            buyFractionsBtn.addEventListener('click', function () {
-                const token = localStorage.getItem('sharmonyAuthToken');
-                if (!token) {
-                    alert(i18n.purchaseLoginRequired);
-                    window.location.href = loginUrl;
-                    return;
-                }
-                if (purchaseModal) purchaseModal.classList.remove('hidden');
-            });
-        }
-
-        function closeModal() {
-            if (purchaseModal) purchaseModal.classList.add('hidden');
-            purchaseForm.reset();
-            purchaseStatus.textContent = '';
-        }
-
-        if (purchaseCancel) purchaseCancel.addEventListener('click', closeModal);
-        if (purchaseCancelX) purchaseCancelX.addEventListener('click', closeModal);
-
-        if (purchaseForm) {
-            purchaseForm.addEventListener('submit', function (event) {
-                event.preventDefault();
-
-                const token = localStorage.getItem('sharmonyAuthToken');
-                const userId = localStorage.getItem('sharmonyAccountAddress');
-
-                if (!token || !userId || !currentListing) {
-                    purchaseStatus.textContent = i18n.purchaseLoginRequired;
-                    purchaseStatus.className = 'text-sm text-red-400 mt-2';
-                    return;
-                }
-
-                const quantity = Number(purchaseQuantity.value) || 0;
-                if (quantity < 1) {
-                    purchaseStatus.textContent = 'Please enter a valid quantity.';
-                    purchaseStatus.className = 'text-sm text-red-400 mt-2';
-                    return;
-                }
-
-                purchaseSubmit.disabled = true;
-                purchaseSubmit.classList.add('opacity-60', 'cursor-not-allowed');
-                purchaseStatus.textContent = 'Creating investment deal...';
-                purchaseStatus.className = 'text-xs text-slate-500 dark:text-white/50 mt-2';
-
-                const pricePerFraction = currentListing.priceUsd / currentListing.totalFractions;
-                const totalPrice = quantity * pricePerFraction;
-
-                window.SharmonyFractional.createFractionalDeal(token, userId, {
-                    listingId: currentListingId,
-                    quantityFractions: quantity,
-                    totalPriceUsd: totalPrice,
-                    sellerUserId: currentListing.owner,
+                    console.error('Purchase failed:', error);
+                    purchaseStatus.textContent = error.message || i18n.purchaseError;
+                    purchaseStatus.className = 'text-xs text-red-400 mt-2';
                 })
-                    .then(function (dealResult) {
-                        purchaseStatus.textContent = 'Deal created. Transferring balance and fractions...';
-                        return window.SharmonyFractional.confirmDealPayment(token, dealResult.dealId);
-                    })
-                    .then(function (confirmResult) {
-                        purchaseStatus.textContent = i18n.purchaseSuccess;
-                        purchaseStatus.className = 'text-xs text-[#31D0B2] mt-2';
-                        purchaseForm.reset();
-
-                        // Update local state available fractions
-                        const totalFractions = currentListing.totalFractions || 0;
-                        const fractionsPercentage = currentListing.fractionsPercentage || 100;
-                        const previouslyAvailable = Math.round((totalFractions * fractionsPercentage) / 100);
-                        const newAvailable = Math.max(0, previouslyAvailable - quantity);
-
-                        currentListing.fractionsPercentage = (newAvailable / totalFractions) * 100;
-
-                        // Redraw numbers in UI
-                        renderFractionalInfo(currentListing);
-
-                        window.setTimeout(closeModal, 2000);
-                    })
-                    .catch(function (error) {
-                        console.error('Purchase failed:', error);
-                        purchaseStatus.textContent = error.message || i18n.purchaseError;
-                        purchaseStatus.className = 'text-xs text-red-400 mt-2';
-                    })
-                    .finally(function () {
-                        purchaseSubmit.disabled = false;
-                        purchaseSubmit.classList.remove('opacity-60', 'cursor-not-allowed');
-                    });
+                .finally(function () {
+                    purchaseSubmit.disabled = false;
+                    purchaseSubmit.classList.remove('opacity-60', 'cursor-not-allowed');
                 });
-            });
-        }
+        });
+    }
 
-        loadListing();
+    loadListing();
 }) ();
 </script>
 {{ end }}
