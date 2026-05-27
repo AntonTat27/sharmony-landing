@@ -104,31 +104,31 @@
                             class="hidden mt-6 pt-6 border-t border-slate-200 dark:border-white/5">
                             <h3
                                 class="text-xs uppercase tracking-wider text-[#DBA757] font-semibold mb-4 flex items-center gap-1.5">
-                                <i class="bi bi-pie-chart"></i> Fractional Investment Panel
+                                <i class="bi bi-pie-chart"></i> {{ or (index $ui "listing_details_fractional_panel") "Fractional Investment Panel" }}
                             </h3>
                             <div class="grid grid-cols-3 gap-3 text-xs mb-5">
                                 <div
                                     class="rounded-xl bg-[#FDF9F0] shadow-sm dark:shadow-none dark:bg-white/[0.02] border border-[#03292B]/10 dark:border-white/5 p-3">
-                                    <span class="block text-slate-400 dark:text-white/40 mb-1">Total Fractions</span>
+                                    <span class="block text-slate-400 dark:text-white/40 mb-1">{{ or (index $ui "listing_details_total_fractions") "Total Fractions" }}</span>
                                     <strong id="listing-total-fractions"
                                         class="text-slate-900 dark:text-white text-sm font-semibold">-</strong>
                                 </div>
                                 <div
                                     class="rounded-xl bg-[#FDF9F0] shadow-sm dark:shadow-none dark:bg-white/[0.02] border border-[#03292B]/10 dark:border-white/5 p-3">
-                                    <span class="block text-slate-400 dark:text-white/40 mb-1">Available</span>
+                                    <span class="block text-slate-400 dark:text-white/40 mb-1">{{ or (index $ui "listing_details_available") "Available" }}</span>
                                     <strong id="listing-available-fractions"
                                         class="text-slate-900 dark:text-white text-sm font-semibold">-</strong>
                                 </div>
                                 <div
                                     class="rounded-xl bg-[#FDF9F0] shadow-sm dark:shadow-none dark:bg-white/[0.02] border border-[#03292B]/10 dark:border-white/5 p-3">
-                                    <span class="block text-slate-400 dark:text-white/40 mb-1">Cost / Fraction</span>
+                                    <span class="block text-slate-400 dark:text-white/40 mb-1">{{ or (index $ui "listing_details_cost_per_fraction") "Cost / Fraction" }}</span>
                                     <strong id="listing-price-per-fraction"
                                         class="text-[#DBA757] text-sm font-semibold">-</strong>
                                 </div>
                             </div>
                             <button id="buy-fractions-btn" type="button"
                                 class="w-full sm:w-auto inline-flex items-center justify-center gap-2 px-6 py-3.5 rounded-xl bg-gradient-to-r from-[#FFDDA8] to-[#DBA757] text-slate-900 dark:text-[#03292B] font-semibold hover:brightness-110 transition shadow-lg shadow-gold/5 hover:shadow-gold/15 duration-200">
-                                <i class="bi bi-wallet2"></i> Buy Fractions
+                                <i class="bi bi-wallet2"></i> {{ or (index $ui "listing_details_buy_fractions") "Buy Fractions" }}
                             </button>
                         </div>
                     </div>
@@ -156,35 +156,32 @@
                 class="bi bi-x-lg"></i></button>
 
         <h2 class="text-2xl font-light text-slate-900 dark:text-white mb-2"
-            style="font-family:'TT_Livret_Display_Trl', serif;">Buy Property Fractions</h2>
-        <p class="text-xs text-slate-500 dark:text-white/50 mb-6">Invest in fraction shares of this verified estate
-            property.</p>
+            style="font-family:'TT_Livret_Display_Trl', serif;">{{ or (index $ui "listing_details_modal_title") "Buy Property Fractions" }}</h2>
+        <p class="text-xs text-slate-500 dark:text-white/50 mb-6">{{ or (index $ui "listing_details_modal_subtitle") "Invest in fraction shares of this verified estate property." }}</p>
 
         <form id="purchase-form" class="space-y-5">
             <div>
                 <label class="block text-[10px] uppercase tracking-wider text-slate-500 dark:text-white/50 mb-2"
-                    for="purchase-quantity">Quantity of Fractions</label>
+                    for="purchase-quantity">{{ or (index $ui "listing_details_quantity_label") "Quantity of Fractions" }}</label>
                 <input id="purchase-quantity" type="number" min="1" required
                     class="w-full bg-[#FDF9F0] dark:bg-[#011415] border border-[#03292B]/10 dark:border-white/10 text-slate-900 dark:text-white placeholder-white/20 px-4 py-3 rounded-xl focus:border-[#31D0B2] focus:outline-none text-sm transition">
                 <p class="mt-2 text-xs text-slate-400 dark:text-white/40 flex justify-between">
-                    <span>Available shares:</span>
+                    <span>{{ or (index $ui "listing_details_available_shares") "Available shares:" }}</span>
                     <strong class="text-slate-900 dark:text-white"><span id="purchase-available">-</span>
-                        fractions</strong>
+                        {{ or (index $ui "listing_details_fractions_unit") "fractions" }}</strong>
                 </p>
             </div>
 
             <div
                 class="bg-[#FDF9F0] shadow-sm dark:shadow-none dark:bg-white/[0.02] border border-[#03292B]/10 dark:border-white/5 rounded-xl p-4 flex items-center justify-between">
                 <div>
-                    <label class="block text-[10px] uppercase tracking-wider text-slate-400 dark:text-white/40">Total
-                        Cost</label>
+                    <label class="block text-[10px] uppercase tracking-wider text-slate-400 dark:text-white/40">{{ or (index $ui "listing_details_total_cost") "Total Cost" }}</label>
                     <div class="text-2xl font-bold text-[#DBA757]" id="purchase-total">$0</div>
                 </div>
                 <div class="text-right">
                     <span
-                        class="block text-[9px] uppercase text-slate-400 dark:text-white/40 tracking-wider">Method</span>
-                    <span class="text-xs text-[#31D0B2] font-semibold"><i class="bi bi-shield-check"></i> Wallet
-                        Balance</span>
+                        class="block text-[9px] uppercase text-slate-400 dark:text-white/40 tracking-wider">{{ or (index $ui "listing_details_method") "Method" }}</span>
+                    <span class="text-xs text-[#31D0B2] font-semibold"><i class="bi bi-shield-check"></i> {{ or (index $ui "listing_details_wallet_balance") "Wallet Balance" }}</span>
                 </div>
             </div>
 
@@ -193,11 +190,11 @@
             <div class="flex gap-4 pt-2">
                 <button id="purchase-submit" type="submit"
                     class="flex-1 px-4 py-3 rounded-xl bg-gradient-to-r from-[#FFDDA8] to-[#DBA757] text-slate-900 dark:text-[#03292B] font-semibold hover:brightness-110 transition shadow-lg duration-200">
-                    Confirm Investment
+                    {{ or (index $ui "listing_details_confirm") "Confirm Investment" }}
                 </button>
                 <button id="purchase-cancel" type="button"
                     class="flex-1 px-4 py-3 rounded-xl bg-[#FDF9F0] shadow-sm dark:shadow-none dark:bg-white/5 border border-[#03292B]/10 dark:border-white/10 text-slate-900 dark:text-white hover:bg-[#FDF9F0]/80 dark:hover:bg-white/10 transition duration-200 text-xs font-semibold">
-                    Cancel
+                    {{ or (index $ui "listing_details_cancel") "Cancel" }}
                 </button>
             </div>
         </form>
@@ -208,16 +205,22 @@
     (function () {
         const i18n = {
             loading: {{ (.Params.details_loading | default "Loading listing details...") | jsonify | safeJS }},
-        missingId: {{ (.Params.details_missing_id | default "Listing ID is missing in URL.") | jsonify | safeJS }},
-        notFound: {{ (.Params.details_not_found | default "Listing was not found.") | jsonify | safeJS }},
-        loadError: {{ (.Params.details_load_error | default "Could not load listing details.") | jsonify | safeJS }},
-        noDescription: {{ (.Params.details_no_description | default "No description provided.") | jsonify | safeJS }},
-        bedroomsSuffix: {{ (.Params.details_bedrooms_suffix | default "rooms") | jsonify | safeJS }},
-        purchaseLoginRequired: {{ (or (index $ui "listing_details_purchase_login_required") "Please log in to purchase fractions.") | jsonify | safeJS }},
-        purchaseSuccess: {{ (or (index $ui "listing_details_purchase_success") "Purchase successful! Your fractions have been transferred to your wallet.") | jsonify | safeJS }},
-        purchaseError: {{ (or (index $ui "listing_details_purchase_error") "Could not complete purchase. Please check your balance.") | jsonify | safeJS }},
-        dealCreationError: {{ (or (index $ui "listing_details_deal_creation_error") "Could not create deal. Please try again.") | jsonify | safeJS }}
-    };
+            missingId: {{ (.Params.details_missing_id | default "Listing ID is missing in URL.") | jsonify | safeJS }},
+            notFound: {{ (.Params.details_not_found | default "Listing was not found.") | jsonify | safeJS }},
+            loadError: {{ (.Params.details_load_error | default "Could not load listing details.") | jsonify | safeJS }},
+            noDescription: {{ (.Params.details_no_description | default "No description provided.") | jsonify | safeJS }},
+            bedroomsSuffix: {{ (.Params.details_bedrooms_suffix | default "rooms") | jsonify | safeJS }},
+            purchaseLoginRequired: {{ (or (index $ui "listing_details_purchase_login_required") "Please log in to purchase fractions.") | jsonify | safeJS }},
+            purchaseSuccess: {{ (or (index $ui "listing_details_purchase_success") "Purchase successful! Your fractions have been transferred to your wallet.") | jsonify | safeJS }},
+            purchaseError: {{ (or (index $ui "listing_details_purchase_error") "Could not complete purchase. Please check your balance.") | jsonify | safeJS }},
+            dealCreationError: {{ (or (index $ui "listing_details_deal_creation_error") "Could not create deal. Please try again.") | jsonify | safeJS }},
+            propertyImage: {{ (or (index $ui "listing_details_property_image") "Property image") | jsonify | safeJS }},
+            noImages: {{ (or (index $ui "listing_details_no_images") "No images uploaded yet.") | jsonify | safeJS }},
+            imagesSuffix: {{ (or (index $ui "listing_details_images_suffix") "images") | jsonify | safeJS }},
+            quantityInvalid: {{ (or (index $ui "listing_details_quantity_invalid") "Please enter a valid quantity.") | jsonify | safeJS }},
+            dealCreating: {{ (or (index $ui "listing_details_deal_creating") "Creating investment deal...") | jsonify | safeJS }},
+            dealCreated: {{ (or (index $ui "listing_details_deal_created") "Deal created. Transferring balance and fractions...") | jsonify | safeJS }}
+        };
 
     const stateEl = document.getElementById('listing-state');
     const cardEl = document.getElementById('listing-card');
@@ -271,7 +274,7 @@
         const imgEl = document.getElementById('listing-image');
         if (!imgEl) return;
         imgEl.src = image ? image.src : placeholderImage;
-        imgEl.alt = image ? image.alt : "Property image";
+        imgEl.alt = image ? image.alt : i18n.propertyImage;
     }
 
     function renderGallery(rawImages, title) {
@@ -280,12 +283,12 @@
             setMainImage(null);
             if (thumbsEl) thumbsEl.innerHTML = '';
             if (imageCountEl) imageCountEl.textContent = '';
-            if (imageStatusEl) imageStatusEl.textContent = "No images uploaded yet.";
+            if (imageStatusEl) imageStatusEl.textContent = i18n.noImages;
             return;
         }
 
         setMainImage(galleryItems[0]);
-        if (imageCountEl) imageCountEl.textContent = String(galleryItems.length) + ' images';
+        if (imageCountEl) imageCountEl.textContent = String(galleryItems.length) + ' ' + i18n.imagesSuffix;
         if (imageStatusEl) imageStatusEl.textContent = '';
         if (thumbsEl) {
             thumbsEl.innerHTML = galleryItems.map(function (image, index) {
@@ -530,14 +533,14 @@
 
             const quantity = Number(purchaseQuantity.value) || 0;
             if (quantity < 1) {
-                purchaseStatus.textContent = 'Please enter a valid quantity.';
+                purchaseStatus.textContent = i18n.quantityInvalid;
                 purchaseStatus.className = 'text-sm text-red-400 mt-2';
                 return;
             }
 
             purchaseSubmit.disabled = true;
             purchaseSubmit.classList.add('opacity-60', 'cursor-not-allowed');
-            purchaseStatus.textContent = 'Creating investment deal...';
+            purchaseStatus.textContent = i18n.dealCreating;
             purchaseStatus.className = 'text-xs text-slate-500 dark:text-white/50 mt-2';
 
             const pricePerFraction = currentListing.priceUsd / currentListing.totalFractions;
@@ -550,7 +553,7 @@
                 sellerUserId: currentListing.owner,
             })
                 .then(function (dealResult) {
-                    purchaseStatus.textContent = 'Deal created. Transferring balance and fractions...';
+                    purchaseStatus.textContent = i18n.dealCreated;
                     return window.SharmonyFractional.confirmDealPayment(token, dealResult.dealId);
                 })
                 .then(function (confirmResult) {

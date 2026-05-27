@@ -35,6 +35,19 @@ account_no_address: Адрес пользователя не найден. По�
 account_loading_error: Не удалось загрузить данные с сервера.
 account_session_active: Сеанс активен. Данные загружены с сервера.
 account_logout: Выход
+account_profile_title: Профиль инвестора
+account_wallet_title: Привязанный кошелек
+account_wallet_address: Адрес
+account_stat_portfolio_value: Стоимость портфеля
+account_stat_active_listings: Активные объявления
+account_stat_fractions_owned: Доли во владении
+account_fractional_portfolio: Долевые активы
+account_fractional_empty: У вас пока нет долевых активов. Перейдите на маркетплейс, чтобы приобрести доли.
+account_fractional_loading: Загрузка долевого портфеля...
+account_fractional_badge: Долевое
+account_est_value_label: Оценочная стоимость
+account_fractions_label: долей
+account_system_offline: Система недоступна, компоненты не загружены.
 
 # Marketplace page
 marketplace_filters: Фильтры
@@ -91,4 +104,42 @@ marketplace_submit_required: Заполните все обязательные 
 marketplace_submit_submitting: Отправка объявления на сервер...
 marketplace_submit_success: Объявление успешно отправлено. Перенаправление на учетную запись...
 marketplace_submit_error: Не удалось отправить объявление. Сервер недоступен или отклонил запрос.
+marketplace_submit_listing_mode: Режим объявления
+marketplace_submit_listing_mode_regular: Обычное
+marketplace_submit_listing_mode_fractional: Долевое
+marketplace_submit_fractional_params: Параметры долевого размещения
+marketplace_submit_total_fractions: Общее количество долей
+marketplace_submit_fractions_for_sale: Доли на продажу (%)
+marketplace_submit_dropzone_prompt: Перетащите файлы сюда или
+marketplace_submit_dropzone_browse: выберите файлы
+marketplace_submit_dropzone_hint: Загрузите изображения JPEG или PNG высокого качества (до 5 МБ каждое)
+marketplace_submit_images_selected_single: Выбрано 1 изображение
+marketplace_submit_images_selected_many: изображений выбрано
+
+# Listing Details page
+listing_details_fractional_panel: Панель долевого инвестирования
+listing_details_total_fractions: Всего долей
+listing_details_available: Доступно
+listing_details_cost_per_fraction: Цена за долю
+listing_details_buy_fractions: Купить доли
+listing_details_modal_title: Купить доли объекта
+listing_details_modal_subtitle: Инвестируйте в доли этой проверенной недвижимости.
+listing_details_quantity_label: Количество долей
+listing_details_available_shares: "Доступно долей:"
+listing_details_fractions_unit: долей
+listing_details_total_cost: Общая стоимость
+listing_details_method: Способ
+listing_details_wallet_balance: Баланс кошелька
+listing_details_confirm: Подтвердить инвестицию
+listing_details_cancel: Отмена
+listing_details_property_image: Изображение объекта
+listing_details_no_images: Изображения еще не загружены.
+listing_details_images_suffix: изображений
+listing_details_quantity_invalid: Введите корректное количество.
+listing_details_deal_creating: Создаем инвестиционную сделку...
+listing_details_deal_created: Сделка создана. Переводим баланс и доли...
+listing_details_purchase_login_required: Пожалуйста, войдите, чтобы купить доли.
+listing_details_purchase_success: Покупка успешна! Доли переведены в ваш кошелек.
+listing_details_purchase_error: Не удалось завершить покупку. Проверьте баланс.
+listing_details_deal_creation_error: Не удалось создать сделку. Попробуйте еще раз.
 ---

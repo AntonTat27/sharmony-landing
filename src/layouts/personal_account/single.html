@@ -28,7 +28,7 @@
         
         <div id="account-state" class="text-slate-400 dark:text-white/40 text-xs uppercase tracking-wider mb-8 flex items-center gap-2">
             <span class="inline-block w-2 h-2 rounded-full bg-[#31D0B2] animate-pulse"></span>
-            <span>Checking session...</span>
+            <span>{{ or (index $ui "account_checking_session") .Params.account_checking_session "Checking session..." }}</span>
         </div>
 
         <!-- Metric Statistics Cards Row -->
@@ -39,7 +39,7 @@
                     <i class="bi bi-pie-chart"></i>
                 </div>
                 <div>
-                    <span class="block text-[10px] text-slate-400 dark:text-white/40 uppercase tracking-wider">Portfolio Value</span>
+                    <span class="block text-[10px] text-slate-400 dark:text-white/40 uppercase tracking-wider">{{ or (index $ui "account_stat_portfolio_value") "Portfolio Value" }}</span>
                     <strong id="stat-portfolio-value" class="text-xl font-bold text-[#31D0B2]">$0</strong>
                 </div>
             </div>
@@ -48,7 +48,7 @@
                     <i class="bi bi-house"></i>
                 </div>
                 <div>
-                    <span class="block text-[10px] text-slate-400 dark:text-white/40 uppercase tracking-wider">Active listings</span>
+                    <span class="block text-[10px] text-slate-400 dark:text-white/40 uppercase tracking-wider">{{ or (index $ui "account_stat_active_listings") "Active listings" }}</span>
                     <strong id="stat-active-listings" class="text-xl font-bold text-slate-900 dark:text-white">0</strong>
                 </div>
             </div>
@@ -57,7 +57,7 @@
                     <i class="bi bi-gem"></i>
                 </div>
                 <div>
-                    <span class="block text-[10px] text-slate-400 dark:text-white/40 uppercase tracking-wider">Fractions Owned</span>
+                    <span class="block text-[10px] text-slate-400 dark:text-white/40 uppercase tracking-wider">{{ or (index $ui "account_stat_fractions_owned") "Fractions Owned" }}</span>
                     <strong id="stat-fractions-owned" class="text-xl font-bold text-slate-900 dark:text-white">0</strong>
                 </div>
             </div>
@@ -69,8 +69,8 @@
             <aside class="lg:col-span-1 bg-[var(--color-card-light)] shadow-sm dark:shadow-none dark:bg-white/5 border border-slate-200/70 dark:border-white/10 rounded-2xl p-6 sm:p-8 shadow-xl flex flex-col justify-between h-full">
                 <div class="space-y-6">
                     <div class="border-b border-slate-200/70 dark:border-white/5 pb-6">
-                        <p class="text-[10px] uppercase tracking-[0.22em] text-[#31D0B2] mb-4 font-semibold">Investor Profile</p>
-                        
+                        <p class="text-[10px] uppercase tracking-[0.22em] text-[#31D0B2] mb-4 font-semibold">{{ or (index $ui "account_profile_title") "Investor Profile" }}</p>
+
                         <div class="flex items-center gap-4 mb-4">
                             <div class="w-14 h-14 rounded-full bg-gradient-to-br from-[#70E2D0] to-[#31D0B2] flex items-center justify-center text-slate-900 dark:text-[#03292B] text-xl font-bold font-serif" id="account-avatar">U</div>
                             <div>
@@ -84,10 +84,10 @@
                     </div>
 
                     <div>
-                        <p class="text-[10px] uppercase tracking-[0.22em] text-slate-400 dark:text-white/40 mb-3 font-semibold">Provisioned Wallet</p>
+                        <p class="text-[10px] uppercase tracking-[0.22em] text-slate-400 dark:text-white/40 mb-3 font-semibold">{{ or (index $ui "account_wallet_title") "Provisioned Wallet" }}</p>
                         <div class="bg-[var(--color-card-light)] dark:bg-[#021B1C] border border-slate-200/70 dark:border-white/10 rounded-xl p-4 space-y-3">
                             <div>
-                                <span class="block text-[9px] uppercase text-slate-400 dark:text-white/40">Address</span>
+                                <span class="block text-[9px] uppercase text-slate-400 dark:text-white/40">{{ or (index $ui "account_wallet_address") "Address" }}</span>
                                 <span id="wallet-address" class="text-xs font-mono text-[#31D0B2] break-all select-all font-semibold">-</span>
                             </div>
                             <!-- Available Balance Removed -->
@@ -142,7 +142,7 @@
     const listEl = document.getElementById('account-listings');
     const fractionalPortfolioSection = document.getElementById('fractional-portfolio-section');
     const fractionalPortfolioEl = document.getElementById('fractional-portfolio');
-    const activeListingsEl = document.getElementById('active-listings');
+    const activeListingsEl = document.getElementById('stat-active-listings');
     const I18N = {
         noListings: '{{ .Params.account_no_listings | default "No personal listings yet. Click the button on the left to post one." }}',
         noAddress: '{{ .Params.account_no_address | default "No user address stored. Please sign in again." }}',
@@ -154,8 +154,12 @@
         membershipLabel: '{{ .Params.account_membership_label | default "Membership" }}',
         membershipFallback: 'Premium',
         priceLabel: '{{ .Params.account_price_label | default "Price" }}',
-        noFractionalPortfolio: 'No fractional holdings yet. Explore the marketplace to purchase fractions.',
-        loadingFractionalPortfolio: 'Loading fractional portfolio...'
+        noFractionalPortfolio: '{{ or (index $ui "account_fractional_empty") "No fractional holdings yet. Explore the marketplace to purchase fractions." }}',
+        loadingFractionalPortfolio: '{{ or (index $ui "account_fractional_loading") "Loading fractional portfolio..." }}',
+        fractionalBadge: '{{ or (index $ui "account_fractional_badge") "Fractional" }}',
+        estValueLabel: '{{ or (index $ui "account_est_value_label") "Est. Value" }}',
+        fractionsLabel: '{{ or (index $ui "account_fractions_label") "fractions" }}',
+        systemOffline: '{{ or (index $ui "account_system_offline") "System offline, components missing." }}'
     };
 
     const token = localStorage.getItem(storageKey);
@@ -208,7 +212,7 @@
                 + '<div class="flex items-center justify-between gap-4 mb-2">'
                 + '<h3 class="font-semibold text-slate-900 dark:text-white group-hover:text-[#31D0B2] transition duration-200">' + (item.title || '-') + '</h3>'
                 + '<div class="flex gap-2">'
-                + (isFractional ? '<span class="text-[9px] font-bold uppercase tracking-wider text-[#31D0B2] bg-[#31D0B2]/10 px-2 py-0.5 rounded">Fractional</span>' : '')
+                + (isFractional ? '<span class="text-[9px] font-bold uppercase tracking-wider text-[#31D0B2] bg-[#31D0B2]/10 px-2 py-0.5 rounded">' + I18N.fractionalBadge + '</span>' : '')
                 + '<span class="text-[9px] font-bold uppercase tracking-wider text-[#31D0B2] bg-[#31D0B2]/10 px-2 py-0.5 rounded">' + status + '</span>'
                 + '</div>'
                 + '</div>'
@@ -244,9 +248,9 @@
             return '<div class="bg-[var(--color-card-light)] shadow-sm dark:shadow-none dark:bg-white/[0.01] border border-slate-200/70 dark:border-white/5 rounded-xl p-5 flex items-center justify-between hover:border-slate-300 dark:hover:border-white/15 transition">'
                 + '<div>'
                 + '<h3 class="font-semibold text-slate-900 dark:text-white">' + listingTitle + '</h3>'
-                + '<p class="text-xs text-slate-500 dark:text-white/50 mt-1.5 flex items-center gap-1.5"><i class="bi bi-cash-stack text-[#31D0B2]"></i> Est. Value: ' + formatPrice(value) + '</p>'
+                + '<p class="text-xs text-slate-500 dark:text-white/50 mt-1.5 flex items-center gap-1.5"><i class="bi bi-cash-stack text-[#31D0B2]"></i> ' + I18N.estValueLabel + ': ' + formatPrice(value) + '</p>'
                 + '</div>'
-                + '<span class="text-xs font-bold text-[#31D0B2] bg-[#31D0B2]/10 px-3 py-1.5 rounded-lg">' + quantity + ' fractions</span>'
+                + '<span class="text-xs font-bold text-[#31D0B2] bg-[#31D0B2]/10 px-3 py-1.5 rounded-lg">' + quantity + ' ' + I18N.fractionsLabel + '</span>'
                 + '</div>';
         }).join('');
 
@@ -289,7 +293,8 @@
                             renderListings(items);
                             setState(I18N.sessionActive, false);
                         })
-                        .catch(() => {
+                        .catch((error) => {
+                            console.log(error)
                             setState(I18N.loadingListingsError, true);
                             renderListings([]);
                         });
@@ -311,7 +316,7 @@
                 });
         } else {
             console.warn('SharmonyFractional utils not loaded');
-            setState('System offline, components missing.', true);
+            setState(I18N.systemOffline, true);
         }
     });
 })();
