@@ -45,6 +45,15 @@
             </div>
             <div class="bg-[var(--color-card-light)] shadow-sm dark:shadow-none dark:bg-white/5 border border-slate-200/70 dark:border-white/10 rounded-2xl p-6 shadow-xl flex items-center gap-5">
                 <div class="w-12 h-12 rounded-xl bg-[#31D0B2]/10 flex items-center justify-center text-[#31D0B2] text-xl">
+                    <i class="bi bi-house"></i>
+                </div>
+                <div>
+                    <span class="block text-[10px] text-slate-400 dark:text-white/40 uppercase tracking-wider">Active listings</span>
+                    <strong id="stat-active-listings" class="text-xl font-bold text-slate-900 dark:text-white">0</strong>
+                </div>
+            </div>
+            <div class="bg-[var(--color-card-light)] shadow-sm dark:shadow-none dark:bg-white/5 border border-slate-200/70 dark:border-white/10 rounded-2xl p-6 shadow-xl flex items-center gap-5">
+                <div class="w-12 h-12 rounded-xl bg-[#31D0B2]/10 flex items-center justify-center text-[#31D0B2] text-xl">
                     <i class="bi bi-gem"></i>
                 </div>
                 <div>
@@ -133,6 +142,7 @@
     const listEl = document.getElementById('account-listings');
     const fractionalPortfolioSection = document.getElementById('fractional-portfolio-section');
     const fractionalPortfolioEl = document.getElementById('fractional-portfolio');
+    const activeListingsEl = document.getElementById('active-listings');
     const I18N = {
         noListings: '{{ .Params.account_no_listings | default "No personal listings yet. Click the button on the left to post one." }}',
         noAddress: '{{ .Params.account_no_address | default "No user address stored. Please sign in again." }}',
@@ -176,6 +186,8 @@
             listEl.innerHTML = '<div class="border border-dashed border-slate-200/70 dark:border-white/10 rounded-xl p-8 text-center text-xs text-slate-400 dark:text-white/40"><i class="bi bi-journal-x text-2xl mb-2 block"></i>' + I18N.noListings + '</div>';
             return;
         }
+
+        activeListingsEl.textContent = items.length;
 
         function buildDetailsUrl(item) {
             const id = item.id || item.ID || item._id || '';
