@@ -93,6 +93,20 @@
                             <!-- Available Balance Removed -->
                         </div>
                     </div>
+
+                    <div>
+                        <p class="text-[10px] uppercase tracking-[0.22em] text-slate-400 dark:text-white/40 mb-3 font-semibold">{{ or (index $ui "account_jurisdiction_title") "Jurisdiction" }}</p>
+                        <div class="bg-[var(--color-card-light)] dark:bg-[#021B1C] border border-slate-200/70 dark:border-white/10 rounded-xl p-4 space-y-2">
+                            <span class="block text-[9px] uppercase text-slate-400 dark:text-white/40">{{ or (index $ui "account_jurisdiction_label") "Legal Jurisdiction" }}</span>
+                            <div class="relative">
+                                <select id="account-jurisdiction" class="w-full appearance-none bg-transparent text-xs font-mono text-[#31D0B2] font-semibold focus:outline-none cursor-pointer pr-5 disabled:opacity-50 disabled:cursor-not-allowed">
+                                    <option value="">Loading...</option>
+                                </select>
+                                <i class="bi bi-chevron-down absolute right-0 top-1/2 -translate-y-1/2 text-[#31D0B2] text-[10px] pointer-events-none"></i>
+                            </div>
+                            <p id="jurisdiction-status" class="text-[9px] hidden"></p>
+                        </div>
+                    </div>
                 </div>
 
                 <div class="pt-8">
@@ -159,8 +173,61 @@
         fractionalBadge: '{{ or (index $ui "account_fractional_badge") "Fractional" }}',
         estValueLabel: '{{ or (index $ui "account_est_value_label") "Est. Value" }}',
         fractionsLabel: '{{ or (index $ui "account_fractions_label") "fractions" }}',
-        systemOffline: '{{ or (index $ui "account_system_offline") "System offline, components missing." }}'
+        systemOffline: '{{ or (index $ui "account_system_offline") "System offline, components missing." }}',
+        jurisdictionSaved: '{{ or (index $ui "account_jurisdiction_saved") "Jurisdiction updated." }}',
+        jurisdictionError: '{{ or (index $ui "account_jurisdiction_error") "Failed to update jurisdiction." }}'
     };
+
+    const jurisdictionEl = document.getElementById('account-jurisdiction');
+    const jurisdictionStatus = document.getElementById('jurisdiction-status');
+
+    const JURISDICTION_FLAGS = { UAE: '🇦🇪', THA: '🇹🇭', MYS: '🇲🇾', UK: '🇬🇧', US: '🇺🇸', EU: '🇪🇺', SG: '🇸🇬', HK: '🇭🇰', AU: '🇦🇺', CA: '🇨🇦', JP: '🇯🇵', CN: '🇨🇳' };
+    const JURISDICTION_LABELS = { UAE: 'UAE', UK: 'United Kingdom', US: 'United States', EU: 'European Union', SG: 'Singapore', HK: 'Hong Kong', AU: 'Australia', CA: 'Canada', JP: 'Japan', CN: 'China' };
+
+    function populateJurisdictions(list, selected) {
+        jurisdictionEl.innerHTML = list.map(function (j) {
+            const flag = JURISDICTION_FLAGS[j] || '';
+            const label = JURISDICTION_LABELS[j] || j;
+            return '<option value="' + j + '"' + (j === selected ? ' selected' : '') + '>' + (flag ? flag + ' ' : '') + label + '</option>';
+        }).join('');
+    }
+
+    fetch((window.SHARMONY_BACKEND_URL || '') + '/api/v1/jurisdictions')
+        .then(function (res) { return res.ok ? res.json() : Promise.reject(); })
+        .then(function (data) {
+            populateJurisdictions(data.jurisdictions || [], 'UAE');
+        })
+        .catch(function () {
+            populateJurisdictions(['UAE', 'UK', 'US', 'EU', 'SG', 'HK'], 'UAE');
+        });
+
+    function setJurisdictionStatus(msg, isError) {
+        jurisdictionStatus.textContent = msg;
+        jurisdictionStatus.className = 'text-[9px] ' + (isError ? 'text-red-400' : 'text-[#31D0B2]');
+        jurisdictionStatus.classList.remove('hidden');
+        setTimeout(function () { jurisdictionStatus.classList.add('hidden'); }, 3000);
+    }
+
+    jurisdictionEl.addEventListener('change', function () {
+        const address = localStorage.getItem('sharmonyAccountAddress') || 'usr_demo_001';
+        const jurisdiction = jurisdictionEl.value;
+        jurisdictionEl.disabled = true;
+        fetch((window.SHARMONY_BACKEND_URL || '') + '/api/v1/users/' + encodeURIComponent(address) + '/jurisdiction', {
+            method: 'PATCH',
+            headers: { 'Authorization': 'Bearer ' + token, 'Content-Type': 'application/json' },
+            body: JSON.stringify({ jurisdiction: jurisdiction })
+        })
+            .then(function (res) {
+                if (!res.ok) throw new Error();
+                setJurisdictionStatus(I18N.jurisdictionSaved, false);
+            })
+            .catch(function () {
+                setJurisdictionStatus(I18N.jurisdictionError, true);
+            })
+            .finally(function () {
+                jurisdictionEl.disabled = false;
+            });
+    });
 
     const token = localStorage.getItem(storageKey);
     if (!token) {
@@ -278,6 +345,11 @@
                             document.getElementById('account-name').textContent = profile.fullName || profile.name || I18N.profileFallbackName;
                             document.getElementById('account-email').textContent = profile.email || localStorage.getItem('sharmonyAccountEmail') || I18N.profileFallbackEmail;
                             document.getElementById('account-membership').textContent = profile.membership || I18N.membershipFallback;
+                            if (profile.jurisdiction) {
+                                if (jurisdictionEl.querySelector('option[value="' + profile.jurisdiction + '"]')) {
+                                    jurisdictionEl.value = profile.jurisdiction;
+                                }
+                            }
                         })
                         .catch(() => {
                             document.getElementById('account-name').textContent = I18N.profileFallbackName;
