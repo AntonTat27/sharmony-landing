@@ -222,6 +222,7 @@
         noListingsFound: {{ (or (index $ui "marketplace_no_listings_found") "No listings found.") | jsonify | safeJS }},
         verifiedListings: {{ (or (index $ui "marketplace_verified_listings") "Showing verified marketplace listings.") | jsonify | safeJS }},
         loadingError: {{ (or (index $ui "marketplace_loading_error") "Could not load marketplace data.") | jsonify | safeJS }},
+        restrictedAccess: {{ (or (index $ui "marketplace_restricted_access") "Restricted Access") | jsonify | safeJS }},
         countryAll: {{ (or (index $ui "marketplace_country_all") "All countries") | jsonify | safeJS }},
         typeAll: {{ (or (index $ui "marketplace_type_all") "All property types") | jsonify | safeJS }},
         bedroomsAll: {{ (or (index $ui "marketplace_bedrooms_all") "Any bedrooms") | jsonify | safeJS }},
@@ -328,7 +329,36 @@
             return detailsBaseUrl + '?id=' + encodeURIComponent(id) + '&region=' + encodeURIComponent(region);
         }
 
+        function buildGatedUrl(link) {
+            const token = localStorage.getItem('sharmonyAuthToken') || '';
+            const sep = link.indexOf('?') !== -1 ? '&' : '?';
+            return link + sep + 'token=' + encodeURIComponent(token) + "&vk_id=verify_investor_jurisdiction_v1";
+        }
+
         gridEl.innerHTML = listings.map(function (item) {
+            if (item.metadata && item.metadata.gated_link) {
+                const address = [item.city, item.country].filter(Boolean).join(', ');
+                return '<article class="h-full bg-[#FDF9F0] shadow-sm dark:shadow-none dark:bg-white/5 border border-[#03292B]/10 dark:border-white/10 rounded-2xl overflow-hidden shadow-xl flex flex-col justify-between">'
+                    + '<div>'
+                    + '<div class="relative h-52 bg-[#03292B]/30 overflow-hidden">'
+                    + '<img src="' + item.image + '" alt="' + item.title + '" class="w-full h-full object-cover" loading="lazy" onerror="this.style.display=\'none\';this.parentNode.classList.add(\'bg-gradient-to-br\',\'from-slate-100 dark:from-[#03292B]\',\'to-[#0A4B4D]\');this.parentNode.querySelector(\'.fallback-icon\').classList.remove(\'hidden\');">'
+                    + '<div class="fallback-icon hidden absolute inset-0 flex items-center justify-center text-white/15"><i class="bi bi-house-door text-5xl"></i></div>'
+                    + '</div>'
+                    + '<div class="p-5">'
+                    + '<div class="flex items-center justify-between gap-3 mb-2.5">'
+                    + '<span class="text-[10px] uppercase font-semibold tracking-wider text-[#31D0B2] bg-[#31D0B2]/10 px-2 py-0.5 rounded-md">' + item.type + '</span>'
+                    + '<span class="text-xs text-[#03292B]/60 dark:text-white/50 flex items-center gap-1"><i class="bi bi-geo-alt"></i> ' + address + '</span>'
+                    + '</div>'
+                    + '<h2 class="text-xl text-[#03292B] dark:text-white font-light leading-tight mb-2.5" style="font-family:\'TT_Livret_Display_Trl\', serif;">' + item.title + '</h2>'
+                    + '<p class="text-xs text-[#03292B]/60 dark:text-white/60 mb-4 leading-relaxed line-clamp-2">' + item.description + '</p>'
+                    + '</div>'
+                    + '</div>'
+                    + '<div class="px-5 pb-5">'
+                    + '<a href="' + buildGatedUrl(item.metadata.gated_link) + '" class="w-full inline-flex items-center justify-center gap-2 px-4 py-3 rounded-xl bg-[#03292B]/10 dark:bg-white/5 border border-[#03292B]/15 dark:border-white/10 text-[#03292B] dark:text-white hover:border-[#31D0B2] hover:text-[#31D0B2] transition text-xs font-semibold uppercase tracking-wider"><i class="bi bi-lock-fill"></i> ' + i18n.restrictedAccess + '</a>'
+                    + '</div>'
+                    + '</article>';
+            }
+
             const isFractional = !!(item.metadata && (item.metadata.fractional || item.metadata.totalFractions));
             const totalFractions = (item.metadata && (item.metadata.totalFractions || (item.metadata.fractional && item.metadata.fractional.totalFractions))) || 100;
             const fractionPrice = item.priceUsd / totalFractions;

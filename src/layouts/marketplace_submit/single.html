@@ -10,28 +10,37 @@
         <p class="uppercase tracking-[0.32em] text-[#31D0B2] text-xs font-semibold mb-4">{{ .Params.hero_eyebrow |
             default "Marketplace" }}</p>
         <h1 class="font-['TT_Livret_Display_Trl'] text-4xl sm:text-5xl font-light leading-tight mb-4">{{ .Title }}</h1>
-        <p class="text-white/60 text-sm sm:text-base leading-relaxed max-w-2xl">{{ .Params.hero_subtitle | default "List your property on Sharmony. Fill in details below to publish your property listing globally." }}</p>
+        <p class="text-white/60 text-sm sm:text-base leading-relaxed max-w-2xl">
+            {{ .Params.hero_subtitle |
+            default "List your property on Sharmony. Fill in details below to publish your property listing globally."
+            }}
+        </p>
     </div>
 </section>
 
 <section class="bg-[#F2E8D5] dark:bg-[#011415] text-[#03292B] dark:text-white py-12 sm:py-16 relative min-h-[600px]">
     <div class="absolute inset-0 bg-[radial-gradient(circle_at_10%_30%,rgba(219,167,87,0.03),transparent_40%)]"></div>
     <div class="max-w-4xl mx-auto px-4 sm:px-6 relative z-10">
-        <div class="bg-[#FDF9F0] shadow-sm dark:shadow-none dark:bg-white/5 border border-[#03292B]/10 dark:border-white/10 backdrop-blur-lg rounded-2xl p-6 sm:p-10 shadow-xl">
+        <div
+            class="bg-[#FDF9F0] shadow-sm dark:shadow-none dark:bg-white/5 border border-[#03292B]/10 dark:border-white/10 backdrop-blur-lg rounded-2xl p-6 sm:p-10 shadow-xl">
             <form id="submit-form" class="space-y-8" novalidate>
 
                 <!-- Listing Mode Custom sliding switch -->
                 <div>
-                    <label class="block text-xs uppercase tracking-[0.2em] text-[#03292B]/60 dark:text-white/50 mb-3 font-semibold">{{ or (index $ui "marketplace_submit_listing_mode") "Listing Mode" }}</label>
+                    <label
+                        class="block text-xs uppercase tracking-[0.2em] text-[#03292B]/60 dark:text-white/50 mb-3 font-semibold">{{
+                        or (index $ui "marketplace_submit_listing_mode") "Listing Mode" }}</label>
                     <div
                         class="relative w-full bg-[#FDF9F0] dark:bg-[#021B1C] border border-[#03292B]/10 dark:border-white/10 p-1.5 rounded-xl flex items-center max-w-sm">
                         <div id="listing-mode-bg"
                             class="absolute top-1.5 bottom-1.5 left-1.5 w-[calc(50%-6px)] bg-gradient-to-r from-[#FFDDA8] to-[#DBA757] rounded-lg transition-all duration-300 ease-out">
                         </div>
                         <button type="button" id="mode-regular"
-                            class="relative z-10 w-1/2 py-2.5 text-xs uppercase tracking-wider font-semibold transition-colors duration-300 text-[#03292B] dark:text-[#03292B] focus:outline-none">{{ or (index $ui "marketplace_submit_listing_mode_regular") "Regular" }}</button>
+                            class="relative z-10 w-1/2 py-2.5 text-xs uppercase tracking-wider font-semibold transition-colors duration-300 text-[#03292B] dark:text-[#03292B] focus:outline-none">{{
+                            or (index $ui "marketplace_submit_listing_mode_regular") "Regular" }}</button>
                         <button type="button" id="mode-fractional"
-                            class="relative z-10 w-1/2 py-2.5 text-xs uppercase tracking-wider font-semibold transition-colors duration-300 text-[#03292B]/60 dark:text-white/50 focus:outline-none">{{ or (index $ui "marketplace_submit_listing_mode_fractional") "Fractional" }}</button>
+                            class="relative z-10 w-1/2 py-2.5 text-xs uppercase tracking-wider font-semibold transition-colors duration-300 text-[#03292B]/60 dark:text-white/50 focus:outline-none">{{
+                            or (index $ui "marketplace_submit_listing_mode_fractional") "Fractional" }}</button>
                     </div>
                     <input type="hidden" id="listing-mode" name="listingMode" value="regular">
                 </div>
@@ -41,18 +50,23 @@
                     class="hidden transition-all duration-300 bg-[#FDF9F0] shadow-sm dark:shadow-none dark:bg-white/[0.02] border border-[#03292B]/10 dark:border-white/5 p-5 rounded-2xl space-y-4">
                     <h3
                         class="text-xs uppercase tracking-wider text-[#DBA757] font-semibold mb-3 flex items-center gap-1.5">
-                        <i class="bi bi-pie-chart"></i> {{ or (index $ui "marketplace_submit_fractional_params") "Fractional Parameters" }}
+                        <i class="bi bi-pie-chart"></i> {{ or (index $ui "marketplace_submit_fractional_params")
+                        "Fractional Parameters" }}
                     </h3>
                     <div class="grid sm:grid-cols-2 gap-5">
                         <div>
-                            <label class="block text-xs uppercase tracking-wider text-[#03292B]/60 dark:text-white/50 mb-2"
-                                for="listing-total-fractions">{{ or (index $ui "marketplace_submit_total_fractions") "Total fractions" }}</label>
+                            <label
+                                class="block text-xs uppercase tracking-wider text-[#03292B]/60 dark:text-white/50 mb-2"
+                                for="listing-total-fractions">{{ or (index $ui "marketplace_submit_total_fractions")
+                                "Total fractions" }}</label>
                             <input id="listing-total-fractions" name="totalFractions" type="number" min="1" value="100"
                                 class="w-full bg-[#FDF9F0] dark:bg-[#021B1C] border border-[#03292B]/10 dark:border-white/10 text-[#03292B] dark:text-white placeholder-[#03292B]/20 dark:placeholder-white/20 px-4 py-3 text-sm rounded-xl focus:border-[#DBA757]/60 focus:outline-none transition">
                         </div>
                         <div>
-                            <label class="block text-xs uppercase tracking-wider text-[#03292B]/60 dark:text-white/50 mb-2"
-                                for="listing-fractions-percentage">{{ or (index $ui "marketplace_submit_fractions_for_sale") "Fractions for sale (%)" }}</label>
+                            <label
+                                class="block text-xs uppercase tracking-wider text-[#03292B]/60 dark:text-white/50 mb-2"
+                                for="listing-fractions-percentage">{{ or (index $ui
+                                "marketplace_submit_fractions_for_sale") "Fractions for sale (%)" }}</label>
                             <input id="listing-fractions-percentage" name="fractionsPercentage" type="number" min="1"
                                 max="100" value="100"
                                 class="w-full bg-[#FDF9F0] dark:bg-[#021B1C] border border-[#03292B]/10 dark:border-white/10 text-[#03292B] dark:text-white placeholder-[#03292B]/20 dark:placeholder-white/20 px-4 py-3 text-sm rounded-xl focus:border-[#DBA757]/60 focus:outline-none transition">
@@ -63,27 +77,34 @@
                 <!-- Core Fields -->
                 <div class="grid sm:grid-cols-2 gap-5">
                     <div>
-                        <label class="block text-xs uppercase tracking-wider text-[#03292B]/60 dark:text-white/50 mb-2" for="listing-title">{{
+                        <label class="block text-xs uppercase tracking-wider text-[#03292B]/60 dark:text-white/50 mb-2"
+                            for="listing-title">{{
                             or (index $ui "marketplace_submit_title") "Listing title" }}</label>
                         <input id="listing-title" name="title" type="text" required
                             class="w-full bg-[#FDF9F0] dark:bg-[#021B1C] border border-[#03292B]/10 dark:border-white/10 text-[#03292B] dark:text-white placeholder-[#03292B]/30 dark:placeholder-white/25 px-4 py-3 text-sm rounded-xl focus:border-[#31D0B2] focus:ring-1 focus:ring-[#31D0B2] focus:outline-none transition"
                             placeholder='{{ or (index $ui "marketplace_submit_title_placeholder") "e.g. Seaside villa in Bali" }}'>
                     </div>
                     <div>
-                        <label class="block text-xs uppercase tracking-wider text-[#03292B]/60 dark:text-white/50 mb-2" for="listing-type">{{
+                        <label class="block text-xs uppercase tracking-wider text-[#03292B]/60 dark:text-white/50 mb-2"
+                            for="listing-type">{{
                             or (index $ui "marketplace_submit_type") "Property type" }}</label>
                         <div class="relative">
                             <select id="listing-type" name="type" required
                                 class="w-full bg-[#FDF9F0] dark:bg-[#021B1C] border border-[#03292B]/10 dark:border-white/10 text-[#03292B] dark:text-white px-4 py-3 text-sm rounded-xl focus:border-[#31D0B2] focus:outline-none appearance-none cursor-pointer">
-                                <option value="" class="bg-[#FDF9F0] dark:bg-[#03292B] text-[#03292B] dark:text-white">{{ or (index $ui
+                                <option value="" class="bg-[#FDF9F0] dark:bg-[#03292B] text-[#03292B] dark:text-white">
+                                    {{ or (index $ui
                                     "marketplace_submit_type_placeholder") "Select type" }}</option>
-                                <option class="bg-[#FDF9F0] dark:bg-[#03292B] text-[#03292B] dark:text-white" value="Villa">{{ or (index $ui
+                                <option class="bg-[#FDF9F0] dark:bg-[#03292B] text-[#03292B] dark:text-white"
+                                    value="Villa">{{ or (index $ui
                                     "marketplace_submit_type_villa") "Villa" }}</option>
-                                <option class="bg-[#FDF9F0] dark:bg-[#03292B] text-[#03292B] dark:text-white" value="Apartment">{{ or (index $ui
+                                <option class="bg-[#FDF9F0] dark:bg-[#03292B] text-[#03292B] dark:text-white"
+                                    value="Apartment">{{ or (index $ui
                                     "marketplace_submit_type_apartment") "Apartment" }}</option>
-                                <option class="bg-[#FDF9F0] dark:bg-[#03292B] text-[#03292B] dark:text-white" value="Townhouse">{{ or (index $ui
+                                <option class="bg-[#FDF9F0] dark:bg-[#03292B] text-[#03292B] dark:text-white"
+                                    value="Townhouse">{{ or (index $ui
                                     "marketplace_submit_type_townhouse") "Townhouse" }}</option>
-                                <option class="bg-[#FDF9F0] dark:bg-[#03292B] text-[#03292B] dark:text-white" value="Commercial">{{ or (index $ui
+                                <option class="bg-[#FDF9F0] dark:bg-[#03292B] text-[#03292B] dark:text-white"
+                                    value="Commercial">{{ or (index $ui
                                     "marketplace_submit_type_commercial") "Commercial" }}</option>
                             </select>
                             <i
@@ -94,7 +115,8 @@
 
                 <div class="grid sm:grid-cols-2 gap-5">
                     <div>
-                        <label class="block text-xs uppercase tracking-wider text-[#03292B]/60 dark:text-white/50 mb-2" for="listing-price">{{
+                        <label class="block text-xs uppercase tracking-wider text-[#03292B]/60 dark:text-white/50 mb-2"
+                            for="listing-price">{{
                             or (index $ui "marketplace_submit_price") "Price (USD)" }}</label>
                         <input id="listing-price" name="priceUsd" type="number" min="1" required
                             class="w-full bg-[#FDF9F0] dark:bg-[#021B1C] border border-[#03292B]/10 dark:border-white/10 text-[#03292B] dark:text-white placeholder-[#03292B]/30 dark:placeholder-white/25 px-4 py-3 text-sm rounded-xl focus:border-[#31D0B2] focus:ring-1 focus:ring-[#31D0B2] focus:outline-none transition"
@@ -118,7 +140,8 @@
                             placeholder='{{ or (index $ui "marketplace_submit_country_placeholder") "Country" }}'>
                     </div>
                     <div>
-                        <label class="block text-xs uppercase tracking-wider text-[#03292B]/60 dark:text-white/50 mb-2" for="listing-city">{{
+                        <label class="block text-xs uppercase tracking-wider text-[#03292B]/60 dark:text-white/50 mb-2"
+                            for="listing-city">{{
                             or (index $ui "marketplace_submit_city") "City" }}</label>
                         <input id="listing-city" name="city" type="text" required
                             class="w-full bg-[#FDF9F0] dark:bg-[#021B1C] border border-[#03292B]/10 dark:border-white/10 text-[#03292B] dark:text-white placeholder-[#03292B]/30 dark:placeholder-white/25 px-4 py-3 text-sm rounded-xl focus:border-[#31D0B2] focus:ring-1 focus:ring-[#31D0B2] focus:outline-none transition"
@@ -137,21 +160,61 @@
 
                 <!-- Custom Styled Upload Dropzone with Preview -->
                 <div>
-                    <label class="block text-xs uppercase tracking-wider text-[#03292B]/60 dark:text-white/50 mb-2.5 font-semibold">{{ or
+                    <label
+                        class="block text-xs uppercase tracking-wider text-[#03292B]/60 dark:text-white/50 mb-2.5 font-semibold">{{
+                        or
                         (index $ui "marketplace_submit_images") "Images" }}</label>
                     <div id="dropzone"
                         class="border-2 border-dashed border-[#03292B]/15 dark:border-white/10 hover:border-[#31D0B2]/50 bg-[#FDF9F0] shadow-sm dark:shadow-none dark:bg-white/[0.01] rounded-2xl p-8 text-center cursor-pointer transition duration-200 relative flex flex-col items-center justify-center">
                         <input id="listing-images" name="images" type="file" multiple accept="image/*" class="hidden">
                         <div id="dropzone-prompt" class="space-y-2">
                             <i class="bi bi-cloud-arrow-up text-4xl text-[#31D0B2]"></i>
-                            <p class="text-sm font-semibold">{{ or (index $ui "marketplace_submit_dropzone_prompt") "Drag & drop files here, or" }} <span
-                                    class="text-[#31D0B2] underline">{{ or (index $ui "marketplace_submit_dropzone_browse") "browse files" }}</span></p>
-                            <p class="text-xs text-[#03292B]/40 dark:text-white/40">{{ or (index $ui "marketplace_submit_dropzone_hint") "Upload high quality JPEG or PNG images (Max 5MB each)" }}</p>
+                            <p class="text-sm font-semibold">{{ or (index $ui "marketplace_submit_dropzone_prompt")
+                                "Drag & drop files here, or" }} <span class="text-[#31D0B2] underline">{{ or (index $ui
+                                    "marketplace_submit_dropzone_browse") "browse files" }}</span></p>
+                            <p class="text-xs text-[#03292B]/40 dark:text-white/40">{{ or
+                                (index $ui "marketplace_submit_dropzone_hint")
+                                "Upload high quality JPEG or PNG images (Max 5MB each)" }}</p>
                         </div>
                         <div id="preview-grid" class="hidden grid grid-cols-2 sm:grid-cols-4 gap-3 mt-5 w-full"></div>
                     </div>
-                    <p id="listing-images-meta" class="mt-2 text-xs text-[#03292B]/40 dark:text-white/40">{{ or (index $ui
+                    <p id="listing-images-meta" class="mt-2 text-xs text-[#03292B]/40 dark:text-white/40">{{ or (index
+                        $ui
                         "marketplace_submit_images_hint") "At least one image is recommended." }}</p>
+                </div>
+
+                <!-- Restrict View for Jurisdiction -->
+                <div>
+                    <label
+                        class="block text-xs uppercase tracking-[0.2em] text-[#03292B]/60 dark:text-white/50 mb-3 font-semibold">{{
+                        or (index $ui "marketplace_submit_restrict_jurisdiction_title") "Restrict View for Jurisdiction"
+                        }}</label>
+                    <div class="grid sm:grid-cols-3 gap-3">
+                        <label
+                            class="flex items-center gap-2.5 bg-[#FDF9F0] dark:bg-[#021B1C] border border-[#03292B]/10 dark:border-white/10 rounded-xl px-4 py-3 text-sm cursor-pointer hover:border-[#31D0B2]/50 transition">
+                            <input type="checkbox" name="restrictedJurisdictions" value="THA"
+                                class="w-4 h-4 rounded accent-[#31D0B2] cursor-pointer">
+                            <span class="text-[#03292B] dark:text-white">{{ or (index $ui
+                                "marketplace_submit_jurisdiction_thailand") "Thailand" }}</span>
+                        </label>
+                        <label
+                            class="flex items-center gap-2.5 bg-[#FDF9F0] dark:bg-[#021B1C] border border-[#03292B]/10 dark:border-white/10 rounded-xl px-4 py-3 text-sm cursor-pointer hover:border-[#31D0B2]/50 transition">
+                            <input type="checkbox" name="restrictedJurisdictions" value="ARE"
+                                class="w-4 h-4 rounded accent-[#31D0B2] cursor-pointer">
+                            <span class="text-[#03292B] dark:text-white">{{ or (index $ui
+                                "marketplace_submit_jurisdiction_uae") "United Arab Emirates" }}</span>
+                        </label>
+                        <label
+                            class="flex items-center gap-2.5 bg-[#FDF9F0] dark:bg-[#021B1C] border border-[#03292B]/10 dark:border-white/10 rounded-xl px-4 py-3 text-sm cursor-pointer hover:border-[#31D0B2]/50 transition">
+                            <input type="checkbox" name="restrictedJurisdictions" value="TUR"
+                                class="w-4 h-4 rounded accent-[#31D0B2] cursor-pointer">
+                            <span class="text-[#03292B] dark:text-white">{{ or (index $ui
+                                "marketplace_submit_jurisdiction_turkey") "Turkey" }}</span>
+                        </label>
+                    </div>
+                    <p class="mt-2 text-xs text-[#03292B]/40 dark:text-white/40">{{ or (index $ui
+                        "marketplace_submit_jurisdiction_hint")
+                        "Selected jurisdictions will not be able to view this listing." }}</p>
                 </div>
 
                 <!-- Action Buttons -->
@@ -179,8 +242,8 @@
             submitting: {{ (or (index $ui "marketplace_submit_submitting") "Publishing listing...") | jsonify | safeJS }},
             success: {{ (or (index $ui "marketplace_submit_success") "Listing published successfully! Redirecting...") | jsonify | safeJS }},
             error: {{ (or (index $ui "marketplace_submit_error") "Could not submit listing. Backend is offline or rejected the request.") | jsonify | safeJS }},
-            imagesSelectedSingle: {{ (or (index $ui "marketplace_submit_images_selected_single") "1 image selected") | jsonify | safeJS }},
-            imagesSelectedMany: {{ (or (index $ui "marketplace_submit_images_selected_many") "images selected") | jsonify | safeJS }}
+            imagesSelectedSingle: "1 image selected",
+            imagesSelectedMany: "images selected"
         };
 
     const storageKey = 'sharmonyAuthToken';
@@ -324,6 +387,7 @@
         const listingMode = String(listingModeInput.value || 'regular').toLowerCase();
         const userId = localStorage.getItem('sharmonyAccountAddress') || 'usr_demo_001';
         const token = localStorage.getItem(storageKey) || '';
+        const restrictedJurisdictions = Array.from(form.querySelectorAll('input[name="restrictedJurisdictions"]:checked')).map(function (cb) { return cb.value; });
 
         // Prepare local database record
         const listingId = 'l_custom_' + Date.now();
@@ -351,6 +415,10 @@
             }
         };
 
+        if (restrictedJurisdictions.length) {
+            newListing.metadata.restrictedJurisdictions = restrictedJurisdictions;
+        }
+
         if (listingMode === 'fractional') {
             newListing.metadata.fractional = {
                 totalFractions: Number(form.totalFractions.value) || 100,
@@ -374,6 +442,10 @@
                 fractionsPercentage: Number(form.fractionsPercentage.value) || 100,
                 images: selectedFilesBase64
             };
+
+            if (restrictedJurisdictions.length) {
+                fractionalPayload.restrictedJurisdictions = restrictedJurisdictions;
+            }
 
             const files = (imagesInput && imagesInput.files) ? Array.from(imagesInput.files) : [];
 

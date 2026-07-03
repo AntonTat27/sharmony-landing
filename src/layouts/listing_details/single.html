@@ -3,6 +3,7 @@
 {{ $ui := dict }}
 {{ with $uiPage }}{{ $ui = .Params }}{{ end }}
 
+<div id="access-guard-content">
 <section
     class="relative bg-gradient-to-b from-[#03292B] to-[#011415] text-white py-16 sm:py-24 border-b border-white/5 overflow-hidden">
     <div class="absolute inset-0 bg-[radial-gradient(circle_at_70%_120%,rgba(49,208,178,0.08),transparent_50%)]"></div>
@@ -145,6 +146,25 @@
         </article>
     </div>
 </section>
+</div>
+
+<!-- Access Restricted Overlay -->
+<div id="access-denied-overlay"
+    class="hidden fixed inset-0 bg-black/60 backdrop-blur-md z-[60] flex items-center justify-center p-4">
+    <div
+        class="bg-[#FDF9F0] dark:bg-[#021B1C] border border-[#03292B]/10 dark:border-white/10 rounded-2xl max-w-md w-full p-8 shadow-2xl text-center">
+        <div class="w-14 h-14 mx-auto mb-5 rounded-full bg-[#DBA757]/10 flex items-center justify-center">
+            <i class="bi bi-lock-fill text-2xl text-[#DBA757]"></i>
+        </div>
+        <h2 class="text-2xl font-light text-slate-900 dark:text-white mb-3"
+            style="font-family:'TT_Livret_Display_Trl', serif;">{{ or (index $ui "listing_details_access_denied_title") "Access Restricted" }}</h2>
+        <p class="text-sm text-slate-500 dark:text-white/50 mb-7 leading-relaxed">{{ or (index $ui "listing_details_access_denied_message") "This page is restricted by access policy." }}</p>
+        <a href='{{ "/marketplace/" | relLangURL }}'
+            class="inline-flex items-center justify-center gap-2 px-6 py-3 rounded-xl bg-gradient-to-r from-[#FFDDA8] to-[#DBA757] text-slate-900 dark:text-[#03292B] font-semibold hover:brightness-110 transition shadow-lg duration-200 text-sm">
+            <i class="bi bi-arrow-left"></i> {{ .Params.details_back | default "Back to marketplace" }}
+        </a>
+    </div>
+</div>
 
 <!-- Fractional Purchase Modal (Upgrade to Dark Elegant Theme) -->
 <div id="purchase-modal"
@@ -471,26 +491,38 @@
 
         setState(i18n.loading, false);
 
-        // Fetch check: First check backend, then check fallback
         const backend = window.SHARMONY_BACKEND_URL || '';
-        const listEndpoint = backend + '/api/v1/real-estate/' + encodeURIComponent(region) + '/records';
+        const recordEndpoint = backend + '/api/v1/real-estate/' + encodeURIComponent(region) + '/records' + window.location.search;
 
-        fetch(listEndpoint)
+        fetch(recordEndpoint)
             .then(function (res) {
+                if (res.status === 403) {
+                    showAccessDenied();
+                    return Promise.reject(new Error('access_denied'));
+                }
                 if (!res.ok) throw new Error('Listing lookup failed');
                 return res.json();
             })
             .then(function (payload) {
-                const records = payload.records || payload.listings || payload.data || payload || [];
-                const recordList = Array.isArray(records) ? records : (records ? [records] : []);
-                const match = recordList.find(entry => String(entry && entry.id) === String(id));
-                if (!match) throw new Error('Not found on backend');
+                if (payload && (payload.error === 'access_denied' || payload.accessDenied)) {
+                    showAccessDenied();
+                    return;
+                }
+
+                let match = payload && payload.record;
+                if (!match || !match.id) {
+                    const records = (payload && (payload.records || payload.listings || payload.data)) || payload;
+                    const recordList = Array.isArray(records) ? records : (records && records.id ? [records] : []);
+                    match = recordList.find(function (entry) { return String(entry && entry.id) === String(id); });
+                }
+                if (!match || !match.id) throw new Error('Not found on backend');
 
                 const normalized = normalizeRecord(match);
                 rememberListing(match);
                 renderListing(normalized, normalized.images);
             })
             .catch(function (error) {
+                if (error && error.message === 'access_denied') return;
                 console.error('Backend fetch failed.', error);
                 setState(i18n.loadError, true);
             });
@@ -586,7 +618,24 @@
         });
     }
 
-    loadListing();
+    function showAccessDenied() {
+        const guardedContent = document.getElementById('access-guard-content');
+        if (guardedContent) guardedContent.classList.add('blur-md', 'pointer-events-none', 'select-none');
+        const overlay = document.getElementById('access-denied-overlay');
+        if (overlay) overlay.classList.remove('hidden');
+        setState('', false);
+    }
+
+    function checkAccessDenied() {
+        const params = new URLSearchParams(window.location.search);
+        if (params.get('access_denied') !== 'true') return false;
+        showAccessDenied();
+        return true;
+    }
+
+    if (!checkAccessDenied()) {
+        loadListing();
+    }
 }) ();
 </script>
 {{ end }}

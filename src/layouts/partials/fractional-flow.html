@@ -104,6 +104,11 @@ Handles wallet provisioning, fractional listing creation, and deal confirmation
                         }
                     }
                 };
+
+                if (payload.restrictedJurisdictions && payload.restrictedJurisdictions.length) {
+                    req.record.metadata.restrictedJurisdictions = payload.restrictedJurisdictions;
+                }
+
                 formData.append('record', JSON.stringify(req));
 
                 const filesInputList = files ? Array.from(files) : [];
